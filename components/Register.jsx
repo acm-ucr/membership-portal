@@ -44,7 +44,13 @@ const Register = () => {
             <label htmlFor="email" className="text-white pl-4 pb-2">
               email
             </label>
-            <input type="email" id="email" className="rounded-3xl" placeholder="netid@ucr.edu" required />
+            <input
+              type="email"
+              id="email"
+              className="rounded-3xl"
+              placeholder="netid@ucr.edu"
+              required
+            />
           </div>
           <div className="register-div grid pt-3">
             <label htmlFor="password" className="text-white pl-4 pb-2">
@@ -76,7 +82,8 @@ const Register = () => {
               Sign Up
             </button>
             <div className="text-center text-white">
-              <span>already a member?</span><br></br>
+              <span>already a member?</span>
+              <br></br>
               <a>sign in</a>
             </div>
           </div>
