@@ -2,9 +2,124 @@ import React from "react";
 
 const Register = () => {
   return (
-    <div className="font-bold m-10">
+    <div className="container">
+      <h1 className="">become a member</h1>
+      <form className="bg-black text-white">
+        <div>
+          <div className="">
+            <label htmlFor="username" className="">
+              name
+            </label>
+            <input
+              type="text"
+              id="username"
+              className=""
+              required
+            />
+          </div>
+          <div className="">
+            <label
+              htmlFor="graduatingYear"
+              className=""
+            >
+              graduating year
+            </label>
+            <input
+              type="number"
+              min="2023"
+              max="2099"
+              step="1"
+              id="graduatingYear"
+              className=""
+              required
+            />
+          </div>
+          <div className="">
+            <label htmlFor="major" className="">
+              major
+            </label>
+            <input
+              type="text"
+              id="major"
+              className=""
+              required
+            />
+          </div>
+          <div className="">
+            <label htmlFor="phone" className="">
+              phone
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              className=""
+              required
+            />
+          </div>
+        </div>
+        <div>
+          <div className="">
+            <label htmlFor="email" className="">
+              email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className=""
+              placeholder="netid@ucr.edu"
+              required
+            />
+          </div>
+          <div className="">
+            <label htmlFor="password" className="">
+              password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className=""
+              required
+            />
+          </div>
+          <div className="">
+            <label
+              htmlFor="confirmPassword"
+              className=""
+            >
+              confirm password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              className=""
+              required
+            />
+          </div>
+          <div className="">
+            <button
+              className=""
+              type="submit"
+            >
+              Sign Up
+            </button>
+            <div className="">
+              <span>already a member?</span>
+              <br></br>
+              <a>sign in</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Register;
+
+/*
+    <div className="register-container font-bold m-10">
       <h1 className="pl-5 font-bold text-8xl">become a member</h1>
-      <form className=" bg-acm-black rounded-[57px] p-10 grid grid-cols-2 gap-4">
+      <form className=" bg-black rounded-[57px] p-10 grid grid-cols-2 gap-4">
         <div>
           <div className="grid pt-3">
             <label htmlFor="username" className="text-white text-3xl pl-4 pb-2">
@@ -111,7 +226,4 @@ const Register = () => {
         </div>
       </form>
     </div>
-  );
-};
-
-export default Register;
+*/
