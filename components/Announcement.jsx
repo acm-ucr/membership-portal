@@ -1,8 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-// doesn't display when I import the component into index for some reason
-
 const Announcement = ({ color, title, date, time, location }) => {
   return (
     <div>
