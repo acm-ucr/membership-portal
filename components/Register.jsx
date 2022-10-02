@@ -1,25 +1,40 @@
 import React from "react";
+import { Row, Col } from "react-bootstrap";
 
 const Register = () => {
   return (
     <div>
       <div className="w-4/5 m-auto font-bold">
-        <h1 className="font-extrabold">become a member</h1>
-        <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-3xl">
-          <div>
-            <div className="">
-              <label htmlFor="username" className="">
+        <h1 className="font-extrabold text-4xl pl-8">become a member</h1>
+        <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-2xl">
+          <Row>
+            <Col className="">
+              <label htmlFor="username" className="pl-3">
                 name
               </label>
               <input
                 type="text"
                 id="username"
-                className="rounded-full"
+                className="rounded-full text-black w-full mt-3 mb-4"
                 required
               />
-            </div>
-            <div className="">
-              <label htmlFor="graduatingYear" className="">
+            </Col>
+            <Col className="">
+              <label htmlFor="email" className="pl-3">
+                email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="rounded-full text-black w-full mt-3 mb-4"
+                placeholder="netid@ucr.edu"
+                required
+              />
+            </Col>
+          </Row>
+          <Row>
+          <Col className="">
+              <label htmlFor="graduatingYear" className="pl-3">
                 graduating year
               </label>
               <input
@@ -28,59 +43,49 @@ const Register = () => {
                 max="2099"
                 step="1"
                 id="graduatingYear"
-                className="rounded-full"
+                className="rounded-full text-black w-full mt-3 mb-4"
                 required
               />
-            </div>
-            <div className="">
-              <label htmlFor="major" className="">
-                major
-              </label>
-              <input type="text" id="major" className="rounded-full" required />
-            </div>
-            <div className="">
-              <label htmlFor="phone" className="">
-                phone
-              </label>
-              <input type="tel" id="phone" className="rounded-full" required />
-            </div>
-          </div>
-          <div>
-            <div className="">
-              <label htmlFor="email" className="">
-                email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="rounded-full"
-                placeholder="netid@ucr.edu"
-                required
-              />
-            </div>
-            <div className="">
-              <label htmlFor="password" className="">
+            </Col>
+            <Col className="">
+              <label htmlFor="password" className="pl-3">
                 password
               </label>
               <input
                 type="password"
                 id="password"
-                className="rounded-full"
+                className="rounded-full text-black w-full mt-3 mb-4"
                 required
               />
-            </div>
-            <div className="">
-              <label htmlFor="confirmPassword" className="">
+            </Col>
+          </Row>
+          <Row>
+          <Col className="">
+              <label htmlFor="major" className="pl-3">
+                major
+              </label>
+              <input type="text" id="major" className="rounded-full text-black w-full mt-3 mb-4" required />
+            </Col>
+            <Col className="">
+              <label htmlFor="confirmPassword" className="pl-3">
                 confirm password
               </label>
               <input
                 type="password"
                 id="confirmPassword"
-                className="rounded-full"
+                className="rounded-full text-black w-full mt-3 mb-4"
                 required
               />
-            </div>
-            <div className="text-base">
+            </Col>
+          </Row>
+          <Row>
+            <Col className="">
+              <label htmlFor="phone" className="pl-3">
+                phone
+              </label>
+              <input type="tel" id="phone" className="rounded-full text-black w-full mt-3 mb-4" required />
+            </Col>
+            <Col className="text-base">
               <button className="bg-acm-blue rounded-full" type="submit">
                 Sign Up
               </button>
@@ -89,8 +94,8 @@ const Register = () => {
                 <br></br>
                 <a>sign in</a>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </form>
       </div>
     </div>
