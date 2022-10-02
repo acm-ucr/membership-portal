@@ -3,81 +3,96 @@ import React from "react";
 const Register = () => {
   return (
     <div>
-    <div className="w-4/5 m-auto font-bold">
-      <h1 className="font-extrabold">become a member</h1>
-      <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-3xl">
-        <div>
-          <div className="">
-            <label htmlFor="username" className="">
-              name
-            </label>
-            <input type="text" id="username" className="rounded-full" required />
-          </div>
-          <div className="">
-            <label htmlFor="graduatingYear" className="">
-              graduating year
-            </label>
-            <input
-              type="number"
-              min="2023"
-              max="2099"
-              step="1"
-              id="graduatingYear"
-              className="rounded-full"
-              required
-            />
-          </div>
-          <div className="">
-            <label htmlFor="major" className="">
-              major
-            </label>
-            <input type="text" id="major" className="rounded-full" required />
-          </div>
-          <div className="">
-            <label htmlFor="phone" className="">
-              phone
-            </label>
-            <input type="tel" id="phone" className="rounded-full" required />
-          </div>
-        </div>
-        <div>
-          <div className="">
-            <label htmlFor="email" className="">
-              email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="rounded-full"
-              placeholder="netid@ucr.edu"
-              required
-            />
-          </div>
-          <div className="">
-            <label htmlFor="password" className="">
-              password
-            </label>
-            <input type="password" id="password" className="rounded-full" required />
-          </div>
-          <div className="">
-            <label htmlFor="confirmPassword" className="">
-              confirm password
-            </label>
-            <input type="password" id="confirmPassword" className="rounded-full" required />
-          </div>
-          <div className="">
-            <button className="bg-acm-blue rounded-full" type="submit">
-              Sign Up
-            </button>
+      <div className="w-4/5 m-auto font-bold">
+        <h1 className="font-extrabold">become a member</h1>
+        <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-3xl">
+          <div>
             <div className="">
-              <span>already a member?</span>
-              <br></br>
-              <a>sign in</a>
+              <label htmlFor="username" className="">
+                name
+              </label>
+              <input
+                type="text"
+                id="username"
+                className="rounded-full"
+                required
+              />
+            </div>
+            <div className="">
+              <label htmlFor="graduatingYear" className="">
+                graduating year
+              </label>
+              <input
+                type="number"
+                min="2023"
+                max="2099"
+                step="1"
+                id="graduatingYear"
+                className="rounded-full"
+                required
+              />
+            </div>
+            <div className="">
+              <label htmlFor="major" className="">
+                major
+              </label>
+              <input type="text" id="major" className="rounded-full" required />
+            </div>
+            <div className="">
+              <label htmlFor="phone" className="">
+                phone
+              </label>
+              <input type="tel" id="phone" className="rounded-full" required />
             </div>
           </div>
-        </div>
-      </form>
-    </div>
+          <div>
+            <div className="">
+              <label htmlFor="email" className="">
+                email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="rounded-full"
+                placeholder="netid@ucr.edu"
+                required
+              />
+            </div>
+            <div className="">
+              <label htmlFor="password" className="">
+                password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="rounded-full"
+                required
+              />
+            </div>
+            <div className="">
+              <label htmlFor="confirmPassword" className="">
+                confirm password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                className="rounded-full"
+                required
+              />
+            </div>
+            <div className="text-base">
+              <button className="bg-acm-blue rounded-full" type="submit">
+                Sign Up
+              </button>
+              <div className="">
+                <span>already a member?</span>
+                <br></br>
+                <a>sign in</a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
