@@ -33,7 +33,7 @@ const Register = () => {
             </Col>
           </Row>
           <Row>
-          <Col className="">
+            <Col className="">
               <label htmlFor="graduatingYear" className="pl-3">
                 graduating year
               </label>
@@ -48,6 +48,19 @@ const Register = () => {
               />
             </Col>
             <Col className="">
+              <label htmlFor="major" className="pl-3">
+                major
+              </label>
+              <input
+                type="text"
+                id="major"
+                className="rounded-full text-black w-full mt-3 mb-4"
+                required
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col className="">
               <label htmlFor="password" className="pl-3">
                 password
               </label>
@@ -57,14 +70,6 @@ const Register = () => {
                 className="rounded-full text-black w-full mt-3 mb-4"
                 required
               />
-            </Col>
-          </Row>
-          <Row>
-          <Col className="">
-              <label htmlFor="major" className="pl-3">
-                major
-              </label>
-              <input type="text" id="major" className="rounded-full text-black w-full mt-3 mb-4" required />
             </Col>
             <Col className="">
               <label htmlFor="confirmPassword" className="pl-3">
@@ -83,7 +88,12 @@ const Register = () => {
               <label htmlFor="phone" className="pl-3">
                 phone
               </label>
-              <input type="tel" id="phone" className="rounded-full text-black w-full mt-3 mb-4" required />
+              <input
+                type="tel"
+                id="phone"
+                className="rounded-full text-black w-full mt-3 mb-4"
+                required
+              />
             </Col>
             <Col className="text-base">
               <button className="bg-acm-blue rounded-full" type="submit">
