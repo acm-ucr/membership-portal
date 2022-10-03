@@ -4,7 +4,7 @@ import Image from "next/image";
 const Welcome = () => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-[#0F121A] font-bold xl:text-8xl md:text-6xl sm:text-5xl text-2xl">
+      <h1 className="text-[#0F121A] font-bold xl:text-8xl md:text-6xl text-5xl">
         Welcome to
       </h1>
       <Image
