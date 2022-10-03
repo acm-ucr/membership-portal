@@ -1,6 +1,7 @@
 import React from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import FormHeader from "./FormHeader";
+import Form from "./Form";
 
 const AvailableForms = () => {
   return (
