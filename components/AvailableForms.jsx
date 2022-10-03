@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import FormHeader from "./FormHeader";
 
 const AvailableForms = () => {
@@ -7,8 +7,12 @@ const AvailableForms = () => {
     <div className="w-full flex justify-center items-center flex-col">
       <FormHeader title="available forms" />
       <Row className="w-11/12">
-        <Col xl={3}>RESUME REVIEW</Col>
-        <Col xl={3}>MOCK INTERVIEW</Col>
+        <Col xl={3}>
+          <Form />
+        </Col>
+        <Col xl={3}>
+          <Form />
+        </Col>
       </Row>
     </div>
   );
