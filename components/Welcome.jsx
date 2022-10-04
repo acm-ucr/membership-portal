@@ -3,17 +3,19 @@ import Image from "next/image";
 
 const Welcome = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h1 className="text-[#0F121A] font-bold xl:text-8xl md:text-6xl text-5xl">
+    <div>
+      <h1 className="text-[#0F121A] text-center font-bold xl:text-7xl l:text-6xl s:text-7xl text-5xl">
         Welcome to
       </h1>
-      <Image
-        className="bg-[#86AFF9] rounded-3xl"
-        src="/acmucr.png"
-        alt="ACM @ UCR"
-        width={681}
-        height={134}
-      />
+      <div className="bg-[#86AFF9] rounded-3xl w-10/12 min-w-[300px] max-w-[680px] mx-auto my-3 px-6">
+        <Image
+          layout="responsive"
+          src="/acmucr.png"
+          alt="ACM @ UCR"
+          width={681}
+          height={134}
+        />
+      </div>
     </div>
   );
 };
