@@ -1,36 +1,68 @@
 import React from "react";
+import { Col, Row } from "react-bootstrap";
 
+const alterFontSize = (word) => {
+  const numChars = word.length;
+
+  if (numChars > 40) {
+    return "text-[0.75vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 0.5vw";
+  } else if (numChars > 35) {
+    return "text-[1.30vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 0.5vw";
+  }
+
+  return "text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 1.0vw";
+};
 const Profile = ({ name, major, classOf, netId, email, points }) => {
   return (
-    <div className="grid grid-cols-2 w-[450px] p-[142px]">
-      <div>
-        <h1 className="text-[36px] h-fit w-fit font-bold">name:</h1>
-        <h1 className="text-[30px] h-min w-[370px] pb-[32px] 30">{name}</h1>
-      </div>
-      <div className="pl-[300px]">
-        <h1 className="text-[36px] h-fit w-fit font-bold">netid:</h1>
-        <h1 className="text-[30px] h-min w-[370px] pb-[32px] 30">{netId}</h1>
-      </div>
+    <div>
+      <Row className="w-3/5">
+        <Col className="w-2/3">
+          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+            name:
+          </p>
+          <p className={alterFontSize(name)}>{name}</p>
 
-      <div>
-        <h1 className="text-[36px] h-fit w-fit font-bold">major:</h1>
-        <h1 className="text-[30px] h-min w-[370px] pb-[32px] 30">{major}</h1>
-      </div>
-      <div className="pl-[300px]">
-        <h1 className="text-[36px] h-fit w-fit font-bold">email:</h1>
-        <h1 className="text-[30px] h-min w-[370px] pb-[32px] 30">{email}</h1>
-      </div>
+          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+            major:
+          </p>
+          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw]">
+            {major}
+          </p>
 
-      <div>
-        <h1 className="text-[36px] h-fit w-max font-bold">class of:</h1>
-        <h1 className="text-[30px] h-min w-[370px] pb-[32px] 30">{classOf}</h1>
-      </div>
-      <div className="pl-[300px]">
-        <h1 className="text-[36px] h-fit w-fit font-bold">points:</h1>
-        <h1 className="text-[30px] h-min w-[370px] pb-[32px] 30">{points}</h1>
-      </div>
+          <p className="text-[2.0vw] font-lexend h-fit w-max font-bold">
+            class of:
+          </p>
+          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw]">
+            {classOf}
+          </p>
+        </Col>
+        <Col className="w-2/3">
+          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+            netid:
+          </p>
+          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 30">
+            {netId}
+          </p>
 
-      <button class="h-[94px] w-[359px] px-6 m-2 text-[36px] font-bold text-acm-black transition-colors duration-150 bg-[#C693EA] rounded-lg focus:shadow-outline hover:bg-indigo-500">
+          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+            email:
+          </p>
+          <p className={alterFontSize(email)}>{email}</p>
+
+          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+            points:
+          </p>
+          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 30">
+            {points}
+          </p>
+        </Col>
+      </Row>
+
+      <button
+        id="editProfile"
+        className=" mt-[2vh] px-3 py-2 text-[1.7vw] h-[9vh] w-[20vw] font-lexend font-bold text-acm-black transition-colors duration-150 bg-[#C693EA] rounded-lg focus:shadow-outline hover:bg-indigo-500"
+        onClick={() => console.log(" 'Edit Profile' Button clicked")}
+      >
         edit profile
       </button>
     </div>
