@@ -19,6 +19,7 @@ const Register = () => {
           <Image
             layout="responsive"
             src="/acmucr.png"
+            alt="acm logo"
             width={350}
             height={120}
           />
