@@ -2,7 +2,7 @@ import React from "react";
 import Register from "../components/Register";
 
 const index = () => {
-  return <Register />;
+  return <div>index</div>;
 };
 
 export default index;
