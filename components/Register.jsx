@@ -1,4 +1,5 @@
 import React from "react";
+/* import { useState } from "react"; */
 import { Row, Col, Container } from "react-bootstrap";
 
 const Register = () => {
@@ -6,7 +7,7 @@ const Register = () => {
     <div>
       <Container className="w-4/5 m-auto font-bold">
         <h1 className="font-extrabold text-5xl pl-8">become a member</h1>
-        <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-2xl">
+        <form className="bg-acm-black text-acm-white rounded-[57px] px-16 pt-10 pb-20 text-2xl">
           <Row>
             <Col sm className="max-w-full">
               <label htmlFor="username" className="pl-3">
@@ -15,7 +16,7 @@ const Register = () => {
               <input
                 type="text"
                 id="username"
-                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -26,7 +27,7 @@ const Register = () => {
               <input
                 type="email"
                 id="email"
-                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                 placeholder="netid@ucr.edu"
                 required
               />
@@ -40,7 +41,7 @@ const Register = () => {
               <input
                 type="text"
                 id="major"
-                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -54,7 +55,7 @@ const Register = () => {
                 max="2099"
                 step="1"
                 id="graduatingYear"
-                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -67,7 +68,7 @@ const Register = () => {
               <input
                 type="password"
                 id="password"
-                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -78,7 +79,7 @@ const Register = () => {
               <input
                 type="password"
                 id="confirmPassword"
-                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -91,7 +92,7 @@ const Register = () => {
               <input
                 type="tel"
                 id="phone"
-                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
