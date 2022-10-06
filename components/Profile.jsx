@@ -30,6 +30,14 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
             {classOf}
           </p>
+
+          <button
+        id="editProfile"
+        className=" mt-8 w-5/6 h-1/6 font-lexend font-bold text-acm-black text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:bg-indigo-500"
+        onClick={editProfile}
+      >
+        edit profile
+      </button>
         </Col>
         <Col className="w-2/3">
           <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
@@ -55,13 +63,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
         </Col>
       </Row>
 
-      <button
-        id="editProfile"
-        className=" mt-8 h-[10vh] w-1/6 font-lexend font-bold text-acm-black text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:bg-indigo-500"
-        onClick={editProfile}
-      >
-        edit profile
-      </button>
+      
     </div>
   );
 };
