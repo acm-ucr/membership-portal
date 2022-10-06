@@ -1,10 +1,10 @@
 import React from "react";
-import FormHeader from "./FormHeader";
+import Header from "./Header";
 
 const SubmittedForms = () => {
   return (
     <div className="w-full flex justify-center items-center">
-      <FormHeader title="submitted forms" />
+      <Header title="submitted forms" />
     </div>
   );
 };
