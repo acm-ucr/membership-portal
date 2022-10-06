@@ -1,47 +1,58 @@
 import React from "react";
+import { Row, Col, Container } from "react-bootstrap";
 
 const Login = () => {
   return (
-    <div className="font-bold w-[694px] h-[564px] m-10">
-      <form className=" bg-acm-black rounded-[57px] grid">
-        <div className="grid pt-3 w-[607px] m-auto">
-          <label htmlFor="email" className="text-white pl-4 pb-6 text-4xl">
-            email
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="rounded-full h-[76px] text-3xl"
-            placeholder="netid@ucr.edu"
-            required
-          />
-        </div>
-        <div className="grid pt-3 w-[607px] m-auto">
-          <label htmlFor="password" className="text-white pl-4 pb-6 text-4xl">
-            password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="rounded-full h-[76px] text-3xl"
-            required
-          />
-        </div>
-        <div className="grid grid-cols-2 w-[607px] m-auto py-14">
-          <button
-            className="text-white bg-acm-blue rounded-full w-[291px] h-[76px] text-4xl"
-            type="submit"
-          >
-            sign in
-          </button>
-          <button
-            className="text-black bg-white rounded-full w-[291px] h-[76px] text-4xl"
-            type="submit"
-          >
-            sign up
-          </button>
-        </div>
-      </form>
+    <div>
+      <Container className="font-bold">
+        <form className="bg-black text-white rounded-[57px] max-w-2xl px-16 pt-10 pb-20 text-2xl">
+          <Row>
+            <Col sm className="max-w-full">
+              <label htmlFor="email" className="pl-3">
+                email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="rounded-full text-black mt-3 mb-4 py-3 px-4 text-xl w-full"
+                placeholder="netid@ucr.edu"
+                required
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm className="max-w-full">
+              <label htmlFor="password" className="pl-3">
+                password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="rounded-full text-black mt-3 mb-4 py-3 px-4 text-xl w-full"
+                required
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm className="">
+              <button
+                className="bg-acm-blue rounded-full w-full px-10 py-3 mb-4"
+                type="submit"
+              >
+                Sign In
+              </button>
+            </Col>
+            <Col sm className="content-center">
+              <button
+                className="bg-white text-black rounded-full w-full px-10 py-3"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </Col>
+          </Row>
+        </form>
+      </Container>
     </div>
   );
 };
