@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <div>
       <Container className="font-bold">
-        <form className="bg-black text-white rounded-[57px] max-w-2xl px-16 pt-10 pb-20 text-2xl">
+        <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-2xl">
           <Row>
             <Col sm className="max-w-full">
               <label htmlFor="email" className="pl-3">
