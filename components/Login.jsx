@@ -18,7 +18,7 @@ const Login = () => {
   };
 
   const validateForm = (values) => {
-    console.log(formValues);
+    console.log(values);
   };
 
   return (
