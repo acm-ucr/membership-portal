@@ -15,7 +15,7 @@ const Register = () => {
               <input
                 type="text"
                 id="username"
-                className="rounded-full text-black w-full mt-3 mb-4"
+                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -26,7 +26,7 @@ const Register = () => {
               <input
                 type="email"
                 id="email"
-                className="rounded-full text-black w-full mt-3 mb-4"
+                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
                 placeholder="netid@ucr.edu"
                 required
               />
@@ -34,27 +34,27 @@ const Register = () => {
           </Row>
           <Row>
             <Col sm className="">
+              <label htmlFor="major" className="pl-3">
+                major
+              </label>
+              <input
+                type="text"
+                id="major"
+                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
+                required
+              />
+            </Col>
+            <Col sm className="">
               <label htmlFor="graduatingYear" className="pl-3">
                 graduating year
               </label>
               <input
                 type="number"
-                min="2023"
+                min="2022"
                 max="2099"
                 step="1"
                 id="graduatingYear"
-                className="rounded-full text-black w-full mt-3 mb-4"
-                required
-              />
-            </Col>
-            <Col sm className="">
-              <label htmlFor="major" className="pl-3">
-                password
-              </label>
-              <input
-                type="text"
-                id="major"
-                className="rounded-full text-black w-full mt-3 mb-4"
+                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -67,7 +67,7 @@ const Register = () => {
               <input
                 type="password"
                 id="password"
-                className="rounded-full text-black w-full mt-3 mb-4"
+                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -78,7 +78,7 @@ const Register = () => {
               <input
                 type="password"
                 id="confirmPassword"
-                className="rounded-full text-black w-full mt-3 mb-4"
+                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -91,7 +91,7 @@ const Register = () => {
               <input
                 type="tel"
                 id="phone"
-                className="rounded-full text-black w-full mt-3 mb-4"
+                className="rounded-full text-black w-full mt-3 mb-4 text-2xl"
                 required
               />
             </Col>
@@ -99,14 +99,14 @@ const Register = () => {
               <Row>
                 <Col sm>
                   <button
-                    className="bg-acm-blue rounded-full px-16 py-4 min-w-full"
+                    className="bg-acm-blue rounded-full px-16 py-4 min-w-full text-2xl mb-4"
                     type="submit"
                   >
                     Sign Up
                   </button>
                 </Col>
                 <Col sm>
-                  <div className="">
+                  <div className="text-2xl">
                     <span>already a member?</span>
                     <br></br>
                     <a>sign in</a>
