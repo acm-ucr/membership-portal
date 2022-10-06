@@ -25,7 +25,7 @@ const Login = () => {
     <div>
       <Container className="font-bold">
         <form
-          className="bg-acm-black text-acm-white rounded-[57px] px-16 pt-10 pb-20 text-2xl"
+          className="bg-acm-black text-acm-white rounded-[57px] px-16 pt-10 pb-3 text-2xl"
           onSubmit={handleSubmit}
         >
           <Row>
@@ -70,7 +70,7 @@ const Login = () => {
             </Col>
             <Col sm className="content-center">
               <button
-                className="bg-acm-white text-acm-black rounded-full w-full px-10 py-3"
+                className="bg-acm-white text-acm-black rounded-full w-full px-10 py-3 mb-4"
                 type="submit"
               >
                 Sign Up
