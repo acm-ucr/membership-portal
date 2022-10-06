@@ -68,7 +68,7 @@ const Login = () => {
                 Sign In
               </button>
             </Col>
-            <Col sm className="content-center">
+            <Col sm className="">
               <button
                 className="bg-acm-white text-acm-black rounded-full w-full px-10 py-3 mb-4"
                 type="submit"
