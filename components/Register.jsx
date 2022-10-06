@@ -5,7 +5,7 @@ const Register = () => {
   return (
     <div>
       <Container className="w-4/5 m-auto font-bold">
-        <h1 className="font-extrabold text-4xl pl-8">become a member</h1>
+        <h1 className="font-extrabold text-5xl pl-8">become a member</h1>
         <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-2xl">
           <Row>
             <Col sm className="max-w-full">
@@ -95,11 +95,11 @@ const Register = () => {
                 required
               />
             </Col>
-            <Col sm className="text-base text-center">
+            <Col sm className="text-base text-center mt-4">
               <Row>
                 <Col sm>
                   <button
-                    className="bg-acm-blue rounded-full px-16 py-4 min-w-full text-2xl mb-4"
+                    className="bg-acm-blue rounded-full min-w-full text-2xl mb-4 px-10 py-3"
                     type="submit"
                   >
                     Sign Up
