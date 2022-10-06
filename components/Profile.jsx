@@ -1,58 +1,51 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-const alterFontSize = (word) => {
-  const numChars = word.length;
+const editProfileButtonFunction = () => {
+  console.log("Edit Profile Button Pressed")
+}
 
-  if (numChars > 40) {
-    return "text-[0.75vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 0.5vw";
-  } else if (numChars > 35) {
-    return "text-[1.30vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 0.5vw";
-  }
-
-  return "text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 1.0vw";
-};
 const Profile = ({ name, major, classOf, netId, email, points }) => {
   return (
     <div>
       <Row className="w-3/5">
         <Col className="w-2/3">
-          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pb-2">
             name:
           </p>
-          <p className={alterFontSize(name)}>{name}</p>
+          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">{name}</p>
 
-          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
             major:
           </p>
-          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw]">
+          <p className="text-acm-black text-2xl font-lexend h-fit w-fit ">
             {major}
           </p>
 
-          <p className="text-[2.0vw] font-lexend h-fit w-max font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
             class of:
           </p>
-          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw]">
+          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
             {classOf}
           </p>
         </Col>
         <Col className="w-2/3">
-          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
             netid:
           </p>
-          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 30">
+          <p className="text-acm-black text-2xl font-lexend h-fit w-fit ">
             {netId}
           </p>
 
-          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
             email:
           </p>
-          <p className={alterFontSize(email)}>{email}</p>
+          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">{email}</p>
 
-          <p className="text-[2.0vw] font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
             points:
           </p>
-          <p className="text-[1.5vw] font-lexend h-[8vh] w-1/50 pb-[1.0vw] 30">
+          <p className="text-acm-black text-2xl font-lexend h-fit w-fit font-bold">
             {points}
           </p>
         </Col>
@@ -60,8 +53,8 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
 
       <button
         id="editProfile"
-        className=" mt-[2vh] px-3 py-2 text-[1.7vw] h-[9vh] w-[20vw] font-lexend font-bold text-acm-black transition-colors duration-150 bg-[#C693EA] rounded-lg focus:shadow-outline hover:bg-indigo-500"
-        onClick={() => console.log(" 'Edit Profile' Button clicked")}
+        className=" mt-8 h-16 w-1/4 font-lexend font-bold text-acm-black text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:bg-indigo-500"
+        onClick={editProfileButtonFunction}
       >
         edit profile
       </button>
