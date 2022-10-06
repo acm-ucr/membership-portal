@@ -1,11 +1,33 @@
 import React from "react";
+import { useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 
 const Login = () => {
+  const inputVal = { email: "", password: "" };
+  const [formValues, setFormValues] = useState(inputVal);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormValues({ ...formValues, [id]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit clicked");
+    validateForm(formValues);
+  };
+
+  const validateForm = (values) => {
+    console.log(formValues);
+  };
+
   return (
     <div>
       <Container className="font-bold">
-        <form className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-2xl">
+        <form
+          className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-2xl"
+          onSubmit={handleSubmit}
+        >
           <Row>
             <Col sm className="max-w-full">
               <label htmlFor="email" className="pl-3">
@@ -16,6 +38,8 @@ const Login = () => {
                 id="email"
                 className="rounded-full text-black mt-3 mb-4 py-3 px-4 text-xl w-full"
                 placeholder="netid@ucr.edu"
+                value={formValues.email}
+                onChange={handleChange}
                 required
               />
             </Col>
@@ -29,6 +53,8 @@ const Login = () => {
                 type="password"
                 id="password"
                 className="rounded-full text-black mt-3 mb-4 py-3 px-4 text-xl w-full"
+                value={formValues.password}
+                onChange={handleChange}
                 required
               />
             </Col>
