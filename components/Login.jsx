@@ -25,7 +25,7 @@ const Login = () => {
     <div>
       <Container className="font-bold">
         <form
-          className="bg-black text-white rounded-[57px] px-16 pt-10 pb-20 text-2xl"
+          className="bg-acm-black text-acm-white rounded-[57px] px-16 pt-10 pb-20 text-2xl"
           onSubmit={handleSubmit}
         >
           <Row>
@@ -36,7 +36,7 @@ const Login = () => {
               <input
                 type="email"
                 id="email"
-                className="rounded-full text-black mt-3 mb-4 py-3 px-4 text-xl w-full"
+                className="rounded-full text-acm-black mt-3 mb-4 py-3 px-4 text-xl w-full"
                 placeholder="netid@ucr.edu"
                 value={formValues.email}
                 onChange={handleChange}
@@ -52,7 +52,7 @@ const Login = () => {
               <input
                 type="password"
                 id="password"
-                className="rounded-full text-black mt-3 mb-4 py-3 px-4 text-xl w-full"
+                className="rounded-full text-acm-black mt-3 mb-4 py-3 px-4 text-xl w-full"
                 value={formValues.password}
                 onChange={handleChange}
                 required
@@ -70,7 +70,7 @@ const Login = () => {
             </Col>
             <Col sm className="content-center">
               <button
-                className="bg-white text-black rounded-full w-full px-10 py-3"
+                className="bg-acm-white text-acm-black rounded-full w-full px-10 py-3"
                 type="submit"
               >
                 Sign Up
