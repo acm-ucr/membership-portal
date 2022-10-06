@@ -70,19 +70,16 @@ const dashboard = () => {
   return (
     <div>
       <div id="AnnouncementsArea"></div>
-      {top5.map((announcement) => {
-        return (
-          <div key={announcement.title}>
-            <Announcement
-              title={announcement.title}
-              date={announcement.date}
-              location={announcement.location}
-              time={announcement.time}
-              color="purple"
-            />
-          </div>
-        );
-      })}
+      {top5.map((announcement) => (
+        <Announcement
+          key={announcement.title}
+          title={announcement.title}
+          date={announcement.date}
+          location={announcement.location}
+          time={announcement.time}
+          color="purple"
+        />
+      ))}
     </div>
   );
 };
