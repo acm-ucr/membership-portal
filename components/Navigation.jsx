@@ -2,10 +2,16 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <div>
-      <img src={"../public/vercel.svg"} alt="acm@ucr" style={{float:"left"}}/>
-      <h3 style={{float:"left", paddingLeft:"2%"}}>member portal</h3>
-      <h4 style={{float:"right", wordSpacing:"15px", paddingRight:"2%"}}>profile forms resources "general"</h4>
+    <div className="flow-root">
+      <h3 className="float-left px-3 pt-3">member portal</h3>
+      <div className="float-right space-x-10 text-acm-black px-3 pt-3">
+        <h4 className="float-left rounded hover:shadow-lg">profile</h4>
+        <h4 className="float-left rounded hover:shadow-lg">forms</h4>
+        <h4 className="float-left rounded hover:shadow-lg">resources</h4>
+        <h6 className="float-left rounded hover:shadow-lg border-solid border-2 border-black">
+          general placeholder
+        </h6>
+      </div>
     </div>
   );
 };
