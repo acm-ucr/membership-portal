@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Announcement from "../components/Announcement";
 import Meetings from "../components/Meetings";
 
+
 const announcements = [
   {
     title: "Event1",
@@ -76,15 +77,15 @@ const dashboard = () => {
       </Col>
       <Col xl={6}>
         {top5.map((announcement) => (
-          <Announcement
-            key={announcement.title}
-            title={announcement.title}
-            date={announcement.date}
-            location={announcement.location}
-            time={announcement.time}
-            color="purple"
-          />
-        ))}
+        <Announcement
+          key={announcement.title}
+          title={announcement.title}
+          date={announcement.date}
+          location={announcement.location}
+          time={announcement.time}
+          color="purple"
+        />
+      ))}
       </Col>
       <Col xl={6}>
         <Meetings />
