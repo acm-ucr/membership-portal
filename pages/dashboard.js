@@ -1,24 +1,27 @@
 import React from "react";
+import { Col, Row } from "react-bootstrap";
+import Home from "../components/Home";
 import Announcement from "../components/Announcement";
-// temporary array until backend
+import Meetings from "../components/Meetings";
+
 
 const announcements = [
   {
-    title: "lockpicking social",
+    title: "Event1",
     date: "october 26, 2022 (wednesday)",
     time: "11 am",
     location: "wch 127",
   },
 
   {
-    title: "Ruining Your Christmas",
+    title: "Event2",
     date: "december 25, 2022 (wednesday)",
     time: "8 am",
     location: "wch 127",
   },
 
   {
-    title: "web development workshop",
+    title: "Event3",
     date: "october 26, 2022 (wednesday)",
     time: "11 am",
     location: "wch 127",
@@ -68,9 +71,12 @@ const announcements = [
 const top5 = announcements.slice(0, 5);
 const dashboard = () => {
   return (
-    <div>
-      <div id="AnnouncementsArea"></div>
-      {top5.map((announcement) => (
+    <Row>
+      <Col xl={12}>
+        <Home />
+      </Col>
+      <Col xl={6}>
+        {top5.map((announcement) => (
         <Announcement
           key={announcement.title}
           title={announcement.title}
@@ -80,7 +86,11 @@ const dashboard = () => {
           color="purple"
         />
       ))}
-    </div>
+      </Col>
+      <Col xl={6}>
+        <Meetings />
+      </Col>
+    </Row>
   );
 };
 
