@@ -9,7 +9,7 @@ const Home = ({ name, points, year }) => {
       </div>
 
       <div>
-        <h5 className="text-4xl text-gray-500 text-acm-gray font-acm ">
+        <h5 className="text-4xl text-acm-gray font-acm ">
           member since {year} | {points} points
         </h5>
       </div>
