@@ -5,11 +5,11 @@ import SubmittedForms from "../components/SubmittedForms";
 
 const forms = () => {
   return (
-    <>
+    <div className="pt-[14vh]">
       <AvailableForms />
       <SubmittedForms />
       <CompletedForms />
-    </>
+    </div>
   );
 };
 
