@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import Home from "../components/Home";
 import Announcements from "../components/Announcements";
+import Home from "../components/Home";
 import Meetings from "../components/Meetings";
 
 const dashboard = () => {

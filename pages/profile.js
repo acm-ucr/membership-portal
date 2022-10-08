@@ -10,7 +10,14 @@ const profile = () => {
         <Photo />
       </Col>
       <Col>
-        <Profile />
+        <Profile
+          name="Highlander"
+          major="Computer Science"
+          classOf="2026"
+          netId="high420"
+          email="high420@ucr.edu"
+          points="-69"
+        />
       </Col>
     </Row>
   );

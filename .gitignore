@@ -56,5 +56,6 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 
-.vscode/
-/amplify
+src/aws-exports.js
+.vscode
+amplify
