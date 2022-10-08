@@ -6,7 +6,7 @@ const resources = () => {
   return (
     <div className="flex justify-center items-center flex-col">
       <Header title="resources" />
-      <Resources />
+      <Resources/>
     </div>
   );
 };
