@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormHeader = ({ title }) => {
+const Header = ({ title }) => {
   return (
     <div className="w-11/12 p-2 font-lexend font-semibold rounded-3 text-2xl bg-acm-black text-acm-white">
       {title}
@@ -8,4 +8,4 @@ const FormHeader = ({ title }) => {
   );
 };
 
-export default FormHeader;
+export default Header;
