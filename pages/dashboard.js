@@ -6,7 +6,7 @@ import Meetings from "../components/Meetings";
 
 const dashboard = () => {
   return (
-    <Row>
+    <Row className="pt-[14vh]">
       <Col xl={12}>
         <Home />
       </Col>

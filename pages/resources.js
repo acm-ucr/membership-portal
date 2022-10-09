@@ -4,7 +4,7 @@ import Resources from "../components/Resources";
 
 const resources = () => {
   return (
-    <div className="flex justify-center items-center flex-col">
+    <div className="flex justify-center items-center flex-col pt-[14vh]">
       <Header title="resources" />
       <Resources />
     </div>
