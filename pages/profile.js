@@ -6,7 +6,7 @@ import Header from "../components/Header";
 
 const profile = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center pt-[14vh]">
       <Row className="w-11/12">
         <Header title="profile" color="acm-green" />
         <Col>
