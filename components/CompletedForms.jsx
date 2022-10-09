@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import { CompletedFormsArray } from "./CompletedFormsArray";
 import { Row, Col } from "react-bootstrap";
-import Form from "./Form";
+import Form from "./CompletedForm.jsx";
 
 const CompletedForms = () => {
   return (

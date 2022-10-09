@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Header from "./Header";
-import Form from "./Form";
+import Form from "./AvailableForm.jsx";
 import { AvailableFormsArray } from "./AvailableFormsArray";
 
 const AvailableForms = () => {
