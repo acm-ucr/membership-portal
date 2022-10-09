@@ -2,7 +2,7 @@ import React from "react";
 
 const Home = ({ name, points, year }) => {
   return (
-    <div className="ml-12 mt-20">
+    <div className="ml-12">
       <div className="mb-4">
         <h1 className="text-8xl text-black font-bold h-min w-min">welcome‚</h1>
         <h1 className="text-8xl text-black font-bold">{name}</h1>
