@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         lexend: ["Lexend"],
+        athiti: ["Athiti"],
       },
       colors: {
         acm: {
