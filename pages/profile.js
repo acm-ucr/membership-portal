@@ -2,10 +2,13 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Profile from "../components/Profile";
 import Photo from "../components/Photo";
+import Header from "../components/Header";
 
 const profile = () => {
   return (
-    <Row>
+    <div className="flex justify-center">
+    <Row className="w-11/12">
+    <Header title="profile" color="acm-green" />
       <Col>
         <Photo />
       </Col>
@@ -19,7 +22,7 @@ const profile = () => {
           points="-69"
         />
       </Col>
-    </Row>
+    </Row></div>
   );
 };
 
