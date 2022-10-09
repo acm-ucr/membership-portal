@@ -2,11 +2,11 @@ import React from "react";
 
 const Form = ({ title, text, border, background }) => {
   return (
-    <div className="rounded-2xl flex justify-center items-center flex-col">
-      <div className={`${background} w-full rounded-t-2xl pb-4`}>
-        <p className="text-center p-2 font-bold text-xl">{title}</p>
+    <div className="aspect-[1/1] rounded-3xl flex justify-center items-center flex-col">
+      <div className={`${background} w-full rounded-t-3xl h-2/3`}>
+        <p className="text-center p-2 font-bold text-lg">{title}</p>
       </div>
-      <div className="bg-acm-black w-full flex justify-center items-center flex-col p-[9px] rounded-b-2xl">
+      <div className="bg-acm-black w-full flex justify-center items-center flex-col h-1/3 rounded-b-3xl">
         <p
           className={`${text} text-center ${border} border-2 p-1 rounded-full m-0 w-11/12 font-semibold text-xl`}
         >
