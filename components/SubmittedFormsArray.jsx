@@ -1,4 +1,4 @@
-export const FormArray = [
+export const SubmittedFormsArray = [
   {
     title: `mock interview request form`,
     text: `text-acm-marine`,
