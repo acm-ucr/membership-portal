@@ -96,7 +96,10 @@ const Register = () => {
                 required
               />
             </Col>
-            <Col sm className="text-base text-center mt-4">
+            <Col
+              sm
+              className="text-base text-center mt-4 border-t-8 border-transparent"
+            >
               <Row>
                 <Col sm>
                   <button
