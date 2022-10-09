@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Navigation = () => {
-  <h3 className="float-left px-3 pt-3">member portal</h3>
   return (
     <Navbar
       collapseOnSelect
@@ -25,7 +24,9 @@ const Navigation = () => {
           </Nav.Link>
         </Link>
       </Navbar.Brand>
-      <Nav className="float-left font-lexend font-bold text-2xl">member portal</Nav>
+      <Nav className="float-left font-lexend font-bold text-2xl">
+        member portal
+      </Nav>
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse
         id="navbar-nav"
