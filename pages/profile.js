@@ -5,7 +5,7 @@ import Photo from "../components/Photo";
 
 const profile = () => {
   return (
-    <Row>
+    <Row className="pt-[14vh]">
       <Col>
         <Photo />
       </Col>
