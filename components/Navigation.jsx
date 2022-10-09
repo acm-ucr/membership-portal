@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Image from "next/image";
+import Toggle from "./Toggle";
 
 const Navigation = () => {
   return (
@@ -62,6 +63,7 @@ const Navigation = () => {
               resources
             </Nav.Link>
           </Link>
+          <Toggle />
         </Nav>
       </Navbar.Collapse>
     </Navbar>
