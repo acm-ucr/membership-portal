@@ -7,22 +7,23 @@ import Header from "../components/Header";
 const profile = () => {
   return (
     <div className="flex justify-center">
-    <Row className="w-11/12">
-    <Header title="profile" color="acm-green" />
-      <Col>
-        <Photo />
-      </Col>
-      <Col>
-        <Profile
-          name="Highlander"
-          major="Computer Science"
-          classOf="2026"
-          netId="high420"
-          email="high420@ucr.edu"
-          points="-69"
-        />
-      </Col>
-    </Row></div>
+      <Row className="w-11/12">
+        <Header title="profile" color="acm-green" />
+        <Col>
+          <Photo />
+        </Col>
+        <Col>
+          <Profile
+            name="Highlander"
+            major="Computer Science"
+            classOf="2026"
+            netId="high420"
+            email="high420@ucr.edu"
+            points="-69"
+          />
+        </Col>
+      </Row>
+    </div>
   );
 };
 
