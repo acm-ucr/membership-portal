@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import { SubmittedFormsArray } from "./SubmittedFormsArray";
 import { Col, Row } from "react-bootstrap";
-import Form from "./Form";
+import Form from "./SubmittedForm";
 
 const SubmittedForms = () => {
   return (
