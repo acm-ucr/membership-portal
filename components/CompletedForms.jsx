@@ -7,7 +7,7 @@ import Form from "./Form";
 const CompletedForms = () => {
   return (
     <div className="w-full flex justify-center items-center flex-col">
-      <Header title="completed forms" />
+      <Header title="completed forms" color="acm-black" />
       <Row className="w-11/12 py-2">
         {CompletedFormsArray.map((item, index) => (
           <Col xs={3} key={index}>

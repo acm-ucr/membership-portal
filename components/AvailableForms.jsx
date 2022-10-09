@@ -7,7 +7,7 @@ import { AvailableFormsArray } from "./AvailableFormsArray";
 const AvailableForms = () => {
   return (
     <div className="w-full flex justify-center items-center flex-col">
-      <Header title="available forms" />
+      <Header title="available forms" color="acm-black" />
       <Row className="w-11/12 py-2">
         {AvailableFormsArray.map((item, index) => (
           <Col xs={3} key={index}>
