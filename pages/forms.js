@@ -7,7 +7,9 @@ const forms = () => {
   return (
     <>
       <AvailableForms />
+      <br></br>
       <SubmittedForms />
+      <br></br>
       <CompletedForms />
     </>
   );
