@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Announcements from "../components/Announcements";
 import Home from "../components/Home";
-import Meeting from "../components/Meeting";
+import MeetingMap from "../components/MeetingMap";
 
 const dashboard = () => {
   return (
@@ -14,7 +14,7 @@ const dashboard = () => {
         <Announcements />
       </Col>
       <Col xl={6}>
-        <Meeting />
+        <MeetingMap />
       </Col>
     </Row>
   );
