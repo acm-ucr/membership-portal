@@ -7,7 +7,9 @@ const forms = () => {
   return (
     <div className="pt-[14vh]">
       <AvailableForms />
+      <br></br>
       <SubmittedForms />
+      <br></br>
       <CompletedForms />
     </div>
   );
