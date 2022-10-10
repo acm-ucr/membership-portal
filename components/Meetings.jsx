@@ -6,7 +6,7 @@ const Meetings = () => {
   const data = MeetingsData;
   if (data == 0) {
     return (
-      <div className="flex flex-col font-lexend border-black border-2 rounded-3xl mt-3 min-h-fit h-2/6">
+      <div className="flex flex-col font-lexend border-black border-2 rounded-3xl min-h-fit h-2/6">
         <div className="flex bg-black text-white text-2xl font-semibold rounded-3xl p-1 px-4 w-fit mx-4 mt-4 mb-4">
           scheduled meetings
         </div>
@@ -19,7 +19,7 @@ const Meetings = () => {
   }
   {
     return (
-      <div className="flex flex-col font-lexend border-black border-2 rounded-3xl mt-3">
+      <div className="flex flex-col font-lexend border-black border-2 rounded-3xl">
         <div className="flex bg-black text-white text-2xl font-semibold rounded-3xl p-1 px-4 w-fit mx-4 mt-4 mb-4">
           scheduled meetings
         </div>
