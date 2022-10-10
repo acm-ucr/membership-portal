@@ -1,10 +1,12 @@
 import React from "react";
-import ResourceDropDown from "../components/ResourceDropDown";
+import Header from "../components/Header";
+import Resources from "../components/Resources";
 
 const resources = () => {
   return (
-    <div>
-      <ResourceDropDown></ResourceDropDown>
+    <div className="flex justify-center items-center flex-col pt-[14vh]">
+      <Header title="resources" color="acm-purple" />
+      <Resources />
     </div>
   );
 };
