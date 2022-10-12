@@ -12,27 +12,31 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
   };
 
   // Change major
-  // const [newMajor, setMajor] = useState(major);
-  // const handleMajorChange = event => {
-  //   setMajor(event.target.value);
-  //   // console.log(event.target.value);
-  // };
+  const [newMajor, setMajor] = useState(major);
+  const handleMajorChange = (event) => {
+    console.log(event.target.value);
+    setMajor(event.target.value);
+  };
 
   // Change class of
+  const [newClassOf, setClassOf] = useState(classOf);
+  const handleClassOfChange = (event) => {
+    console.log(event.target.value);
+    setClassOf(event.target.value);
+  };
 
   // Functions for buttons
   const editProfile = () => {
     console.log("Edit Profile Button Pressed");
     setEdit(true);
-    console.log(name);
   };
 
   const saveEditedValues = () => {
+    // update edited values in the database
     setEdit(false);
   };
 
   const cancelChanges = () => {
-    setName(name);
     setEdit(false);
   };
 
@@ -55,7 +59,8 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <input
             type="text"
-            placeholder={major}
+            placeholder={newMajor}
+            onChange={handleMajorChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg"
           />
 
@@ -64,7 +69,8 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <input
             type="text"
-            placeholder={classOf}
+            placeholder={newClassOf}
+            onChange={handleClassOfChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg"
           />
         </Col>
@@ -126,12 +132,12 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold">
             major:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{major}</p>
+          <p className="text-acm-black text-2xl font-lexend">{newMajor}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold">
             class of:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{classOf}</p>
+          <p className="text-acm-black text-2xl font-lexend">{newClassOf}</p>
         </Col>
         <Col xl={6}>
           <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
