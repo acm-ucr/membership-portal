@@ -1,6 +1,7 @@
 import React from "react";
 /* import { useState } from "react"; */
 import { Row, Col, Container } from "react-bootstrap";
+import Link from "next/link";
 
 const Register = () => {
   return (
@@ -113,7 +114,11 @@ const Register = () => {
                   <div className="text-2xl">
                     <span>already a member?</span>
                     <br></br>
-                    <a>sign in</a>
+                    <Link href="/" passHref>
+                      <span className="hover:text-acm-blue cursor-pointer">
+                        sign in
+                      </span>
+                    </Link>
                   </div>
                 </Col>
               </Row>
