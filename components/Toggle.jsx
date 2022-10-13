@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ToggleButton } from "react-bootstrap";
 
 const Toggle = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -12,25 +11,25 @@ const Toggle = () => {
   // ToggleButton is used to update the state variable `isAdmin`, which updates the icon displayed
   return (
     <div>
-      <ToggleButton
-        id="toggle-check"
-        type="checkbox"
-        variant="outline-primary"
-        checked={isAdmin}
-        onChange={() => {
-          setIsAdmin(!isAdmin);
-        }}
-      >
-        Status
-      </ToggleButton>
       {isAdmin ? (
-        <h6 className="flex float-right rounded-full border-solid border-2 border-black pb-1 px-1 bg-black text-white">
+        <h6
+          onClick={() => {
+            setIsAdmin(!isAdmin);
+          }}
+          className="flex float-right rounded-full border-solid border-2 border-black pb-1 px-1 bg-black text-white"
+        >
           admin.
           <div className="bg-white rounded-full ml-2 mt-[3px] h-4 w-4"></div>
         </h6>
       ) : (
-        <h6 className="float-right rounded-full border-solid border-2 border-black pb-1 px-1">
-          &#11044; general
+        <h6
+          onClick={() => {
+            setIsAdmin(!isAdmin);
+          }}
+          className="flex float-right rounded-full border-solid border-2 border-black pb-1 px-1"
+        >
+          <div className="bg-black rounded-full mr-2 mt-[3px] h-4 w-4"></div>
+          general
         </h6>
       )}
     </div>
