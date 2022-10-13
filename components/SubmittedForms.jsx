@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import { SubmittedFormsArray } from "./SubmittedFormsArray";
+import SubmittedFormsArray from "./SubmittedFormsArray";
 import { Col, Row } from "react-bootstrap";
 import Form from "./SubmittedForm";
 

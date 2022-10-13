@@ -25,7 +25,7 @@ const Navigation = () => {
           </Nav.Link>
         </Link>
       </Navbar.Brand>
-      <Nav className="float-left font-lexend font-bold text-2xl">
+      <Nav className="float-left font-lexend font-medium text-2xl">
         membership portal
       </Nav>
       <Navbar.Toggle aria-controls="navbar-nav" />

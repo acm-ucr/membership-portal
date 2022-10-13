@@ -11,7 +11,8 @@
     "format": "npx prettier --write .",
     "check": "npx prettier --check .",
     "eslint": "eslint . --ext js --ext jsx --ext ts --ext tsx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "gcloud": "gcloud builds submit --tag gcr.io/membership-portal-365222/dev --project membership-portal-365222 && gcloud run deploy --image gcr.io/membership-portal-365222/dev --project membership-portal-365222 --platform managed"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
