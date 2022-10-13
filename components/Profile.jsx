@@ -37,6 +37,9 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
   };
 
   const cancelChanges = () => {
+    setName(name);
+    setMajor(major);
+    setClassOf(classOf);
     setEdit(false);
   };
 
@@ -51,27 +54,27 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             type="text"
             placeholder={newName}
             onChange={handleNameChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg"
+            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
 
-          <p className="text-acm-black text-3xl font-lexend font-bold">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
           <input
             type="text"
             placeholder={newMajor}
             onChange={handleMajorChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg"
+            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
 
-          <p className="text-acm-black text-3xl font-lexend font-bold">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
           <input
             type="text"
             placeholder={newClassOf}
             onChange={handleClassOfChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg"
+            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
         </Col>
         <Col xl={6}>
@@ -82,14 +85,14 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             {netId}
           </p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
             email:
           </p>
           <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
             {email}
           </p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
             points:
           </p>
           <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
@@ -129,12 +132,12 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <p className="text-acm-black text-2xl font-lexend pb-1">{newName}</p>
 
-          <p className="text-acm-black text-3xl font-lexend font-bold">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
           <p className="text-acm-black text-2xl font-lexend">{newMajor}</p>
 
-          <p className="text-acm-black text-3xl font-lexend font-bold">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
           <p className="text-acm-black text-2xl font-lexend">{newClassOf}</p>
@@ -147,14 +150,14 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             {netId}
           </p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
             email:
           </p>
           <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
             {email}
           </p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
+          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
             points:
           </p>
           <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
