@@ -7,7 +7,7 @@ import MockInterviewFormDetails from "../components/MockInterviewFormDetails";
 const forms = () => {
   return (
     <div className="pt-[14vh]">
-      <MockInterviewFormDetails /> 
+      <MockInterviewFormDetails />
       <AvailableForms />
       <br></br>
       <SubmittedForms />
