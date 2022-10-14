@@ -7,7 +7,7 @@ const Register = () => {
   return (
     <div>
       <Container className="w-4/5 m-auto font-bold pt-[16vh]">
-        <h1 className="font-extrabold text-5xl pl-8 pb-2">become a member</h1>
+        <p className="font-extrabold text-5xl pl-8 pb-2">become a member</p>
         <form className="bg-acm-black text-acm-white rounded-[57px] px-16 pt-10 pb-20 text-2xl">
           <Row>
             <Col sm className="max-w-full">
