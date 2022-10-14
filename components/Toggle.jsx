@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaCircle } from "react-icons/fa";
 import { ToggleButton } from "react-bootstrap";
 
 const Toggle = () => {
@@ -26,11 +27,12 @@ const Toggle = () => {
       {isAdmin ? (
         <h6 className="flex float-right rounded-full border-solid border-2 border-black pb-1 px-1 bg-black text-white">
           admin.
-          <div className="bg-white rounded-full ml-2 mt-[3px] h-4 w-4"></div>
+          <FaCircle />
         </h6>
       ) : (
         <h6 className="float-right rounded-full border-solid border-2 border-black pb-1 px-1">
-          &#11044; general
+          <FaCircle />
+          general
         </h6>
       )}
     </div>

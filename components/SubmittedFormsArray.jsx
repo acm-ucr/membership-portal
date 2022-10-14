@@ -1,4 +1,4 @@
-export const SubmittedFormsArray = [
+const SubmittedFormsArray = [
   {
     title: `mock interview request form`,
     text: `text-acm-marine`,
@@ -12,3 +12,5 @@ export const SubmittedFormsArray = [
     background: "bg-acm-orange",
   },
 ];
+
+export default SubmittedFormsArray;

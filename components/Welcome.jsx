@@ -1,21 +1,14 @@
 import React from "react";
-import Image from "next/image";
 
 const Welcome = () => {
   return (
     <div>
-      <h1 className="text-acm-black text-center font-bold xl:text-7xl l:text-6xl s:text-7xl text-5xl">
+      <p className="text-acm-black text-center font-bold xl:text-7xl l:text-6xl s:text-7xl text-5xl">
         Welcome to
-      </h1>
-      <div className="bg-acm-blue rounded-3xl w-10/12 min-w-[300px] max-w-[450px] mx-auto my-3 px-6">
-        <Image
-          layout="responsive"
-          src="/acmucr.png"
-          alt="ACM @ UCR"
-          width={681}
-          height={134}
-        />
-      </div>
+      </p>
+      <p className="bg-acm-blue rounded-3xl text-acm-white text-center font-bold xl:text-7xl l:text-6xl s:text-7xl text-5xl font-athiti p-1 my-4">
+        acm@ucr
+      </p>
     </div>
   );
 };

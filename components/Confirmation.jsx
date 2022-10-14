@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Row, Col, Container } from "react-bootstrap";
 
@@ -25,9 +26,12 @@ const Confirmation = () => {
             </div>
 
             <div className="text-center pt-[2.5%] pb-[12%]">
-              <button className="bg-acm-gray text-black text-center text-[60%] sm:text-[75%] md:text-[100%] lg:text-[100%] xl:text-[100%] rounded-full w-[50%] h-[100%] p-[.25%]">
+              <Link
+                href="/"
+                className="bg-acm-gray text-black text-center text-[60%] sm:text-[75%] md:text-[100%] lg:text-[100%] xl:text-[100%] rounded-full w-[50%] h-[100%] p-[.25%]"
+              >
                 back to sign in
-              </button>
+              </Link>
             </div>
           </Col>
         </Row>
