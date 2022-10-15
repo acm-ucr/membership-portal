@@ -2,12 +2,12 @@ import React from "react";
 import AvailableForms from "../components/AvailableForms";
 import CompletedForms from "../components/CompletedForms";
 import SubmittedForms from "../components/SubmittedForms";
-import MockInterviewFormDetails from "../components/MockInterviewFormDetails";
+import MockInterviewForm from "../components/MockInterviewForm";
 
 const forms = () => {
   return (
     <div className="pt-[14vh]">
-      <MockInterviewFormDetails />
+      <MockInterviewForm />
       <AvailableForms />
       <br></br>
       <SubmittedForms />
