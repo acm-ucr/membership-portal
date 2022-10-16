@@ -1,8 +1,16 @@
 import React from "react";
 import { FaCircle, FaTimes } from "react-icons/fa";
-import mockInterviewFormDetails from "./MockinterviewFormData";
 
-const MockInterviewFormDetails = () => {
+const MockInterviewFormDetails = (
+  {name,
+  email,
+  typeOfInterview,
+  dayTimePlace,
+  formatOfInterview,
+  preferredLanguages,
+  typesOfProblems,
+  intervierwName}
+) => {
   return (
     <>
       <div className="fixed bg-acm-white opacity-50 w-full h-full"></div>
@@ -22,7 +30,7 @@ const MockInterviewFormDetails = () => {
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m ml-3 font-light mb-0">
-                  {mockInterviewFormDetails.name}
+                  {name}
                 </p>
               </div>
 
@@ -32,7 +40,7 @@ const MockInterviewFormDetails = () => {
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m ml-3 font-light mb-1 mt-1">
-                  {mockInterviewFormDetails.email}
+                  {email}
                 </p>
               </div>
 
@@ -42,7 +50,7 @@ const MockInterviewFormDetails = () => {
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m ml-3 font-light mb-1 mt-1">
-                  {mockInterviewFormDetails.typeOfInterview}
+                  {typeOfInterview}
                 </p>
               </div>
 
@@ -52,7 +60,7 @@ const MockInterviewFormDetails = () => {
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m ml-3 font-light mb-1 mt-1">
-                  {mockInterviewFormDetails.formatOfInterview}
+                  {formatOfInterview}
                 </p>
               </div>
 
@@ -60,37 +68,27 @@ const MockInterviewFormDetails = () => {
                 preferred languages
               </p>
               <div className="flex flex-col">
-                {mockInterviewFormDetails.preferredLanguages.map(
-                  (language, index) => (
-                    <div
-                      key={index}
-                      className="flex justify-start items-center"
-                    >
-                      <FaCircle className="text-acm-marine text-sm" />
-                      <p className="font-lexend text-acm-white text-m  font-light mb-1 mt-1 ml-3">
-                        {language}
-                      </p>
-                    </div>
-                  )
-                )}
+                {preferredLanguages.map((language, index) => (
+                  <div key={index} className="flex justify-start items-center">
+                    <FaCircle className="text-acm-marine text-sm" />
+                    <p className="font-lexend text-acm-white text-m  font-light mb-1 mt-1 ml-3">
+                      {language}
+                    </p>
+                  </div>
+                ))}
               </div>
               <p className="font-lexend text-acm-white text-lg  font-medium m-1">
                 types of problems
               </p>
               <div className="flex flex-col">
-                {mockInterviewFormDetails.typesOfProblems.map(
-                  (language, index) => (
-                    <div
-                      key={index}
-                      className="flex justify-start items-center"
-                    >
-                      <FaCircle className="text-acm-marine text-sm" />
-                      <p className="font-lexend text-acm-white text-m  font-light mb-1 mt-1 ml-3">
-                        {language}
-                      </p>
-                    </div>
-                  )
-                )}
+                {typesOfProblems.map((language, index) => (
+                  <div key={index} className="flex justify-start items-center">
+                    <FaCircle className="text-acm-marine text-sm" />
+                    <p className="font-lexend text-acm-white text-m  font-light mb-1 mt-1 ml-3">
+                      {language}
+                    </p>
+                  </div>
+                ))}
               </div>
               <p className="font-lexend text-acm-white text-lg  font-medium m-1">
                 day, time, and place of mock interview
@@ -98,19 +96,19 @@ const MockInterviewFormDetails = () => {
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m  font-light mb-1 mt-1 ml-3">
-                  date: {mockInterviewFormDetails.dayTimePlace.date}
+                  date: {dayTimePlace.date}
                 </p>
               </div>
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m  font-light mb-1 mt-1 ml-3">
-                  time: {mockInterviewFormDetails.dayTimePlace.time}
+                  time: {dayTimePlace.time}
                 </p>
               </div>
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m  font-light mb-1 mt-1 ml-3">
-                  location: {mockInterviewFormDetails.dayTimePlace.location}
+                  location: {dayTimePlace.location}
                 </p>
               </div>
               <p className="font-lexend text-acm-white text-lg  font-medium m-1">
@@ -119,7 +117,7 @@ const MockInterviewFormDetails = () => {
               <div className="flex justify-start items-center">
                 <FaCircle className="text-acm-marine text-sm" />
                 <p className="font-lexend text-acm-white text-m ml-3 font-light mb-0">
-                  {mockInterviewFormDetails.intervierwName}
+                  {intervierwName}
                 </p>
               </div>
             </div>

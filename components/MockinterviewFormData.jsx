@@ -1,4 +1,4 @@
-const mockInterviewFormDetails = {
+const MockInterviewFormData = {
   name: "Ashley Kim",
   email: "akim291@ucr.edu",
   typeOfInterview: "technical",
@@ -17,4 +17,4 @@ const mockInterviewFormDetails = {
   },
   intervierwName: ["divyank shah"],
 };
-export default mockInterviewFormDetails;
+export default MockInterviewFormData;
