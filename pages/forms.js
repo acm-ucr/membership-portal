@@ -3,7 +3,7 @@ import AvailableForms from "../components/AvailableForms";
 import CompletedForms from "../components/CompletedForms";
 import SubmittedForms from "../components/SubmittedForms";
 //  import MockInterviewForm from "../components/MockInterviewForm";
-import MockInterviewFormData from "../components/MockInterviewFormData";
+import MockInterviewFormData from "../components/MockinterviewFormData";
 import MockInterviewFormDetails from "../components/MockInterviewFormDetails";
 
 const forms = () => {
