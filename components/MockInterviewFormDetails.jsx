@@ -1,16 +1,16 @@
 import React from "react";
 import { FaCircle, FaTimes } from "react-icons/fa";
 
-const MockInterviewFormDetails = (
-  {name,
+const MockInterviewFormDetails = ({
+  name,
   email,
   typeOfInterview,
   dayTimePlace,
   formatOfInterview,
   preferredLanguages,
   typesOfProblems,
-  intervierwName}
-) => {
+  intervierwName,
+}) => {
   return (
     <>
       <div className="fixed bg-acm-white opacity-50 w-full h-full"></div>
