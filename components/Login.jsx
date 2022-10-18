@@ -84,7 +84,6 @@ const Login = () => {
           <button
             className="text-black bg-white rounded-full w-5/12 text-4xl p-3"
             type="button"
-          >
             sign up
           </button>
         </Link>

@@ -11,7 +11,8 @@
     "format": "npx prettier --write .",
     "check": "npx prettier --check .",
     "eslint": "eslint . --ext js --ext jsx --ext ts --ext tsx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "gcloud": "gcloud builds submit --tag gcr.io/membership-portal-365222/dev --project membership-portal-365222 && gcloud run deploy --image gcr.io/membership-portal-365222/dev --project membership-portal-365222 --platform managed"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -19,6 +20,7 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
     "bootstrap": "^5.2.1",
+    "firebase": "^9.12.1",
     "next": "^12.3.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -31,7 +33,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-next": "12.3.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react": "^7.31.10",
     "husky": "^8.0.1",
     "postcss": "^8.4.16",
     "prettier": "2.7.1",
