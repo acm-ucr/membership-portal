@@ -25,9 +25,11 @@ const Navigation = () => {
           </Nav.Link>
         </Link>
       </Navbar.Brand>
-      <Nav className="float-left font-lexend font-medium text-2xl">
-        membership portal
-      </Nav>
+      <Link href="/dashboard" passHref>
+        <Nav className="float-left font-lexend font-medium text-2xl cursor-pointer">
+          membership portal
+        </Nav>
+      </Link>
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse
         id="navbar-nav"
