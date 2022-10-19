@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Form = ({ title, text, border, background }) => {
   return (
@@ -9,11 +10,13 @@ const Form = ({ title, text, border, background }) => {
       <div
         className={`${background} h-1/3 w-full flex justify-center items-center flex-col p-[9px] rounded-b-3xl`}
       >
-        <p
-          className={`text-acm-black text-center border-acm-black border-2 p-1 rounded-full m-0 w-11/12 font-semibold text-xl`}
-        >
-          details
-        </p>
+        <Link href="" passHref>
+          <p
+            className={`text-acm-black text-center border-acm-black border-2 p-1 rounded-full m-0 w-11/12 font-semibold text-xl cursor-pointer`}
+          >
+            details
+          </p>
+        </Link>
       </div>
     </div>
   );
