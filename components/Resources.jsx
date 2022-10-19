@@ -34,7 +34,7 @@ const Resources = () => {
   return (
     <div className="w-11/12 flex items-center flex-col justify-center">
       <TimeFilter />
-      <Row className="w-11/12 items-center ">
+      <Row className="w-11/12 items-center !mt-16">
         {recourceCardList.map((recourceCard, index) => (
           <Col className="p-3" xs={12} sm={6} md={4} lg={3} key={index}>
             <Resource

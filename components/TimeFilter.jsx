@@ -15,7 +15,7 @@ const TimeFilter = () => {
         className="w-60 text-2xl font-semibold absolute z-50 right-[4.2%]"
         defaultActiveKey="none"
       >
-        <Accordion.Item className="border-0 !bg-transparent" eventKey="0">
+        <Accordion.Item className="border-0 !bg-transparent my-3" eventKey="0">
           <Accordion.Button
             id="drop-down-btn"
             className="!flex h-12 mb-[-20px] !bg-acm-black !text-acm-white after:!bg-[url(/drop-down-arrow.png)] after:self-center !rounded-3xl shadow-none"
