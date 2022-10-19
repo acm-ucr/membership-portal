@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaCircle } from "react-icons/fa";
 
 const Toggle = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -8,32 +9,31 @@ const Toggle = () => {
     console.log(`You are currently ${name}`);
   });
 
-  // ToggleButton is used to update the state variable `isAdmin`, which updates the icon displayed
-  return (
-    <div>
-      {isAdmin ? (
-        <h6
-          onClick={() => {
-            setIsAdmin(!isAdmin);
-          }}
-          className="flex float-right rounded-full border-solid border-2 border-black pb-1 px-1 bg-black text-white"
-        >
-          admin.
-          <div className="bg-white rounded-full ml-2 mt-[3px] h-4 w-4"></div>
-        </h6>
-      ) : (
-        <h6
-          onClick={() => {
-            setIsAdmin(!isAdmin);
-          }}
-          className="flex float-right rounded-full border-solid border-2 border-black pb-1 px-1"
-        >
-          <div className="bg-black rounded-full mr-2 mt-[3px] h-4 w-4"></div>
-          general
-        </h6>
-      )}
-    </div>
-  );
+  if (isAdmin) {
+    return (
+      <h6
+        onClick={() => {
+          setIsAdmin(!isAdmin);
+        }}
+        className="flex float-right rounded-full border-solid border-2 border-black pb-0 px-1 mt-3 bg-black text-white"
+      >
+        admin.
+        <FaCircle className="ml-1.5 mt-0.5" />
+      </h6>
+    );
+  } else {
+    return (
+      <h6
+        onClick={() => {
+          setIsAdmin(!isAdmin);
+        }}
+        className="flex float-right rounded-full border-solid border-2 border-black pb-0 px-1 mt-3"
+      >
+        <FaCircle className="text-black mt-0.5 mr-1" />
+        general
+      </h6>
+    );
+  }
 };
 
 export default Toggle;
