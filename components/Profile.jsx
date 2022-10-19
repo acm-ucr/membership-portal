@@ -1,28 +1,51 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
+/* NOTE : 
+When backend is implemented
+
+  1. Go to saveEditedValues function and change make sure name gets updated in database
+
+  2. In the HTML
+    Change all {editableValues.name} to just name
+    Change all {editableValues.major} to just major
+    Change all {editableValues.classOf} to just classOf
+*/
+
 const Profile = ({ name, major, classOf, netId, email, points }) => {
   const [edit, setEdit] = useState(false);
 
-  // Change name
-  const [newName, setName] = useState(name);
+  const values = {
+    name: name,
+    major: major,
+    classOf: classOf,
+  };
+  const [editableValues, setEditableValues] = useState(values);
+
   const handleNameChange = (event) => {
-    setName(event.target.value);
-    // console.log(event.target.value);
+    setEditableValues({
+      ...editableValues,
+      [event.target.name]: event.target.value,
+    });
+    console.log(editableValues.name);
   };
 
   // Change major
-  const [newMajor, setMajor] = useState(major);
   const handleMajorChange = (event) => {
-    console.log(event.target.value);
-    setMajor(event.target.value);
+    setEditableValues({
+      ...editableValues,
+      [event.target.name]: event.target.value,
+    });
+    console.log(editableValues.major);
   };
 
   // Change class of
-  const [newClassOf, setClassOf] = useState(classOf);
   const handleClassOfChange = (event) => {
-    console.log(event.target.value);
-    setClassOf(event.target.value);
+    setEditableValues({
+      ...editableValues,
+      [event.target.name]: event.target.value,
+    });
+    console.log(editableValues.classOf);
   };
 
   // Functions for buttons
@@ -32,14 +55,14 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
   };
 
   const saveEditedValues = () => {
-    // update edited values in the database
+    // put code to update edited values in the database in here
+    name = editableValues.name;
+    major = editableValues.major;
+    classOf = editableValues.classOf;
     setEdit(false);
   };
 
   const cancelChanges = () => {
-    setName(name);
-    setMajor(major);
-    setClassOf(classOf);
     setEdit(false);
   };
 
@@ -52,7 +75,8 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <input
             type="text"
-            placeholder={newName}
+            name="name"
+            placeholder={editableValues.name}
             onChange={handleNameChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -62,7 +86,8 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <input
             type="text"
-            placeholder={newMajor}
+            name="major"
+            placeholder={editableValues.major}
             onChange={handleMajorChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -72,7 +97,8 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <input
             type="text"
-            placeholder={newClassOf}
+            name="classOf"
+            placeholder={editableValues.classOf}
             onChange={handleClassOfChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -130,17 +156,23 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pb-1">
             name:
           </p>
-          <p className="text-acm-black text-2xl font-lexend pb-1">{newName}</p>
+          <p className="text-acm-black text-2xl font-lexend pb-1">
+            {editableValues.name}
+          </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{newMajor}</p>
+          <p className="text-acm-black text-2xl font-lexend">
+            {editableValues.major}
+          </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{newClassOf}</p>
+          <p className="text-acm-black text-2xl font-lexend">
+            {editableValues.classOf}
+          </p>
         </Col>
         <Col xl={6}>
           <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
