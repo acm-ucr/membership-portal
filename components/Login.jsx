@@ -30,7 +30,7 @@ const Login = () => {
 
   const validate = (values) => {
     const errors = {};
-    const regex = /^[a-zA-Z]{3,4}[0-9]{3}@ucr\.edu$/i;
+    const regex = /^[a-zA-Z]{3,5}[0-9]{3}@ucr\.edu$/i;
     if (!values.email) {
       errors.email = "Email is required!";
     } else if (!regex.test(values.email)) {
