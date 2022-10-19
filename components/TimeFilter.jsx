@@ -18,7 +18,7 @@ const TimeFilter = () => {
         <Accordion.Item className="border-0" eventKey="0">
           <Accordion.Button
             id="drop-down-btn"
-            className="!flex h-12 mb-[-20px] !bg-acm-black !text-acm-white after:!bg-[url(/drop-down-arrow.png)] after:self-center !rounded-3xl"
+            className="!flex h-12 mb-[-20px] !bg-acm-black !text-acm-white after:!bg-[url(/drop-down-arrow.png)] after:self-center !rounded-3xl shadow-none"
           >
             <p id="selected-time" className="text-2xl m-0">
               last week
