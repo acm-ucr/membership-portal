@@ -68,7 +68,12 @@ const Navigation = () => {
               resources
             </Nav.Link>
           </Link>
-          <Toggle />
+          <div className="flex justify-center items-center">
+            <Nav.Link>
+              <Toggle />
+            </Nav.Link>
+          </div>
+
           <Link href="/" passHref>
             <Nav.Link
               className="m-4 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
