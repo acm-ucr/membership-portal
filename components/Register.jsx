@@ -42,6 +42,7 @@ const Register = () => {
                   type="text"
                   id="username"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
+                  placeholder="Scotty Highlander"
                   required
                 />
               </Col>
@@ -67,6 +68,7 @@ const Register = () => {
                   type="text"
                   id="major"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
+                  placeholder="Computer Science"
                   required
                 />
               </Col>
@@ -81,6 +83,7 @@ const Register = () => {
                   step="1"
                   id="graduatingYear"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
+                  placeholder="2023"
                   required
                 />
               </Col>
@@ -94,6 +97,7 @@ const Register = () => {
                   type="password"
                   id="password"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
+                  placeholder="at least 10 characters"
                   required
                 />
               </Col>
@@ -105,6 +109,7 @@ const Register = () => {
                   type="password"
                   id="confirmPassword"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
+                  placeholder="must match password"
                   required
                 />
               </Col>
@@ -118,6 +123,7 @@ const Register = () => {
                   type="tel"
                   id="phone"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
+                  placeholder="(xxx) xxx-xxx"
                   required
                 />
               </Col>
