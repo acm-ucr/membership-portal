@@ -10,12 +10,12 @@ function timeOptionEvent(e) {
 
 const TimeFilter = () => {
   return (
-    <div>
+    <div className="">
       <Accordion
-        className="w-60 text-2xl font-semibold"
+        className="w-60 text-2xl font-semibold absolute z-50 right-[4.2%]"
         defaultActiveKey="none"
       >
-        <Accordion.Item className="border-0" eventKey="0">
+        <Accordion.Item className="border-0 !bg-transparent" eventKey="0">
           <Accordion.Button
             id="drop-down-btn"
             className="!flex h-12 mb-[-20px] !bg-acm-black !text-acm-white after:!bg-[url(/drop-down-arrow.png)] after:self-center !rounded-3xl shadow-none"
@@ -24,7 +24,7 @@ const TimeFilter = () => {
               last week
             </p>
           </Accordion.Button>
-          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-16 text-center border-acm-black border-y border-t-0 border-x-[3px] cursor-pointer hover:bg-acm-blue p-0">
+          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-16 text-center border-acm-black border-y border-t-0 border-x-[3px] cursor-pointer hover:bg-acm-blue p-0 bg-acm-white">
             <button
               className="w-full h-full pt-[20px]"
               onClick={timeOptionEvent}
@@ -32,17 +32,17 @@ const TimeFilter = () => {
               today
             </button>
           </Accordion.Body>
-          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-x-[3px] cursor-pointer hover:bg-acm-blue p-0">
+          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-x-[3px] cursor-pointer hover:bg-acm-blue p-0 bg-acm-white">
             <button className="w-full h-full" onClick={timeOptionEvent}>
               last week
             </button>
           </Accordion.Body>
-          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-x-[3px] cursor-pointer hover:bg-acm-blue p-0">
+          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-x-[3px] cursor-pointer hover:bg-acm-blue p-0 bg-acm-white">
             <button className="w-full h-full" onClick={timeOptionEvent}>
               last month
             </button>
           </Accordion.Body>
-          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-b-2 border-x-[3px] cursor-pointer hover:bg-acm-blue rounded-b-3xl p-0">
+          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-b-2 border-x-[3px] cursor-pointer hover:bg-acm-blue rounded-b-3xl p-0 bg-acm-white">
             <button className="w-full h-full" onClick={timeOptionEvent}>
               last year
             </button>
