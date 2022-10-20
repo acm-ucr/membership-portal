@@ -2,6 +2,7 @@ import React from "react";
 import { FaCircle, FaTimes } from "react-icons/fa";
 
 const ResumeReviewFormDetails = ({
+  setFormState,
   name,
   email,
   formatOfInterview,
@@ -10,15 +11,18 @@ const ResumeReviewFormDetails = ({
 }) => {
   return (
     <>
-      <div className="fixed bg-acm-white opacity-50 w-full h-full"></div>
-      <div className="absolute w-full">
+      <div className="fixed inset-0 bg-acm-white opacity-50 w-full h-full"></div>
+      <div className="absolute  inset-x-0 top-20  w-full">
         <div className="flex justify-center isolation-auto ">
           <div className="bg-acm-black rounded-3xl w-1/2 flex flex-col">
             <div className="flex justify-between">
               <p className="font-lexend bg-acm-orange text-acm-black rounded-full m-3 text-2xl p-2 font-bold">
                 resume review form details
               </p>
-              <FaTimes className="text-3xl text-acm-orange m-4 hover:cursor-pointer" />
+
+              <button onClick={() => setFormState(0)}>
+                <FaTimes className="text-3xl text-acm-orange m-4 hover:cursor-pointer" />
+              </button>
             </div>
             <div className="ml-4 mb-4 mr-4">
               <p className="font-lexend text-acm-white text-lg  font-medium m-1">
