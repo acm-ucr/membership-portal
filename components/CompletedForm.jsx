@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MockInterviewFormDetails from "./MockInterviewFormDetails";
 import ResumeReviewFormDetails from "./ResumeReviewFormDetails";
 import MockInterviewFormData from "./MockinterviewFormData";
-import ResumeReviewFormData from "./ResumeReviewFormData"
+import ResumeReviewFormData from "./ResumeReviewFormData";
 
 const Form = ({ title, text, border, background }) => {
   const [formState, setFormState] = useState(0);
