@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
@@ -77,6 +77,7 @@ const Login = () => {
         <button
           className="text-white bg-acm-blue rounded-full w-5/12 text-4xl p-3"
           type="submit"
+          onClick={handleLogin(form.email, form.password)}
         >
           sign in
         </button>
