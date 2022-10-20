@@ -140,7 +140,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <Col xl={6}>
             <button
               id="editProfile"
-              className="mt-3 w-full sm:w-4/6 md:w-4/5 py-2 font-lexend font-bold text-acm-black text-2xl  bg-acm-white border-2 border-acm-black rounded-lg focus:shadow-outline hover:bg-indigo-500"
+              className="mt-3 w-full sm:w-4/6 md:w-4/5 py-2 font-lexend font-bold text-acm-black text-2xl  bg-acm-white border-2 border-acm-black rounded-lg focus:shadow-outline hover:bg-acm-lightpurple"
               onClick={cancelChanges}
             >
               cancel
