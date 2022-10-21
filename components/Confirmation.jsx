@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Row, Col, Container } from "react-bootstrap";
+// import {name} from "./Register.jsx"
 
 const Confirmation = () => {
   return (

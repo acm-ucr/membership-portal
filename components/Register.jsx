@@ -8,6 +8,8 @@ const Register = () => {
   //  State changes when the user has submitted form
   const [registered, registerUser] = useState(false);
 
+  const [name, setName] = useState(null); // default value for name is null
+
   //  Handles form submit
   const onSignUp = (event) => {
     //  Prevents page refresh on submitting form
@@ -15,13 +17,16 @@ const Register = () => {
 
     //  Sets state to true when user registers
     registerUser(true);
+    setName(event.currentTarget.name.value);
   };
 
   //  Checks whether user has registered and renders the confirmation component
-  if (registered)
+  if (registered && name != null)
     return (
       <div className="flex justify-center items-center flex-col pt-[25vh]">
         <Confirmation />
+        <p>Name Inputted: {name}</p>
+        {/* outputs the name saved */}
       </div>
     );
   else
@@ -40,6 +45,7 @@ const Register = () => {
                 </label>
                 <input
                   type="text"
+                  name="name" // save name of the user
                   id="username"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
                   placeholder="Scotty Highlander"
