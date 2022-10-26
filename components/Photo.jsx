@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import Image from "next/image";
 
-const images = ["/1662187462679.png", "/fake-qr.png"];
+const images = ["/1643607679196.png", "/fake-qr.png"];
 
 const Photo = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
