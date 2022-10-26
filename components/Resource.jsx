@@ -23,7 +23,7 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
               </a>
             )}
 
-            {youtubeLink &&
+            {youtubeLink && (
               <a
                 href={youtubeLink}
                 target="_blank"
@@ -32,9 +32,9 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
               >
                 <FaYoutube className="text-4xl text-acm-white hover:text-acm-blue"></FaYoutube>
               </a>
-            }
+            )}
 
-            {githubLink && 
+            {githubLink && (
               <a
                 href={githubLink}
                 target="_blank"
@@ -43,7 +43,7 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
               >
                 <FaGithub className="text-4xl text-acm-white hover:text-acm-blue"></FaGithub>
               </a>
-            }
+            )}
           </div>
         </div>
       </span>

@@ -35,16 +35,15 @@ import axios from "axios";
 const Resources = () => {
   const [resources, setResources] = useState([]);
   useEffect(() => {
-    axios.get("/api/getAllResources")
-    .then(
-      response =>{
-        setResources(response.data)
-        console.log(response.data[0].data)
-      }
-    )
-    .catch(error=>{
-      console.log(error)
-    })
+    axios
+      .get("/api/getAllResources")
+      .then((response) => {
+        setResources(response.data);
+        console.log(response.data[0].data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
