@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Image from "next/image";
 
 const images = ["/1662187462679.png", "/fake-qr.png"];
@@ -31,20 +31,15 @@ const Photo = () => {
       goToNext;
     }
   };
-  return(
+  return (
     <Container
-        onClick={goToNext}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
-    <Image
-    src={images[currentIndex]}
-    alt="som"
-    width={500}
-    height={500}
-  />
-  </Container>
+      onClick={goToNext}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
+      <Image src={images[currentIndex]} alt="som" width={500} height={500} />
+    </Container>
   );
 };
 
