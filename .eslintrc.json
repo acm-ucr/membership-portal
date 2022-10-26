@@ -8,6 +8,7 @@
     "google",
     "prettier",
     "next/core-web-vitals"
+    //"next/babel"
   ],
   "overrides": [],
   "parserOptions": {
