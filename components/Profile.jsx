@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+// import { collection, getDocs } from "firebase/firestore";
 
 /* NOTE : 
 When backend is implemented
@@ -12,6 +13,16 @@ When backend is implemented
     Change all {editableValues.classOf} to just classOf
 */
 
+/*
+import { collection, getDocs } from "firebase/firestore"; 
+
+const querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+  console.log(`${doc.id} => ${doc.data()}`);
+});
+*/
+
+// https://firebase.google.com/docs/firestore/manage-data/add-data
 const Profile = ({ name, major, classOf, netId, email, points }) => {
   const [edit, setEdit] = useState(false);
 
