@@ -1,17 +1,19 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
-const ResumeReviewForm = () => {
+const ResumeReviewForm = ({ setFormState }) => {
   return (
     <>
-      <div className="fixed bg-acm-white opacity-50 w-full h-full"></div>
-      <div className="absolute w-full">
+      <div className="fixed inset-0 bg-acm-white opacity-50 w-full h-full"></div>
+      <div className="absolute inset-x-0 top-20 w-full">
         <div className="flex justify-center isolation-auto">
           <form className="bg-acm-black rounded-3xl w-1/2 flex flex-col">
             <div className="flex justify-between">
               <p className="font-lexend bg-acm-orange text-acm-black rounded-full m-3 text-2xl p-2 font-bold">
                 resume review form details
               </p>
-              <FaTimes className="text-3xl text-acm-orange m-4 hover:cursor-pointer" />
+              <button onClick={() => setFormState(0)}>
+                <FaTimes className="text-3xl text-acm-orange m-4 hover:cursor-pointer" />
+              </button>
             </div>
             <div className="ml-4 mb-4 mr-3">
               <label
@@ -37,6 +39,23 @@ const ResumeReviewForm = () => {
                 id="email"
                 className="m-2 border-0 focus:ring-2 focus:ring-acm-black focus:ring-offset-0 focus:outline-offset-2 focus:outline-2 focus:outline-acm-white w-11/12 block rounded-lg font-lexend text-acm-black text-lg font-light pl-2 pt-0 pb-0"
                 placeholder="email"
+              />
+              <div className="flex justify-start items-center">
+                <label
+                  htmlFor="resume"
+                  className="font-lexend text-acm-white text-lg font-medium m-1"
+                >
+                  resume
+                </label>
+                <p className="m-1 text-normal text-acm-gray font-lexend">
+                  (link or pdf)
+                </p>
+              </div>
+              <input
+                type="resume"
+                id="resume"
+                className="m-2 border-0 focus:ring-2 focus:ring-acm-black focus:ring-offset-0 focus:outline-offset-2 focus:outline-2 focus:outline-acm-white w-11/12 block rounded-lg font-lexend text-acm-black text-lg font-light pl-2 pt-0 pb-0"
+                placeholder="resume"
               />
               <label
                 htmlFor="formatOfInterview"
@@ -91,7 +110,7 @@ const ResumeReviewForm = () => {
                     type="checkbox"
                     id="daysAndTimeMon"
                     value="monday"
-                    class="hidden peer"
+                    className="hidden peer"
                     required=""
                   />
                   <label
@@ -283,6 +302,23 @@ const ResumeReviewForm = () => {
                     5pm
                   </label>
                 </div>
+              </div>
+              <label
+                htmlFor="comments"
+                className="font-lexend text-acm-white text-lg font-medium m-1"
+              >
+                comments
+              </label>
+              <textarea
+                id="comments"
+                rows="4"
+                class="font-lexend block p-2 w-full text-sm text-acm-black bg-acm-white rounded-xl "
+                placeholder="Your message..."
+              />
+              <div className="w-full flex justify-end">
+                <button className="bg-acm-orange text-acm-black text-xl font-semibold font-lexend px-12 py-1 mt-3 rounded-full ">
+                  submit
+                </button>
               </div>
             </div>
           </form>
