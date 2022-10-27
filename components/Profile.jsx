@@ -1,29 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-// import { collection, getDocs } from "firebase/firestore";
+import {db} from "../firebase";
+import {doc,setDoc,getDoc} from "firebase/firestore";
 
-/* NOTE : 
-When backend is implemented
-
-  1. Go to saveEditedValues function and change make sure name gets updated in database
-
-  2. In the HTML
-    Change all {editableValues.name} to just name
-    Change all {editableValues.major} to just major
-    Change all {editableValues.classOf} to just classOf
-*/
-
-/*
-import { collection, getDocs } from "firebase/firestore"; 
-
-const querySnapshot = await getDocs(collection(db, "users"));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
-*/
-
-// https://firebase.google.com/docs/firestore/manage-data/add-data
 const Profile = ({ name, major, classOf, netId, email, points }) => {
+
+  const [user, setUserInfo] = useState();
+  const docRef = doc(db,"users","scott001");    // now can make queries to this collection
+  
+  useEffect(() => {
+    const getUser = async () => {
+      const data = await getDoc(docRef);
+      const doc = data;
+      setUserInfo({
+        'name' : doc.data()['name'],
+        'major' : doc.data()['major'],
+        'year' : doc.data()['year'],
+        'points' : doc.data()['points']
+      });
+    
+    }
+
+    getUser();
+  }, []);
+
+
   const [edit, setEdit] = useState(false);
 
   const values = {
@@ -38,7 +39,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    console.log(editableValues.name);
+    console.log(user.name);
   };
 
   // Change major
@@ -66,16 +67,38 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
   };
 
   const saveEditedValues = () => {
-    // put code to update edited values in the database in here
-    name = editableValues.name;
-    major = editableValues.major;
-    classOf = editableValues.classOf;
+    const data = {
+      major : editableValues.major,
+      name : editableValues.name,
+      year : editableValues.classOf,
+    };
+    
+    setDoc(docRef,data)
+    .then(docRef => {
+      console.log("Updated")
+    })
+    .catch(error=> {
+      console.log("Error: " , error);
+    })
+
+    setUserInfo({
+      'major' : editableValues.major,
+      'name' : editableValues.name,
+      'year' : editableValues.classOf,
+    })
+
+    console.log("name: " , user.name);
+    console.log("major: " , user.major);
+    console.log("class of: " , user.year);
     setEdit(false);
   };
 
   const cancelChanges = () => {
     setEdit(false);
   };
+
+
+
 
   if (edit) {
     return (
@@ -87,7 +110,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <input
             type="text"
             name="name"
-            placeholder={editableValues.name}
+            placeholder={user.name}
             onChange={handleNameChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -98,7 +121,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <input
             type="text"
             name="major"
-            placeholder={editableValues.major}
+            placeholder={user.major}
             onChange={handleMajorChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -109,7 +132,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <input
             type="text"
             name="classOf"
-            placeholder={editableValues.classOf}
+            placeholder={user.year}
             onChange={handleClassOfChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -175,7 +198,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             major:
           </p>
           <p className="text-acm-black text-2xl font-lexend">
-            {editableValues.major}
+          {editableValues.major}
           </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
