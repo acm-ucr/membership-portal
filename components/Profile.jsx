@@ -175,12 +175,6 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
       </Row>
     );
   } else {
-    /* 
-  LLLLLLLLLLLLLLLLLLLLJJJJJJJJJJJJJJJJJJ
-  kkkkkk
-  kkkkkkk
-  kkkkkkk
-  */
     return (
       <Row className="w-full">
         <Col xl={6}>
