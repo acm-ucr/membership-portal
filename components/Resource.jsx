@@ -23,9 +23,7 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
               </a>
             )}
 
-            {youtubeLink == "" ? (
-              <></>
-            ) : (
+            {youtubeLink && (
               <a
                 href={youtubeLink}
                 target="_blank"
@@ -36,9 +34,7 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
               </a>
             )}
 
-            {githubLink == "" ? (
-              <></>
-            ) : (
+            {githubLink && (
               <a
                 href={githubLink}
                 target="_blank"

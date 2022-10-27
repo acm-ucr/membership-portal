@@ -1,50 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import Resource from "./Resource";
 import TimeFilter from "./TimeFilter";
 import { Col, Row } from "react-bootstrap";
-
-const recourceCardList = [
-  {
-    title: "API Workshop",
-    documentlink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    youtubelink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    gitlink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-  },
-  {
-    title: "Professional Development Workshop",
-    documentlink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    youtubelink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    gitlink: "",
-  },
-  {
-    title: "Web Development Workshop",
-    documentlink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    youtubelink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    gitlink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-  },
-  {
-    title: "Web Development Workshop",
-    documentlink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    youtubelink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    gitlink: "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-  },
-];
+import { useEffect } from "react";
+import axios from "axios";
 
 const Resources = () => {
+  const [resources, setResources] = useState([]);
+  const [selectedTime, setSelectedTime] = useState("today");
+  const [today, setToday] = useState(new Date());
+
+  useEffect(() => {
+    axios
+      .get("/api/getAllResources")
+      .then((response) => {
+        setResources(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  useEffect(() => {
+    if (selectedTime == "today") {
+      setToday(new Date().setDate(new Date().getDate() - 1));
+    } else if (selectedTime == "last week") {
+      setToday(new Date().setDate(new Date().getDate() - 7));
+    } else if (selectedTime == "last month") {
+      setToday(new Date().setMonth(new Date().getMonth() - 1));
+    } else if (selectedTime == "last year") {
+      setToday(new Date().setYear(new Date().getYear() - 7));
+    }
+  }, [selectedTime]);
   return (
     <div className="w-11/12 flex items-center flex-col justify-center">
-      <TimeFilter />
+      <TimeFilter setSelectedTime={setSelectedTime} />
       <Row className="w-11/12 items-center !mt-16">
-        {recourceCardList.map((recourceCard, index) => (
-          <Col className="p-3" xs={12} sm={6} md={4} lg={3} key={index}>
-            <Resource
-              titles={recourceCard.title}
-              documentLink={recourceCard.documentlink}
-              youtubeLink={recourceCard.youtubelink}
-              githubLink={recourceCard.gitlink}
-            />
-          </Col>
-        ))}
+        {resources.map((recourceCard, index) => {
+          return new Date(recourceCard.data.time.seconds * 1000) >
+            new Date(today) ? (
+            <Col className="p-3" xs={12} sm={6} md={4} lg={3} key={index}>
+              <Resource
+                titles={recourceCard.title}
+                documentLink={recourceCard.data.slides}
+                youtubeLink={recourceCard.data.youtube}
+                githubLink={recourceCard.data.github}
+              />
+            </Col>
+          ) : (
+            <React.Fragment key={index}></React.Fragment>
+          );
+        })}
       </Row>
     </div>
   );
