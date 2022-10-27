@@ -1,14 +1,19 @@
 import React from "react";
+import { useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 
-function timeOptionEvent(e) {
-  console.log("time option event");
-  const newTime = e.target.innerHTML;
-  document.querySelector("#selected-time").innerHTML = newTime;
-  document.querySelector("#drop-down-btn").click();
-}
-
-const TimeFilter = () => {
+const TimeFilter = ({ setSelectedTime }) => {
+  function timeOptionEvent(e) {
+    console.log("time option event");
+    const newTime = e.target.innerHTML;
+    setSelectedTime(newTime);
+    document.querySelector("#selected-time").innerHTML = newTime;
+    document.querySelector("#drop-down-btn").click();
+    return newTime;
+  }
+  useEffect(() => {
+    setSelectedTime(document.querySelector("#selected-time").innerHTML);
+  }, []);
   return (
     <div className="">
       <Accordion
