@@ -37,6 +37,6 @@ next-env.d.ts
 
 .vscode
 
-.env.dev
+.env
 
 .env
