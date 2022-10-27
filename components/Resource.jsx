@@ -30,7 +30,7 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
                 className="inline p-2"
                 rel="noreferrer"
               >
-                <FaYoutube className="text-4xl text-acm-white hover:text-acm-blue"></FaYoutube>
+                <FaYoutube className="text-4xl text-acm-white hover:text-acm-blue" />
               </a>
             )}
 
@@ -41,7 +41,7 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
                 className="inline p-2"
                 rel="noreferrer"
               >
-                <FaGithub className="text-4xl text-acm-white hover:text-acm-blue"></FaGithub>
+                <FaGithub className="text-4xl text-acm-white hover:text-acm-blue" />
               </a>
             )}
           </div>
