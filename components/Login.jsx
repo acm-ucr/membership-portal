@@ -77,7 +77,7 @@ const Login = ({ handleLogin }) => {
         <button
           className="text-white bg-acm-blue rounded-full w-5/12 text-4xl p-3"
           type="submit"
-          onClick={handleLogin(form.email, form.password)}
+          onClick={() => handleLogin(formInput.email, formInput.password)}
         >
           sign in
         </button>

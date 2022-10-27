@@ -5,6 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import Welcome from "../components/Welcome";
 import Login from "../components/Login";
 
+// Validate user
 const handleLogin = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -26,7 +27,7 @@ const index = () => {
         <Welcome />
       </Col>
       <Col xl={6} className="flex justify-center items-center">
-        <Login props={handleLogin} />
+        <Login handleLogin={handleLogin} />
       </Col>
     </Row>
   );
