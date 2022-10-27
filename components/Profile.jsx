@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import {db} from "../firebase";
-import {doc,setDoc,getDoc} from "firebase/firestore";
+import { db } from "../firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const Profile = ({ name, major, classOf, netId, email, points }) => {
-
   const [user, setUserInfo] = useState();
-  const docRef = doc(db,"users","scott001");    // now can make queries to this collection
-  
+  const docRef = doc(db, "users", "scott001"); // now can make queries to this collection
+
   useEffect(() => {
     const getUser = async () => {
       const data = await getDoc(docRef);
       const doc = data;
       setUserInfo({
-        'name' : doc.data()['name'],
-        'major' : doc.data()['major'],
-        'year' : doc.data()['year'],
-        'points' : doc.data()['points']
+        name: doc.data()["name"],
+        major: doc.data()["major"],
+        year: doc.data()["year"],
+        points: doc.data()["points"],
       });
-    
-    }
+    };
 
     getUser();
   }, []);
-
 
   const [edit, setEdit] = useState(false);
 
@@ -68,37 +65,34 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
 
   const saveEditedValues = () => {
     const data = {
-      major : editableValues.major,
-      name : editableValues.name,
-      year : editableValues.classOf,
+      major: editableValues.major,
+      name: editableValues.name,
+      year: editableValues.classOf,
     };
-    
-    setDoc(docRef,data)
-    .then(docRef => {
-      console.log("Updated")
-    })
-    .catch(error=> {
-      console.log("Error: " , error);
-    })
+
+    setDoc(docRef, data)
+      .then((docRef) => {
+        console.log("Updated");
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
 
     setUserInfo({
-      'major' : editableValues.major,
-      'name' : editableValues.name,
-      'year' : editableValues.classOf,
-    })
+      major: editableValues.major,
+      name: editableValues.name,
+      year: editableValues.classOf,
+    });
 
-    console.log("name: " , user.name);
-    console.log("major: " , user.major);
-    console.log("class of: " , user.year);
+    console.log("name: ", user.name);
+    console.log("major: ", user.major);
+    console.log("class of: ", user.year);
     setEdit(false);
   };
 
   const cancelChanges = () => {
     setEdit(false);
   };
-
-
-
 
   if (edit) {
     return (
@@ -198,7 +192,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             major:
           </p>
           <p className="text-acm-black text-2xl font-lexend">
-          {editableValues.major}
+            {editableValues.major}
           </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
