@@ -61,16 +61,22 @@ import { collection, getDocs } from "firebase/firestore";
 // const top5 = announcements.slice(0, 5);
 
 const Announcements = () => {
-  const [announcementsDB, setAnnouncements] = useState([]);
+  const [announcementsDB] = useState([]);
   const announcementsCollectionRef = collection(db, "announcements");
 
   useEffect(() => {
     const getAnnouncements = async () => {
-      const data = await getDocs(announcementsCollectionRef);
-      console.log(data);
+      const snapshot = await getDocs(announcementsCollectionRef);
+      snapshot.forEach((doc) => {
+        announcementsDB.push({
+          title: doc.id,
+          data: doc.data(),
+        });
+      });
 
-      setAnnouncements(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(announcementsDB);
     };
+
     getAnnouncements();
   }, []);
 
@@ -89,8 +95,6 @@ const Announcements = () => {
               title={a.id}
               location={a.location}
               background="bg-acm-green"
-              date={a.type}
-              time={a.type}
             />
           );
         })}
