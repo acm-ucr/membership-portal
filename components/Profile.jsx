@@ -23,12 +23,35 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
   }, []);
 
   const [edit, setEdit] = useState(false);
-
   const values = {
     name: name,
     major: major,
     classOf: classOf,
   };
+  const [yearErrors, setYearErrors] = useState("");
+
+  const validateYear = (yr) => {
+    let isValid = true;
+    const errors = "";
+    const regex = /^20[0-9]{2}$/;
+    if (!regex.test(yr)) {
+      errors = "Did not save, invalid class of";
+      isValid = false;
+    } else {
+      const currentDate = new Date().getFullYear();
+      if (yr < currentDate) {
+        errors = "Did not save, class of cannot be in the past";
+        isValid = false;
+      } else if (yr > currentDate + 6) {
+        errors = "Did not save, class of too far in the future";
+        isValid = false;
+      }
+    }
+    console.log(errors);
+    setYearErrors(errors);
+    return isValid;
+  };
+
   const [editableValues, setEditableValues] = useState(values);
 
   const handleNameChange = (event) => {
@@ -50,11 +73,14 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
 
   // Change class of
   const handleClassOfChange = (event) => {
-    setEditableValues({
-      ...editableValues,
-      [event.target.name]: event.target.value,
-    });
-    console.log(editableValues.classOf);
+    if (validateYear(event.target.value)) {
+      console.log("\nSUCCESS: ");
+      console.log(event.target.value);
+      setEditableValues({
+        ...editableValues,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
 
   // Functions for buttons
@@ -164,7 +190,6 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
               save
             </button>
           </Col>
-
           <Col xl={6}>
             <button
               id="editProfile"
@@ -233,6 +258,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             edit profile
           </button>
         </Col>
+        <p className="text-acm-red font-bold pt-[2%]">{yearErrors}</p>
       </Row>
     );
   }
