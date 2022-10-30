@@ -5,6 +5,12 @@ import axios from "axios";
 const Announcements = () => {
   const [announcementsDB, setAnnouncements] = useState([]);
 
+  const colorMappings = {
+    social: "bg-acm-green",
+    "professional development": "bg-acm-purple",
+    "technical workshop": "bg-acm-blue",
+  };
+
   const numToMonth = {
     1: "january ",
     2: "february ",
@@ -25,6 +31,11 @@ const Announcements = () => {
       .get("/api/get5Announcements")
       .then((response) => {
         setAnnouncements(response.data);
+        console.log(announcementsDB[0].data.type);
+        console.log(announcementsDB[1].data.type);
+        console.log(announcementsDB[2].data.type);
+        console.log(announcementsDB[3].data.type);
+        console.log(announcementsDB[4].data.type);
       })
       .catch((error) => {
         console.log("Error: ", error);
@@ -46,13 +57,12 @@ const Announcements = () => {
           const dateString = numToMonth[month] + " " + date + " " + year;
 
           const newDate = new Date(a.data.time.seconds);
-          console.log(newDate.toLocaleTimeString());
           return (
             <Announcement
               key={a.title}
               title={a.title}
               location={a.data.location}
-              background="bg-acm-green"
+              background={colorMappings[a.data.type]}
               date={dateString}
               time={newDate.toLocaleTimeString("en-US", {
                 hour: "2-digit",
