@@ -1,77 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Announcement from "./Announcement";
-
-import { db } from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
-
-// const announcements = [
-//   {
-//     title: "lockpicking social",
-//     date: "janruary, 2022 (wednesday)",
-//     time: "9 am",
-//     location: "wch 127",
-//     background: "bg-acm-green",
-//     text: "text-acm-green",
-//   },
-
-//   {
-//     title: "lockpicking social",
-//     date: "october 26, 2022 (wednesday)",
-//     time: "11 am",
-//     location: "wch 127",
-//     background: "bg-acm-purple",
-//     text: "text-acm-purple",
-//   },
-//   {
-//     title: "lockpicking social",
-//     date: "janruary, 2022 (wednesday)",
-//     time: "9 am",
-//     location: "wch 127",
-//     background: "bg-acm-green",
-//     text: "text-acm-green",
-//   },
-
-//   {
-//     title: "lockpicking social",
-//     date: "october 26, 2022 (wednesday)",
-//     time: "11 am",
-//     location: "wch 127",
-//     background: "bg-acm-purple",
-//     text: "text-acm-purple",
-//   },
-//   {
-//     title: "lockpicking social",
-//     date: "janruary, 2022 (wednesday)",
-//     time: "9 am",
-//     location: "wch 127",
-//     background: "bg-acm-green",
-//     text: "text-acm-green",
-//   },
-
-//   {
-//     title: "lockpicking social",
-//     date: "october 26, 2022 (wednesday)",
-//     time: "11 am",
-//     location: "wch 127",
-//     background: "bg-acm-purple",
-//     text: "text-acm-purple",
-//   },
-// ];
-
-// const top5 = announcements.slice(0, 5);
+import axios from "axios";
 
 const Announcements = () => {
   const [announcementsDB, setAnnouncements] = useState([]);
-  const announcementsCollectionRef = collection(db, "announcements");
+
+  const numToMonth = {
+    1: "january ",
+    2: "february ",
+    3: "march ",
+    4: "april ",
+    5: "may ",
+    6: "june ",
+    7: "july ",
+    8: "august",
+    9: "september",
+    10: "october",
+    11: "november",
+    12: "december",
+  };
 
   useEffect(() => {
-    const getAnnouncements = async () => {
-      const data = await getDocs(announcementsCollectionRef);
-      console.log(data);
-
-      setAnnouncements(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getAnnouncements();
+    axios
+      .get("/api/get5Announcements")
+      .then((response) => {
+        setAnnouncements(response.data);
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
   }, []);
 
   return (
@@ -83,14 +40,24 @@ const Announcements = () => {
           </p>
         </div>
         {announcementsDB.map((a) => {
+          const [month, date, year] = new Date()
+            .toLocaleDateString(a.data.time.seconds)
+            .split("/");
+          const dateString = numToMonth[month] + " " + date + " " + year;
+
+          const newDate = new Date(a.data.time.seconds);
+          console.log(newDate.toLocaleTimeString());
           return (
             <Announcement
-              key={a.id}
-              title={a.id}
-              location={a.location}
+              key={a.title}
+              title={a.title}
+              location={a.data.location}
               background="bg-acm-green"
-              date={a.type}
-              time={a.type}
+              date={dateString}
+              time={newDate.toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             />
           );
         })}
