@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { db } from "../firebase";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import axios from "axios";
 
-const Profile = ({ name, major, classOf, netId, email, points }) => {
-  const [user, setUserInfo] = useState();
-  const docRef = doc(db, "users", "scott001"); // now can make queries to this collection
+const Profile = ({ name, major, year, netId, email, points }) => {
+  const [user, setUserInfo] = useState([]);
+
+  let nameChanged = false;
+  let majorChanged = false;
+  let yearChanged = false;
 
   useEffect(() => {
-    const getUser = async () => {
-      const data = await getDoc(docRef);
-      const doc = data;
-      setUserInfo({
-        name: doc.data()["name"],
-        major: doc.data()["major"],
-        year: doc.data()["year"],
-        points: doc.data()["points"],
-      });
-    };
+    axios
+      .get("/api/profile/getInfo")
+      .then((response) => {
+        setUserInfo(response.data);
 
-    getUser();
+        setEditableValues(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const [edit, setEdit] = useState(false);
   const values = {
     name: name,
     major: major,
-    classOf: classOf,
+    year: year,
   };
   const [yearErrors, setYearErrors] = useState("");
 
@@ -59,7 +59,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    console.log(user.name);
+    nameChanged = true;
   };
 
   // Change major
@@ -68,11 +68,11 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    console.log(editableValues.major);
+    majorChanged = true;
   };
 
   // Change class of
-  const handleClassOfChange = (event) => {
+  const handleyearChange = (event) => {
     if (validateYear(event.target.value)) {
       console.log("\nSUCCESS: ");
       console.log(event.target.value);
@@ -81,6 +81,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
         [event.target.name]: event.target.value,
       });
     }
+    yearChanged = true;
   };
 
   // Functions for buttons
@@ -91,23 +92,31 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
 
   const saveEditedValues = () => {
     const data = {
-      major: editableValues.major,
       name: editableValues.name,
-      year: editableValues.classOf,
+      major: editableValues.major,
+      year: editableValues.year,
     };
 
-    setDoc(docRef, data)
-      .then((docRef) => {
-        console.log("Updated");
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
+    if (!nameChanged) {
+      delete data[name];
+    }
+
+    if (!majorChanged) {
+      delete data[major];
+    }
+
+    if (!yearChanged) {
+      delete data[year];
+    }
+
+    axios.post("/api/profile/setInfo", {
+      data,
+    });
 
     setUserInfo({
-      major: editableValues.major,
       name: editableValues.name,
-      year: editableValues.classOf,
+      major: editableValues.major,
+      year: editableValues.year,
     });
 
     console.log("name: ", user.name);
@@ -151,9 +160,9 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <input
             type="text"
-            name="classOf"
+            name="year"
             placeholder={user.year}
-            onChange={handleClassOfChange}
+            onChange={handleyearChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
         </Col>
@@ -210,22 +219,18 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             name:
           </p>
           <p className="text-acm-black text-2xl font-lexend pb-1">
-            {editableValues.name}
+            {user.name}
           </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">
-            {editableValues.major}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{user.major}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">
-            {editableValues.classOf}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{user.year}</p>
         </Col>
         <Col xl={6}>
           <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
