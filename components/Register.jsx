@@ -43,7 +43,9 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // I think the form already checks for this one when I try to input nothing and hit submit, the site asks me to fill them out
+    const phoneNumberCheckRegex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    // Checks if phone number is in format
+    //     (123) 456-7890 / (123)456-7890 / 123-456-7890 / 1234567890
     if (
       name == "" ||
       email == "" ||
@@ -54,8 +56,18 @@ const Register = () => {
       phone == ""
     ) {
       setSubmit(false);
+    } else if (!email.includes("@ucr.edu")) {
+      alert("Error: Please enter a valid UCR email");
+      setSubmit(false);
+    } else if (password != confirmPass) {
+      alert("Error: Passwords do not match");
+      setSubmit(false);
+    } else if (!phoneNumberCheckRegex.test(phone)) {
+      alert("Error: Please enter a valid phone number");
+      setSubmit(false);
+    } else {
+      setSubmit(true);
     }
-    setSubmit(true);
   };
 
   //  Checks whether user has registered and renders the confirmation component
@@ -193,7 +205,7 @@ const Register = () => {
                   value={phone}
                   id="phone"
                   className="rounded-full text-acm-black w-full mt-3 mb-4 text-2xl"
-                  placeholder="(xxx) xxx-xxx"
+                  placeholder="(xxx) xxx-xxxx"
                   onChange={handleInput}
                   required
                 />
