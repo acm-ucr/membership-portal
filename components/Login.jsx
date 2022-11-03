@@ -16,8 +16,8 @@ const Login = () => {
     }));
   };
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
     setFormErrors(validate(formInput));
     setIsSubmit(true);
   };
