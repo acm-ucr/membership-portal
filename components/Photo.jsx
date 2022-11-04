@@ -34,50 +34,37 @@ const Photo = () => {
   if (currentIndex == 0) {
     return (
       <div className="w-full flex justify-center items-center">
-            <button
-              className="flex justify-center items-center w-1/12 mr-4 mt-3 py-2 font-lexend font-bold  text-5xl"
-              onClick={goToNext}
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
-            >
-              <FaChevronLeft className="hover:fill-acm-lightpurple"/>
-            </button>
-          <Image
-            src={images[currentIndex]}
-            alt="som"
-            width={500}
-            height={500}
-          />
-            <button className="flex justify-center items-center w-1/12 ml-4 mt-3 py-2 font-lexend font-bold text-5xl"
-            >
-              <FaChevronRight className="hover:fill-acm-lightpurple"/>
-            </button>
+        <button
+          className="flex justify-center items-center w-1/12 mr-4 mt-3 py-2 font-lexend font-bold  text-5xl"
+          onClick={goToNext}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <FaChevronLeft className="hover:fill-acm-lightpurple" />
+        </button>
+        <Image src={images[currentIndex]} alt="som" width={500} height={500} />
+        <button className="flex justify-center items-center w-1/12 ml-4 mt-3 py-2 font-lexend font-bold text-5xl">
+          <FaChevronRight className="hover:fill-acm-lightpurple" />
+        </button>
       </div>
     );
   } else {
     return (
       <div className="w-full flex justify-center items-center">
-            <button
-              className="flex justify-center items-center w-1/12 mr-4 mt-3 py-2 font-lexend font-bold text-5xl"
-              
-            >
-              <FaChevronLeft  className="hover:fill-acm-lightpurple"/>
-            </button>
-          <Image
-            src={images[currentIndex]}
-            alt="som"
-            width={500}
-            height={500}
-          />
-            <button className="flex justify-center items-center w-1/12 ml-4 mt-3 py-2 font-lexend font-bold text-5xl"
-            onClick={goToNext}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-            >
-              <FaChevronRight className="hover:fill-acm-lightpurple"/>
-            </button>
+        <button className="flex justify-center items-center w-1/12 mr-4 mt-3 py-2 font-lexend font-bold text-5xl">
+          <FaChevronLeft className="hover:fill-acm-lightpurple" />
+        </button>
+        <Image src={images[currentIndex]} alt="som" width={500} height={500} />
+        <button
+          className="flex justify-center items-center w-1/12 ml-4 mt-3 py-2 font-lexend font-bold text-5xl"
+          onClick={goToNext}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <FaChevronRight className="hover:fill-acm-lightpurple" />
+        </button>
       </div>
     );
   }
