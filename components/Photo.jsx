@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 
 const images = ["/1643607679196.png", "/fake-qr.png"];
@@ -33,65 +33,52 @@ const Photo = () => {
   };
   if (currentIndex == 0) {
     return (
-      <Row className="w-full">
-        <Container>
+      <div className="w-full flex justify-center items-center">
+            <button
+              className="flex justify-center items-center w-1/12 mr-4 mt-3 py-2 font-lexend font-bold  text-5xl"
+              onClick={goToNext}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
+              <FaChevronLeft className="hover:fill-acm-lightpurple"/>
+            </button>
           <Image
             src={images[currentIndex]}
             alt="som"
             width={500}
             height={500}
           />
-        </Container>
-        <Row>
-          <Col xl={3}>
-            <button
-              className=" w-full mt-3 py-2 font-lexend font-bold text-acm-black border-2 border-acm-lightpurple text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:border-acm-black "
-              onClick={goToNext}
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
+            <button className="flex justify-center items-center w-1/12 ml-4 mt-3 py-2 font-lexend font-bold text-5xl"
             >
-              QR Code
+              <FaChevronRight className="hover:fill-acm-lightpurple"/>
             </button>
-          </Col>
-          <Col xl={3}>
-            <button className=" w-full mt-3 py-2 font-lexend font-bold text-acm-black border-2 border-acm-lightpurple text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:border-acm-black ">
-              Profile Picture
-            </button>
-          </Col>
-        </Row>
-      </Row>
+      </div>
     );
   } else {
     return (
-      <Row className="w-full">
-        <Container>
+      <div className="w-full flex justify-center items-center">
+            <button
+              className="flex justify-center items-center w-1/12 mr-4 mt-3 py-2 font-lexend font-bold text-5xl"
+              
+            >
+              <FaChevronLeft  className="hover:fill-acm-lightpurple"/>
+            </button>
           <Image
             src={images[currentIndex]}
             alt="som"
             width={500}
             height={500}
           />
-        </Container>
-        <Row>
-          <Col xl={3}>
-            <button className=" w-full mt-3 py-2 font-lexend font-bold text-acm-black border-2 border-acm-lightpurple text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:border-acm-black ">
-              QR Code
-            </button>
-          </Col>
-          <Col xl={3}>
-            <button
-              className=" w-full mt-3 py-2 font-lexend font-bold text-acm-black border-2 border-acm-lightpurple text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:border-acm-black "
-              onClick={goToNext}
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
+            <button className="flex justify-center items-center w-1/12 ml-4 mt-3 py-2 font-lexend font-bold text-5xl"
+            onClick={goToNext}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
             >
-              Profile Picture
+              <FaChevronRight className="hover:fill-acm-lightpurple"/>
             </button>
-          </Col>
-        </Row>
-      </Row>
+      </div>
     );
   }
 };
