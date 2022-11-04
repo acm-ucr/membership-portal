@@ -9,6 +9,7 @@ const Resources = () => {
   const [resources, setResources] = useState([]);
   const [selectedTime, setSelectedTime] = useState("today");
   const [today, setToday] = useState(new Date());
+  const [NoResources, setNoResources] = useState(true);
 
   useEffect(() => {
     axios
@@ -21,6 +22,7 @@ const Resources = () => {
       });
   }, []);
   useEffect(() => {
+    setNoResources(true);
     if (selectedTime == "today") {
       setToday(new Date().setDate(new Date().getDate() - 1));
     } else if (selectedTime == "last week") {
@@ -36,8 +38,10 @@ const Resources = () => {
       <TimeFilter setSelectedTime={setSelectedTime} />
       <Row className="w-11/12 items-center !mt-16">
         {resources.map((recourceCard, index) => {
-          return new Date(recourceCard.data.time.seconds * 1000) >
-            new Date(today) ? (
+          NoResources = !(
+            new Date(recourceCard.data.time.seconds * 1000) > new Date(today)
+          );
+          return !NoResources ? (
             <Col className="p-3" xs={12} sm={6} md={4} lg={3} key={index}>
               <Resource
                 titles={recourceCard.title}
@@ -51,6 +55,13 @@ const Resources = () => {
           );
         })}
       </Row>
+      {NoResources ? (
+        <p className="font-lexend font-medium text-2xl">
+          No resources available in this time slot
+        </p>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
