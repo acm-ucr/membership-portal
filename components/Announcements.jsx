@@ -11,6 +11,12 @@ const Announcements = () => {
     "technical workshop": "bg-acm-blue",
   };
 
+  const colorMappingsText = {
+    social: "text-acm-green",
+    "professional development": "text-acm-purple",
+    "technical workshop": "text-acm-blue",
+  };
+
   const numToMonth = {
     1: "january ",
     2: "february ",
@@ -63,6 +69,7 @@ const Announcements = () => {
               title={a.title}
               location={a.data.location}
               background={colorMappings[a.data.type]}
+              text={colorMappingsText[a.data.type]}
               date={dateString}
               time={newDate.toLocaleTimeString("en-US", {
                 hour: "2-digit",
