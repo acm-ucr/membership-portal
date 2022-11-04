@@ -1,5 +1,5 @@
 steps:
-  - name: node:16.17.
+  - name: node:16.17.0
     entrypoint: npm
     args: ["install"]
   - name: node:16.17.0
