@@ -20,7 +20,7 @@ const Form = ({ title, text, border, background }) => {
       <div className="bg-acm-black w-full flex justify-center items-center flex-col h-1/3 rounded-b-3xl">
         <button
           onClick={onClick}
-          className={`${text} text-center ${border} border-2 p-1 rounded-full m-0 w-11/12 font-semibold text-xl`}
+          className={`${text} text-center ${border} border-2 p-1 rounded-full m-0 w-11/12 font-semibold text-xl cursor-pointer hover:text-acm-black hover:${background}`}
         >
           apply
         </button>
