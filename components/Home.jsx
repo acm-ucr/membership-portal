@@ -9,8 +9,6 @@ const Home = ({ name, points, year }) => {
       .get("/api/profile/getInfo")
       .then((response) => {
         setUserInfo(response.data);
-        console.log(response.data);
-        name = userInfo.name;
       })
       .catch((error) => {
         console.log(error);
@@ -21,7 +19,9 @@ const Home = ({ name, points, year }) => {
     <div className="ml-12">
       <div className="mb-4">
         <h1 className="text-8xl text-black font-bold h-min w-min">welcome‚</h1>
-        <h1 className="text-8xl text-black font-bold">{name}</h1>
+        <h1 className="text-8xl text-black font-bold">
+          {userInfo.name ? userInfo.name : name}
+        </h1>
       </div>
 
       <div>
