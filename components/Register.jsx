@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Confirmation from "./Confirmation.jsx";
 import Link from "next/link";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../firebase.js"
 
 const Register = () => {
   //  State changes when the user has submitted form
@@ -12,6 +14,19 @@ const Register = () => {
   const onSignUp = (event) => {
     //  Prevents page refresh on submitting form
     event.preventDefault();
+
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, event.target[0].value, event.target[4].value)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
 
     //  Sets state to true when user registers
     registerUser(true);
