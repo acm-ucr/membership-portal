@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Home = ({ name, points, year }) => {
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    axios
+      .get("/api/profile/getInfo")
+      .then((response) => {
+        setUserInfo(response.data);
+        console.log(response.data);
+        name = userInfo.name;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div className="ml-12">
       <div className="mb-4">
