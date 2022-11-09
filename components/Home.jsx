@@ -6,15 +6,18 @@ const Home = ({ name, points, year }) => {
   const [userInfo, setUserInfo] = useState({
     name: "User",
     points: 0,
-    year: 2022,
+    start: 2022,
   });
   //  api call to get user data
   useEffect(() => {
     axios
       .get("/api/profile/getInfo")
       .then((response) => {
-        setUserInfo(response.data);
-        console.log(response.data);
+        const data = response.data;
+        //  create a date using start time in milisec
+        const date = new Date(data.start.seconds * 1000);
+        data.start = date.getFullYear();
+        setUserInfo(data);
       })
       .catch((error) => {
         console.log(error);
@@ -30,7 +33,7 @@ const Home = ({ name, points, year }) => {
 
       <div>
         <h5 className="text-4xl text-acm-gray font-acm ">
-          member since {year} | {userInfo.points} points
+          member since {userInfo.start} | {userInfo.points} points
         </h5>
       </div>
     </div>
