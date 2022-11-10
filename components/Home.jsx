@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Home = ({ name, points, year }) => {
+  //  default state
+  const [userInfo, setUserInfo] = useState({
+    name: "User",
+    points: 0,
+    start: 2022,
+  });
+  //  api call to get user data
+  useEffect(() => {
+    axios
+      .get("/api/profile/getInfo")
+      .then((response) => {
+        const data = response.data;
+        //  create a date using start time in milisec
+        const date = new Date(data.start.seconds * 1000);
+        data.start = date.getFullYear();
+        setUserInfo(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div className="ml-12">
       <div className="mb-4">
         <h1 className="text-8xl text-black font-bold h-min w-min">welcome‚</h1>
-        <h1 className="text-8xl text-black font-bold">{name}</h1>
+        <h1 className="text-8xl text-black font-bold">{userInfo.name}</h1>
       </div>
 
       <div>
         <h5 className="text-4xl text-acm-gray font-acm ">
-          member since {year} | {points} points
+          member since {userInfo.start} | {userInfo.points} points
         </h5>
       </div>
     </div>
