@@ -4,7 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import Confirmation from "./Confirmation.jsx";
 import Link from "next/link";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import {auth} from "../firebase.js"
+// import {auth} from "../firebase.js"
 
 const Register = () => {
   //  State changes when the user has submitted form
@@ -16,15 +16,19 @@ const Register = () => {
     event.preventDefault();
 
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, event.target[0].value, event.target[4].value)
+    createUserWithEmailAndPassword(
+      auth,
+      event.target[0].value,
+      event.target[4].value
+    )
       .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
+        // Signed in
+        // const user = userCredential.user;
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
         // ..
       });
 
