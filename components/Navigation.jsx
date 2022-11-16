@@ -4,8 +4,20 @@ import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import Toggle from "./Toggle";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Navigation = () => {
+  const logout = () => {
+    signOut(auth)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Navbar
       collapseOnSelect
@@ -78,6 +90,7 @@ const Navigation = () => {
             <Nav.Link
               className="m-4 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
               eventKey="6"
+              onClick={logout}
             >
               logout
             </Nav.Link>
