@@ -11,5 +11,5 @@ export default async function getAllResources(req, res) {
       data: doc.data(),
     });
   });
-  res.json(resources);
+  res.status(200).json(resources);
 }

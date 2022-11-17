@@ -51,5 +51,5 @@ export default async function get5Announcements(req, res) {
 
   const top5 = announcements.slice(0, 5);
 
-  res.json(top5);
+  res.status(200).json(top5);
 }

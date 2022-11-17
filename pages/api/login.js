@@ -5,10 +5,10 @@ export default async function handler(req, res) {
   signInWithEmailAndPassword(auth, req.body.email, req.body.password)
     .then((userCredential) => {
       console.log(userCredential);
-      res.json(200);
+      res.status(200).json({});
     })
     .catch((error) => {
       console.log(error);
-      res.json(500);
+      res.status(500).json({});
     });
 }
