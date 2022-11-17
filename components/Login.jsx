@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Snackbar from "./Snackbar";
 import axios from "axios";
+import RoleContext from "./RoleContext";
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -11,6 +12,7 @@ const Login = () => {
   });
   const [visible, setVisible] = useState(false);
   const [message, setMessage] = useState("");
+  const { role, setRole } = useContext(RoleContext);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -32,6 +34,8 @@ const Login = () => {
       .post("/api/login", input)
       .then((response) => {
         console.log(response);
+        setRole("member");
+        console.log(role);
       })
       .catch((error) => {
         console.log(error);
