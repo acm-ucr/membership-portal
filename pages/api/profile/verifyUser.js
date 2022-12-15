@@ -4,9 +4,10 @@ import { doc, getDoc } from "firebase/firestore";
 export default async function getProfileInfo(req, res) {
   const docSnap = await getDoc(doc(db, "users", req.body.email));
 
-  if (!docSnap.exists()) {
-    res.status(400).json({});
-  } else {
-    res.status(200).json(docSnap.data());
+  if (docSnap.exists()) {
+    console.log("exists");
+    res.status(200).json({});
   }
+
+  res.status(400).json({});
 }

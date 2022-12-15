@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import Profile from "../components/Profile";
-import Photo from "../components/Photo";
-import Header from "../components/Header";
+import Profile from "../../components/Profile";
+import Photo from "../../components/Photo";
+import Header from "../../components/Header";
 
 const profile = () => {
   return (

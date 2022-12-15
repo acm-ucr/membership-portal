@@ -26,7 +26,7 @@ const Navigation = () => {
       fixed="top"
     >
       <Navbar.Brand>
-        <Link href="/dashboard" passHref>
+        <Link href="/user/dashboard" passHref>
           <Nav.Link eventKey="1">
             <Image
               src="/acm-ucr-logo.png"
@@ -48,7 +48,7 @@ const Navigation = () => {
         className="-mt-2 flex justify-center items-center"
       >
         <Nav className="w-12/12 no-underline ml-auto text-2xl">
-          <Link href="/dashboard" passHref>
+          <Link href="/user/dashboard" passHref>
             <Nav.Link
               className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
               eventKey="6"
@@ -56,7 +56,7 @@ const Navigation = () => {
               dashboard
             </Nav.Link>
           </Link>
-          <Link href="/profile" passHref>
+          <Link href="/user/profile" passHref>
             <Nav.Link
               className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
               eventKey="2"
@@ -64,7 +64,7 @@ const Navigation = () => {
               profile
             </Nav.Link>
           </Link>
-          <Link href="/forms" passHref>
+          <Link href="/user/forms" passHref>
             <Nav.Link
               className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
               eventKey="3"
@@ -72,7 +72,7 @@ const Navigation = () => {
               forms
             </Nav.Link>
           </Link>
-          <Link href="/resources" passHref>
+          <Link href="/user/resources" passHref>
             <Nav.Link
               className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
               eventKey="4"
