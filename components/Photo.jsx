@@ -1,10 +1,10 @@
 import React from "react";
-import Image from "next/image";
+import { QRCodeSVG } from "qrcode.react";
 
-const Photo = ({ photo }) => {
+const Photo = ({ email }) => {
   return (
     <div className="w-full flex justify-center items-center">
-      <Image src={photo} alt="image" width={500} height={500} />
+      <QRCodeSVG value={email} size={300} />
     </div>
   );
 };
