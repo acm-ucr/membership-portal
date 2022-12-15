@@ -56,7 +56,7 @@ const Navigation = () => {
           </Nav.Link>
         </Link>
       </Navbar.Brand>
-      <Link href="/dashboard" passHref>
+      <Link href="/user/dashboard" passHref>
         <Nav className="float-left font-lexend font-medium text-2xl cursor-pointer">
           membership portal
         </Nav>
