@@ -21,6 +21,7 @@ const Resources = () => {
         console.log(error);
       });
   }, []);
+
   useEffect(() => {
     setNoResources(true);
     if (selectedTime == "today") {
@@ -33,6 +34,7 @@ const Resources = () => {
       setToday(new Date().setYear(new Date().getYear() - 7));
     }
   }, [selectedTime]);
+
   return (
     <div className="w-11/12 flex items-center flex-col justify-center">
       <TimeFilter setSelectedTime={setSelectedTime} />
@@ -41,26 +43,24 @@ const Resources = () => {
           NoResources = !(
             new Date(recourceCard.data.time.seconds * 1000) > new Date(today)
           );
-          return !NoResources ? (
-            <Col className="p-3" xs={12} sm={6} md={4} lg={3} key={index}>
-              <Resource
-                titles={recourceCard.title}
-                documentLink={recourceCard.data.slides}
-                youtubeLink={recourceCard.data.youtube}
-                githubLink={recourceCard.data.github}
-              />
-            </Col>
-          ) : (
-            <React.Fragment key={index}></React.Fragment>
+          return (
+            !NoResources && (
+              <Col className="p-3" xs={12} sm={6} md={4} lg={3} key={index}>
+                <Resource
+                  titles={recourceCard.title}
+                  documentLink={recourceCard.data.slides}
+                  youtubeLink={recourceCard.data.youtube}
+                  githubLink={recourceCard.data.github}
+                />
+              </Col>
+            )
           );
         })}
       </Row>
-      {NoResources ? (
+      {NoResources && (
         <p className="font-lexend font-medium text-2xl">
           No resources available in this time slot
         </p>
-      ) : (
-        <></>
       )}
     </div>
   );

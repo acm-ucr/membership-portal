@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 
-const Home = ({ name, points, year }) => {
+const Home = () => {
   const router = useRouter();
   const [userInfo, setUserInfo] = useState({
     name: "",
@@ -17,10 +17,12 @@ const Home = ({ name, points, year }) => {
       if (currentState === null) {
         router.push("/");
       } else {
+        console.log(currentState.email);
         axios
           .post("/api/profile/getInfo", { email: currentState.email })
           .then((response) => {
-            const data = response.data;
+            const data = response.data.data;
+            console.log(data);
             const date = new Date(data.start.seconds * 1000);
             data.start = date.getFullYear();
             setUserInfo(data);
