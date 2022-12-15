@@ -15,7 +15,7 @@ const Login = () => {
     setPersistence(auth, browserLocalPersistence).then(() => {
       return signInWithPopup(auth, new GoogleAuthProvider())
         .then(() => {
-          router.push("/dashboard");
+          router.push("/user/dashboard");
         })
         .catch((error) => {
           router.push("/");
