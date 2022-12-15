@@ -61,56 +61,59 @@ const Navigation = () => {
           membership portal
         </Nav>
       </Link>
-      <Navbar.Toggle aria-controls="navbar-nav" />
+
       {verified && (
-        <Navbar.Collapse
-          id="navbar-nav"
-          className="-mt-2 flex justify-center items-center"
-        >
-          <Nav className="w-12/12 no-underline ml-auto text-2xl">
-            <Link href="/user/dashboard" passHref>
-              <Nav.Link
-                className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                eventKey="6"
-              >
-                dashboard
-              </Nav.Link>
-            </Link>
-            <Link href="/user/profile" passHref>
-              <Nav.Link
-                className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                eventKey="2"
-              >
-                profile
-              </Nav.Link>
-            </Link>
-            <Link href="/user/forms" passHref>
-              <Nav.Link
-                className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                eventKey="3"
-              >
-                forms
-              </Nav.Link>
-            </Link>
-            <Link href="/user/resources" passHref>
-              <Nav.Link
-                className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                eventKey="4"
-              >
-                resources
-              </Nav.Link>
-            </Link>
-            <Link href="/" passHref>
-              <Nav.Link
-                className="m-4 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
-                eventKey="6"
-                onClick={logout}
-              >
-                logout
-              </Nav.Link>
-            </Link>
-          </Nav>
-        </Navbar.Collapse>
+        <>
+          <Navbar.Toggle aria-controls="navbar-nav" />
+          <Navbar.Collapse
+            id="navbar-nav"
+            className="-mt-2 flex justify-center items-center"
+          >
+            <Nav className="w-12/12 no-underline ml-auto text-2xl">
+              <Link href="/user/dashboard" passHref>
+                <Nav.Link
+                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  eventKey="6"
+                >
+                  dashboard
+                </Nav.Link>
+              </Link>
+              <Link href="/user/profile" passHref>
+                <Nav.Link
+                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  eventKey="2"
+                >
+                  profile
+                </Nav.Link>
+              </Link>
+              <Link href="/user/forms" passHref>
+                <Nav.Link
+                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  eventKey="3"
+                >
+                  forms
+                </Nav.Link>
+              </Link>
+              <Link href="/user/resources" passHref>
+                <Nav.Link
+                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  eventKey="4"
+                >
+                  resources
+                </Nav.Link>
+              </Link>
+              <Link href="/" passHref>
+                <Nav.Link
+                  className="m-4 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
+                  eventKey="6"
+                  onClick={logout}
+                >
+                  logout
+                </Nav.Link>
+              </Link>
+            </Nav>
+          </Navbar.Collapse>
+        </>
       )}
     </Navbar>
   );
