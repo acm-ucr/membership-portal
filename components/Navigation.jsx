@@ -3,7 +3,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Image from "next/image";
-import Toggle from "./Toggle";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { useEffect } from "react";
@@ -101,12 +100,6 @@ const Navigation = () => {
                 resources
               </Nav.Link>
             </Link>
-            <div className="flex justify-center items-center">
-              <Nav.Link>
-                <Toggle />
-              </Nav.Link>
-            </div>
-
             <Link href="/" passHref>
               <Nav.Link
                 className="m-4 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
