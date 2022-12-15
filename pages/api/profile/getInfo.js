@@ -7,6 +7,6 @@ export default async function getProfileInfo(req, res) {
   if (!docSnap.exists()) {
     res.status(400).json({});
   } else {
-    res.status(200).json(docSnap.data());
+    res.status(200).json({ data: docSnap.data(), id: docSnap.id });
   }
 }

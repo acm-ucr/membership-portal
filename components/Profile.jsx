@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
@@ -8,19 +8,6 @@ const Profile = ({ name, major, year, netId, email, points }) => {
   let nameChanged = false;
   let majorChanged = false;
   let yearChanged = false;
-
-  useEffect(() => {
-    axios
-      .get("/api/profile/getInfo")
-      .then((response) => {
-        setUserInfo(response.data);
-
-        setEditableValues(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   const [edit, setEdit] = useState(false);
   const values = {
