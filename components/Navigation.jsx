@@ -40,7 +40,7 @@ const Navigation = () => {
   return (
     <Navbar
       collapseOnSelect
-      className="py-0 font-lexend w-full px-3 m-0 h-[12vh] bg-white border-acm-blue border-b-4 flex justify-center items-center"
+      className="py-0 font-lexend w-full px-3 m-0 min-h-[12vh] bg-white border-acm-blue border-b-4 flex justify-center items-center"
       expand="md"
       fixed="top"
     >
@@ -67,9 +67,9 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse
             id="navbar-nav"
-            className="-mt-2 flex justify-center items-center"
+            className="-mt-2 flex justify-center md:justify-end items-center"
           >
-            <Nav className="w-12/12 no-underline ml-auto text-2xl">
+            <Nav className="w-1/2 no-underline text-2xl flex justify-center items-center">
               <Link href="/user/dashboard" passHref>
                 <Nav.Link
                   className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
