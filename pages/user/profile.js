@@ -28,7 +28,7 @@ const ProfilePage = () => {
     <div className="flex justify-center pt-[14vh]">
       <Row className="w-11/12">
         <Header title="profile" color="acm-green" />
-        <Col className="flex justify-center items-stretch m-0 p-0">
+        <Col className="flex justify-center items-stretch ml-0 mt-0 mr-0 mb-8 p-0">
           <Photo email={data?.id} />
         </Col>
         <Col>
