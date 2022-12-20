@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
+// getting the name, major, class of working.
+// it gets data from the db and is passed into the profile component
+
 const Profile = ({ name, major, year, netId, email, points }) => {
   const [user, setUserInfo] = useState([]);
 
@@ -59,7 +62,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
   };
 
   // Change class of
-  const handleyearChange = (event) => {
+  const handleYearChange = (event) => {
     if (validateYear(event.target.value)) {
       console.log("\nSUCCESS: ");
       console.log(event.target.value);
@@ -149,7 +152,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
             type="text"
             name="year"
             placeholder={user.year}
-            onChange={handleyearChange}
+            onChange={handleYearChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
         </Col>
@@ -205,19 +208,17 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pb-1">
             name:
           </p>
-          <p className="text-acm-black text-2xl font-lexend pb-1">
-            {user.name}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend pb-1">{name}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{user.major}</p>
+          <p className="text-acm-black text-2xl font-lexend">{major}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{user.year}</p>
+          <p className="text-acm-black text-2xl font-lexend">{year}</p>
         </Col>
         <Col xl={6}>
           <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
