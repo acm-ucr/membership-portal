@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Confirmation from "./Confirmation.jsx";
 import Link from "next/link";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import {auth} from "../firebase.js"
 
 const Register = () => {
   //  State changes when the user has submitted form
