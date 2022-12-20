@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Confirmation from "./Confirmation.jsx";
 import Link from "next/link";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   //  State changes when the user has submitted form
@@ -41,7 +40,6 @@ const Register = () => {
   };
   //  Handles form submit
   //  Sets state to true when user clicks submit
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
