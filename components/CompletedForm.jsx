@@ -23,7 +23,7 @@ const Form = ({ title, text, border, background }) => {
       >
         <button
           onClick={onClick}
-          className={`text-acm-black text-center border-acm-black border-2 p-1 rounded-full m-0 w-11/12 font-semibold text-xl`}
+          className={`text-acm-black text-center border-acm-black border-2 p-1 rounded-full m-0 w-11/12 font-semibold text-xl cursor-pointer hover:bg-acm-black hover:text-acm-marine hover:text-acm-orange hover:!${text}`}
         >
           details
         </button>

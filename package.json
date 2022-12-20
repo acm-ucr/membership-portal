@@ -12,18 +12,20 @@
     "check": "npx prettier --check .",
     "eslint": "eslint . --ext js --ext jsx --ext ts --ext tsx",
     "prepare": "husky install",
-    "gcloud": "gcloud builds submit --tag gcr.io/membership-portal-365222/dev --project membership-portal-365222 && gcloud run deploy --image gcr.io/membership-portal-365222/dev --project membership-portal-365222 --platform managed"
+    "create-env": "printenv > .env"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
+    "axios": "^1.1.3",
     "bootstrap": "^5.2.1",
     "dotenv": "^16.0.3",
     "firebase": "^9.12.1",
-    "firebase-admin": "^11.2.0",
+    "index.js": "^0.0.3",
     "next": "^12.3.1",
+    "qrcode.react": "^3.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",

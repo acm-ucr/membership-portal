@@ -3,7 +3,6 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export default async function handler(req, res) {
-  // Add a new document in collection "cities"
   try {
     await setDoc(doc(db, "cities", "SF"), {
       name: "Los Angeles",
@@ -12,8 +11,8 @@ export default async function handler(req, res) {
     });
   } catch {
     alert("fail");
-    res.json(500);
+    res.status(500).json({});
   }
 
-  res.json(200);
+  res.status(200).json({});
 }

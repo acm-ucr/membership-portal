@@ -23,29 +23,25 @@ const Resource = ({ titles, documentLink, youtubeLink, githubLink }) => {
               </a>
             )}
 
-            {youtubeLink == "" ? (
-              <></>
-            ) : (
+            {youtubeLink && (
               <a
                 href={youtubeLink}
                 target="_blank"
                 className="inline p-2"
                 rel="noreferrer"
               >
-                <FaYoutube className="text-4xl text-acm-white hover:text-acm-blue"></FaYoutube>
+                <FaYoutube className="text-4xl text-acm-white hover:text-acm-blue" />
               </a>
             )}
 
-            {githubLink == "" ? (
-              <></>
-            ) : (
+            {githubLink && (
               <a
                 href={githubLink}
                 target="_blank"
                 className="inline p-2"
                 rel="noreferrer"
               >
-                <FaGithub className="text-4xl text-acm-white hover:text-acm-blue"></FaGithub>
+                <FaGithub className="text-4xl text-acm-white hover:text-acm-blue" />
               </a>
             )}
           </div>

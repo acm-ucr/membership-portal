@@ -4,11 +4,15 @@ const Welcome = () => {
   return (
     <div>
       <p className="text-acm-black text-center font-bold xl:text-7xl l:text-6xl s:text-7xl text-5xl">
-        Welcome to
+        welcome to
       </p>
-      <p className="bg-acm-blue rounded-3xl text-acm-white text-center font-bold xl:text-7xl l:text-6xl s:text-7xl text-5xl font-athiti p-1 my-4">
-        acm@ucr
-      </p>
+      <div className="bg-acm-blue rounded-3xl text-acm-white font-bold xl:text-7xl l:text-6xl s:text-7xl text-5xl font-lexend p-3 my-4 flex justify-center items-center">
+        <div className="flex justify-center items-center -mt-3">
+          acm
+          <div className="font-athiti font-semibold m-0 p-0">@</div>
+          ucr
+        </div>
+      </div>
     </div>
   );
 };

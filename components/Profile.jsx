@@ -1,25 +1,44 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import axios from "axios";
 
-/* NOTE : 
-When backend is implemented
+const Profile = ({ name, major, year, netId, email, points }) => {
+  const [user, setUserInfo] = useState([]);
 
-  1. Go to saveEditedValues function and change make sure name gets updated in database
+  let nameChanged = false;
+  let majorChanged = false;
+  let yearChanged = false;
 
-  2. In the HTML
-    Change all {editableValues.name} to just name
-    Change all {editableValues.major} to just major
-    Change all {editableValues.classOf} to just classOf
-*/
-
-const Profile = ({ name, major, classOf, netId, email, points }) => {
   const [edit, setEdit] = useState(false);
-
   const values = {
     name: name,
     major: major,
-    classOf: classOf,
+    year: year,
   };
+  const [yearErrors, setYearErrors] = useState("");
+
+  const validateYear = (yr) => {
+    let isValid = true;
+    const errors = "";
+    const regex = /^20[0-9]{2}$/;
+    if (!regex.test(yr)) {
+      errors = "Did not save, invalid class of";
+      isValid = false;
+    } else {
+      const currentDate = new Date().getFullYear();
+      if (yr < currentDate) {
+        errors = "Did not save, class of cannot be in the past";
+        isValid = false;
+      } else if (yr > currentDate + 6) {
+        errors = "Did not save, class of too far in the future";
+        isValid = false;
+      }
+    }
+    console.log(errors);
+    setYearErrors(errors);
+    return isValid;
+  };
+
   const [editableValues, setEditableValues] = useState(values);
 
   const handleNameChange = (event) => {
@@ -27,7 +46,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    console.log(editableValues.name);
+    nameChanged = true;
   };
 
   // Change major
@@ -36,16 +55,20 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    console.log(editableValues.major);
+    majorChanged = true;
   };
 
   // Change class of
-  const handleClassOfChange = (event) => {
-    setEditableValues({
-      ...editableValues,
-      [event.target.name]: event.target.value,
-    });
-    console.log(editableValues.classOf);
+  const handleyearChange = (event) => {
+    if (validateYear(event.target.value)) {
+      console.log("\nSUCCESS: ");
+      console.log(event.target.value);
+      setEditableValues({
+        ...editableValues,
+        [event.target.name]: event.target.value,
+      });
+    }
+    yearChanged = true;
   };
 
   // Functions for buttons
@@ -55,10 +78,37 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
   };
 
   const saveEditedValues = () => {
-    // put code to update edited values in the database in here
-    name = editableValues.name;
-    major = editableValues.major;
-    classOf = editableValues.classOf;
+    const data = {
+      name: editableValues.name,
+      major: editableValues.major,
+      year: editableValues.year,
+    };
+
+    if (!nameChanged) {
+      delete data[name];
+    }
+
+    if (!majorChanged) {
+      delete data[major];
+    }
+
+    if (!yearChanged) {
+      delete data[year];
+    }
+
+    axios.post("/api/profile/setInfo", {
+      data,
+    });
+
+    setUserInfo({
+      name: editableValues.name,
+      major: editableValues.major,
+      year: editableValues.year,
+    });
+
+    console.log("name: ", user.name);
+    console.log("major: ", user.major);
+    console.log("class of: ", user.year);
     setEdit(false);
   };
 
@@ -76,7 +126,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <input
             type="text"
             name="name"
-            placeholder={editableValues.name}
+            placeholder={user.name}
             onChange={handleNameChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -87,7 +137,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           <input
             type="text"
             name="major"
-            placeholder={editableValues.major}
+            placeholder={user.major}
             onChange={handleMajorChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -97,9 +147,9 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
           </p>
           <input
             type="text"
-            name="classOf"
-            placeholder={editableValues.classOf}
-            onChange={handleClassOfChange}
+            name="year"
+            placeholder={user.year}
+            onChange={handleyearChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
         </Col>
@@ -136,7 +186,6 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
               save
             </button>
           </Col>
-
           <Col xl={6}>
             <button
               id="editProfile"
@@ -151,52 +200,42 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
     );
   } else {
     return (
-      <Row className="w-full">
-        <Col xl={6}>
+      <Row className="w-full text-center">
+        <Col xl={6} className="sm:text-left">
           <p className="text-acm-black text-3xl font-lexend font-bold pb-1">
             name:
           </p>
           <p className="text-acm-black text-2xl font-lexend pb-1">
-            {editableValues.name}
+            {user.name}
           </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">
-            {editableValues.major}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{user.major}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">
-            {editableValues.classOf}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{user.year}</p>
         </Col>
-        <Col xl={6}>
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
+        <Col xl={6} className="sm:text-left">
+          <p className="text-acm-black text-3xl font-lexend font-bold">
             netid:
           </p>
-          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
-            {netId}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{netId}</p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             email:
           </p>
-          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
-            {email}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{email}</p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             points:
           </p>
-          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
-            {points}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{points}</p>
         </Col>
-        <Col xl={12}>
+        <Col xl={12} className="sm:text-left">
           <button
             id="editProfile"
             className=" w-full sm:w-4/6 md:w-5/12 py-2 font-lexend font-bold text-acm-black border-2 border-acm-lightpurple text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:border-acm-black"
@@ -205,6 +244,7 @@ const Profile = ({ name, major, classOf, netId, email, points }) => {
             edit profile
           </button>
         </Col>
+        <p className="text-acm-red font-bold pt-[2%]">{yearErrors}</p>
       </Row>
     );
   }
