@@ -239,23 +239,17 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold">
             netid:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">
-            {netId}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{netId}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             email:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">
-            {email}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{email}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             points:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">
-            {points}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{points}</p>
         </Col>
         <Col xl={12} className="sm:text-left">
           <button
