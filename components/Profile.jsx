@@ -200,8 +200,8 @@ const Profile = ({ name, major, year, netId, email, points }) => {
     );
   } else {
     return (
-      <Row className="w-full">
-        <Col xl={6}>
+      <Row className="w-full text-center">
+        <Col xl={6} className="sm:text-left">
           <p className="text-acm-black text-3xl font-lexend font-bold pb-1">
             name:
           </p>
@@ -219,29 +219,23 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           </p>
           <p className="text-acm-black text-2xl font-lexend">{user.year}</p>
         </Col>
-        <Col xl={6}>
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
+        <Col xl={6} className="sm:text-left">
+          <p className="text-acm-black text-3xl font-lexend font-bold">
             netid:
           </p>
-          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
-            {netId}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{netId}</p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             email:
           </p>
-          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
-            {email}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{email}</p>
 
-          <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
+          <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             points:
           </p>
-          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
-            {points}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend">{points}</p>
         </Col>
-        <Col xl={12}>
+        <Col xl={12} className="sm:text-left">
           <button
             id="editProfile"
             className=" w-full sm:w-4/6 md:w-5/12 py-2 font-lexend font-bold text-acm-black border-2 border-acm-lightpurple text-2xl transition-colors duration-150 bg-acm-lightpurple rounded-lg focus:shadow-outline hover:border-acm-black"
