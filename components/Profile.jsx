@@ -6,8 +6,6 @@ import axios from "axios";
 // it gets data from the db and is passed into the profile component
 
 const Profile = ({ name, major, year, netId, email, points }) => {
-  const [user, setUserInfo] = useState([]);
-
   let nameChanged = false;
   let majorChanged = false;
   let yearChanged = false;
@@ -20,23 +18,31 @@ const Profile = ({ name, major, year, netId, email, points }) => {
   };
   const [yearErrors, setYearErrors] = useState("");
 
-  const validateYear = (yr) => {
+  const validateYear = (yr, yearChanged) => {
     let isValid = true;
     const errors = "";
     const regex = /^20[0-9]{2}$/;
+
+    const currentDate = new Date().getFullYear();
+
+    if (yr >= currentDate && yr < currentDate + 6) {
+      yearChanged = true;
+    } else {
+      if (yr < currentDate) {
+        errors = "Did not save, class of cannot be in the past";
+        yearChanged = false;
+      }
+      if (yr > currentDate + 6) {
+        errors = "Did not save, class of too far in the future";
+        yearChanged = false;
+      }
+    }
+
     if (!regex.test(yr)) {
       errors = "Did not save, invalid class of";
       isValid = false;
-    } else {
-      const currentDate = new Date().getFullYear();
-      if (yr < currentDate) {
-        errors = "Did not save, class of cannot be in the past";
-        isValid = false;
-      } else if (yr > currentDate + 6) {
-        errors = "Did not save, class of too far in the future";
-        isValid = false;
-      }
     }
+
     console.log(errors);
     setYearErrors(errors);
     return isValid;
@@ -62,7 +68,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
   };
 
   // Change class of
-  const handleYearChange = (event) => {
+  const handleyearChange = (event) => {
     if (validateYear(event.target.value)) {
       console.log("\nSUCCESS: ");
       console.log(event.target.value);
@@ -71,7 +77,6 @@ const Profile = ({ name, major, year, netId, email, points }) => {
         [event.target.name]: event.target.value,
       });
     }
-    yearChanged = true;
   };
 
   // Functions for buttons
@@ -85,33 +90,20 @@ const Profile = ({ name, major, year, netId, email, points }) => {
       name: editableValues.name,
       major: editableValues.major,
       year: editableValues.year,
+      email: email,
     };
 
-    if (!nameChanged) {
-      delete data[name];
-    }
+    console.log(data.name, data.major, data.year, data.email);
 
-    if (!majorChanged) {
-      delete data[major];
-    }
+    axios
+      .post("/api/profile/setInfo", data)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    if (!yearChanged) {
-      delete data[year];
-    }
-
-    axios.post("/api/profile/setInfo", {
-      data,
-    });
-
-    setUserInfo({
-      name: editableValues.name,
-      major: editableValues.major,
-      year: editableValues.year,
-    });
-
-    console.log("name: ", user.name);
-    console.log("major: ", user.major);
-    console.log("class of: ", user.year);
     setEdit(false);
   };
 
@@ -129,7 +121,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="name"
-            placeholder={user.name}
+            placeholder={name}
             onChange={handleNameChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -140,7 +132,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="major"
-            placeholder={user.major}
+            placeholder={major}
             onChange={handleMajorChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -151,8 +143,8 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="year"
-            placeholder={user.year}
-            onChange={handleYearChange}
+            placeholder={year}
+            onChange={handleyearChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
         </Col>
