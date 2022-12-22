@@ -6,9 +6,9 @@ import axios from "axios";
 // it gets data from the db and is passed into the profile component
 
 const Profile = ({ name, major, year, netId, email, points }) => {
-  let nameChanged = false;
-  let majorChanged = false;
-  let yearChanged = false;
+  // let nameChanged = false;
+  // let majorChanged = false;
+  // let yearChanged = false;
 
   const [edit, setEdit] = useState(false);
   const values = {
