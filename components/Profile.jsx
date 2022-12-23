@@ -6,11 +6,7 @@ import axios from "axios";
 // it gets data from the db and is passed into the profile component
 
 const Profile = ({ name, major, year, netId, email, points }) => {
-  // let nameChanged = false;
-  // let majorChanged = false;
-  // let yearChanged = false;
-
-  const [edit, setEdit] = useState(false);
+  const [editState, setEditState] = useState(false);
   const values = {
     name: name,
     major: major,
@@ -18,29 +14,26 @@ const Profile = ({ name, major, year, netId, email, points }) => {
   };
   const [yearErrors, setYearErrors] = useState("");
 
-  const validateYear = (yr, yearChanged) => {
+  const validateYear = (yr) => {
     let isValid = true;
     const errors = "";
     const regex = /^20[0-9]{2}$/;
 
     const currentDate = new Date().getFullYear();
 
-    if (yr >= currentDate && yr < currentDate + 6) {
-      yearChanged = true;
-    } else {
-      if (yr < currentDate) {
-        errors = "Did not save, class of cannot be in the past";
-        yearChanged = false;
-      }
-      if (yr > currentDate + 6) {
-        errors = "Did not save, class of too far in the future";
-        yearChanged = false;
-      }
+    if (yr < currentDate) {
+      isValid = false;
+      errors = "Did not save, class of cannot be in the past";
+    }
+
+    if (yr > currentDate + 6) {
+      isValid = false;
+      errors = "Did not save, class of too far in the future";
     }
 
     if (!regex.test(yr)) {
-      errors = "Did not save, invalid class of";
       isValid = false;
+      errors = "Did not save. Please input a year";
     }
 
     console.log(errors);
@@ -55,7 +48,6 @@ const Profile = ({ name, major, year, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    nameChanged = true;
   };
 
   // Change major
@@ -64,14 +56,13 @@ const Profile = ({ name, major, year, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    majorChanged = true;
   };
 
   // Change class of
   const handleyearChange = (event) => {
     if (validateYear(event.target.value)) {
       console.log("\nSUCCESS: ");
-      console.log(event.target.value);
+
       setEditableValues({
         ...editableValues,
         [event.target.name]: event.target.value,
@@ -82,18 +73,32 @@ const Profile = ({ name, major, year, netId, email, points }) => {
   // Functions for buttons
   const editProfile = () => {
     console.log("Edit Profile Button Pressed");
-    setEdit(true);
+    setEditState(true);
   };
 
   const saveEditedValues = () => {
+    console.log(editableValues.name);
+
+    if (editableValues.name == undefined) {
+      editableValues.name = name;
+    }
+
+    if (editableValues.major == undefined) {
+      editableValues.major = major;
+    }
+
+    if (editableValues.year == undefined) {
+      editableValues.year = year;
+    }
+
+    console.log(editableValues.major);
+
     const data = {
       name: editableValues.name,
       major: editableValues.major,
       year: editableValues.year,
       email: email,
     };
-
-    console.log(data.name, data.major, data.year, data.email);
 
     axios
       .post("/api/profile/setInfo", data)
@@ -104,14 +109,14 @@ const Profile = ({ name, major, year, netId, email, points }) => {
         console.log(error);
       });
 
-    setEdit(false);
+    setEditState(false);
   };
 
   const cancelChanges = () => {
-    setEdit(false);
+    setEditState(false);
   };
 
-  if (edit) {
+  if (editState) {
     return (
       <Row className="w-full">
         <Col xl={6}>
