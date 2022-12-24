@@ -76,8 +76,20 @@ const Profile = ({ name, major, year, netId, email, points }) => {
     setEditState(true);
   };
 
+  const [refresh, setRefresh] = useState(false);
+
   const saveEditedValues = () => {
-    console.log(editableValues.name);
+    if (
+      (editableValues.name == undefined &&
+        editableValues.major == undefined &&
+        editableValues.year == undefined) ||
+      (editableValues.name == name &&
+        editableValues.major == major &&
+        editableValues.year == year)
+    ) {
+      setEditState(false);
+      return;
+    }
 
     if (editableValues.name == undefined) {
       editableValues.name = name;
@@ -90,8 +102,6 @@ const Profile = ({ name, major, year, netId, email, points }) => {
     if (editableValues.year == undefined) {
       editableValues.year = year;
     }
-
-    console.log(editableValues.major);
 
     const data = {
       name: editableValues.name,
@@ -110,7 +120,15 @@ const Profile = ({ name, major, year, netId, email, points }) => {
       });
 
     setEditState(false);
+
+    setTimeout(() => {
+      setRefresh(true);
+    }, 2000);
   };
+
+  if (refresh) {
+    window.location.reload();
+  }
 
   const cancelChanges = () => {
     setEditState(false);
