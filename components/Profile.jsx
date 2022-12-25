@@ -123,7 +123,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
 
     setTimeout(() => {
       setRefresh(true);
-    }, 2000);
+    }, 1000);
   };
 
   if (refresh) {
