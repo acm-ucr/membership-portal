@@ -33,7 +33,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
 
     if (!regex.test(yr)) {
       isValid = false;
-      errors = "Did not save. Please input a year";
+      errors = "Did not save. Please input a valid year";
     }
 
     console.log(errors);
