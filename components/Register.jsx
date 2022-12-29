@@ -68,6 +68,26 @@ const Register = () => {
     } else {
       setSubmit(true);
     }
+
+    const auth = getAuth();
+    createUserWithEmailAndPassword(
+      auth,
+      event.target[0].value,
+      event.target[4].value
+    )
+      .then((userCredential) => {
+        // Signed in
+        // const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // ..
+      });
+
+    //  Sets state to true when user registers
+    registerUser(true);
   };
 
   //  Checks whether user has registered and renders the confirmation component

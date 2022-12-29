@@ -115,7 +115,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTimeMon"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black rounded-l-lg cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black rounded-l-lg cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     mon
                   </label>
@@ -130,7 +130,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTimeTue"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     tue
                   </label>
@@ -145,7 +145,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTimeWed"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     wed
                   </label>
@@ -160,7 +160,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTimeThu"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     thu
                   </label>
@@ -175,7 +175,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTimeFri"
-                    className="rounded-r-lg w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="rounded-r-lg w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     fri
                   </label>
@@ -192,7 +192,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime10am"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black rounded-l-lg cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black rounded-l-lg cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     10am
                   </label>
@@ -207,7 +207,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime11am"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     11am
                   </label>
@@ -222,7 +222,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime12pm"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     12pm
                   </label>
@@ -237,7 +237,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime1pm"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     1pm
                   </label>
@@ -252,7 +252,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime2pm"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     2pm
                   </label>
@@ -267,7 +267,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime3pm"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     3pm
                   </label>
@@ -282,7 +282,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime4pm"
-                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     4pm
                   </label>
@@ -297,7 +297,7 @@ const ResumeReviewForm = ({ setFormState }) => {
                   />
                   <label
                     for="daysAndTime5pm"
-                    className="rounded-r-lg w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-marine peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
+                    className="rounded-r-lg w-full text-center text-acm-white border-2 border-acm-white bg-acm-black cursor-pointer   peer-checked:bg-acm-orange peer-checked:text-acm-black hover:text-gray-600hover:bg-acm-gray "
                   >
                     5pm
                   </label>

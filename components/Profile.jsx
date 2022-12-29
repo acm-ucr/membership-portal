@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
+// getting the name, major, class of working.
+// it gets data from the db and is passed into the profile component
+
 const Profile = ({ name, major, year, netId, email, points }) => {
-  const [user, setUserInfo] = useState([]);
-
-  let nameChanged = false;
-  let majorChanged = false;
-  let yearChanged = false;
-
-  const [edit, setEdit] = useState(false);
+  const [editState, setEditState] = useState(false);
   const values = {
     name: name,
     major: major,
@@ -21,19 +18,24 @@ const Profile = ({ name, major, year, netId, email, points }) => {
     let isValid = true;
     const errors = "";
     const regex = /^20[0-9]{2}$/;
-    if (!regex.test(yr)) {
-      errors = "Did not save, invalid class of";
+
+    const currentDate = new Date().getFullYear();
+
+    if (yr < currentDate) {
       isValid = false;
-    } else {
-      const currentDate = new Date().getFullYear();
-      if (yr < currentDate) {
-        errors = "Did not save, class of cannot be in the past";
-        isValid = false;
-      } else if (yr > currentDate + 6) {
-        errors = "Did not save, class of too far in the future";
-        isValid = false;
-      }
+      errors = "Did not save, class of cannot be in the past";
     }
+
+    if (yr > currentDate + 6) {
+      isValid = false;
+      errors = "Did not save, class of too far in the future";
+    }
+
+    if (!regex.test(yr)) {
+      isValid = false;
+      errors = "Did not save. Please input a valid year";
+    }
+
     console.log(errors);
     setYearErrors(errors);
     return isValid;
@@ -46,7 +48,6 @@ const Profile = ({ name, major, year, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    nameChanged = true;
   };
 
   // Change major
@@ -55,68 +56,85 @@ const Profile = ({ name, major, year, netId, email, points }) => {
       ...editableValues,
       [event.target.name]: event.target.value,
     });
-    majorChanged = true;
   };
 
   // Change class of
   const handleyearChange = (event) => {
     if (validateYear(event.target.value)) {
       console.log("\nSUCCESS: ");
-      console.log(event.target.value);
+
       setEditableValues({
         ...editableValues,
         [event.target.name]: event.target.value,
       });
     }
-    yearChanged = true;
   };
 
   // Functions for buttons
   const editProfile = () => {
     console.log("Edit Profile Button Pressed");
-    setEdit(true);
+    setEditState(true);
   };
 
+  const [refresh, setRefresh] = useState(false);
+
   const saveEditedValues = () => {
+    if (
+      (editableValues.name == undefined &&
+        editableValues.major == undefined &&
+        editableValues.year == undefined) ||
+      (editableValues.name == name &&
+        editableValues.major == major &&
+        editableValues.year == year)
+    ) {
+      setEditState(false);
+      return;
+    }
+
+    if (editableValues.name == undefined) {
+      editableValues.name = name;
+    }
+
+    if (editableValues.major == undefined) {
+      editableValues.major = major;
+    }
+
+    if (editableValues.year == undefined) {
+      editableValues.year = year;
+    }
+
     const data = {
       name: editableValues.name,
       major: editableValues.major,
       year: editableValues.year,
+      email: email,
     };
 
-    if (!nameChanged) {
-      delete data[name];
-    }
+    axios
+      .post("/api/profile/setInfo", data)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    if (!majorChanged) {
-      delete data[major];
-    }
+    setEditState(false);
 
-    if (!yearChanged) {
-      delete data[year];
-    }
-
-    axios.post("/api/profile/setInfo", {
-      data,
-    });
-
-    setUserInfo({
-      name: editableValues.name,
-      major: editableValues.major,
-      year: editableValues.year,
-    });
-
-    console.log("name: ", user.name);
-    console.log("major: ", user.major);
-    console.log("class of: ", user.year);
-    setEdit(false);
+    setTimeout(() => {
+      setRefresh(true);
+    }, 1000);
   };
+
+  if (refresh) {
+    window.location.reload();
+  }
 
   const cancelChanges = () => {
-    setEdit(false);
+    setEditState(false);
   };
 
-  if (edit) {
+  if (editState) {
     return (
       <Row className="w-full">
         <Col xl={6}>
@@ -126,7 +144,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="name"
-            placeholder={user.name}
+            placeholder={name}
             onChange={handleNameChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -137,7 +155,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="major"
-            placeholder={user.major}
+            placeholder={major}
             onChange={handleMajorChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -148,7 +166,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="year"
-            placeholder={user.year}
+            placeholder={year}
             onChange={handleyearChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -205,19 +223,17 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pb-1">
             name:
           </p>
-          <p className="text-acm-black text-2xl font-lexend pb-1">
-            {user.name}
-          </p>
+          <p className="text-acm-black text-2xl font-lexend pb-1">{name}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{user.major}</p>
+          <p className="text-acm-black text-2xl font-lexend">{major}</p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{user.year}</p>
+          <p className="text-acm-black text-2xl font-lexend">{year}</p>
         </Col>
         <Col xl={6} className="sm:text-left">
           <p className="text-acm-black text-3xl font-lexend font-bold">
