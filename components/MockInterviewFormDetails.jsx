@@ -15,7 +15,7 @@ const MockInterviewFormDetails = ({
   return (
     <>
       <div className="fixed inset-0 bg-acm-white opacity-50 w-full h-full"></div>
-      <div className="absolute  inset-x-0 top-20  w-full">
+      <div className="absolute inset-x-0 top-40  w-full">
         <div className="flex justify-center isolation-auto ">
           <div className="bg-acm-black rounded-3xl w-1/2 flex flex-col">
             <div className="flex justify-between">
