@@ -182,7 +182,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold pt-3">
             email:
           </p>
-          <p className="text-acm-black text-2xl font-lexend h-fit w-fit">
+          <p className="break-words text-acm-black text-2xl font-lexend h-fit w-fit">
             {email}
           </p>
 
@@ -244,7 +244,9 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             email:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{email}</p>
+          <p className="break-words text-acm-black text-2xl font-lexend">
+            {email}
+          </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             points:
