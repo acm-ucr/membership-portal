@@ -13,9 +13,9 @@ const Index = () => {
   useEffect(() => {
     onAuthStateChanged(auth, async (currentState) => {
       if (currentState !== null) {
-        console.log(currentState.email);
+        console.log(currentState.uid);
         const response = await axios.post("/api/profile/verifyUser", {
-          email: currentState.email,
+          uid: currentState.uid,
         });
         if (response.status === 200) {
           router.push("/user/dashboard");

@@ -17,7 +17,7 @@ const Navigation = () => {
       if (currentState !== null) {
         console.log(currentState.email);
         const response = await axios.post("/api/profile/verifyUser", {
-          email: currentState.email,
+          uid: currentState.uid,
         });
         if (response.status === 200) {
           setVerified(true);
