@@ -7,14 +7,16 @@ const Announcements = () => {
 
   const colorMappings = {
     social: "bg-acm-green",
-    "professional development": "bg-acm-purple",
-    "technical workshop": "bg-acm-blue",
+    professional: "bg-acm-lightpurple",
+    technical: "bg-acm-lightblue",
+    general: "bg-acm-yellow",
   };
 
   const colorMappingsText = {
     social: "text-acm-green",
-    "professional development": "text-acm-purple",
-    "technical workshop": "text-acm-blue",
+    professional: "text-acm-lightpurple",
+    technical: "text-acm-lightblue",
+    general: "text-acm-yellow",
   };
 
   const numToMonth = {
@@ -37,11 +39,11 @@ const Announcements = () => {
       .get("/api/get5Announcements")
       .then((response) => {
         setAnnouncements(response.data);
-        console.log(announcementsDB[0].data.type);
-        console.log(announcementsDB[1].data.type);
-        console.log(announcementsDB[2].data.type);
-        console.log(announcementsDB[3].data.type);
-        console.log(announcementsDB[4].data.type);
+        console.log(announcementsDB[0]?.data.type);
+        console.log(announcementsDB[1]?.data.type);
+        console.log(announcementsDB[2]?.data.type);
+        console.log(announcementsDB[3]?.data.type);
+        console.log(announcementsDB[4]?.data.type);
       })
       .catch((error) => {
         console.log("Error: ", error);
@@ -65,8 +67,9 @@ const Announcements = () => {
           const newDate = new Date(a.data.time.seconds);
           return (
             <Announcement
-              key={a.title}
-              title={a.title}
+              details={a.data.details}
+              key={a.id}
+              title={a.data.title}
               location={a.data.location}
               background={colorMappings[a.data.type]}
               text={colorMappingsText[a.data.type]}

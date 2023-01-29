@@ -1,7 +1,16 @@
 import React from "react";
 import { FaCircle } from "react-icons/fa";
 
-const Announcement = ({ background, text, title, date, time, location }) => {
+const Announcement = ({
+  background,
+  text,
+  title,
+  date,
+  time,
+  location,
+  details,
+}) => {
+  console.log(details);
   return (
     <div
       className={`flex justify-end items-center my-3 w-11/12 ${background} border-4 border-black rounded-3xl`}

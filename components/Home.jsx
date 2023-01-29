@@ -17,15 +17,15 @@ const Home = () => {
       if (currentState === null) {
         router.push("/");
       } else {
-        console.log(currentState.email);
+        console.log(currentState.displayName);
         axios
-          .post("/api/profile/getInfo", { email: currentState.email })
+          .post("/api/profile/getInfo", { uid: currentState.uid })
           .then((response) => {
             const data = response.data.data;
             console.log(data);
             const date = new Date(data.start.seconds * 1000);
             data.start = date.getFullYear();
-            setUserInfo(data);
+            setUserInfo({ ...data, name: currentState.displayName });
           })
           .catch((error) => {
             console.log(error);

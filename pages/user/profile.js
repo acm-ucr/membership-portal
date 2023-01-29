@@ -12,32 +12,39 @@ const ProfilePage = () => {
   useEffect(() => {
     onAuthStateChanged(auth, async (currentState) => {
       if (currentState !== null) {
-        console.log(currentState.email);
+        console.log(currentState.photoURL);
         const response = await axios.post("/api/profile/getInfo", {
-          email: currentState.email,
+          uid: currentState.uid,
         });
         if (response.status === 200) {
-          setData(response.data);
+          setData({
+            ...response.data,
+            photoURL: currentState.photoURL,
+            email: currentState.email,
+            name: currentState.displayName,
+            uid: currentState.uid,
+          });
           console.log(response.data);
         }
       }
     });
   }, []);
-
+  console.log(data);
   return (
     <div className="flex justify-center pt-[14vh]">
       <Row className="w-11/12">
         <Header title="profile" color="acm-green" />
         <Col className="flex justify-center items-stretch ml-0 mt-0 mr-0 mb-8 p-0">
-          <Photo email={data?.id} />
+          <Photo uid={data?.uid} photoURL={data?.photoURL} />
         </Col>
         <Col>
           <Profile
-            name={data?.data?.name}
+            uid={data?.uid}
+            name={data?.name}
             major={data?.data?.major}
             year={data?.data?.year}
-            netId={data?.id?.substr(0, data.id.indexOf("@"))}
-            email={data?.id}
+            netId={data?.email?.substr(0, data.email.indexOf("@"))}
+            email={data?.email}
             points={data?.data?.points}
           />
         </Col>
