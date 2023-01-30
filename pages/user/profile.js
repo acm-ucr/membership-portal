@@ -32,6 +32,7 @@ const ProfilePage = () => {
   console.log(data);
   return (
     <div className="flex justify-center pt-[14vh]">
+      <title>Profile</title>
       <Row className="w-11/12">
         <Header title="profile" color="acm-green" />
         <Col className="flex justify-center items-stretch ml-0 mt-0 mr-0 mb-8 p-0">
