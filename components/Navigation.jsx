@@ -40,26 +40,24 @@ const Navigation = () => {
   return (
     <Navbar
       collapseOnSelect
-      className="py-0 font-lexend w-full px-3 m-0 min-h-[12vh] bg-white border-acm-blue border-b-4 flex justify-between items-center"
+      className="py-0 font-lexend w-full px-3 m-0 min-h-[10vh] bg-white border-acm-blue border-b-4 flex justify-between items-center"
       expand="md"
       fixed="top"
     >
-      <Navbar.Brand className="flex flex-row items-center">
-        <Link href="/user/dashboard" passHref>
-          <Nav.Link eventKey="1">
-            <Image
-              src="/acm-ucr-logo.png"
-              alt="ACM at UCR"
-              width={100}
-              height={100}
-            />
-          </Nav.Link>
+      <Navbar.Brand className="flex flex-row items-center p-0 m-0">
+        <Link href="/user/dashboard">
+          <Image
+            src="/acm-ucr-logo.png"
+            alt="ACM at UCR"
+            width={80}
+            height={80}
+          />
         </Link>
         <div className="hidden lg:block">
-          <Link href="/user/dashboard" passHref>
-            <Nav className=" float-left font-lexend font-medium text-2xl cursor-pointer">
+          <Link href="/user/dashboard">
+            <p className="m-0 font-lexend font-medium text-2xl cursor-pointer">
               membership portal
-            </Nav>
+            </p>
           </Link>
         </div>
       </Navbar.Brand>
