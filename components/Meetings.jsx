@@ -7,7 +7,7 @@ const Meetings = () => {
   if (data == 0) {
     return (
       <div className="flex flex-col font-lexend border-black border-2 rounded-3xl min-h-fit h-2/6">
-        <div className="flex bg-black text-white text-2xl font-semibold rounded-3xl p-1 px-4 w-fit mx-4 mt-4 mb-4">
+        <div className="flex bg-black text-white text-2xl font-semibold rounded-3xl py-1 px-4 w-fit mx-4 mt-4 mb-">
           scheduled meetings
         </div>
         <div className="flex font-lexend justify-center items-center py-16">
@@ -20,7 +20,7 @@ const Meetings = () => {
   {
     return (
       <div className="flex flex-col font-lexend border-black border-2 rounded-3xl">
-        <div className="flex bg-black text-white text-2xl font-semibold rounded-3xl p-1 px-4 w-fit mx-4 mt-4 mb-4">
+        <div className="flex bg-black text-white font-semibold rounded-full text-3xl py-2 px-3 w-fit mx-4 mt-4 mb-4">
           scheduled meetings
         </div>
         {MeetingsData.map((meeting, value) => (

@@ -5,7 +5,7 @@ import { FaCircle } from "react-icons/fa";
 const Meeting = ({ title, date, time, location, backgroundColor }) => {
   return (
     <div
-      className={`flex flex-col font-lexend border-2 ${backgroundColor} rounded-3xl border-black mb-4 mx-4 w-12/12`}
+      className={`flex flex-col font-lexend border-2 ${backgroundColor} rounded-3xl border-black my-3 mx-4 w-12/12`}
     >
       <div className="font-semibold text-3xl mx-4 py-2 ">{title}</div>
       <div className="flex justify-start text-xl text-black">
