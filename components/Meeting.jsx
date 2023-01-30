@@ -14,10 +14,10 @@ const Meeting = ({ title, date, time, location, backgroundColor }) => {
       <div className="flex justify-start text-xl text-black">
         <FaCircle className=" fill-white mx-4 mb-2" /> time: {time}
       </div>
-      <div className="flex justify-start text-xl text-black mb-2">
+      <div className="flex flex-wrap justify-start text-xl text-black mb-2">
         <FaCircle className=" fill-white mx-4" /> location: {location}
         <Link href="/user/forms">
-          <button className="flex  bg-white justify-center ml-52 rounded-3xl w-48">
+          <button className="flex bg-white justify-center rounded-3xl text-xs w-24 h-8 items-center mr-auto ml-auto sm:mr-2 md:w-40 md:text-base">
             more details
           </button>
         </Link>
