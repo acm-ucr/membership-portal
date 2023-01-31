@@ -35,7 +35,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="ml-12 mt-12 mb-12">
+    <div className="ml-12 mb-12">
       <div className="mb-4">
         <h1 className="text-6xl text-black font-bold">
           welcome‚ {userInfo.name}
