@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
-
+import { useEffect } from "react";
 // getting the name, major, class of working.
 // it gets data from the db and is passed into the profile component
 
-const Profile = ({ name, major, year, netId, email, points }) => {
+const Profile = ({ uid, name, major, year, netId, email, points }) => {
   const [editState, setEditState] = useState(false);
-  const values = {
-    name: name,
+  const [yearErrors, setYearErrors] = useState("");
+  const [editableValues, setEditableValues] = useState({
     major: major,
     year: year,
-  };
-  const [yearErrors, setYearErrors] = useState("");
-
+  });
   const validateYear = (yr) => {
     let isValid = true;
     const errors = "";
@@ -40,32 +38,23 @@ const Profile = ({ name, major, year, netId, email, points }) => {
     setYearErrors(errors);
     return isValid;
   };
-
-  const [editableValues, setEditableValues] = useState(values);
-
-  const handleNameChange = (event) => {
-    setEditableValues({
-      ...editableValues,
-      [event.target.name]: event.target.value,
-    });
-  };
-
+  useEffect(() => {
+    setEditableValues({ major: major, year: year });
+  }, [major, year]);
   // Change major
   const handleMajorChange = (event) => {
     setEditableValues({
       ...editableValues,
-      [event.target.name]: event.target.value,
+      major: event.target.value,
     });
   };
 
   // Change class of
   const handleyearChange = (event) => {
     if (validateYear(event.target.value)) {
-      console.log("\nSUCCESS: ");
-
       setEditableValues({
         ...editableValues,
-        [event.target.name]: event.target.value,
+        year: event.target.value,
       });
     }
   };
@@ -76,40 +65,22 @@ const Profile = ({ name, major, year, netId, email, points }) => {
     setEditState(true);
   };
 
-  const [refresh, setRefresh] = useState(false);
+  // const [refresh, setRefresh] = useState(false);
 
   const saveEditedValues = () => {
-    if (
-      (editableValues.name == undefined &&
-        editableValues.major == undefined &&
-        editableValues.year == undefined) ||
-      (editableValues.name == name &&
-        editableValues.major == major &&
-        editableValues.year == year)
-    ) {
+    if (editableValues.major == undefined) editableValues.major = major;
+    if (editableValues.year == undefined) editableValues.year = year;
+    if (editableValues.major == major && editableValues.year == year) {
       setEditState(false);
       return;
     }
 
-    if (editableValues.name == undefined) {
-      editableValues.name = name;
-    }
-
-    if (editableValues.major == undefined) {
-      editableValues.major = major;
-    }
-
-    if (editableValues.year == undefined) {
-      editableValues.year = year;
-    }
-
     const data = {
-      name: editableValues.name,
       major: editableValues.major,
       year: editableValues.year,
-      email: email,
+      uid: uid,
     };
-
+    console.log(data);
     axios
       .post("/api/profile/setInfo", data)
       .then((response) => {
@@ -121,14 +92,14 @@ const Profile = ({ name, major, year, netId, email, points }) => {
 
     setEditState(false);
 
-    setTimeout(() => {
-      setRefresh(true);
-    }, 1000);
+    // setTimeout(() => {
+    //   setRefresh(true);
+    // }, 1000);
   };
 
-  if (refresh) {
-    window.location.reload();
-  }
+  // if (refresh) {
+  //   window.location.reload();
+  // }
 
   const cancelChanges = () => {
     setEditState(false);
@@ -141,13 +112,10 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pb-1">
             name:
           </p>
-          <input
-            type="text"
-            name="name"
-            placeholder={name}
-            onChange={handleNameChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
-          />
+
+          <p className="break-words text-acm-black text-2xl font-lexend h-fit w-fit">
+            {name}
+          </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
@@ -155,7 +123,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="major"
-            placeholder={major}
+            placeholder={editableValues.major}
             onChange={handleMajorChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -166,7 +134,7 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <input
             type="text"
             name="year"
-            placeholder={year}
+            placeholder={editableValues.year}
             onChange={handleyearChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
           />
@@ -228,12 +196,16 @@ const Profile = ({ name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{major}</p>
+          <p className="text-acm-black text-2xl font-lexend">
+            {editableValues.major}
+          </p>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
-          <p className="text-acm-black text-2xl font-lexend">{year}</p>
+          <p className="text-acm-black text-2xl font-lexend">
+            {editableValues.year}
+          </p>
         </Col>
         <Col xl={6} className="sm:text-left">
           <p className="text-acm-black text-3xl font-lexend font-bold">

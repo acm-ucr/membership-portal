@@ -6,6 +6,7 @@ import SubmittedForms from "../../components/SubmittedForms";
 const forms = () => {
   return (
     <div className="pt-[14vh]">
+      <title>Forms</title>
       <br></br>
       <AvailableForms />
       <br></br>

@@ -48,7 +48,7 @@ const Resources = () => {
             !NoResources && (
               <Col className="p-3" xs={12} sm={6} md={4} lg={3} key={index}>
                 <Resource
-                  titles={recourceCard.title}
+                  titles={recourceCard.data.title}
                   documentLink={recourceCard.data.slides}
                   youtubeLink={recourceCard.data.youtube}
                   githubLink={recourceCard.data.github}
