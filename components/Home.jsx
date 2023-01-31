@@ -35,18 +35,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="ml-4 mt-4 sm:ml-12">
+    <div className="ml-12 mb-12">
       <div className="mb-4">
-        <h1 className="text-6xl text-black font-bold h-min w-min lg:text-8xl">
-          welcome‚
-        </h1>
-        <h1 className="text-6xl text-black font-bold lg:text-8xl">
-          {userInfo.name}
+        <h1 className="text-6xl text-black font-bold">
+          welcome‚ {userInfo.name}
         </h1>
       </div>
-
       <div>
-        <h5 className="text-3xl text-acm-gray font-acm lg:text-4xl">
+        <h5 className="text-3xl text-acm-gray font-acm ">
           member since {userInfo.start} | {userInfo.points} points
         </h5>
       </div>
