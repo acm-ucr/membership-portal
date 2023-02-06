@@ -125,7 +125,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             name="major"
             placeholder={editableValues.major}
             onChange={handleMajorChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
+            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
           />
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
@@ -136,7 +136,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             name="year"
             placeholder={editableValues.year}
             onChange={handleyearChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-4/6 md:w-4/5"
+            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
           />
         </Col>
         <Col xl={6}>
