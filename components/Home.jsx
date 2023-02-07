@@ -37,14 +37,14 @@ const Home = () => {
   return (
     <div className="ml-12 mb-12">
       <div className="mb-4">
-        <h1 className="text-6xl text-black font-bold">
+        <p className="text-6xl text-black font-bold">
           welcome‚ {userInfo.name}
-        </h1>
+        </p>
       </div>
       <div>
-        <h5 className="text-3xl text-acm-gray font-acm ">
+        <p className="text-3xl text-acm-gray font-acm ">
           member since {userInfo.start} | {userInfo.points} points
-        </h5>
+        </p>
       </div>
     </div>
   );

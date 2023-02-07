@@ -11,9 +11,9 @@ const Confirmation = () => {
         <Row>
           <Col className="bg-acm-blue rounded-[10%]">
             <div className="pl-[5%] pr-[5%] text-center text-acm-black font-bold pt-[12%]">
-              <h3 className="text-[150%]">
+              <p className="text-[150%]">
                 welcome! you are now an official member of
-              </h3>
+              </p>
             </div>
 
             <div className="bg-acm-black rounded-3xl w-3/4 mx-auto px-2.5">
