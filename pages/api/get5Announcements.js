@@ -1,10 +1,19 @@
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, query, limit, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export default async function get5Announcements(req, res) {
   const announcements = [];
+  const announcementRef = collection(db, "announcement");
 
-  const querySnapshot = await getDocs(collection(db, "announcement"));
+  // custom query to get 5 most recent announcements
+  const mostRecentQuery = query(
+    announcementRef,
+    orderBy("time", "asc"),
+    limit(5)
+  );
+
+  // old code
+  const querySnapshot = await getDocs(mostRecentQuery);
 
   querySnapshot.forEach((doc) => {
     announcements.push({
@@ -47,12 +56,5 @@ export default async function get5Announcements(req, res) {
   //   quickSort(announcements, index + 1, end);
   // };
 
-  const top5 = announcements
-    .sort(
-      (firstItem, secondItem) =>
-        secondItem.data.time.seconds - firstItem.data.time.seconds
-    )
-    .slice(0, 5);
-
-  res.status(200).json(top5);
+  res.status(200).json(announcements);
 }

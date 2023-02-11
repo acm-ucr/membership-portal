@@ -53,7 +53,7 @@ const Announcements = () => {
   return (
     <div className="flex justify-center">
       <div className="w-11/12 flex justify-center items-center flex-col bg-acm-black rounded-3xl">
-        <div className="w-11/12 felx justify-start">
+        <div className="w-11/12 flex justify-start">
           <p className="inline-block  py-2 px-3 rounded-full text-3xl font-semibold mb-4 mt-4 border-l-4 border-acm-black bg-acm-white text-acm-black board">
             announcements
           </p>
