@@ -6,6 +6,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        heading: [
+          "3.5rem",
+          {
+            fontWeight: "600",
+            fontFamily: {
+              lexend: ["Lexend"],
+            },
+          },
+        ],
+      },
       fontFamily: {
         lexend: ["Lexend"],
         athiti: ["Athiti"],
