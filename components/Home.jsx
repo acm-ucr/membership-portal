@@ -43,7 +43,7 @@ const Home = () => {
           </p>
         </div>
         <div>
-          <p className=" flex text-center text-3xl text-acm-gray font-acm ">
+          <p className="flex text-center text-3xl text-acm-gray font-acm ">
             member since {userInfo.start} | {userInfo.points} points
           </p>
         </div>
