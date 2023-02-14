@@ -1,29 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Events from "./data/Events.jsx";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import CustomToolbar from "./CustomToolbar.jsx";
 import CustomEvent from "./CustomEvent.jsx";
 
-import Event from "./Event.jsx";
 import Modal from "./Modal.jsx";
 
 const mLocalizer = momentLocalizer(moment);
 
 const CalendarEvents = () => {
-  const [events, setEvents] = useState([]);
   const [modalEvent, setModalEvent] = useState(null);
-
-  useEffect(() => {
-    setEvents(
-      Events.filter((event) => {
-        return event.start > new Date();
-      }).slice(0, 8)
-    );
-  }, []);
 
   return (
     <section className="w-full flex justify-center items-center flex-col mt-[12vh]">
@@ -66,30 +54,6 @@ const CalendarEvents = () => {
           <Modal event={modalEvent} setState={setModalEvent} />
         </div>
       </div>
-
-      <Row className="w-11/12 mb-20 flex justify-center">
-        <p className="text-center flex justify-center text-heading">
-          Upcoming Events
-        </p>
-        {events.length ? (
-          events.map((event, index) => (
-            <Col className="p-3" md={6} lg={3} key={index}>
-              <Event
-                title={event.title}
-                location={event.location}
-                shadow={event.shadow}
-                start={event.start}
-                end={event.end}
-                description={event.description}
-              />
-            </Col>
-          ))
-        ) : (
-          <Col className="text-text flex justify-center text-center text-acm-black font-lexend p-3">
-            No upcoming events, please check back later!
-          </Col>
-        )}
-      </Row>
     </section>
   );
 };
