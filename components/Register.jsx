@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 /* import { useState } from "react"; */
 import { Row, Col, Container } from "react-bootstrap";
-import Confirmation from "./Confirmation.jsx";
 import Link from "next/link";
 
 const Register = () => {
@@ -94,7 +93,6 @@ const Register = () => {
   if (submit) {
     return (
       <div className="flex justify-center items-center flex-col pt-[25vh]">
-        <Confirmation />
         {/* checks if it saves properly */}
         {/* <p>Name Inputted: {name}</p>
         <p>Email Inputted: {email}</p>
