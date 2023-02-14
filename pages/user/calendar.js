@@ -1,9 +1,10 @@
 import React from "react";
+import Calendar from "/components/Calendar.jsx";
 
 const calendar = () => {
   return (
     <div className="mt-28">
-      <h1>calendar route</h1>
+      <Calendar />
     </div>
   );
 };
