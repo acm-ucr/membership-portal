@@ -13,7 +13,7 @@ const Announcement = ({
   console.log(details);
   return (
     <div
-      className={`flex justify-end items-center my-3 w-11/12 ${background} border-4 border-black rounded-3xl`}
+      className={`flex justify-end items-center my-3 w-11/12 ${background} border-3 border-black rounded-3xl`}
     >
       <div className="w-11/12 bg-acm-white border-l-4 border-acm-black rounded-r-3xl font-lexend p-2">
         <p className="text-3xl font-semibold mx-2">{title}</p>
