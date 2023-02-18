@@ -43,6 +43,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
   }, [major, year]);
   // Change major
   const handleMajorChange = (event) => {
+    console.log(event.target.value);
     setEditableValues({
       ...editableValues,
       major: event.target.value,
@@ -120,13 +121,36 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             major:
           </p>
-          <input
-            type="text"
-            name="major"
-            placeholder={editableValues.major}
+
+          <select
+            className="text-acm-black text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
             onChange={handleMajorChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
-          />
+          >
+            <option value="none" selected disabled hidden>
+              Select an Option
+            </option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Computer Science w/ Business App">
+              Computer Science w/ Business App
+            </option>
+            <option value="Computer Engineering">Computer Engineering</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Electrical Engineering">
+              Electrical Engineering
+            </option>
+            <option value="Mechanical Engineering">
+              Mechanical Engineering
+            </option>
+            <option value="Bioengineering">Bioengineering</option>
+            <option value="Chemical Engineering">Chemical Engineering</option>
+            <option value="Environmental Engineering">
+              Environmental Engineering
+            </option>
+            <option value="Material Science and Engineering">
+              Material Science and Engineering
+            </option>
+            <option value="Robotics Engineering">Robotics Engineering</option>
+          </select>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
