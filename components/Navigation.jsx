@@ -49,8 +49,8 @@ const Navigation = () => {
           <Image
             src="/acm-ucr-logo.png"
             alt="ACM at UCR"
-            width={80}
-            height={80}
+            width={65}
+            height={65}
           />
         </Link>
         <div className="hidden lg:block">
