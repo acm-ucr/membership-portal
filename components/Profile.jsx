@@ -211,7 +211,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
   } else {
     return (
       <Row className="w-full text-center">
-        <Col xl={6} className="sm:text-left">
+        <Col xl={6} className="sm:text-center md:text-left">
           <p className="text-acm-black text-3xl font-lexend font-bold pb-1">
             name:
           </p>
@@ -231,7 +231,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             {editableValues.year}
           </p>
         </Col>
-        <Col xl={6} className="sm:text-left">
+        <Col xl={6} className="sm:text-center md:text-left">
           <p className="text-acm-black text-3xl font-lexend font-bold">
             netid:
           </p>
