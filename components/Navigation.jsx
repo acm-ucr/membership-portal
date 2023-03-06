@@ -49,8 +49,8 @@ const Navigation = () => {
           <Image
             src="/acm-ucr-logo.png"
             alt="ACM at UCR"
-            width={80}
-            height={80}
+            width={50}
+            height={50}
           />
         </Link>
         <div className="hidden lg:block">
@@ -64,12 +64,12 @@ const Navigation = () => {
 
       {verified && (
         <>
-          <Navbar.Toggle aria-controls="navbar-nav" />
+          <Navbar.Toggle className="!text-sm" aria-controls="navbar-nav" />
           <Navbar.Collapse
             id="navbar-nav"
             className="-mt-2 flex justify-center md:justify-end items-center"
           >
-            <Nav className=" no-underline text-2xl flex justify-center items-center">
+            <Nav className="no-underline text-2xl flex justify-center items-center">
               <Link href="/user/dashboard" passHref>
                 <Nav.Link
                   className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"

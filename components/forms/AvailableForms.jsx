@@ -1,15 +1,15 @@
 import React from "react";
-import Header from "./Header";
-import CompletedFormsArray from "./CompletedFormsArray";
-import { Row, Col } from "react-bootstrap";
-import Form from "./CompletedForm.jsx";
+import { Col, Row } from "react-bootstrap";
+import Header from "../Header";
+import Form from "./AvailableForm.jsx";
+import AvailableFormsArray from "./AvailableFormsArray";
 
-const CompletedForms = () => {
+const AvailableForms = () => {
   return (
     <div className="w-full flex justify-center items-center flex-col">
-      <Header title="completed forms" color="acm-black" />
+      <Header title="available forms" color="bg-acm-black" />
       <Row className="w-11/12 py-2">
-        {CompletedFormsArray.map((item, index) => (
+        {AvailableFormsArray.map((item, index) => (
           <Col xs={6} sm={4} md={3} lg={2} key={index}>
             <Form
               title={item.title}
@@ -24,4 +24,4 @@ const CompletedForms = () => {
   );
 };
 
-export default CompletedForms;
+export default AvailableForms;

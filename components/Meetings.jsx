@@ -1,5 +1,5 @@
 import React from "react";
-import Meeting from "./Meeting";
+// import Meeting from "./Meeting";
 import MeetingsData from "./MeetingsData";
 
 const Meetings = () => {
@@ -19,21 +19,22 @@ const Meetings = () => {
   }
   {
     return (
-      <div className="flex flex-col font-lexend border-black border-2 rounded-3xl">
-        <div className="inline-block bg-black text-white text-3xl font-semibold rounded-3xl py-2 px-3 w-fit mx-4 mt-4 mb-4">
-          scheduled meetings
-        </div>
-        {MeetingsData.map((meeting, value) => (
-          <Meeting
-            key={value}
-            title={meeting.title}
-            date={meeting.date}
-            time={meeting.time}
-            location={meeting.location}
-            backgroundColor={meeting.backgroundColor}
-          />
-        ))}
-      </div>
+      // <div className="flex flex-col font-lexend border-black border-2 rounded-3xl">
+      //   <div className="inline-block bg-black text-white text-3xl font-semibold rounded-3xl py-2 px-3 w-fit mx-4 mt-4 mb-4">
+      //     scheduled meetings
+      //   </div>
+      //   {MeetingsData.map((meeting, value) => (
+      //     <Meeting
+      //       key={value}
+      //       title={meeting.title}
+      //       date={meeting.date}
+      //       time={meeting.time}
+      //       location={meeting.location}
+      //       backgroundColor={meeting.backgroundColor}
+      //     />
+      //   ))}
+      // </div>
+      <div></div>
     );
   }
 };

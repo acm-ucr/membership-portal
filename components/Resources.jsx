@@ -59,7 +59,7 @@ const Resources = () => {
         })}
       </Row>
       {NoResources && (
-        <p className="font-lexend font-medium text-2xl">
+        <p className="font-lexend font-medium text-2xl text-center">
           No resources available in this time slot
         </p>
       )}
