@@ -106,6 +106,17 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
     setEditState(false);
   };
 
+  const getOptions = ({ year }) => {
+    const date = new Date().getFullYear();
+    const years = [];
+
+    for (let i = date; i < date + 6; i++) {
+      years.push(<option value={i}>{i}</option>);
+    }
+
+    return years;
+  };
+
   if (editState) {
     return (
       <Row className="w-full">
@@ -155,13 +166,19 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
             class of:
           </p>
-          <input
+          <select
             type="text"
             name="year"
             placeholder={editableValues.year}
             onChange={handleyearChange}
             className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
-          />
+          >
+            <option value="none" selected disabled hidden>
+              Select a Year
+            </option>
+
+            {getOptions()}
+          </select>
         </Col>
         <Col xl={6}>
           <p className="text-acm-black text-3xl font-lexend h-fit w-fit font-bold">
