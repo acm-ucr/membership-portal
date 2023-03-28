@@ -39,11 +39,6 @@ const Announcements = () => {
       .get("/api/get5Announcements")
       .then((response) => {
         setAnnouncements(response.data);
-        console.log(announcementsDB[0]?.data.type);
-        console.log(announcementsDB[1]?.data.type);
-        console.log(announcementsDB[2]?.data.type);
-        console.log(announcementsDB[3]?.data.type);
-        console.log(announcementsDB[4]?.data.type);
       })
       .catch((error) => {
         console.log("Error: ", error);

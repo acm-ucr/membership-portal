@@ -70,7 +70,7 @@ const Navigation = () => {
             className="-mt-2 flex justify-center md:justify-end items-center"
           >
             <Nav className="no-underline text-2xl flex justify-center items-center">
-              <Link href="/user/dashboard" passHref>
+              <Link href="/dashboard" passHref>
                 <Nav.Link
                   className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="6"
@@ -78,7 +78,7 @@ const Navigation = () => {
                   dashboard
                 </Nav.Link>
               </Link>
-              <Link href="/user/profile" passHref>
+              <Link href="/profile" passHref>
                 <Nav.Link
                   className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="2"
@@ -94,7 +94,7 @@ const Navigation = () => {
                   forms
                 </Nav.Link>
               </Link> */}
-              <Link href="/user/resources" passHref>
+              <Link href="/resources" passHref>
                 <Nav.Link
                   className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="4"
@@ -102,12 +102,20 @@ const Navigation = () => {
                   resources
                 </Nav.Link>
               </Link>
-              <Link href="/user/calendar" passHref>
+              <Link href="/calendar" passHref>
                 <Nav.Link
                   className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="5"
                 >
                   calendar
+                </Nav.Link>
+              </Link>
+              <Link href="/clubroom" passHref>
+                <Nav.Link
+                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  eventKey="5"
+                >
+                  clubroom
                 </Nav.Link>
               </Link>
               <Link href="/" passHref>

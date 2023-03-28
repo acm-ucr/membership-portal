@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import React, { useState, useEffect } from "react";
-import CardAccess from "../../components/CardAccess";
-import { auth } from "../../firebase";
+import CardAccess from "../components/CardAccess";
+import { auth } from "../firebase";
 import axios from "axios";
 
 const ClubroomPage = () => {

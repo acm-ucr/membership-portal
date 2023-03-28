@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import Announcements from "../../components/Announcements";
-import Home from "../../components/Home";
-import Meetings from "../../components/Meetings";
+// import Announcements from "../components/Announcements";
+import Home from "../components/Home";
+// import Meetings from "../components/Meetings";
 
 const dashboard = () => {
   return (
@@ -10,12 +10,12 @@ const dashboard = () => {
       <Col xl={12} className="p-0">
         <Home />
       </Col>
-      <Col xl={6}>
+      {/* <Col xl={6}>
         <Announcements />
-      </Col>
-      <Col xl={6}>
+      </Col> */}
+      {/* <Col xl={6}>
         <Meetings />
-      </Col>
+      </Col> */}
     </Row>
   );
 };

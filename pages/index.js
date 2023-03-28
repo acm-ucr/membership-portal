@@ -18,7 +18,7 @@ const Index = () => {
           uid: currentState.uid,
         });
         if (response.status === 200) {
-          router.push("/user/dashboard");
+          router.push("/dashboard");
         }
       }
     });
