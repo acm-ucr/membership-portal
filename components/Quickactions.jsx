@@ -9,7 +9,7 @@ const Quickactions = () => {
         Quick Actions
       </div>
       <div className="flex flex-col w-full justify-center items-center">
-        <Link href="/user/profile">
+        <Link href="/profile">
           <div className="my-2 hover:cursor-pointer w-11/12 rounded-3xl border-2 border-black flex flex-row items-center bg-acm-orange">
             <BiUserCircle className="text-black text-8xl mr-2" />
             <p className="text-black font-lexend font-semibold text-4xl mt-3">
@@ -17,7 +17,7 @@ const Quickactions = () => {
             </p>
           </div>
         </Link>
-        <Link href="/user/resources">
+        <Link href="/resources">
           <div className="my-2 hover:cursor-pointer w-11/12 rounded-3xl border-2 border-black flex flex-row items-center bg-acm-marine">
             <GrResources className="text-black text-8xl mr-2" />
             <p className="text-black font-lexend font-semibold text-4xl mt-3">
@@ -25,7 +25,7 @@ const Quickactions = () => {
             </p>
           </div>
         </Link>
-        <Link href="/user/calendar">
+        <Link href="/calendar">
           <div className="my-2 hover:cursor-pointer w-11/12 rounded-3xl border-2 border-black flex flex-row items-center bg-acm-red">
             <BiCalendar className="text-black text-8xl mr-2" />
             <p className="text-black font-lexend font-semibold text-4xl mt-3">
@@ -33,7 +33,7 @@ const Quickactions = () => {
             </p>
           </div>
         </Link>
-        <Link href="/user/clubroom">
+        <Link href="/clubroom">
           <div className="my-2 hover:cursor-pointer w-11/12 rounded-3xl border-2 border-black flex flex-row items-center bg-acm-green">
             <BiHome className="text-black text-8xl mr-2" />
             <p className="text-black font-lexend font-semibold text-4xl mt-3">
