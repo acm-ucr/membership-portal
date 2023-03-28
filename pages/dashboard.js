@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-// import Announcements from "../components/Announcements";
+// import Announcements from "../../components/Announcements";
 import Home from "../components/Home";
-// import Meetings from "../components/Meetings";
+import Quickactions from "../components/Quickactions";
 
 const dashboard = () => {
   return (
@@ -13,9 +13,9 @@ const dashboard = () => {
       {/* <Col xl={6}>
         <Announcements />
       </Col> */}
-      {/* <Col xl={6}>
-        <Meetings />
-      </Col> */}
+      <Col xl={6}>
+        <Quickactions />
+      </Col>
     </Row>
   );
 };
