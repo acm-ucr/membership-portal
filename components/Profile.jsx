@@ -106,7 +106,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
     setEditState(false);
   };
 
-  const getOptions = ({ year }) => {
+  const getOptions = () => {
     const date = new Date().getFullYear();
     const years = [];
 
