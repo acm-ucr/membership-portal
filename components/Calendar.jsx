@@ -14,10 +14,7 @@ const CalendarEvents = () => {
   const [modalEvent, setModalEvent] = useState(null);
 
   return (
-    <section className="w-full flex justify-center items-center flex-col mt-[12vh]">
-      <p className="text-center font-lexend flex justify-center text-heading m-0 pt-4">
-        Calendar of Events
-      </p>
+    <section className="w-full flex justify-center items-center flex-col">
       <div className="mb-5 w-11/12 flex justify-center items-center">
         <div className="h-[110vh] w-full relative">
           <Calendar

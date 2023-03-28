@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FaCircle } from "react-icons/fa";
 
-const Meeting = ({ title, date, time, location, backgroundColor }) => {
+const Meeting = ({ title, backgroundColor }) => {
   return (
     <div
       className={`flex flex-col font-lexend border-2 ${backgroundColor} rounded-3xl border-black my-3 mx-4 w-12/12`}

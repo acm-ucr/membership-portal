@@ -1,5 +1,5 @@
 import React from "react";
-import PageError from "../../components/PageError";
+import PageError from "../components/PageError";
 
 const Error500 = () => {
   return (

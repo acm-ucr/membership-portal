@@ -40,7 +40,7 @@ const Navigation = () => {
   return (
     <Navbar
       collapseOnSelect
-      className="py-0 font-lexend w-full px-3 m-0 min-h-[10vh] bg-white border-acm-blue border-b-4 flex justify-between items-center"
+      className="py-0 font-lexend w-full px-3 m-0 min-h-[8vh] bg-white border-acm-blue border-b-4 flex justify-between items-center"
       expand="md"
       fixed="top"
     >
@@ -70,17 +70,17 @@ const Navigation = () => {
             className="-mt-2 flex justify-center md:justify-end items-center"
           >
             <Nav className="no-underline text-2xl flex justify-center items-center">
-              <Link href="/user/dashboard" passHref>
+              <Link href="/dashboard" passHref>
                 <Nav.Link
-                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="6"
                 >
                   dashboard
                 </Nav.Link>
               </Link>
-              <Link href="/user/profile" passHref>
+              <Link href="/profile" passHref>
                 <Nav.Link
-                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="2"
                 >
                   profile
@@ -94,25 +94,33 @@ const Navigation = () => {
                   forms
                 </Nav.Link>
               </Link> */}
-              <Link href="/user/resources" passHref>
+              <Link href="/resources" passHref>
                 <Nav.Link
-                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="4"
                 >
                   resources
                 </Nav.Link>
               </Link>
-              <Link href="/user/calendar" passHref>
+              <Link href="/calendar" passHref>
                 <Nav.Link
-                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
                   eventKey="5"
                 >
                   calendar
                 </Nav.Link>
               </Link>
+              <Link href="/clubroom" passHref>
+                <Nav.Link
+                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  eventKey="5"
+                >
+                  clubroom
+                </Nav.Link>
+              </Link>
               <Link href="/" passHref>
                 <Nav.Link
-                  className="m-4 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
+                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
                   eventKey="7"
                   onClick={logout}
                 >

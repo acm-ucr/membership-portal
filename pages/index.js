@@ -18,11 +18,11 @@ const Index = () => {
           uid: currentState.uid,
         });
         if (response.status === 200) {
-          router.push("/user/dashboard");
+          router.push("/dashboard");
         }
       }
     });
-  }, []);
+  }, [router]);
 
   return (
     <Row className="w-full flex justify-center items-center m-0 h-[100vh]">

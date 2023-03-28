@@ -36,14 +36,9 @@ const Announcements = () => {
 
   useEffect(() => {
     axios
-      .get("/api/get5Announcements")
+      .get("/api/getAnnouncements")
       .then((response) => {
         setAnnouncements(response.data);
-        console.log(announcementsDB[0]?.data.type);
-        console.log(announcementsDB[1]?.data.type);
-        console.log(announcementsDB[2]?.data.type);
-        console.log(announcementsDB[3]?.data.type);
-        console.log(announcementsDB[4]?.data.type);
       })
       .catch((error) => {
         console.log("Error: ", error);
@@ -53,11 +48,11 @@ const Announcements = () => {
   return (
     <div className="flex justify-center">
       <div className="w-11/12 flex justify-center items-center flex-col bg-acm-black rounded-3xl">
-        {/* <div className="w-11/12 flex justify-start">
+        <div className="w-11/12 flex justify-start">
           <p className="inline-block  py-2 px-3 rounded-full text-3xl font-semibold mb-4 mt-4 border-l-4 border-acm-black bg-acm-white text-acm-black board">
             announcements
           </p>
-        </div> */}
+        </div>
         {announcementsDB.map((a) => {
           const [month, date, year] = new Date()
             .toLocaleDateString(a.data.time.seconds)

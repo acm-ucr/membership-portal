@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import Profile from "../../components/Profile";
-import Photo from "../../components/Photo";
-import Header from "../../components/Header";
+import Profile from "../components/Profile";
+import Photo from "../components/Photo";
+import Header from "../components/Header";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../firebase";
 
 const ProfilePage = () => {
   const [data, setData] = useState({});
