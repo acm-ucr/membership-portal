@@ -110,6 +110,14 @@ const Navigation = () => {
                   calendar
                 </Nav.Link>
               </Link>
+              <Link href="/user/clubroom" passHref>
+                <Nav.Link
+                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
+                  eventKey="5"
+                >
+                  clubroom
+                </Nav.Link>
+              </Link>
               <Link href="/" passHref>
                 <Nav.Link
                   className="m-4 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
