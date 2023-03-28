@@ -22,7 +22,7 @@ const Index = () => {
         }
       }
     });
-  }, []);
+  }, [router]);
 
   return (
     <Row className="w-full flex justify-center items-center m-0 h-[100vh]">
