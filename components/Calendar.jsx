@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Events from "./data/Events.jsx";
 import CustomToolbar from "./CustomToolbar.jsx";
 import CustomEvent from "./CustomEvent.jsx";
+import axios from "axios";
 
 import Modal from "./Modal.jsx";
 
@@ -12,6 +13,17 @@ const mLocalizer = momentLocalizer(moment);
 
 const CalendarEvents = () => {
   const [modalEvent, setModalEvent] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
+  }, []);
 
   return (
     <section className="w-full flex justify-center items-center flex-col">
