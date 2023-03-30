@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
@@ -6,10 +6,17 @@ import Image from "next/image";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import UserContext from "./UserContext";
+import { useRouter } from "next/router";
 
 const Navigation = () => {
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard");
+    }
+  });
 
   const logout = () => {
     signOut(auth)
