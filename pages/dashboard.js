@@ -7,15 +7,15 @@ import axios from "axios";
 const colorMappings = {
   social: "bg-acm-green",
   professional: "bg-acm-lightpurple",
-  technical: "bg-acm-lightblue",
-  general: "bg-acm-yellow",
+  general: "bg-acm-lightblue",
+  technical: "bg-acm-yellow",
 };
 
 const colorMappingsText = {
   social: "text-acm-green",
   professional: "text-acm-lightpurple",
-  technical: "text-acm-lightblue",
-  general: "text-acm-yellow",
+  general: "text-acm-lightblue",
+  technical: "text-acm-yellow",
 };
 
 const DashboardPage = () => {
@@ -28,7 +28,7 @@ const DashboardPage = () => {
       .then((response) => {
         const events = response.data.items
           .sort((a, b) => a.start.dateTime > b.start.dateTime)
-          .filter((a) => a.description.startsWith("General Meeting"))
+          .filter((a) => a.description.startsWith("General"))
           .slice(-5, response.data.items.length)
           .reverse();
         setEvents(events);
@@ -43,23 +43,39 @@ const DashboardPage = () => {
       <Col xl={6}>
         {events &&
           events.map((event, index) => (
-            <Announcement
-              key={index}
-              details={event.description}
-              title={event.summary}
-              location={event.location}
-              background={colorMappings["general"]}
-              text={colorMappingsText["general"]}
-              date={new Date(event.start.dateTime).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-              time={new Date(event.start.dateTime).toLocaleTimeString("en-US", {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            />
+            <>
+              <Announcement
+                key={index}
+                details={event.description}
+                title={event.summary}
+                location={event.location}
+                background={
+                  colorMappings[
+                    `${event.description.split(" ")[0].toLowerCase()}`
+                  ]
+                }
+                text={
+                  colorMappingsText[
+                    `${event.description.split(" ")[0].toLowerCase()}`
+                  ]
+                }
+                date={new Date(event.start.dateTime).toLocaleDateString(
+                  "en-US",
+                  {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  }
+                )}
+                time={new Date(event.start.dateTime).toLocaleTimeString(
+                  "en-US",
+                  {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }
+                )}
+              />
+            </>
           ))}
       </Col>
     </Row>
