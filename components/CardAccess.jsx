@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
+import UserContext from "./UserContext";
 
 export default function CardAccess({ email, name, rowNum, uid }) {
   const [CardNumber, setCardNumber] = useState("");
+  const { user, setUser } = useContext(UserContext);
   const handleSubmit = (e) => {
     // e.preventDefault();
     axios
@@ -16,6 +18,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
         uid: uid,
       })
       .then((res) => {
+        setUser({ ...user, row: res.data });
         console.log(res);
       })
       .catch((error) => {

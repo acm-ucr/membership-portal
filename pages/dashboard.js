@@ -27,10 +27,18 @@ const DashboardPage = () => {
       )
       .then((response) => {
         const events = response.data.items
-          .sort((a, b) => a.start.dateTime > b.start.dateTime)
-          .filter((a) => a.description.startsWith("General"))
-          .slice(-5, response.data.items.length)
-          .reverse();
+          .filter(
+            (a) =>
+              (a.description.startsWith("General") ||
+                a.description.startsWith("Technical") ||
+                a.description.startsWith("Social") ||
+                a.description.startsWith("Professional")) &&
+              new Date(a.start.dateTime) > new Date()
+          )
+          .sort(
+            (a, b) => new Date(a.start.dateTime) - new Date(b.start.dateTime)
+          )
+          .slice(-5, response.data.items.length);
         setEvents(events);
       });
   }, []);
@@ -43,10 +51,12 @@ const DashboardPage = () => {
       <Col xl={6}>
         {events &&
           events.map((event, index) => (
-            <>
+            <div key={index}>
               <Announcement
-                key={index}
-                details={event.description}
+                details={event.description.replace(
+                  event.description.split(" ")[0],
+                  ""
+                )}
                 title={event.summary}
                 location={event.location}
                 background={
@@ -75,7 +85,7 @@ const DashboardPage = () => {
                   }
                 )}
               />
-            </>
+            </div>
           ))}
       </Col>
     </Row>

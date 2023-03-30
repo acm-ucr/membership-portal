@@ -48,4 +48,5 @@ export default async function submitCardNumber(req, res) {
         console.log(error);
       });
   }
+  res.status(200).json(index);
 }
