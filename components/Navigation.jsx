@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
@@ -6,22 +6,13 @@ import Image from "next/image";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import UserContext from "./UserContext";
-import { useRouter } from "next/router";
 
 const Navigation = () => {
   const { user, setUser } = useContext(UserContext);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (user) {
-      router.push("/dashboard");
-    }
-  });
 
   const logout = () => {
     signOut(auth)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         setUser(null);
       })
       .catch((error) => {
@@ -37,21 +28,21 @@ const Navigation = () => {
       fixed="top"
     >
       <Navbar.Brand className="flex flex-row items-center p-0 m-0">
-        <Link href="/dashboard">
-          <Image
-            src="/acm-ucr-logo.png"
-            alt="ACM at UCR"
-            width={50}
-            height={50}
-          />
+        <Link href={`${user ? "/dashboard" : "/"}  `}>
+          <div className="flex items-center justify-center">
+            <Image
+              src="/acm-ucr-logo.png"
+              alt="ACM at UCR"
+              width={50}
+              height={50}
+            />
+            <div className="hidden lg:block">
+              <p className="m-0 font-lexend font-medium text-2xl cursor-pointer">
+                membership portal
+              </p>
+            </div>
+          </div>
         </Link>
-        <div className="hidden lg:block">
-          <Link href="/dashboard">
-            <p className="m-0 font-lexend font-medium text-2xl cursor-pointer">
-              membership portal
-            </p>
-          </Link>
-        </div>
       </Navbar.Brand>
 
       {user && (
@@ -62,62 +53,38 @@ const Navigation = () => {
             className="-mt-2 flex justify-center md:justify-end items-center"
           >
             <Nav className="no-underline text-2xl flex justify-center items-center">
-              <Link href="/dashboard" passHref>
-                <Nav.Link
-                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                  eventKey="6"
-                >
+              <Link href="/dashboard">
+                <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                   dashboard
-                </Nav.Link>
+                </p>
               </Link>
-              <Link href="/profile" passHref>
-                <Nav.Link
-                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                  eventKey="2"
-                >
+              <Link href="/profile">
+                <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                   profile
-                </Nav.Link>
+                </p>
               </Link>
-              {/* <Link href="/user/forms" passHref>
-                <Nav.Link
-                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                  eventKey="3"
-                >
-                  forms
-                </Nav.Link>
-              </Link> */}
-              <Link href="/resources" passHref>
-                <Nav.Link
-                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                  eventKey="4"
-                >
+              <Link href="/resources">
+                <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                   resources
-                </Nav.Link>
+                </p>
               </Link>
-              <Link href="/calendar" passHref>
-                <Nav.Link
-                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                  eventKey="5"
-                >
+              <Link href="/calendar">
+                <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                   calendar
-                </Nav.Link>
+                </p>
               </Link>
-              <Link href="/clubroom" passHref>
-                <Nav.Link
-                  className="m-auto whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
-                  eventKey="5"
-                >
+              <Link href="/clubroom">
+                <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                   clubroom
-                </Nav.Link>
+                </p>
               </Link>
-              <Link href="/" passHref>
-                <Nav.Link
-                  className="my-0 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
-                  eventKey="7"
+              <Link href="/">
+                <p
+                  className="hover:cursor-pointer my-0 px-3 py-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-lg"
                   onClick={logout}
                 >
                   logout
-                </Nav.Link>
+                </p>
               </Link>
             </Nav>
           </Navbar.Collapse>

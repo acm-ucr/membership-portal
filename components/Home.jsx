@@ -3,7 +3,6 @@ import UserContext from "./UserContext";
 
 const Home = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
 
   return (
     user && (
