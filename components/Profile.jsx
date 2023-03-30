@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { useEffect } from "react";
+import UserContext from "./UserContext";
 // getting the name, major, class of working.
 // it gets data from the db and is passed into the profile component
 
 const Profile = ({ uid, name, major, year, netId, email, points }) => {
+  const { user, setUser } = useContext(UserContext);
+
   const [editState, setEditState] = useState(false);
   const [yearErrors, setYearErrors] = useState("");
   const [editableValues, setEditableValues] = useState({
@@ -90,17 +93,10 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
       .catch((error) => {
         console.log(error);
       });
+    setUser({ ...user, data });
 
     setEditState(false);
-
-    // setTimeout(() => {
-    //   setRefresh(true);
-    // }, 1000);
   };
-
-  // if (refresh) {
-  //   window.location.reload();
-  // }
 
   const cancelChanges = () => {
     setEditState(false);
