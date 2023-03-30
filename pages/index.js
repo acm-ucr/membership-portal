@@ -1,28 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import Welcome from "../components/Welcome";
 import Login from "../components/Login";
 import { useRouter } from "next/router";
-import axios from "axios";
+import UserContext from "../components/UserContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
+import axios from "axios";
 
 const Index = () => {
+  const { user, setUser } = useContext(UserContext);
   const router = useRouter();
+  console.log(user);
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (currentState) => {
-      if (currentState !== null) {
-        console.log(currentState.uid);
-        const response = await axios.post("/api/profile/verifyUser", {
-          uid: currentState.uid,
-        });
-        if (response.status === 200) {
-          router.push("/dashboard");
+    console.log(user);
+    if (user) {
+      router.push("/dashboard");
+    } else {
+      onAuthStateChanged(auth, (currentUser) => {
+        if (currentUser !== null) {
+          axios
+            .post("/api/profile/getInfo", { uid: currentUser.uid })
+            .then((response) => {
+              const data = response.data.data;
+              const date = new Date(data.start.seconds * 1000);
+              data.start = date.getFullYear();
+              setUser({
+                ...response.data.data,
+                name: currentUser.displayName,
+                uid: currentUser.uid,
+                email: currentUser.email,
+              });
+            });
         }
-      }
-    });
-  }, [router]);
+      });
+    }
+  }, []);
 
   return (
     <Row className="w-full flex justify-center items-center m-0 h-[100vh]">

@@ -6,7 +6,7 @@ export default async function getProfileInfo(req, res) {
 
   if (docSnap.exists()) {
     console.log("exists");
-    res.status(200).json({});
+    res.status(200).json(docSnap.data());
     return;
   }
   res.status(400).json({});
