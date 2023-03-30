@@ -1,19 +1,69 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Home from "../components/Home";
-import Quickactions from "../components/Quickactions";
+import Announcement from "../components/Announcement";
+import axios from "axios";
 
-const dashboard = () => {
+const colorMappings = {
+  social: "bg-acm-green",
+  professional: "bg-acm-lightpurple",
+  technical: "bg-acm-lightblue",
+  general: "bg-acm-yellow",
+};
+
+const colorMappingsText = {
+  social: "text-acm-green",
+  professional: "text-acm-lightpurple",
+  technical: "text-acm-lightblue",
+  general: "text-acm-yellow",
+};
+
+const DashboardPage = () => {
+  const [events, setEvents] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
+      )
+      .then((response) => {
+        const events = response.data.items
+          .sort((a, b) => a.start.dateTime > b.start.dateTime)
+          .filter((a) => a.description.startsWith("General Meeting"))
+          .slice(-5, response.data.items.length)
+          .reverse();
+        setEvents(events);
+      });
+  }, []);
+
   return (
     <Row className="pt-[14vh] w-full m-0">
       <Col xl={12} className="p-0">
         <Home />
       </Col>
       <Col xl={6}>
-        <Quickactions />
+        {events &&
+          events.map((event, index) => (
+            <Announcement
+              key={index}
+              details={event.description}
+              title={event.summary}
+              location={event.location}
+              background={colorMappings["general"]}
+              text={colorMappingsText["general"]}
+              date={new Date(event.start.dateTime).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+              time={new Date(event.start.dateTime).toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            />
+          ))}
       </Col>
     </Row>
   );
 };
 
-export default dashboard;
+export default DashboardPage;
