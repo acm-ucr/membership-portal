@@ -6,23 +6,45 @@ import UserContext from "./UserContext";
 export default function CardAccess({ email, name, rowNum, uid }) {
   const [CardNumber, setCardNumber] = useState("");
   const { user, setUser } = useContext(UserContext);
+
+  const [showSnackBar, setShowSnackBar] = useState(false);
+  const [message, setMessage] = useState("");
+  const snackBar = (mes) => {
+    setMessage(mes);
+    setShowSnackBar(true);
+    setTimeout(() => {
+      setShowSnackBar(false);
+      setMessage("");
+    }, 3000);
+  };
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    // console.log(process.env.NEXT_PUBLIC_SHEET_ID);
+    e.preventDefault();
+    if (CardNumber.length != 19) {
+      snackBar(
+        "The card ID should be 16 bits, please double check your card number😅"
+      );
+      return;
+    }
     axios
       .post("/api/submitCardNumber", {
         name: name,
         email: email,
         rowNum: rowNum,
         cardNumber: CardNumber,
-        sheetID: "1i0pR0R_SodN9enyU3ZWlboz2AvfikZAwrB779vjbQ8E",
+        sheetID: process.env.NEXT_PUBLIC_SHEET_ID,
         uid: uid,
       })
       .then((res) => {
         setUser({ ...user, row: res.data });
+        snackBar("Succesfully update your card number!🥳");
         console.log(res);
       })
       .catch((error) => {
         console.log(error);
+        snackBar(
+          "fail update your card number, try it again later or contact an ACM officer. 😭"
+        );
       });
   };
   return (
@@ -65,6 +87,13 @@ export default function CardAccess({ email, name, rowNum, uid }) {
           Submit
         </button>
       </form>
+      <div
+        className={`${
+          !showSnackBar ? "hidden" : "visible"
+        } z-50 bg-black/60 text-white text-center p-2 fixed bottom-[30px] left-1/2 -translate-x-1/2 text-xl`}
+      >
+        {message}
+      </div>
     </div>
   );
 }
