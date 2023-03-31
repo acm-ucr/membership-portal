@@ -29,10 +29,10 @@ const DashboardPage = () => {
         const events = response.data.items
           .filter(
             (a) =>
-              (a.description.startsWith("General") ||
-                a.description.startsWith("Technical") ||
-                a.description.startsWith("Social") ||
-                a.description.startsWith("Professional")) &&
+              (a.description.startsWith("General:") ||
+                a.description.startsWith("Technical:") ||
+                a.description.startsWith("Social:") ||
+                a.description.startsWith("Professional:")) &&
               new Date(a.start.dateTime) > new Date()
           )
           .sort(
@@ -40,6 +40,7 @@ const DashboardPage = () => {
           )
           .slice(-5, response.data.items.length);
         setEvents(events);
+        console.log(events);
       });
   }, []);
 
@@ -61,12 +62,18 @@ const DashboardPage = () => {
                 location={event.location}
                 background={
                   colorMappings[
-                    `${event.description.split(" ")[0].toLowerCase()}`
+                    `${event.description
+                      .split(" ")[0]
+                      .toLowerCase()
+                      .replace(":", "")}`
                   ]
                 }
                 text={
                   colorMappingsText[
-                    `${event.description.split(" ")[0].toLowerCase()}`
+                    `${event.description
+                      .split(" ")[0]
+                      .toLowerCase()
+                      .replace(":", "")}`
                   ]
                 }
                 date={new Date(event.start.dateTime).toLocaleDateString(
