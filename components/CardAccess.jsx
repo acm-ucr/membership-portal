@@ -61,6 +61,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
         className=" flex justify-center items-center flex-col w-full"
       >
         <input
+          maxLength={19}
           className="w-10/12 lg:w-6/12 border-black border-2 rounded-full py-2 px-4 text-xl font-lexend"
           value={CardNumber}
           placeholder="card Number"
