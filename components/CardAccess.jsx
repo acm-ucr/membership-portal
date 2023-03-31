@@ -67,7 +67,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
           placeholder="card Number"
           onChange={(e) => {
             let value = e.target.value;
-            if (value[value.length - 1] == " ") {
+            if (isNaN(value[value.length - 1])) {
               value = value.slice(0, value.length - 1);
             }
             let count = 0;
