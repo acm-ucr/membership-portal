@@ -27,6 +27,10 @@ function MyApp({ Component, pageProps }) {
               uid: currentUser.uid,
               email: currentUser.email,
             });
+          })
+          .catch((error) => {
+            if (error.response.status == "400") console.log("hi");
+            console.log(error);
           });
       }
     });
