@@ -167,7 +167,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             name="year"
             placeholder={editableValues.year}
             onChange={handleyearChange}
-            className="text-acm-black text-2xl font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
+            className="text-acm-black text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
           >
             <option value="none" selected disabled hidden>
               Select a Year
