@@ -56,6 +56,7 @@ const ApplyPage = () => {
       year: data.year,
       response: data.response,
     });
+    setSubmit(true);
   };
 
   const handleyearChange = (event) => {
@@ -77,6 +78,7 @@ const ApplyPage = () => {
   };
 
   const [count, setCount] = useState(300);
+  const [submit, setSubmit] = useState(false);
 
   return (
     <div className="pt-20 h-screen w-screen flex justify-center items-start">
@@ -182,13 +184,18 @@ const ApplyPage = () => {
                   />
                 </Col>
               </Row>
-              <div className="w-11/12 flex justify-end my-4">
+              <div className="w-11/12 flex justify-end flex-col my-4">
                 <button
                   onClick={handleSubmit}
                   className="px-4 py-2 rounded-lg text-lg border-4 border-acm-lightpurple  text-acm-lightpurple hover:bg-acm-lightpurple hover:text-white"
                 >
                   Submit
                 </button>
+                {submit && (
+                  <p className="font-semibold text-xl text-center my-2">
+                    Thank you for submitting!
+                  </p>
+                )}
               </div>
             </div>
           </Col>
