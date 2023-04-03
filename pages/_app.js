@@ -11,8 +11,6 @@ function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    console.log("APP FILE", user);
-    console.log("USEFFECT CALLED");
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser !== null) {
         axios

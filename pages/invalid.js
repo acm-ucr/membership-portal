@@ -4,7 +4,10 @@ import PageError from "../components/PageError";
 const Error400 = () => {
   return (
     <div className="w-screen h-screen">
-      <PageError errorCode="" errorMsg="Fail sign in. Invalid account info." />
+      <PageError
+        errorCode="403"
+        errorMsg="Authorization Error: You do not have access to this application!"
+      />
     </div>
   );
 };

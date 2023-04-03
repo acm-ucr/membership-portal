@@ -5,7 +5,6 @@ import Announcement from "../components/Announcement";
 import axios from "axios";
 import Point from "../components/Point";
 import UserContext from "../components/UserContext";
-import { useRouter } from "next/router";
 
 const colorMappings = {
   social: "bg-acm-green",
@@ -24,13 +23,8 @@ const colorMappingsText = {
 const DashboardPage = () => {
   const { user } = useContext(UserContext);
 
-  const router = useRouter();
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    if (!user) {
-      router.push("/invalid");
-      return;
-    }
     axios
       .get(
         `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
