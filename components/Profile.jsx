@@ -134,7 +134,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             onChange={handleMajorChange}
           >
             <option value="none" selected disabled hidden>
-              Select an Option
+              Select a Major
             </option>
             <option value="Computer Science">Computer Science</option>
             <option value="Computer Science w/ Business App">
