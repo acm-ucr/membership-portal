@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }) {
             });
           })
           .catch((error) => {
-            if (error.response.status == "400") console.log("hi");
             console.log(error);
           });
       }
