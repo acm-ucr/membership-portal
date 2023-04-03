@@ -81,28 +81,30 @@ const ApplyPage = () => {
   return (
     <div className="pt-20 h-screen w-screen flex justify-center items-start">
       <div className="w-11/12">
-        <p className="font-lexend text-6xl text-black text-left my-4 font-semibold">
+        <p className="font-lexend text-4xl lg:text-6xl text-black text-center my-4 font-semibold">
           ACM Member Application
         </p>
-        <div className="flex justify-between w-full">
-          <div className="w-1/4">
+        <Row className="flex justify-center w-full items-center">
+          <Col md={4} sm={6}>
             <ApplicationProfile
               color={colors[1]}
               name={data.name}
               email={data.email}
               image={data.image}
             />
-          </div>
-          <div className="w-full flex justify-evenly items-start flex-col">
+          </Col>
+          <Col className="w-full flex justify-evenly items-start flex-col">
             <div className="w-full flex justify-center items-center flex-col">
               <Row className="w-11/12">
                 <Col
                   xl={6}
                   className="flex justify-center items-start flex-col"
                 >
-                  <p className="font-semibold text-4xl font-lexend">Major</p>
+                  <p className="font-semibold text-2xl lg:text-4xl font-lexend">
+                    Major
+                  </p>
                   <select
-                    className="text-acm-black text-lg font-lexend pb-1 bg-white rounded-lg sm:w-full"
+                    className="text-acm-black text-lg font-lexend pb-1 bg-white rounded-lg w-full"
                     onChange={handleMajorChange}
                   >
                     <option value="none" selected disabled hidden>
@@ -141,13 +143,15 @@ const ApplyPage = () => {
                   xl={6}
                   className="flex justify-center items-start flex-col"
                 >
-                  <p className="font-semibold text-4xl font-lexend">Year</p>
+                  <p className="font-semibold text-2xl lg:text-4xl font-lexend">
+                    Year
+                  </p>
                   <select
                     type="text"
                     name="year"
                     placeholder={data.year}
                     onChange={handleyearChange}
-                    className="text-acm-black text-lg font-lexend pb-1 bg-white rounded-lg sm:w-full"
+                    className="text-acm-black text-lg font-lexend pb-1 bg-white rounded-lg w-full"
                   >
                     <option value="none" selected disabled hidden>
                       Select a Year
@@ -161,7 +165,7 @@ const ApplyPage = () => {
                   className="flex justify-center items-start flex-col mt-4"
                 >
                   <div className="flex justify-between items-center w-full">
-                    <p className="font-semibold text-4xl font-lexend text-center">
+                    <p className="font-semibold text-2xl lg:text-4xl font-lexend text-left">
                       Why do you want to join ACM?
                     </p>
                     <p className="m-0 font-semibold">{count} Characters Left</p>
@@ -187,8 +191,8 @@ const ApplyPage = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
     </div>
   );
