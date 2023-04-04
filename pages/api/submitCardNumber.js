@@ -3,8 +3,18 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export default async function submitCardNumber(req, res) {
-  console.log("submitcardnumber called");
-  // console.log(req.body);
+  const fs = require("fs");
+  const path = "./GoogleSheetCredential.json";
+
+  if (!fs.existsSync(path)) {
+    fs.writeFile(
+      "./GoogleSheetCredential.json",
+      process.env.NEXT_PUBLIC_CREDS,
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
   const row = req.body.rowNum;
   const uid = req.body.uid;
   const auth = await google.auth.getClient({
@@ -25,7 +35,6 @@ export default async function submitCardNumber(req, res) {
       .catch((error) => {
         console.log(error);
       });
-    // console.log(req.body.uid);
     const range = appendResponse.data.updates?.updatedRange.split("!")[1];
     const index = parseInt(range[1]);
     await updateDoc(doc(db, "users", uid), {
