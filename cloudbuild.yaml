@@ -16,7 +16,11 @@ steps:
       - "NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY=${_NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}"
       - "GOOGLE_APPLICATION_CREDENTIALS=${_GOOGLE_APPLICATION_CREDENTIALS}"
       - "NEXT_PUBLIC_CREDS=${_NEXT_PUBLIC_CREDS}"
-
+  - name: create-creds
+    args:
+      - printf
+      - ${_NEXT_PUBLIC_CREDS}
+      - "./GoogleSheetCredential.json"
   - name: gcr.io/cloud-builders/docker
     args:
       - build
