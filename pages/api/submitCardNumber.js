@@ -11,15 +11,18 @@ export default async function submitCardNumber(req, res) {
       "./GoogleSheetCredential.json",
       process.env.NEXT_PUBLIC_CREDS,
       (err) => {
+        console.log("fail create cred");
         console.log(err);
       }
     );
   }
   const row = req.body.rowNum;
   const uid = req.body.uid;
+  console.log("before auth");
   const auth = await google.auth.getClient({
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
+  console.log("before sheet");
   const sheets = google.sheets({ version: "v4", auth });
   if (row == 0) {
     const appendResponse = await sheets.spreadsheets.values
@@ -33,6 +36,7 @@ export default async function submitCardNumber(req, res) {
         },
       })
       .catch((error) => {
+        console.log("fail append");
         console.log(error);
       });
     const range = appendResponse.data.updates?.updatedRange.split("!")[1];
