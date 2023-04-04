@@ -17,10 +17,8 @@ steps:
       - "GOOGLE_APPLICATION_CREDENTIALS=${_GOOGLE_APPLICATION_CREDENTIALS}"
       - "NEXT_PUBLIC_CREDS=${_NEXT_PUBLIC_CREDS}"
   - name: create-creds
-    args:
-      - printf
-      - ${_NEXT_PUBLIC_CREDS}
-      - "./GoogleSheetCredential.json"
+    entrypoint: npm
+    args: ["create-creds"]
   - name: gcr.io/cloud-builders/docker
     args:
       - build

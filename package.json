@@ -12,7 +12,8 @@
     "check": "npx prettier --check .",
     "eslint": "eslint . --ext js --ext jsx --ext ts --ext tsx",
     "prepare": "husky install",
-    "create-env": "printenv > .env"
+    "create-env": "printenv > .env",
+    "create-creds": "printf  ${_NEXT_PUBLIC_CREDS} \"./GoogleSheetCredential.json\""
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
