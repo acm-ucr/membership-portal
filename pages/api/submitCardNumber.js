@@ -7,6 +7,8 @@ export default async function submitCardNumber(req, res) {
   const path = "./creds/GoogleSheetCredential.json";
   console.log("before create cred");
   if (!fs.existsSync(path)) {
+    console.log("create creds");
+    console.log(path);
     fs.writeFile(path, process.env.NEXT_PUBLIC_CREDS, (err) => {
       console.log("fail create cred");
       console.log(err);
