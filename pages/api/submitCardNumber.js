@@ -4,11 +4,11 @@ import { db } from "../../firebase";
 
 export default async function submitCardNumber(req, res) {
   const fs = require("fs");
-  const path = "./GoogleSheetCredential.json";
+  const path = "./creds/GoogleSheetCredential.json";
 
   if (!fs.existsSync(path)) {
     fs.writeFile(
-      "./GoogleSheetCredential.json",
+      "./creds/GoogleSheetCredential.json",
       process.env.NEXT_PUBLIC_CREDS,
       (err) => {
         console.log("fail create cred");
