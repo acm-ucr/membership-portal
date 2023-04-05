@@ -8,12 +8,17 @@ export default async function submitCardNumber(req, res) {
   console.log("before create cred");
   if (!fs.existsSync(path)) {
     console.log(path);
-    fs.writeFile(path, process.env.NEXT_PUBLIC_CREDS, function (err) {
+    fs.writeFile(path, "Hello", function (err) {
       if (err) {
         console.log(err);
       } else {
         console.log("The file was saved!");
       }
+    });
+    fs.open(path, "w", function (err, file) {
+      if (err) throw err;
+      console.log("File is opened in write mode.");
+      console.log(file.toString());
     });
     console.log("create creds");
   }
