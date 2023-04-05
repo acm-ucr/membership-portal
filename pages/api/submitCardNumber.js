@@ -5,16 +5,12 @@ import { db } from "../../firebase";
 export default async function submitCardNumber(req, res) {
   const fs = require("fs");
   const path = "./creds/GoogleSheetCredential.json";
-
+  console.log("before create cred");
   if (!fs.existsSync(path)) {
-    fs.writeFile(
-      "./creds/GoogleSheetCredential.json",
-      process.env.NEXT_PUBLIC_CREDS,
-      (err) => {
-        console.log("fail create cred");
-        console.log(err);
-      }
-    );
+    fs.writeFile(path, process.env.NEXT_PUBLIC_CREDS, (err) => {
+      console.log("fail create cred");
+      console.log(err);
+    });
   }
   const row = req.body.rowNum;
   const uid = req.body.uid;
