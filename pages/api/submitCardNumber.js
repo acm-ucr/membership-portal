@@ -8,7 +8,7 @@ export default async function submitCardNumber(req, res) {
   console.log("before create cred");
   if (!fs.existsSync(path)) {
     console.log(path);
-    fs.writeFile(path, "Hello", function (err) {
+    await fs.writeFile(path, "Hello", function (err) {
       if (err) {
         console.log(err);
       } else {
