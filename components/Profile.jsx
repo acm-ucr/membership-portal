@@ -93,7 +93,11 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
       .catch((error) => {
         console.log(error);
       });
-    setUser({ ...user, data });
+    setUser({
+      ...user,
+      major: editableValues.major,
+      year: editableValues.year,
+    });
 
     setEditState(false);
   };

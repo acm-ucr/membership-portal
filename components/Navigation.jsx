@@ -91,11 +91,11 @@ const Navigation = () => {
                   calendar
                 </p>
               </Link>
-              {/* <Link href="/clubroom">
+              <Link href="/clubroom">
                 <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                   clubroom
                 </p>
-              </Link> */}
+              </Link>
               <Link href="/">
                 <p
                   className="hover:cursor-pointer my-0 px-2 py-1 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-xl ml-6"
