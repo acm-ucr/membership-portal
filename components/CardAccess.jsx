@@ -18,7 +18,6 @@ export default function CardAccess({ email, name, rowNum, uid }) {
     }, 3000);
   };
   const handleSubmit = (e) => {
-    // console.log(process.env.NEXT_PUBLIC_SHEET_ID);
     e.preventDefault();
     if (CardNumber.length != 19) {
       snackBar(
@@ -26,6 +25,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       );
       return;
     }
+    console.log(rowNum);
     axios
       .post("/api/submitCardNumber", {
         name: name,
@@ -37,13 +37,13 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       })
       .then((res) => {
         setUser({ ...user, row: res.data });
-        snackBar("Succesfully update your card number!🥳");
+        snackBar("Succesfully added your card number! 🥳");
         console.log(res);
       })
       .catch((error) => {
         console.log(error);
         snackBar(
-          "fail update your card number, try it again later or contact an ACM officer. 😭"
+          "Failed to add your card! Try again or contact an ACM officer 😭"
         );
       });
   };
