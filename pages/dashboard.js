@@ -42,7 +42,7 @@ const DashboardPage = () => {
           .sort(
             (a, b) => new Date(a.start.dateTime) - new Date(b.start.dateTime)
           )
-          .slice(-5, response.data.items.length);
+          .slice(0, 5);
         setEvents(events);
         console.log(events);
       });
