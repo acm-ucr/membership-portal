@@ -13,19 +13,15 @@ export default async function submitCardNumber(req, res) {
 
   const sheets = google.sheets({ version: "v4", auth });
   if (row == 0) {
-    const appendResponse = await sheets.spreadsheets.values
-      .append({
-        spreadsheetId: req.body.sheetID,
-        range: "CardAccess!A1",
-        valueInputOption: "USER_ENTERED",
-        requestBody: {
-          majorDimension: "ROWS",
-          values: [[req.body.name, req.body.email, req.body.cardNumber]],
-        },
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const appendResponse = await sheets.spreadsheets.values.append({
+      spreadsheetId: req.body.sheetID,
+      range: "CardAccess!A1",
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        majorDimension: "ROWS",
+        values: [[req.body.name, req.body.email, req.body.cardNumber]],
+      },
+    });
     const range = appendResponse.data.updates?.updatedRange.split("!")[1];
     const index = parseInt(range[1]);
     const response = await updateDoc(doc(db, "users", uid), {
