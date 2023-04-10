@@ -29,15 +29,14 @@ export default async function submitCardNumber(req, res) {
     const range = appendResponse.data.updates?.updatedRange.split("!")[1];
     console.log("RANGE", range);
     const index = parseInt(range[1]);
-    const response = await updateDoc(doc(db, "users", uid), {
-      row: index,
-    });
-    console.log(response);
-    if (response.status === 200) {
+    try {
+      await updateDoc(doc(db, "users", uid), {
+        row: index,
+      });
       res.status(200).json(index);
-      return;
+    } catch {
+      res.status(500).json(0);
     }
-    res.status(500).json(0);
   } else {
     const response = await sheets.spreadsheets.values.update({
       spreadsheetId: req.body.sheetID,
