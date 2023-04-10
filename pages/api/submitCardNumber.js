@@ -12,8 +12,6 @@ export default async function submitCardNumber(req, res) {
   });
 
   const sheets = google.sheets({ version: "v4", auth });
-  console.log("SHEETS", sheets);
-  console.log("ROW", row);
   if (row == 0) {
     const appendResponse = await sheets.spreadsheets.values.append({
       spreadsheetId: req.body.sheetID,
@@ -24,10 +22,7 @@ export default async function submitCardNumber(req, res) {
         values: [[req.body.name, req.body.email, req.body.cardNumber]],
       },
     });
-    console.log("APPEND RESPONSE", appendResponse);
-    console.log("APPEND RESPONSE DATA", appendResponse.data);
     const range = appendResponse.data.updates?.updatedRange.split("!")[1];
-    console.log("RANGE", range);
     const index = parseInt(range[1]);
     try {
       await updateDoc(doc(db, "users", uid), {
