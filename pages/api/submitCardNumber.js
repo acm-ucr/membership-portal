@@ -38,20 +38,20 @@ export default async function submitCardNumber(req, res) {
       res.status(500).json(0);
     }
   } else {
-    const response = await sheets.spreadsheets.values.update({
-      spreadsheetId: req.body.sheetID,
-      range: `CardAccess!A${row}`,
+    try {
+      await sheets.spreadsheets.values.update({
+        spreadsheetId: req.body.sheetID,
+        range: `CardAccess!A${row}`,
 
-      valueInputOption: "USER_ENTERED",
-      requestBody: {
-        majorDimension: "ROWS",
-        values: [[req.body.name, req.body.email, req.body.cardNumber]],
-      },
-    });
-    if (response.status === 200) {
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          majorDimension: "ROWS",
+          values: [[req.body.name, req.body.email, req.body.cardNumber]],
+        },
+      });
       res.status(200).json(row);
       return;
-    } else {
+    } catch {
       res.status(500).json();
     }
   }
