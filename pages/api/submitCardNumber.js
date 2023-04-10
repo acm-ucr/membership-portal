@@ -32,6 +32,7 @@ export default async function submitCardNumber(req, res) {
     const response = await updateDoc(doc(db, "users", uid), {
       row: index,
     });
+    console.log(response);
     if (response.status === 200) {
       res.status(200).json(index);
       return;

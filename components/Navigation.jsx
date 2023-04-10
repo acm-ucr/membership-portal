@@ -6,14 +6,17 @@ import Image from "next/image";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import UserContext from "./UserContext";
+import { useRouter } from "next/router";
 
 const Navigation = () => {
   const { user, setUser } = useContext(UserContext);
+  const router = useRouter();
 
   const logout = () => {
     signOut(auth)
       .then(() => {
         setUser(null);
+        router.push("/");
       })
       .catch((error) => {
         console.log(error);
