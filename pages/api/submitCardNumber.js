@@ -19,7 +19,14 @@ export default async function submitCardNumber(req, res) {
       valueInputOption: "USER_ENTERED",
       requestBody: {
         majorDimension: "ROWS",
-        values: [[req.body.name, req.body.email, req.body.cardNumber]],
+        values: [
+          [
+            req.body.name,
+            req.body.email,
+            req.body.cardNumber,
+            new Date().toLocaleDateString(),
+          ],
+        ],
       },
     });
     const range = appendResponse.data.updates?.updatedRange.split("!")[1];
@@ -32,22 +39,23 @@ export default async function submitCardNumber(req, res) {
     } catch {
       res.status(500).json(0);
     }
-  } else {
-    try {
-      await sheets.spreadsheets.values.update({
-        spreadsheetId: req.body.sheetID,
-        range: `CardAccess!A${row}`,
-
-        valueInputOption: "USER_ENTERED",
-        requestBody: {
-          majorDimension: "ROWS",
-          values: [[req.body.name, req.body.email, req.body.cardNumber]],
-        },
-      });
-      res.status(200).json(row);
-      return;
-    } catch {
-      res.status(500).json();
-    }
   }
+  // else {
+  //   try {
+  //     await sheets.spreadsheets.values.update({
+  //       spreadsheetId: req.body.sheetID,
+  //       range: `CardAccess!A${row}`,
+
+  //       valueInputOption: "USER_ENTERED",
+  //       requestBody: {
+  //         majorDimension: "ROWS",
+  //         values: [[req.body.name, req.body.email, req.body.cardNumber]],
+  //       },
+  //     });
+  //     res.status(200).json(row);
+  //     return;
+  //   } catch {
+  //     res.status(500).json();
+  //   }
+  // }
 }
