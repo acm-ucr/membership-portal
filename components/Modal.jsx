@@ -1,4 +1,3 @@
-import React from "react";
 import { FaCircle } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
 import Link from "next/link";

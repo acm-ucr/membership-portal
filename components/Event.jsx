@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "react-bootstrap/Card";
 
 const Event = ({ title, location, shadow, start, description }) => {

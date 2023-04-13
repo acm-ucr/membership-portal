@@ -1,4 +1,3 @@
-import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 

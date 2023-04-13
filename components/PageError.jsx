@@ -1,5 +1,3 @@
-import React from "react";
-
 const PageError = ({ errorCode, errorMsg }) => {
   return (
     <div className="w-screen h-screen">

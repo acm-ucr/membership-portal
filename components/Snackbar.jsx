@@ -1,5 +1,3 @@
-import React from "react";
-
 const Snackbar = ({ visible, setVisible, message }) => {
   return (
     <div
