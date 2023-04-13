@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 import Profile from "../components/Profile";
 import Photo from "../components/Photo";

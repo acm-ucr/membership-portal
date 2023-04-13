@@ -1,8 +1,9 @@
 import Accordion from "react-bootstrap/Accordion";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { useState } from "react";
 
 const TimeFilter = ({ setSelectedTime }) => {
-  const [clicked, setClicked] = React.useState(false);
+  const [clicked, setClicked] = useState(false);
 
   function timeOptionEvent(newTime) {
     setSelectedTime(newTime);

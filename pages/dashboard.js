@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 import Home from "../components/Home";
 import Announcement from "../components/Announcement";
