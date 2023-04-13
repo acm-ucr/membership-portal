@@ -1,5 +1,3 @@
-import React from "react";
-
 const Form = ({ title, text, border, background }) => {
   return (
     <div

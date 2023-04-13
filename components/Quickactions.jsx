@@ -1,4 +1,3 @@
-import React from "react";
 import { BiUserCircle, BiCalendar, BiHome } from "react-icons/bi";
 import Link from "next/link";
 import { GrResources } from "react-icons/gr";

@@ -1,4 +1,3 @@
-import React from "react";
 import Filter from "./Filter.jsx";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Col from "react-bootstrap/Col";

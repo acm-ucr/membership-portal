@@ -1,5 +1,3 @@
-import React from "react";
-
 const Filter = ({ topic, color }) => {
   return (
     <div className="w-full h-full pl-1 pr-2 py-1 flex justify-between bg-acm-black rounded-full">

@@ -1,4 +1,3 @@
-import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { Row, Col } from "react-bootstrap";
 const MockInterviewForm = ({ setFormState }) => {

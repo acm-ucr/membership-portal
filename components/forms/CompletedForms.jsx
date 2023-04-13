@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../Header";
 import CompletedFormsArray from "./CompletedFormsArray";
 import { Row, Col } from "react-bootstrap";

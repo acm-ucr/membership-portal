@@ -1,4 +1,3 @@
-import React from "react";
 // import Meeting from "./Meeting";
 import MeetingsData from "./MeetingsData";
 

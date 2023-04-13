@@ -1,5 +1,3 @@
-import React from "react";
-
 const CustomEvent = ({ event }) => {
   console.log(event.start, typeof event.start, new Date(event.start));
   return (
