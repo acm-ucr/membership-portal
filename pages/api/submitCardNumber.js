@@ -19,37 +19,43 @@ export default async function submitCardNumber(req, res) {
       valueInputOption: "USER_ENTERED",
       requestBody: {
         majorDimension: "ROWS",
-        values: [[req.body.name, req.body.email, req.body.cardNumber]],
+        values: [
+          [
+            req.body.name,
+            req.body.email,
+            req.body.cardNumber,
+            new Date().toLocaleDateString(),
+          ],
+        ],
       },
     });
     const range = appendResponse.data.updates?.updatedRange.split("!")[1];
     const index = parseInt(range[1]);
-    const response = await updateDoc(doc(db, "users", uid), {
-      row: index,
-    });
-    if (response.status === 200) {
-      res.status(200).json(index);
-      return;
-    }
-    res.status(500).json(0);
-  } else {
-    await sheets.spreadsheets.values
-      .update({
-        spreadsheetId: req.body.sheetID,
-        range: `CardAccess!A${row}`,
-
-        valueInputOption: "USER_ENTERED",
-        requestBody: {
-          majorDimension: "ROWS",
-          values: [[req.body.name, req.body.email, req.body.cardNumber]],
-        },
-      })
-      .then(() => {
-        res.status(200).json(row);
-        return;
-      })
-      .catch((error) => {
-        console.log(error);
+    try {
+      await updateDoc(doc(db, "users", uid), {
+        row: index,
       });
+      res.status(200).json(index);
+    } catch {
+      res.status(500).json(0);
+    }
   }
+  // else {
+  //   try {
+  //     await sheets.spreadsheets.values.update({
+  //       spreadsheetId: req.body.sheetID,
+  //       range: `CardAccess!A${row}`,
+
+  //       valueInputOption: "USER_ENTERED",
+  //       requestBody: {
+  //         majorDimension: "ROWS",
+  //         values: [[req.body.name, req.body.email, req.body.cardNumber]],
+  //       },
+  //     });
+  //     res.status(200).json(row);
+  //     return;
+  //   } catch {
+  //     res.status(500).json();
+  //   }
+  // }
 }
