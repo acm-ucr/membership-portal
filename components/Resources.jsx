@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Resource from "./Resource";
 import TimeFilter from "./TimeFilter";
 import { Col, Row } from "react-bootstrap";

@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import ApplicationProfile from "../components/ApplicationProfile";
 import { Col, Row } from "react-bootstrap";
