@@ -6,11 +6,21 @@ import UserContext from "../components/UserContext";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
+import ResourceContext from "../components/ResourceContext";
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
+  const [resources, setResources] = useState([]);
 
   useEffect(() => {
+    axios
+      .get("/api/getAllResources")
+      .then((response) => {
+        setResources(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser !== null) {
         axios
@@ -34,11 +44,13 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </UserContext.Provider>
+    <ResourceContext.Provider value={{ resources, setResources }}>
+      <UserContext.Provider value={{ user, setUser }}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UserContext.Provider>
+    </ResourceContext.Provider>
   );
 }
 
