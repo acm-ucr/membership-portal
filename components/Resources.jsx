@@ -1,26 +1,14 @@
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Resource from "./Resource";
 import TimeFilter from "./TimeFilter";
 import { Col, Row } from "react-bootstrap";
-import { useEffect } from "react";
-import axios from "axios";
+import ResourceContext from "./ResourceContext";
 
 const Resources = () => {
-  const [resources, setResources] = useState([]);
+  const { resources } = useContext(ResourceContext);
   const [selectedTime, setSelectedTime] = useState("today");
   const [today, setToday] = useState(new Date());
   const [NoResources, setNoResources] = useState(true);
-
-  useEffect(() => {
-    axios
-      .get("/api/getAllResources")
-      .then((response) => {
-        setResources(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     console.log(selectedTime);
