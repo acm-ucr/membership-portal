@@ -1,7 +1,19 @@
+import { useRouter } from "next/router";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import UserContext from "./UserContext";
+import { useContext, useEffect } from "react";
 
 const ApplicationProfile = ({ color, name, email, image }) => {
+  const router = useRouter();
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (user) {
+      router.push("/invalidRequest");
+    }
+  });
+
   return (
     <Row className={` m-0 p-0 flex justify-center items-center`}>
       <Col
