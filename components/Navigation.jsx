@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Image from "next/image";
+import NavImage from "../public/acm-ucr-logo.png";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import UserContext from "./UserContext";
@@ -33,12 +34,7 @@ const Navigation = () => {
       <Navbar.Brand className="flex flex-row items-center p-0 m-0">
         <Link href={`${user ? "/dashboard" : "/"}  `}>
           <div className="flex items-center justify-center">
-            <Image
-              src="/acm-ucr-logo.png"
-              alt="ACM at UCR"
-              width={50}
-              height={50}
-            />
+            <Image src={NavImage} alt="ACM at UCR" width={50} height={50} />
             <div className="hidden lg:block">
               <p className="m-0 font-lexend font-medium text-2xl cursor-pointer">
                 membership portal
