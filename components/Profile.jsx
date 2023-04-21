@@ -10,37 +10,10 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
   const { user, setUser } = useContext(UserContext);
 
   const [editState, setEditState] = useState(false);
-  const [yearErrors, setYearErrors] = useState("");
   const [editableValues, setEditableValues] = useState({
     major: major,
     year: year,
   });
-  const validateYear = (yr) => {
-    let isValid = true;
-    const errors = "";
-    const regex = /^20[0-9]{2}$/;
-
-    const currentDate = new Date().getFullYear();
-
-    if (yr < currentDate) {
-      isValid = false;
-      errors = "Did not save, class of cannot be in the past";
-    }
-
-    if (yr > currentDate + 6) {
-      isValid = false;
-      errors = "Did not save, class of too far in the future";
-    }
-
-    if (!regex.test(yr)) {
-      isValid = false;
-      errors = "Did not save. Please select a valid year";
-    }
-
-    console.log(errors);
-    setYearErrors(errors);
-    return isValid;
-  };
   useEffect(() => {
     setEditableValues({ major: major, year: year });
   }, [major, year]);
