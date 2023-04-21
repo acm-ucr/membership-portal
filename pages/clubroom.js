@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CardAccess from "../components/CardAccess";
+import Clubroom from "../components/Clubroom";
 import UserContext from "../components/UserContext";
 // import PageError from "../components/PageError";
 
@@ -8,12 +9,15 @@ const ClubroomPage = () => {
 
   return (
     user && (
-      <CardAccess
-        email={user.email}
-        name={user.name}
-        rowNum={user.row}
-        uid={user.uid}
-      />
+      <div className="pt-20">
+        <Clubroom />
+        <CardAccess
+          email={user.email}
+          name={user.name}
+          rowNum={user.row}
+          uid={user.uid}
+        />
+      </div>
     )
   );
 };
