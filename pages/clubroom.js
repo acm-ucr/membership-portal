@@ -9,7 +9,7 @@ const ClubroomPage = () => {
 
   return (
     user && (
-      <div>
+      <div className="pt-20">
         <Clubroom />
         <CardAccess
           email={user.email}
