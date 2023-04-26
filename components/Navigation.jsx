@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Image from "next/image";
-import NavImage from "../public/acm-ucr-logo.png";
+import NavImage from "../public/acm-ucr-logo.webp";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import UserContext from "./UserContext";

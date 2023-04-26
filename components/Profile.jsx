@@ -248,7 +248,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             edit profile
           </button>
         </Col>
-        <p className="text-acm-red font-bold pt-[2%]">{yearErrors}</p>
       </Row>
     );
   }
