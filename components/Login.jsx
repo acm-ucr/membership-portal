@@ -7,13 +7,13 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 import { useRouter } from "next/router";
-import UserContext from "./UserContext";
+import PortalContext from "./PortalContext";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const router = useRouter();
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useContext(PortalContext);
 
   const fetchUser = async (result) => {
     const response = await axios.post("/api/profile/getInfo", {
