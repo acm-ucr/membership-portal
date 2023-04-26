@@ -2,11 +2,9 @@ import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
-import UserContext from "../components/UserContext";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import ResourceContext from "../components/ResourceContext";
 import PortalContext from "../components/PortalContext";
 
 function MyApp({ Component, pageProps }) {
@@ -59,13 +57,9 @@ function MyApp({ Component, pageProps }) {
     <PortalContext.Provider
       value={{ resources, setResources, user, setUser, events, setEvents }}
     >
-      <ResourceContext.Provider value={{ resources, setResources }}>
-        <UserContext.Provider value={{ user, setUser }}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </UserContext.Provider>
-      </ResourceContext.Provider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </PortalContext.Provider>
   );
 }
