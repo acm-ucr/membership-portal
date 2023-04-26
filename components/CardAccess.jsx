@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 import axios from "axios";
-import UserContext from "./UserContext";
+import PortalContext from "./PortalContext";
 
 export default function CardAccess({ email, name, rowNum, uid }) {
   const [CardNumber, setCardNumber] = useState("");
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(PortalContext);
 
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [message, setMessage] = useState("");
