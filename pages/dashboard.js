@@ -1,10 +1,9 @@
-import { useEffect, useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 import Home from "../components/Home";
 import Announcement from "../components/Announcement";
-import axios from "axios";
 import Point from "../components/Point";
-import UserContext from "../components/UserContext";
+import PortalContext from "../components/PortalContext";
 
 const colorMappings = {
   social: "bg-acm-green",
@@ -21,31 +20,37 @@ const colorMappingsText = {
 };
 
 const DashboardPage = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(PortalContext);
+  console.log("user", user);
+  const { events } = useContext(PortalContext);
+  console.log("events:", events);
 
-  const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
-      )
-      .then((response) => {
-        const events = response.data.items
-          .filter(
-            (a) =>
-              (a.description.startsWith("General:") ||
-                a.description.startsWith("Technical:") ||
-                a.description.startsWith("Social:") ||
-                a.description.startsWith("Professional:")) &&
-              new Date(a.start.dateTime) > new Date()
-          )
-          .sort(
-            (a, b) => new Date(a.start.dateTime) - new Date(b.start.dateTime)
-          )
-          .slice(0, 5);
-        setEvents(events);
-        console.log(events);
-      });
+    // axios
+    //   .get(
+    //     `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
+    //   )
+    //   .then((response) => {
+    //     const events = response.data.items
+    setFilteredEvents(
+      events
+        .filter(
+          (a) =>
+            (a.description.startsWith("General:") ||
+              a.description.startsWith("Technical:") ||
+              a.description.startsWith("Social:") ||
+              a.description.startsWith("Professional:")) &&
+            new Date(a.start.dateTime) > new Date()
+        )
+        .sort((a, b) => new Date(a.start.dateTime) - new Date(b.start.dateTime))
+        .slice(0, 5)
+    );
+
+    console.log("filteredEvents", filteredEvents);
+    // setEvents(events);
+    // });
   }, []);
 
   return (
@@ -66,8 +71,8 @@ const DashboardPage = () => {
                     announcements
                   </p>
                 </div>
-                {events &&
-                  events.map((event, index) => (
+                {filteredEvents &&
+                  filteredEvents.map((event, index) => (
                     <div
                       className="w-full flex items-center justify-center"
                       key={index}

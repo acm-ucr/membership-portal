@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import PortalContext from "./PortalContext.jsx";
 import moment from "moment";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import CustomToolbar from "./CustomToolbar.jsx";
 import CustomEvent from "./CustomEvent.jsx";
-import axios from "axios";
-
 import Modal from "./Modal.jsx";
 
 const mLocalizer = momentLocalizer(moment);
@@ -35,53 +34,56 @@ const colorMappingsBorder = {
 };
 
 const CalendarEvents = () => {
+  const { events } = useContext(PortalContext);
+  console.log("events: Calendar Page", events);
   const [modalEvent, setModalEvent] = useState(null);
   const [calendarEvents, setCalendarEvents] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
-      )
-      .then((response) => {
-        const calendarEvents = response.data.items
-          .filter((a) => {
-            a.start = new Date(a.start.dateTime);
-            a.end = new Date(a.end.dateTime);
+    // axios
+    //   .get(
+    //     `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
+    //   )
+    //   .then((response) => {
+    setCalendarEvents(
+      events
+        .filter((a) => {
+          a.start = new Date(a.start.dateTime);
+          a.end = new Date(a.end.dateTime);
 
-            a.color =
-              colorMappings[
-                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
-              ];
+          a.color =
+            colorMappings[
+              `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+            ];
 
-            a.textColor =
-              colorMappingsText[
-                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
-              ];
+          a.textColor =
+            colorMappingsText[
+              `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+            ];
 
-            a.border =
-              colorMappingsBorder[
-                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
-              ];
+          a.border =
+            colorMappingsBorder[
+              `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+            ];
 
-            return (
-              (a.description.startsWith("General:") ||
-                a.description.startsWith("Technical:") ||
-                a.description.startsWith("Social:") ||
-                a.description.startsWith("Career:") ||
-                a.description.startsWith("Academic:")) &&
-              new Date(a.start) > new Date()
-            );
-          })
-          .sort((a, b) => {
-            return new Date(a.start) - new Date(b.start);
-          });
-        console.log(calendarEvents);
-        setCalendarEvents(calendarEvents);
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
+          return (
+            (a.description.startsWith("General:") ||
+              a.description.startsWith("Technical:") ||
+              a.description.startsWith("Social:") ||
+              a.description.startsWith("Career:") ||
+              a.description.startsWith("Academic:")) &&
+            new Date(a.start) > new Date()
+          );
+        })
+        .sort((a, b) => {
+          return new Date(a.start) - new Date(b.start);
+        })
+    );
+    console.log("calendarEvents", calendarEvents);
+    // })
+    // .catch((error) => {
+    //   console.log("Error: ", error);
+    // });
   }, []);
 
   return (

@@ -7,16 +7,28 @@ import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import ResourceContext from "../components/ResourceContext";
+import PortalContext from "../components/PortalContext";
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   const [resources, setResources] = useState([]);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     axios
       .get("/api/getAllResources")
       .then((response) => {
         setResources(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    axios
+      .get(
+        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
+      )
+      .then((response) => {
+        setEvents(response.data.items);
       })
       .catch((error) => {
         console.log(error);
@@ -44,13 +56,17 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <ResourceContext.Provider value={{ resources, setResources }}>
-      <UserContext.Provider value={{ user, setUser }}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </UserContext.Provider>
-    </ResourceContext.Provider>
+    <PortalContext.Provider
+      value={{ resources, setResources, user, setUser, events, setEvents }}
+    >
+      <ResourceContext.Provider value={{ resources, setResources }}>
+        <UserContext.Provider value={{ user, setUser }}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </UserContext.Provider>
+      </ResourceContext.Provider>
+    </PortalContext.Provider>
   );
 }
 
