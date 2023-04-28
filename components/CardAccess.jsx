@@ -48,11 +48,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       });
   };
   return (
-    <div className=" h-screen flex justify-center items-center flex-col w-full">
-      <p className="text-3xl lg:text-6xl font-lexend bg-acm-blue rounded-full px-12 py-3 m-1 text-white">
-        ACM Clubroom Access
-      </p>
-      <p className="text-lg md:text-xl font-lexend m-2">location: WCH 127</p>
+    <div className=" h-60 flex justify-center items-center flex-col w-full">
       <p className="text-xl lg:text-3xl font-lexend">
         Please enter the number at the bottom right of your R'Card
       </p>
