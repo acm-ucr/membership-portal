@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import Announcement from "./Announcement";
 import axios from "axios";
-import { colorMappings, colorMappingsText, numToMonth } from "./data/AnnouncementData";
+import {
+  colorMappings,
+  colorMappingsText,
+  numToMonth,
+} from "./data/AnnouncementData";
 
 const Announcements = () => {
   const [announcementsDB, setAnnouncements] = useState([]);
-
-  
 
   useEffect(() => {
     axios
