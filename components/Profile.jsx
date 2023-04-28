@@ -19,7 +19,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
   }, [major, year]);
   // Change major
   const handleMajorChange = (event) => {
-    console.log(event.target.value);
     setEditableValues({
       ...editableValues,
       major: event.target.value,
@@ -107,7 +106,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
           </p>
 
           <select
-            className="text-acm-black text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
+            className="text-acm-black focus:border-black focus:ring-0 text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
             onChange={handleMajorChange}
           >
             <option value="none" selected disabled hidden>
@@ -144,7 +143,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             name="year"
             placeholder={editableValues.year}
             onChange={handleyearChange}
-            className="text-acm-black text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
+            className="text-acm-black focus:border-black focus:ring-0 text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
           >
             <option value="none" selected disabled hidden>
               Select a Year
