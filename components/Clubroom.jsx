@@ -6,11 +6,11 @@ import Frame from "./Frame";
 const Clubroom = () => {
   return (
     <div className="flex justify-center flex-col font-lexend text-acm-black mx-auto w-11/12">
-      <p className="font-lexend text-acm-black text-heading text-center flex justify-center pb-5 m-0">
+      <p className="font-lexend text-acm-black text-heading text-center flex justify-center pb-1 m-0">
         ACM Clubroom
       </p>
       <Row className="bg-acm-blue flex items-center rounded-2xl !p-4 m-0 pb-8">
-        <Col sm={6} className="text-text w-full h-full p-4">
+        <Col sm={6} className="text-text w-full h-full p-4 text-2xl ">
           <p>
             We will often hold academic, professional, and technical workshops
             and events in this room! Located in Winston Chung Hall 127, behind
