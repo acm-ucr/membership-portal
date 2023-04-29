@@ -12,10 +12,6 @@ const TimeFilter = ({ setSelectedTime }) => {
     return newTime;
   }
 
-  let button;
-  if (clicked) button = <FaChevronUp className="absolute right-6" />;
-  else button = <FaChevronDown className="absolute right-6" />;
-
   return (
     <div className="">
       <Accordion
@@ -31,7 +27,11 @@ const TimeFilter = ({ setSelectedTime }) => {
             <p id="selected-time" className="text-2xl m-0">
               today
             </p>
-            {button}
+            {clicked ? (
+              <FaChevronUp className="absolute right-6" />
+            ) : (
+              <FaChevronDown className="absolute right-6" />
+            )}
           </Accordion.Button>
           <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-16 text-center border-acm-black border-y border-t-0 border-x-[3px] cursor-pointer hover:bg-acm-blue p-0 bg-acm-white">
             <button
