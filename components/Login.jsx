@@ -38,7 +38,6 @@ const Login = () => {
             router.push("/dashboard");
           })
           .catch((error) => {
-            console.log(result);
             if (result.user.email.includes("@ucr.edu")) {
               router.push("apply");
             } else {

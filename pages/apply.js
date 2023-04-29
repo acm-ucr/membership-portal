@@ -40,7 +40,6 @@ const ApplyPage = () => {
   }, []);
 
   const handleMajorChange = (event) => {
-    console.log(event.target.value);
     setData({
       ...data,
       major: event.target.value,

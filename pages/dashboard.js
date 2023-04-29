@@ -44,7 +44,6 @@ const DashboardPage = () => {
           )
           .slice(0, 5);
         setEvents(events);
-        console.log(events);
       });
   }, []);
 

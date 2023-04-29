@@ -19,7 +19,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
   }, [major, year]);
   // Change major
   const handleMajorChange = (event) => {
-    console.log(event.target.value);
     setEditableValues({
       ...editableValues,
       major: event.target.value,
@@ -38,7 +37,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
 
   // Functions for buttons
   const editProfile = () => {
-    console.log("Edit Profile Button Pressed");
     setEditState(true);
   };
 
@@ -57,12 +55,9 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
       year: editableValues.year,
       uid: uid,
     };
-    console.log(data);
     axios
       .post("/api/profile/setInfo", data)
-      .then((response) => {
-        console.log(response.data);
-      })
+      .then((response) => {})
       .catch((error) => {
         console.log(error);
       });
