@@ -4,7 +4,7 @@ import axios from "axios";
 import UserContext from "./UserContext";
 
 export default function CardAccess({ email, name, rowNum, uid }) {
-  const [CardNumber, setCardNumber] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const { user, setUser } = useContext(UserContext);
 
   const [showSnackBar, setShowSnackBar] = useState(false);
@@ -25,7 +25,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (CardNumber.length != 19) {
+    if (cardNumber.length != 19) {
       snackBar(
         "The card ID should be 16 bits, please double check your card number😅"
       );
@@ -36,7 +36,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
         name: name,
         email: email,
         rowNum: rowNum,
-        cardNumber: CardNumber,
+        cardNumber: cardNumber,
         sheetID: process.env.NEXT_PUBLIC_SHEET_ID,
         uid: uid,
       })
@@ -64,7 +64,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
           maxLength={19}
           autoComplete="off"
           className="w-10/12 lg:w-6/12 border-black border-2 rounded-full py-2 px-4 text-xl font-lexend"
-          value={CardNumber}
+          value={cardNumber}
           placeholder="card Number"
           onChange={handleChange}
         />
