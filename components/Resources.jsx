@@ -11,7 +11,6 @@ const Resources = () => {
   const [NoResources, setNoResources] = useState(true);
 
   useEffect(() => {
-    console.log(selectedTime);
     setNoResources(true);
     if (selectedTime == "today") {
       setToday(new Date().setDate(new Date().getDate() - 1));

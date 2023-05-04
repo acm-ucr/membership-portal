@@ -57,7 +57,6 @@ const CalendarEvents = () => {
           .sort((a, b) => {
             return new Date(a.start) - new Date(b.start);
           });
-        console.log(calendarEvents);
         setCalendarEvents(calendarEvents);
       })
       .catch((error) => {

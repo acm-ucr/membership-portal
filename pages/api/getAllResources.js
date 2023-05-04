@@ -5,8 +5,6 @@ import { Timestamp, query } from "firebase/firestore";
 
 export default async function getAllResources(req, res) {
   const resources = [];
-  const currentDate = Timestamp.now();
-  console.log("currentDate", currentDate);
 
   const q = query(
     collection(db, "resources"),
@@ -14,7 +12,6 @@ export default async function getAllResources(req, res) {
   );
   const results = await getDocs(q);
   results.forEach((doc) => {
-    console.log(doc.data().time, doc.data().time < Timestamp.now());
     resources.push({
       title: doc.id,
       data: doc.data(),

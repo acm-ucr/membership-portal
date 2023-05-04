@@ -31,7 +31,6 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       );
       return;
     }
-    console.log(rowNum);
     axios
       .post("/api/submitCardNumber", {
         name: name,
@@ -44,7 +43,6 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       .then((res) => {
         setUser({ ...user, row: res.data });
         snackBar("Succesfully added your card number! 🥳");
-        console.log(res);
       })
       .catch((error) => {
         console.log(error);

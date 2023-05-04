@@ -1,5 +1,4 @@
 const CustomEvent = ({ event }) => {
-  console.log(event.start, typeof event.start, new Date(event.start));
   return (
     <div className="font-lexend p-1">
       <p className="inline whitespace-nowrap">
