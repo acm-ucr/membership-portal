@@ -3,8 +3,8 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 
-export default function CardAccess({ email, name, rowNum, uid }) {
-  const [cardNumber, setCardNumber] = useState("");
+export default function CardAccess() {
+  const [CardNumber, setCardNumber] = useState("");
   const { user, setUser } = useContext(UserContext);
 
   const [showSnackBar, setShowSnackBar] = useState(false);
@@ -33,12 +33,12 @@ export default function CardAccess({ email, name, rowNum, uid }) {
     }
     axios
       .post("/api/submitCardNumber", {
-        name: name,
-        email: email,
-        rowNum: rowNum,
-        cardNumber: cardNumber,
+        name: user.name,
+        email: user.email,
+        rowNum: user.row,
+        cardNumber: CardNumber,
         sheetID: process.env.NEXT_PUBLIC_SHEET_ID,
-        uid: uid,
+        uid: user.uid,
       })
       .then((res) => {
         setUser({ ...user, row: res.data });
