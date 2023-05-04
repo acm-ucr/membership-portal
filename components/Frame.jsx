@@ -1,4 +1,5 @@
 import React from "react";
+import { Image } from "react-bootstrap";
 
 const Frame = ({ image, bottomLeft, topRight, corners }) => {
   return (
@@ -8,7 +9,7 @@ const Frame = ({ image, bottomLeft, topRight, corners }) => {
         backgroundImage: `conic-gradient(${topRight} 90deg, ${corners} 90deg, ${corners} 180deg, ${bottomLeft} 180deg, ${bottomLeft} 270deg, ${corners} 0deg)`,
       }}
     >
-      <img src={image} alt="Square image" />
+      <Image src={image} alt="Square image" />
     </div>
   );
 };
