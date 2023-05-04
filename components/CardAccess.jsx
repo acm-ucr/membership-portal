@@ -25,7 +25,7 @@ export default function CardAccess() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (CardNumber.length != 19) {
+    if (cardNumber.length != 19) {
       snackBar(
         "The card ID should be 16 bits, please double check your card number😅"
       );
@@ -64,7 +64,7 @@ export default function CardAccess() {
           maxLength={19}
           autoComplete="off"
           className="w-10/12 lg:w-6/12 border-black border-2 rounded-full py-2 px-4 text-xl font-lexend"
-          value={CardNumber}
+          value={cardNumber}
           placeholder="card Number"
           onChange={handleChange}
         />
