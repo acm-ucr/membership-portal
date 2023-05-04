@@ -17,6 +17,12 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       setMessage("");
     }, 3000);
   };
+  const handleChange = (e) => {
+    let value = e.target.value;
+    value = value.replace(/\D+$/, "");
+    value = value.replace(/(\d{4})(?=\d)/g, "$1 ");
+    setCardNumber(value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (CardNumber.length != 19) {
@@ -66,24 +72,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
           className="w-10/12 lg:w-6/12 border-black border-2 rounded-full py-2 px-4 text-xl font-lexend"
           value={CardNumber}
           placeholder="card Number"
-          onChange={(e) => {
-            let value = e.target.value;
-            if (isNaN(value[value.length - 1])) {
-              value = value.slice(0, value.length - 1);
-            }
-            let count = 0;
-            for (let i = 0; i < value.length; i++) {
-              count++;
-              if (count > 4) {
-                if (value[i] != " ") {
-                  value = value.slice(0, i) + " " + value.slice(i);
-                  i++;
-                }
-                count = 0;
-              }
-            }
-            setCardNumber(value);
-          }}
+          onChange={handleChange}
         />
         <button className=" rounded-full py-2 px-4 text-xl font-lexend m-3 border-2 border-black hover:bg-acm-blue hover:text-white hover:border-acm-blue">
           Submit
