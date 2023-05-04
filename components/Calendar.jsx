@@ -5,34 +5,15 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import CustomToolbar from "./CustomToolbar.jsx";
 import CustomEvent from "./CustomEvent.jsx";
 import axios from "axios";
+import {
+  colorMappings,
+  colorMappingsText,
+  colorMappingsBorder,
+} from "./data/CalendarColors.jsx";
 
 import Modal from "./Modal.jsx";
 
 const mLocalizer = momentLocalizer(moment);
-
-const colorMappings = {
-  social: "!bg-acm-red",
-  career: "!bg-acm-lightpurple",
-  general: "!bg-acm-blue",
-  technical: "!bg-acm-orange",
-  academic: "!bg-acm-marine",
-};
-
-const colorMappingsText = {
-  social: "text-acm-red",
-  career: "text-acm-lightpurple",
-  general: "text-acm-blue",
-  technical: "text-acm-orange",
-  academic: "text-acm-marine",
-};
-
-const colorMappingsBorder = {
-  social: "border-acm-red",
-  career: "border-acm-lightpurple",
-  general: "border-acm-blue",
-  technical: "border-acm-orange",
-  academic: "border-acm-marine",
-};
 
 const CalendarEvents = () => {
   const [modalEvent, setModalEvent] = useState(null);
