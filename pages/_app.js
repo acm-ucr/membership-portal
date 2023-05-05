@@ -86,7 +86,6 @@ function MyApp({ Component, pageProps }) {
         setEvents(calendarEvents);
 
         setAnnouncements(calendarEvents.slice(0, 5));
-        console.log("HII", calendarEvents.slice(0, 5));
       })
       .catch((error) => {
         console.log(error);
