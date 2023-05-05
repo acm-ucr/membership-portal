@@ -1,20 +1,18 @@
 import Accordion from "react-bootstrap/Accordion";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const TimeFilter = ({ setSelectedTime }) => {
   const [clicked, setClicked] = useState(false);
+  const selectedTimeRef = useRef(null);
+  const dropDownBtnRef = useRef(null);
 
   function timeOptionEvent(newTime) {
     setSelectedTime(newTime);
-    document.querySelector("#selected-time").innerHTML = newTime;
-    document.querySelector("#drop-down-btn").click();
+    selectedTimeRef.current.innerHTML = newTime;
+    dropDownBtnRef.current.click();
     return newTime;
   }
-
-  let button;
-  if (clicked) button = <FaChevronUp className="absolute right-6" />;
-  else button = <FaChevronDown className="absolute right-6" />;
 
   return (
     <div className="">
@@ -24,14 +22,18 @@ const TimeFilter = ({ setSelectedTime }) => {
       >
         <Accordion.Item className="border-0 !bg-transparent my-3" eventKey="0">
           <Accordion.Button
-            id="drop-down-btn"
+            ref={dropDownBtnRef}
             className="!flex h-12 mb-[-20px] !bg-acm-black !text-acm-white after:!bg-none after:self-center !rounded-3xl shadow-none"
             onClick={() => setClicked(!clicked)}
           >
-            <p id="selected-time" className="text-2xl m-0">
+            <p ref={selectedTimeRef} className="text-2xl m-0">
               today
             </p>
-            {button}
+            {clicked ? (
+              <FaChevronUp className="absolute right-6" />
+            ) : (
+              <FaChevronDown className="absolute right-6" />
+            )}
           </Accordion.Button>
           <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-16 text-center border-acm-black border-y border-t-0 border-x-[3px] cursor-pointer hover:bg-acm-blue p-0 bg-acm-white">
             <button

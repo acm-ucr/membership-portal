@@ -1,13 +1,12 @@
-const CustomEvent = ({ event }) => {
-  console.log(event.start, typeof event.start, new Date(event.start));
+const CustomEvent = ({ event: { summary, location, start } }) => {
   return (
     <div className="font-lexend p-1">
       <p className="inline whitespace-nowrap">
-        {event.summary}
+        {summary}
         <br />
-        {event.location}
+        {location}
         &nbsp; - &nbsp;
-        {new Date(event.start).toLocaleTimeString(navigator.language, {
+        {new Date(start).toLocaleTimeString(navigator.language, {
           hour: "2-digit",
           minute: "2-digit",
         })}
