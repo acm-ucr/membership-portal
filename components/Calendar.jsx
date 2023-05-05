@@ -9,82 +9,10 @@ import Modal from "./Modal.jsx";
 
 const mLocalizer = momentLocalizer(moment);
 
-const colorMappings = {
-  social: "!bg-acm-red",
-  career: "!bg-acm-lightpurple",
-  general: "!bg-acm-blue",
-  technical: "!bg-acm-orange",
-  academic: "!bg-acm-marine",
-};
-
-const colorMappingsText = {
-  social: "text-acm-red",
-  career: "text-acm-lightpurple",
-  general: "text-acm-blue",
-  technical: "text-acm-orange",
-  academic: "text-acm-marine",
-};
-
-const colorMappingsBorder = {
-  social: "border-acm-red",
-  career: "border-acm-lightpurple",
-  general: "border-acm-blue",
-  technical: "border-acm-orange",
-  academic: "border-acm-marine",
-};
-
 const CalendarEvents = () => {
   const { events } = useContext(PortalContext);
   console.log("events: Calendar Page", events);
   const [modalEvent, setModalEvent] = useState(null);
-  const [calendarEvents, setCalendarEvents] = useState([]);
-
-  useEffect(() => {
-    // axios
-    //   .get(
-    //     `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
-    //   )
-    //   .then((response) => {
-    setCalendarEvents(
-      events
-        .filter((a) => {
-          a.start = new Date(a.start.dateTime);
-          a.end = new Date(a.end.dateTime);
-
-          a.color =
-            colorMappings[
-              `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
-            ];
-
-          a.textColor =
-            colorMappingsText[
-              `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
-            ];
-
-          a.border =
-            colorMappingsBorder[
-              `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
-            ];
-
-          return (
-            (a.description.startsWith("General:") ||
-              a.description.startsWith("Technical:") ||
-              a.description.startsWith("Social:") ||
-              a.description.startsWith("Career:") ||
-              a.description.startsWith("Academic:")) &&
-            new Date(a.start) > new Date()
-          );
-        })
-        .sort((a, b) => {
-          return new Date(a.start) - new Date(b.start);
-        })
-    );
-    console.log("calendarEvents", calendarEvents);
-    // })
-    // .catch((error) => {
-    //   console.log("Error: ", error);
-    // });
-  }, []);
 
   return (
     <section className="w-full flex justify-center items-center flex-col">
@@ -92,7 +20,7 @@ const CalendarEvents = () => {
         <div className="h-[110vh] w-full relative">
           <Calendar
             className="font-lexend w-full m-0 p-0"
-            events={calendarEvents}
+            events={events}
             localizer={mLocalizer}
             defaultView="month"
             views={["month"]}
