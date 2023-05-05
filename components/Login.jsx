@@ -63,10 +63,7 @@ const Login = () => {
 
   return (
     <div className="p-0 z-10 mt-0 w-1/2 sm:w-4/12 bg-acm-white sm:bg-acm-blue rounded-[25px] sm:rounded-r-[50px] sm:rounded-l-[0px] flex flex-col items-center justify-center sm:min-w-[300px] lg:min-w-[450px]">
-      <p className="hidden sm:block text-xl md:text-3xl pr-2 md:pr-4 text-white font-lexend m-4 text-center">
-        Login using UCR email!
-      </p>
-      <p className="flex sm:hidden text-base m-0 p-0 text-acm-black font-lexend text-center">
+      <p className="text-base sm:text-xl md:text-3xl sm:pr-2 md:pr-4 m-0 pb-2 sm:text-white text-acm-black font-lexend sm:m-4 text-center">
         Login using UCR email!
       </p>
       <button
