@@ -33,12 +33,11 @@ export default function CardAccess({ email, name, rowNum, uid }) {
     }
     axios
       .post("/api/submitCardNumber", {
-        name: name,
-        email: email,
-        rowNum: rowNum,
+        name: user.name,
+        email: user.email,
+        rowNum: user.rowNum,
         cardNumber: cardNumber,
-        sheetID: process.env.NEXT_PUBLIC_SHEET_ID,
-        uid: uid,
+        uid: user.uid,
       })
       .then((res) => {
         setUser({ ...user, row: res.data });

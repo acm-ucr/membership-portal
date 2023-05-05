@@ -8,15 +8,10 @@ const ClubroomPage = () => {
   const { user } = useContext(UserContext);
 
   return (
-    user && (
+    !user && (
       <div className="pt-20">
         <Clubroom />
-        <CardAccess
-          email={user.email}
-          name={user.name}
-          rowNum={user.row}
-          uid={user.uid}
-        />
+        <CardAccess />
       </div>
     )
   );
