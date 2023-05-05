@@ -16,7 +16,7 @@ const Login = () => {
   const { setUser } = useContext(PortalContext);
 
   const fetchUser = async (result) => {
-    const response = await axios.post("/api/profile/getInfo", {
+    const response = await axios.post("/api/getInfo", {
       uid: result.user.uid,
     });
     const data = response.data.data;

@@ -56,7 +56,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
       uid: uid,
     };
     axios
-      .post("/api/profile/setInfo", data)
+      .post("/api/setInfo", data)
       .then((response) => {})
       .catch((error) => {
         console.log(error);
