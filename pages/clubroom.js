@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import CardAccess from "../components/CardAccess";
 import Clubroom from "../components/Clubroom";
-import UserContext from "../components/UserContext";
+import PortalContext from "../components/PortalContext";
 // import PageError from "../components/PageError";
 
 const ClubroomPage = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(PortalContext);
 
   return (
     user && (

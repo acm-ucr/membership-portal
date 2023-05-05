@@ -3,10 +3,10 @@ import { Col, Row } from "react-bootstrap";
 import Profile from "../components/Profile";
 import Photo from "../components/Photo";
 import Header from "../components/Header";
-import UserContext from "../components/UserContext";
+import PortalContext from "../components/PortalContext";
 
 const ProfilePage = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(PortalContext);
 
   return (
     user && (

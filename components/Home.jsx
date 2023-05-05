@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import UserContext from "./UserContext";
+import PortalContext from "./PortalContext";
 
 const Home = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(PortalContext);
 
   return (
     user && (

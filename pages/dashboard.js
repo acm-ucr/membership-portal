@@ -1,10 +1,9 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 import Home from "../components/Home";
 import Announcement from "../components/Announcement";
-import axios from "axios";
 import Point from "../components/Point";
-import UserContext from "../components/UserContext";
+import PortalContext from "../components/PortalContext";
 
 const colorMappings = {
   social: "bg-acm-green",
@@ -21,35 +20,16 @@ const colorMappingsText = {
 };
 
 const DashboardPage = () => {
-  const { user } = useContext(UserContext);
-
-  const [events, setEvents] = useState([]);
-  useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
-      )
-      .then((response) => {
-        const events = response.data.items
-          .filter(
-            (a) =>
-              (a.description.startsWith("General:") ||
-                a.description.startsWith("Technical:") ||
-                a.description.startsWith("Social:") ||
-                a.description.startsWith("Professional:")) &&
-              new Date(a.start.dateTime) > new Date()
-          )
-          .sort(
-            (a, b) => new Date(a.start.dateTime) - new Date(b.start.dateTime)
-          )
-          .slice(0, 5);
-        setEvents(events);
-      });
-  }, []);
+  const { user, events, announcements } = useContext(PortalContext);
+  console.log("user", user);
+  console.log("events:", events);
+  console.log("annoucements", announcements);
 
   return (
-    <>
-      {user && (
+    announcements &&
+    user && (
+      <>
+        (
         <div className="flex justify-center">
           <Row className="pt-[14vh] w-11/12 m-0">
             <Col xl={12} className="p-0">
@@ -65,8 +45,8 @@ const DashboardPage = () => {
                     announcements
                   </p>
                 </div>
-                {events &&
-                  events.map((event, index) => (
+                {announcements &&
+                  announcements.map((event, index) => (
                     <div
                       className="w-full flex items-center justify-center"
                       key={index}
@@ -94,7 +74,7 @@ const DashboardPage = () => {
                               .replace(":", "")}`
                           ]
                         }
-                        date={new Date(event.start.dateTime).toLocaleDateString(
+                        date={new Date(event.start).toLocaleDateString(
                           "en-US",
                           {
                             month: "long",
@@ -102,7 +82,7 @@ const DashboardPage = () => {
                             year: "numeric",
                           }
                         )}
-                        time={new Date(event.start.dateTime).toLocaleTimeString(
+                        time={new Date(event.start).toLocaleTimeString(
                           "en-US",
                           {
                             hour: "2-digit",
@@ -126,8 +106,9 @@ const DashboardPage = () => {
             </Col>
           </Row>
         </div>
-      )}
-    </>
+        )
+      </>
+    )
   );
 };
 
