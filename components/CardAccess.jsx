@@ -3,8 +3,8 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 
-export default function CardAccess({ email, name, rowNum, uid }) {
-  const [cardNumber, setCardNumber] = useState("");
+export default function CardAccess() {
+  const [CardNumber, setCardNumber] = useState("");
   const { user, setUser } = useContext(UserContext);
 
   const [showSnackBar, setShowSnackBar] = useState(false);
