@@ -10,6 +10,7 @@ const colorMappings = {
   professional: "bg-acm-lightpurple",
   general: "bg-acm-lightblue",
   technical: "bg-acm-yellow",
+  academic: "bg-acm-marine",
 };
 
 const colorMappingsText = {
@@ -17,6 +18,7 @@ const colorMappingsText = {
   professional: "text-acm-lightpurple",
   general: "text-acm-lightblue",
   technical: "text-acm-yellow",
+  academic: "text-acm-marine",
 };
 
 const DashboardPage = () => {
