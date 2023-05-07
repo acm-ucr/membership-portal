@@ -35,9 +35,8 @@ export default function CardAccess() {
       .post("/api/submitCardNumber", {
         name: user.name,
         email: user.email,
-        rowNum: user.row,
-        cardNumber: CardNumber,
-        sheetID: process.env.NEXT_PUBLIC_SHEET_ID,
+        rowNum: user.rowNum,
+        cardNumber: cardNumber,
         uid: user.uid,
       })
       .then((res) => {
