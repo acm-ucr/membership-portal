@@ -2,7 +2,7 @@ import Calendar from "/components/Calendar.jsx";
 
 const calendar = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-end">
       <Calendar />
     </div>
   );

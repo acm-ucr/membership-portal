@@ -15,7 +15,7 @@ const CalendarEvents = () => {
   const [modalEvent, setModalEvent] = useState(null);
 
   return (
-    <div className="mt-5 h-[90vh] w-11/12">
+    <div className="mb-2 h-[90vh] w-11/12">
       <Calendar
         className="font-lexend m-0 p-0"
         events={events}
