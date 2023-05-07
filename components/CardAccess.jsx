@@ -4,7 +4,7 @@ import axios from "axios";
 import PortalContext from "./PortalContext";
 
 export default function CardAccess() {
-  const [CardNumber, setCardNumber] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const { user, setUser } = useContext(PortalContext);
 
   const [showSnackBar, setShowSnackBar] = useState(false);
