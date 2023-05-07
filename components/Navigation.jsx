@@ -6,11 +6,11 @@ import Image from "next/image";
 import NavImage from "../public/acm-ucr-logo.webp";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import UserContext from "./UserContext";
+import PortalContext from "./PortalContext";
 import { useRouter } from "next/router";
 
 const Navigation = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(PortalContext);
   const router = useRouter();
 
   const logout = () => {

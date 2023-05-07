@@ -2,21 +2,90 @@ import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
-import UserContext from "../components/UserContext";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import ResourceContext from "../components/ResourceContext";
+import PortalContext from "../components/PortalContext";
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   const [resources, setResources] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
+
+  const colorMappings = {
+    social: "!bg-acm-red",
+    career: "!bg-acm-lightpurple",
+    general: "!bg-acm-blue",
+    technical: "!bg-acm-orange",
+    academic: "!bg-acm-marine",
+  };
+
+  const colorMappingsText = {
+    social: "text-acm-red",
+    career: "text-acm-lightpurple",
+    general: "text-acm-blue",
+    technical: "text-acm-orange",
+    academic: "text-acm-marine",
+  };
+
+  const colorMappingsBorder = {
+    social: "border-acm-red",
+    career: "border-acm-lightpurple",
+    general: "border-acm-blue",
+    technical: "border-acm-orange",
+    academic: "border-acm-marine",
+  };
 
   useEffect(() => {
     axios
       .get("/api/getAllResources")
       .then((response) => {
         setResources(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    axios
+      .get(
+        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
+      )
+      .then((response) => {
+        const calendarEvents = response.data.items
+          .filter((a) => {
+            a.start = new Date(a.start.dateTime);
+            a.end = new Date(a.end.dateTime);
+
+            a.color =
+              colorMappings[
+                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+              ];
+
+            a.textColor =
+              colorMappingsText[
+                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+              ];
+
+            a.border =
+              colorMappingsBorder[
+                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+              ];
+
+            return (
+              (a.description.startsWith("General:") ||
+                a.description.startsWith("Technical:") ||
+                a.description.startsWith("Social:") ||
+                a.description.startsWith("Career:") ||
+                a.description.startsWith("Academic:")) &&
+              new Date(a.start) > new Date()
+            );
+          })
+          .sort((a, b) => {
+            return new Date(a.start) - new Date(b.start);
+          });
+        setEvents(calendarEvents);
+
+        setAnnouncements(calendarEvents.slice(0, 5));
       })
       .catch((error) => {
         console.log(error);
@@ -44,13 +113,22 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <ResourceContext.Provider value={{ resources, setResources }}>
-      <UserContext.Provider value={{ user, setUser }}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </UserContext.Provider>
-    </ResourceContext.Provider>
+    <PortalContext.Provider
+      value={{
+        resources,
+        setResources,
+        user,
+        setUser,
+        events,
+        setEvents,
+        announcements,
+        setAnnouncements,
+      }}
+    >
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </PortalContext.Provider>
   );
 }
 
