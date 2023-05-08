@@ -8,7 +8,7 @@ const ClubroomPage = () => {
   const { user } = useContext(PortalContext);
 
   return (
-    !user && (
+    user && (
       <div className="pt-20">
         <Clubroom />
         <CardAccess />
