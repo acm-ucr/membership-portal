@@ -14,7 +14,7 @@ export default async function submitCardNumber(req, res) {
   const sheets = google.sheets({ version: "v4", auth });
   if (row == 0) {
     const appendResponse = await sheets.spreadsheets.values.append({
-      spreadsheetId: req.body.sheetID,
+      spreadsheetId: process.env.NEXT_PUBLIC_SHEET_ID,
       range: "CardAccess!A1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
