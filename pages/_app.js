@@ -72,12 +72,11 @@ function MyApp({ Component, pageProps }) {
               ];
 
             return (
-              (a.description.startsWith("General:") ||
-                a.description.startsWith("Technical:") ||
-                a.description.startsWith("Social:") ||
-                a.description.startsWith("Career:") ||
-                a.description.startsWith("Academic:")) &&
-              new Date(a.start) > new Date()
+              a.description.startsWith("General:") ||
+              a.description.startsWith("Technical:") ||
+              a.description.startsWith("Social:") ||
+              a.description.startsWith("Career:") ||
+              a.description.startsWith("Academic:")
             );
           })
           .sort((a, b) => {
@@ -85,7 +84,10 @@ function MyApp({ Component, pageProps }) {
           });
         setEvents(calendarEvents);
 
-        setAnnouncements(calendarEvents.slice(0, 5));
+        const futureEvents = calendarEvents.filter(
+          (event) => event.start > new Date()
+        );
+        setAnnouncements(futureEvents.slice(0, 5));
       })
       .catch((error) => {
         console.log(error);
