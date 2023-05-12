@@ -3,6 +3,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import PortalContext from "./PortalContext";
 import { useContext, useEffect } from "react";
+import Image from "next/image";
 
 const ApplicationProfile = ({ color, name, email, image }) => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const ApplicationProfile = ({ color, name, email, image }) => {
         className={`px-2 py-4 font-lexend text-acm-black m-0 ${color} m-1 rounded-2xl flex justify-center items-center flex-col`}
       >
         {image ? (
-          <img
+          <Image
             className={`shadow-[10px_8px_0px_0px] shadow-acm-white w-10/12 mb-3`}
             src={image}
             alt="Profile Picture of Board Member"
