@@ -93,7 +93,7 @@ function MyApp({ Component, pageProps }) {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser !== null) {
         axios
-          .post("/api/profile/getInfo", { uid: currentUser.uid })
+          .post("/api/getInfo", { uid: currentUser.uid })
           .then((response) => {
             const data = response.data.data;
             const date = new Date(data.start.seconds * 1000);

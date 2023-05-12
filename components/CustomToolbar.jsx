@@ -30,13 +30,11 @@ const CustomToolbar = (event) => {
         </Col>
         <Col xs={8} className=" w-full flex justify-end items-center m-0 p-0">
           <Row className="w-full  m-0 p-0 flex justify-end items-center ">
-            {Filters.map((filter, index) => {
-              return (
-                <Col key={index} xs={5} sm={5} lg={2} className="p-1">
-                  <Filter topic={filter.topic} color={filter.color} />
-                </Col>
-              );
-            })}
+            {Filters.map((filter, index) => (
+              <Col key={index} xs={5} sm={5} lg={2} className="p-1">
+                <Filter topic={filter.topic} color={filter.color} />
+              </Col>
+            ))}
           </Row>
         </Col>
       </Row>

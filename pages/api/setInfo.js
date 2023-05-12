@@ -1,4 +1,4 @@
-import { db } from "../../../firebase";
+import { db } from "../../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 
 export default async function setProfileInfo(req, res) {
