@@ -62,12 +62,12 @@ export default function CardAccess() {
         <input
           maxLength={19}
           autoComplete="off"
-          className="w-10/12 lg:w-6/12 border-black border-2 rounded-full py-2 px-4 text-xl font-lexend"
+          className="w-10/12 lg:w-6/12 border-black border-2 rounded-lg py-2 px-4 text-xl font-lexend"
           value={cardNumber}
           placeholder="Card Number"
           onChange={handleChange}
         />
-        <button className=" rounded-full py-2 px-4 text-xl font-lexend m-3 border-2 border-black hover:bg-acm-blue hover:text-white hover:border-acm-blue">
+        <button className=" rounded-lg py-2 px-4 text-xl font-lexend m-3 border-2 border-black hover:bg-acm-blue hover:text-white hover:border-acm-blue">
           Submit
         </button>
       </form>
