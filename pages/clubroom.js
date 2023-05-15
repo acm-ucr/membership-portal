@@ -10,7 +10,7 @@ const ClubroomPage = () => {
 
   return (
     user && (
-      <div className="pt-[14vh] flex-col gap-12 flex items-center">
+      <div className="pt-[10vh] flex-col flex items-center h-screen">
         <title>Clubroom</title>
         <Header title="clubroom" color="bg-acm-lightblue" />
         <Clubroom />
