@@ -18,6 +18,8 @@ const Resources = () => {
       setToday(new Date().setDate(new Date().getDate() - 7));
     } else if (selectedTime == "last month") {
       setToday(new Date().setMonth(new Date().getMonth() - 1));
+    } else if (selectedTime == "last 6 months") {
+      setToday(new Date().setMonth(new Date().getMonth() - 7));
     } else if (selectedTime == "last year") {
       setToday(new Date().setYear(new Date().getYear() - 7));
     }

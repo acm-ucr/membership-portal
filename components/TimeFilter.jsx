@@ -59,6 +59,14 @@ const TimeFilter = ({ setSelectedTime }) => {
               last month
             </button>
           </Accordion.Body>
+          <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-x-[3px] cursor-pointer hover:bg-acm-blue p-0 bg-acm-white">
+            <button
+              className="w-full h-full"
+              onClick={() => timeOptionEvent("last 6 months")}
+            >
+              last 6 months
+            </button>
+          </Accordion.Body>
           <Accordion.Body className="ml-auto mr-auto w-56 flex items-center justify-center h-12 text-center border-acm-black border-y border-b-2 border-x-[3px] cursor-pointer hover:bg-acm-blue rounded-b-3xl p-0 bg-acm-white">
             <button
               className="w-full h-full"
