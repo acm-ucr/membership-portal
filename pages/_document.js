@@ -7,6 +7,11 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://acm.cs.ucr.edu/acm-ucr-logo.webp"
+          />
+          <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
             crossOrigin="true"
