@@ -6,7 +6,6 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="icon" type="image/x-icon" href="acm-ucr-logo.webp" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
