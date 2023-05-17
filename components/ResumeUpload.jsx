@@ -6,16 +6,24 @@ const rules = [
   "Resume must be uploaded to Google Drive",
 ];
 
-const ResumeUpload = ({ setResume }) => {
-  const [resumeLink, setResumeLink] = useState("");
-  const handleClick = (e) => {
+const ResumeUpload = ({ setResume, resume }) => {
+  const [disabled, setDisabled] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const handleUploadClick = (e) => {
     e.preventDefault();
-    setResume(resumeLink);
+    setResume({ ...resume, link: resumeLink });
   };
-  const handleChange = (e) => {
-    setResumeLink(e.target.value);
+  const handleResumeLinkChange = (e) => {
+    setResume({ ...resume, link: e.target.value });
   };
-
+  const handleResumeSubmit = (e) => {
+    e.preventDefault();
+    setDisabled(true);
+    setSubmitted(true);
+    // axios.post("/api/submitResume", {
+    //   resume:
+    // });
+  };
   return (
     <div className="flex flex-col">
       <div className="flex flex-col">
@@ -25,13 +33,13 @@ const ResumeUpload = ({ setResume }) => {
         <input
           placeholder="resume link"
           className="w-11/12 border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend"
-          onChange={handleChange}
+          onChange={handleResumeLinkChange}
           type="text"
         />
       </div>
       <button
         id="upload"
-        onClick={handleClick}
+        onClick={handleUploadClick}
         className="mt-2 mb-1 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2 border-acm-blue text-xl transition-colors duration-150 bg-acm-blue rounded-lg focus:shadow-outline hover:border-acm-black"
       >
         upload link
@@ -41,12 +49,21 @@ const ResumeUpload = ({ setResume }) => {
           {rule}
         </li>
       ))}
-      <button
-        id="upload"
-        className="mt-2 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2 border-acm-marine text-xl transition-colors duration-150 bg-acm-marine rounded-lg focus:shadow-outline hover:border-acm-black"
-      >
-        submit for review
-      </button>
+      <div>
+        <button
+          id="upload"
+          onClick={handleResumeSubmit}
+          disabled={disabled}
+          className="mt-2 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2 border-acm-marine text-xl transition-colors duration-150 bg-acm-marine rounded-lg focus:shadow-outline hover:border-acm-black"
+        >
+          submit for review
+        </button>
+        {submitted ? (
+          <p className="text-acm-black text-md font-lexend m-0">
+            submission successful
+          </p>
+        ) : null}
+      </div>
     </div>
   );
 };
