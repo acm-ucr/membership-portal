@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
+import PortalContext from "./PortalContext";
 
 const rules = [
   "Resume must be in PDF format",
@@ -7,11 +9,12 @@ const rules = [
 ];
 
 const ResumeUpload = ({ setResume, resume }) => {
+  const { user } = useContext(PortalContext);
   const [disabled, setDisabled] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const handleUploadClick = (e) => {
-    e.preventDefault();
-    setResume({ ...resume, link: resumeLink });
+    //   e.preventDefault();
+    //   setResume({ ...resume, link: resumeLink });
   };
   const handleResumeLinkChange = (e) => {
     setResume({ ...resume, link: e.target.value });
@@ -20,9 +23,10 @@ const ResumeUpload = ({ setResume, resume }) => {
     e.preventDefault();
     setDisabled(true);
     setSubmitted(true);
-    // axios.post("/api/submitResume", {
-    //   resume:
-    // });
+    axios.post("/api/submitResume", {
+      uid: user.uid,
+      resume: resume,
+    });
   };
   return (
     <div className="flex flex-col">
