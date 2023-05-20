@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PDFViewer from "../components/PDFViewer";
 import ResumeUpload from "../components/ResumeUpload";
 import ResumeFeedback from "../components/ResumeFeedback";
 import Header from "../components/Header";
-import { useState } from "react";
-import { Timestamp } from "firebase/firestore";
+import PortalContext from "../components/PortalContext";
 
 const ResumePage = () => {
-  const [resume, setResume] = useState({
-    upload: Timestamp.now(),
-    link: "",
-    formatting: "",
-    bulletPoints: "",
-    general: "",
-  });
+  const { user } = useContext(PortalContext);
+  const [resume, setResume] = useState("");
+  console.log(user);
+  useEffect(() => {
+    if (user?.resume) {
+      setResume(user.resume);
+    }
+  }, [user?.resume]);
+
   return (
     <div className="pt-[14vh] h-screen flex flex-col items-center">
       <Header title="resume" color="bg-acm-marine" />
@@ -25,7 +26,7 @@ const ResumePage = () => {
           <ResumeUpload setResume={setResume} resume={resume} />
           <ResumeFeedback />
         </div>
-        <PDFViewer pdf={resume.link} />
+        <PDFViewer pdf={resume} />
       </div>
     </div>
   );
