@@ -4,6 +4,7 @@ import { auth } from "../firebase";
 import ApplicationProfile from "../components/ApplicationProfile";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
+import colors from "../components/data/Colors.jsx";
 
 const ApplyPage = () => {
   const [data, setData] = useState({
