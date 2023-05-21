@@ -5,16 +5,6 @@ import ApplicationProfile from "../components/ApplicationProfile";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
-const colors = [
-  "bg-acm-blue",
-  "bg-acm-lightpurple",
-  "bg-acm-yellow",
-  "bg-acm-green",
-  "bg-acm-pink",
-  "bg-acm-orange",
-  "bg-acm-marine",
-];
-
 const ApplyPage = () => {
   const [data, setData] = useState({
     uid: "",
