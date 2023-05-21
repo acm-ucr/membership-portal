@@ -4,22 +4,10 @@ import Home from "../components/Home";
 import Announcement from "../components/Announcement";
 import Point from "../components/Point";
 import PortalContext from "../components/PortalContext";
-
-const colorMappings = {
-  social: "bg-acm-green",
-  professional: "bg-acm-lightpurple",
-  general: "bg-acm-lightblue",
-  technical: "bg-acm-yellow",
-  academic: "bg-acm-marine",
-};
-
-const colorMappingsText = {
-  social: "text-acm-green",
-  professional: "text-acm-lightpurple",
-  general: "text-acm-lightblue",
-  technical: "text-acm-yellow",
-  academic: "text-acm-marine",
-};
+import {
+  colorMappings,
+  colorMappingsText,
+} from "../components/data/AnnouncementData";
 
 const DashboardPage = () => {
   const { user, announcements } = useContext(PortalContext);
