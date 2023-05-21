@@ -22,10 +22,7 @@ const colorMappingsText = {
 };
 
 const DashboardPage = () => {
-  const { user, events, announcements } = useContext(PortalContext);
-  console.log("user", user);
-  console.log("events:", events);
-  console.log("annoucements", announcements);
+  const { user, announcements } = useContext(PortalContext);
 
   return (
     announcements &&
@@ -103,7 +100,7 @@ const DashboardPage = () => {
                     Points
                   </p>
                 </div>
-                <Point points={user?.points} />
+                <Point points={user.points} />
               </div>
             </Col>
           </Row>
