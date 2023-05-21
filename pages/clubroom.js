@@ -3,7 +3,6 @@ import CardAccess from "../components/CardAccess";
 import Clubroom from "../components/Clubroom";
 import PortalContext from "../components/PortalContext";
 import Header from "../components/Header";
-// import PageError from "../components/PageError";
 
 const ClubroomPage = () => {
   const { user } = useContext(PortalContext);
