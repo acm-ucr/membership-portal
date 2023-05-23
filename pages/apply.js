@@ -25,6 +25,9 @@ const ApplyPage = () => {
     response: "",
   });
 
+  const thisYear = new Date().getFullYear();
+  const years = Array.from(new Array(6), (val, index) => index + thisYear);
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser !== null) {
@@ -63,17 +66,6 @@ const ApplyPage = () => {
       ...data,
       year: event.target.value,
     });
-  };
-
-  const getOptions = () => {
-    const date = new Date().getFullYear();
-    const years = [];
-
-    for (let i = date; i < date + 6; i++) {
-      years.push(<option value={i}>{i}</option>);
-    }
-
-    return years;
   };
 
   const [count, setCount] = useState(300);
@@ -158,7 +150,11 @@ const ApplyPage = () => {
                       Select a Year
                     </option>
 
-                    {getOptions()}
+                    {years.map((year) => (
+                      <option key={year.index} value={year}>
+                        {year}
+                      </option>
+                    ))}
                   </select>
                 </Col>
                 <Col
