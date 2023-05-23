@@ -31,12 +31,10 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
 
   // Change class of
   const handleyearChange = (event) => {
-    if (validateYear(event.target.value)) {
-      setEditableValues({
-        ...editableValues,
-        year: event.target.value,
-      });
-    }
+    setEditableValues({
+      ...editableValues,
+      year: event.target.value,
+    });
   };
 
   // Functions for buttons
