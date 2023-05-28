@@ -4,16 +4,7 @@ import { auth } from "../firebase";
 import ApplicationProfile from "../components/ApplicationProfile";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
-
-const colors = [
-  "bg-acm-blue",
-  "bg-acm-lightpurple",
-  "bg-acm-yellow",
-  "bg-acm-green",
-  "bg-acm-pink",
-  "bg-acm-orange",
-  "bg-acm-marine",
-];
+import colors from "../components/data/Colors.jsx";
 
 const ApplyPage = () => {
   const [data, setData] = useState({
