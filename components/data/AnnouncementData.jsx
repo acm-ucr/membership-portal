@@ -1,15 +1,17 @@
 export const colorMappings = {
   social: "bg-acm-green",
   professional: "bg-acm-lightpurple",
-  technical: "bg-acm-lightblue",
-  general: "bg-acm-yellow",
+  general: "bg-acm-lightblue",
+  technical: "bg-acm-yellow",
+  academic: "bg-acm-marine",
 };
 
 export const colorMappingsText = {
   social: "text-acm-green",
   professional: "text-acm-lightpurple",
-  technical: "text-acm-lightblue",
-  general: "text-acm-yellow",
+  general: "text-acm-lightblue",
+  technical: "text-acm-yellow",
+  academic: "text-acm-marine",
 };
 
 export const numToMonth = {
