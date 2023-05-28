@@ -27,7 +27,7 @@ const TimeFilter = ({ setSelectedTime }) => {
             onClick={() => setClicked(!clicked)}
           >
             <p ref={selectedTimeRef} className="text-2xl m-0">
-              today
+              last year
             </p>
             {clicked ? (
               <FaChevronUp className="absolute right-6" />
