@@ -117,7 +117,9 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             <option value="Material Science and Engineering">
               Material Science and Engineering
             </option>
+
             <option value="Robotics Engineering">Robotics Engineering</option>
+            <option value="Other">Other</option>
           </select>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">

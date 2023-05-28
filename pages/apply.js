@@ -121,6 +121,7 @@ const ApplyPage = () => {
                     <option value="Robotics Engineering">
                       Robotics Engineering
                     </option>
+                    <option value="Other">Other</option>
                   </select>
                 </Col>
                 <Col
