@@ -11,7 +11,7 @@ const ApplicationProfile = ({ color, name, email, image }) => {
 
   useEffect(() => {
     if (!user) {
-      router.push("/invalidRequest");
+      router.push("/invalid");
     }
   });
 

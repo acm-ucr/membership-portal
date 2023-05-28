@@ -14,6 +14,10 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
     major: major,
     year: year,
   });
+
+  const thisYear = new Date().getFullYear();
+  const years = Array.from(new Array(6), (val, index) => index + thisYear);
+
   useEffect(() => {
     setEditableValues({ major: major, year: year });
   }, [major, year]);
@@ -27,20 +31,16 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
 
   // Change class of
   const handleyearChange = (event) => {
-    if (validateYear(event.target.value)) {
-      setEditableValues({
-        ...editableValues,
-        year: event.target.value,
-      });
-    }
+    setEditableValues({
+      ...editableValues,
+      year: event.target.value,
+    });
   };
 
   // Functions for buttons
   const editProfile = () => {
     setEditState(true);
   };
-
-  // const [refresh, setRefresh] = useState(false);
 
   const saveEditedValues = () => {
     if (editableValues.major == undefined) editableValues.major = major;
@@ -72,17 +72,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
 
   const cancelChanges = () => {
     setEditState(false);
-  };
-
-  const getOptions = () => {
-    const date = new Date().getFullYear();
-    const years = [];
-
-    for (let i = date; i < date + 6; i++) {
-      years.push(<option value={i}>{i}</option>);
-    }
-
-    return years;
   };
 
   if (editState) {
@@ -145,7 +134,11 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
               Select a Year
             </option>
 
-            {getOptions()}
+            {years.map((year) => (
+              <option key={year.index} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
         </Col>
         <Col xl={6}>
