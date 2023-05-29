@@ -15,19 +15,24 @@ const PDFViewer = ({ pdf }) => {
   };
 
   useEffect(() => {
-    if (pdf.endsWith(".pdf")) {
-      setValidPDF(true);
-      setNewPDFLink(pdf ? pdf + "#toolbar=0&navpanes=0&scrollbar=0" : "");
-    } else {
-      setValidPDF(false);
-      snackBar(
-        "Failed to upload your resume! Please make sure your resume is in PDF format"
-      );
+    if (pdf) {
+      if (pdf.endsWith(".pdf")) {
+        setValidPDF(true);
+        setNewPDFLink(pdf ? pdf + "#toolbar=0&navpanes=0&scrollbar=0" : "");
+      } else {
+        setValidPDF(false);
+        snackBar(
+          "Failed to upload your resume! Please make sure your resume is in PDF format"
+        );
+      }
     }
   }, [pdf]);
 
   return (
     <div className="h-full w-full">
+      {newPDFLink ? (
+        <iframe src={newPDFLink} height="100%" width="100%" />
+      ) : null}
       {validPDF ? (
         <iframe src={newPDFLink} height="100%" width="100%" />
       ) : (
