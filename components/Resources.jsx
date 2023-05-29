@@ -6,7 +6,7 @@ import PortalContext from "./PortalContext";
 
 const Resources = () => {
   const { resources } = useContext(PortalContext);
-  const [selectedTime, setSelectedTime] = useState("today");
+  const [selectedTime, setSelectedTime] = useState("last year");
   const [today, setToday] = useState(new Date());
   const [NoResources, setNoResources] = useState(true);
 
