@@ -24,15 +24,15 @@ const DashboardPage = () => {
             </Col>
             <Col
               xl={7}
-              className="w-full flex flex-col items-start justify-center"
+              className="w-full flex flex-col items-start justify-start"
             >
-              <div className="bg-black w-full flex flex-col items-center justify-center rounded-[40px]">
+              <div className="bg-black w-full h-full flex flex-col items-center justify-center rounded-[40px]">
                 <div className="w-11/12 justify-start items-start">
                   <p className="inline-block py-2 px-3 rounded-full text-3xl font-semibold mb-3 mt-4 bg-acm-white text-acm-black board">
                     announcements
                   </p>
                 </div>
-                {announcements &&
+                {announcements.length != 0 ? (
                   announcements.map((event, index) => (
                     <div
                       className="w-full flex items-center justify-center"
@@ -78,7 +78,12 @@ const DashboardPage = () => {
                         )}
                       />
                     </div>
-                  ))}
+                  ))
+                ) : (
+                  <div className="h-full text-acm-white font-lexend text-3xl mt-5">
+                    <p>no upcoming events</p>
+                  </div>
+                )}
               </div>
             </Col>
             <Col xl={5} className="flex flex-col items-end">
