@@ -5,7 +5,7 @@ const Error400 = () => {
   const router = useRouter();
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
-      <div className="h-3/4">
+      <div className="h-[80vh] flex items-center justify-center">
         <PageError
           errorCode="403"
           errorMsg="Authorization Error: You do not have access to this application!"
