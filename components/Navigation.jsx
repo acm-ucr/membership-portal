@@ -84,7 +84,7 @@ const Navigation = () => {
               </Link>
               <Link href="/">
                 <p
-                  className="hover:cursor-pointer my-0 px-2 py-1 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-xl ml-6"
+                  className="hover:cursor-pointer my-0 px-3 py-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-xl ml-6"
                   onClick={logout}
                 >
                   logout
