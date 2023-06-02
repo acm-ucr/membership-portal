@@ -32,10 +32,14 @@ const PDFViewer = ({ pdf }) => {
     <div className="h-full w-full">
       {newPDFLink ? (
         <iframe src={newPDFLink} height="100%" width="100%" />
-      ) : null}
-      {validPDF ? (
-        <iframe src={newPDFLink} height="100%" width="100%" />
       ) : (
+        <div className="flex h-full items-center justify-center">
+          <p className="font-lexend text-3xl font-semibold">
+            no resume uploaded
+          </p>
+        </div>
+      )}
+      {!validPDF ? (
         <div
           className={`${
             !showSnackBar ? "hidden" : "visible"
@@ -43,7 +47,7 @@ const PDFViewer = ({ pdf }) => {
         >
           {message}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
