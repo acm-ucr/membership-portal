@@ -22,11 +22,13 @@ const ResumePage = () => {
       <title>Resume</title>
 
       <div className="pt-3 flex w-11/12 h-full pb-1">
-        <div className="w-full gap-3 flex flex-col">
+        <div className="w-2/3 gap-3 flex flex-col">
           <ResumeUpload setResume={setResume} resume={resume} />
           <ResumeFeedback />
         </div>
-        <PDFViewer pdf={resume} />
+        <div className="w-1/3">
+          <PDFViewer pdf={resume} />
+        </div>
       </div>
     </div>
   );
