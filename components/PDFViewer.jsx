@@ -31,7 +31,12 @@ const PDFViewer = ({ pdf }) => {
   return (
     <div className="h-full w-full">
       {newPDFLink ? (
-        <iframe src={newPDFLink} height="100%" width="100%" />
+        <iframe
+          className="h-full"
+          src={newPDFLink}
+          height="500vh"
+          width="100%"
+        />
       ) : (
         <div className="flex h-full items-center justify-center">
           <p className="font-lexend text-3xl font-semibold">
