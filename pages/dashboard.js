@@ -16,7 +16,7 @@ const DashboardPage = () => {
     announcements &&
     user && (
       <>
-        (
+        <title>Dashboard</title>(
         <div className="flex justify-center">
           <Row className="pt-[10vh] w-11/12 m-0">
             <Col xl={12} className="p-0">
