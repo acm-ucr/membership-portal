@@ -75,7 +75,10 @@ function MyApp({ Component, pageProps }) {
           .then((response) => {
             const data = response.data.data;
             const date = new Date(data.start.seconds * 1000);
-            data.start = date.getFullYear();
+            data.start =
+              date.toLocaleString("en-US", { month: "long" }) +
+              " " +
+              date.getFullYear();
             setUser({
               ...response.data.data,
               name: currentUser.displayName,
