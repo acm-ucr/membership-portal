@@ -11,7 +11,6 @@ const mLocalizer = momentLocalizer(moment);
 
 const CalendarEvents = () => {
   const { events } = useContext(PortalContext);
-  console.log("events: Calendar Page", events);
   const [modalEvent, setModalEvent] = useState(null);
 
   return (
