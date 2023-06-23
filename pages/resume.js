@@ -8,7 +8,7 @@ import PortalContext from "../components/PortalContext";
 const ResumePage = () => {
   const { user } = useContext(PortalContext);
   const [resume, setResume] = useState("");
-  console.log(user);
+
   useEffect(() => {
     if (user?.resume) {
       setResume(user.resume);
