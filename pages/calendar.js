@@ -1,9 +1,9 @@
-import React from "react";
 import Calendar from "/components/Calendar.jsx";
 
 const calendar = () => {
   return (
-    <div className="mt-24 flex justify-center items-center flex-col">
+    <div className="min-h-screen flex flex-col items-center justify-end">
+      <title>Calendar</title>
       <Calendar />
     </div>
   );

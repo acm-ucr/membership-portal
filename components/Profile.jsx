@@ -1,52 +1,28 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { useEffect } from "react";
-import UserContext from "./UserContext";
+import PortalContext from "./PortalContext";
 // getting the name, major, class of working.
 // it gets data from the db and is passed into the profile component
 
 const Profile = ({ uid, name, major, year, netId, email, points }) => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(PortalContext);
 
   const [editState, setEditState] = useState(false);
-  const [yearErrors, setYearErrors] = useState("");
   const [editableValues, setEditableValues] = useState({
     major: major,
     year: year,
   });
-  const validateYear = (yr) => {
-    let isValid = true;
-    const errors = "";
-    const regex = /^20[0-9]{2}$/;
 
-    const currentDate = new Date().getFullYear();
+  const thisYear = new Date().getFullYear();
+  const years = Array.from(new Array(6), (val, index) => index + thisYear);
 
-    if (yr < currentDate) {
-      isValid = false;
-      errors = "Did not save, class of cannot be in the past";
-    }
-
-    if (yr > currentDate + 6) {
-      isValid = false;
-      errors = "Did not save, class of too far in the future";
-    }
-
-    if (!regex.test(yr)) {
-      isValid = false;
-      errors = "Did not save. Please select a valid year";
-    }
-
-    console.log(errors);
-    setYearErrors(errors);
-    return isValid;
-  };
   useEffect(() => {
     setEditableValues({ major: major, year: year });
   }, [major, year]);
   // Change major
   const handleMajorChange = (event) => {
-    console.log(event.target.value);
     setEditableValues({
       ...editableValues,
       major: event.target.value,
@@ -55,21 +31,16 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
 
   // Change class of
   const handleyearChange = (event) => {
-    if (validateYear(event.target.value)) {
-      setEditableValues({
-        ...editableValues,
-        year: event.target.value,
-      });
-    }
+    setEditableValues({
+      ...editableValues,
+      year: event.target.value,
+    });
   };
 
   // Functions for buttons
   const editProfile = () => {
-    console.log("Edit Profile Button Pressed");
     setEditState(true);
   };
-
-  // const [refresh, setRefresh] = useState(false);
 
   const saveEditedValues = () => {
     if (editableValues.major == undefined) editableValues.major = major;
@@ -84,12 +55,9 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
       year: editableValues.year,
       uid: uid,
     };
-    console.log(data);
     axios
-      .post("/api/profile/setInfo", data)
-      .then((response) => {
-        console.log(response.data);
-      })
+      .post("/api/setInfo", data)
+      .then((response) => {})
       .catch((error) => {
         console.log(error);
       });
@@ -104,17 +72,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
 
   const cancelChanges = () => {
     setEditState(false);
-  };
-
-  const getOptions = () => {
-    const date = new Date().getFullYear();
-    const years = [];
-
-    for (let i = date; i < date + 6; i++) {
-      years.push(<option value={i}>{i}</option>);
-    }
-
-    return years;
   };
 
   if (editState) {
@@ -134,7 +91,7 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
           </p>
 
           <select
-            className="text-acm-black text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
+            className="text-acm-black focus:border-black focus:ring-0 text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
             onChange={handleMajorChange}
           >
             <option value="none" selected disabled hidden>
@@ -160,7 +117,9 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             <option value="Material Science and Engineering">
               Material Science and Engineering
             </option>
+
             <option value="Robotics Engineering">Robotics Engineering</option>
+            <option value="Other">Other</option>
           </select>
 
           <p className="text-acm-black text-3xl font-lexend font-bold pt-3">
@@ -171,13 +130,17 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             name="year"
             placeholder={editableValues.year}
             onChange={handleyearChange}
-            className="text-acm-black text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
+            className="text-acm-black focus:border-black focus:ring-0 text-lg font-lexend pb-1 bg-gray-300 rounded-lg sm:w-full"
           >
             <option value="none" selected disabled hidden>
               Select a Year
             </option>
 
-            {getOptions()}
+            {years.map((year) => (
+              <option key={year.index} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
         </Col>
         <Col xl={6}>
@@ -275,7 +238,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
             edit profile
           </button>
         </Col>
-        <p className="text-acm-red font-bold pt-[2%]">{yearErrors}</p>
       </Row>
     );
   }

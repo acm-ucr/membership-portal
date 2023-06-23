@@ -1,11 +1,11 @@
 import Welcome from "../components/Welcome";
 import Login from "../components/Login";
 import { useContext, useEffect } from "react";
-import UserContext from "../components/UserContext";
+import PortalContext from "../components/PortalContext";
 import { useRouter } from "next/router";
 
 const Index = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(PortalContext);
   const router = useRouter();
 
   useEffect(() => {

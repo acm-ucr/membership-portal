@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Image from "next/image";
+import NavImage from "../public/acm-ucr-logo.webp";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import UserContext from "./UserContext";
+import PortalContext from "./PortalContext";
 import { useRouter } from "next/router";
 
 const Navigation = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(PortalContext);
   const router = useRouter();
 
   const logout = () => {
@@ -33,12 +34,7 @@ const Navigation = () => {
       <Navbar.Brand className="flex flex-row items-center p-0 m-0">
         <Link href={`${user ? "/dashboard" : "/"}  `}>
           <div className="flex items-center justify-center">
-            <Image
-              src="/acm-ucr-logo.png"
-              alt="ACM at UCR"
-              width={50}
-              height={50}
-            />
+            <Image src={NavImage} alt="ACM at UCR" width={50} height={50} />
             <div className="hidden lg:block">
               <p className="m-0 font-lexend font-medium text-2xl cursor-pointer">
                 membership portal
@@ -47,24 +43,6 @@ const Navigation = () => {
           </div>
         </Link>
       </Navbar.Brand>
-
-      {/* {!user && (
-        <>
-          <Navbar.Toggle className="!text-sm" aria-controls="navbar-nav" />
-          <Navbar.Collapse
-            id="navbar-nav"
-            className="-mt-2 flex justify-center md:justify-end items-center"
-          >
-            <Nav className="no-underline text-2xl flex justify-center items-center">
-              <Link href="/apply">
-                <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
-                  become a member
-                </p>
-              </Link>
-            </Nav>
-          </Navbar.Collapse>
-        </>
-      )} */}
 
       {user && (
         <>
@@ -99,9 +77,14 @@ const Navigation = () => {
                   clubroom
                 </p>
               </Link>
+              <Link href="/resume">
+                <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
+                  resume
+                </p>
+              </Link>
               <Link href="/">
                 <p
-                  className="hover:cursor-pointer my-0 px-2 py-1 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-xl ml-6"
+                  className="hover:cursor-pointer my-0 px-3 py-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-xl ml-6"
                   onClick={logout}
                 >
                   logout

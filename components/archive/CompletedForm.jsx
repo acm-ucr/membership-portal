@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import MockInterviewFormDetails from "./MockInterviewFormDetails";
 import ResumeReviewFormDetails from "./ResumeReviewFormDetails";
 import MockInterviewFormData from "./MockinterviewFormData";

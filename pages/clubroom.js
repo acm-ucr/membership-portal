@@ -1,19 +1,20 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import CardAccess from "../components/CardAccess";
-import UserContext from "../components/UserContext";
-// import PageError from "../components/PageError";
+import Clubroom from "../components/Clubroom";
+import PortalContext from "../components/PortalContext";
+import Header from "../components/Header";
 
 const ClubroomPage = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(PortalContext);
 
   return (
     user && (
-      <CardAccess
-        email={user.email}
-        name={user.name}
-        rowNum={user.row}
-        uid={user.uid}
-      />
+      <div className="pt-[10vh] flex-col flex items-center h-[90vh]">
+        <title>Clubroom</title>
+        <Header title="clubroom" color="bg-acm-lightblue" />
+        <Clubroom />
+        <CardAccess />
+      </div>
     )
   );
 };

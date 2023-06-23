@@ -1,4 +1,3 @@
-import React from "react";
 import { FaFileAlt, FaYoutube } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 

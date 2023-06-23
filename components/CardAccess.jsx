@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
-import UserContext from "./UserContext";
+import PortalContext from "./PortalContext";
 
-export default function CardAccess({ email, name, rowNum, uid }) {
-  const [CardNumber, setCardNumber] = useState("");
-  const { user, setUser } = useContext(UserContext);
+export default function CardAccess() {
+  const [cardNumber, setCardNumber] = useState("");
+  const { user, setUser } = useContext(PortalContext);
 
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [message, setMessage] = useState("");
@@ -17,28 +17,31 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       setMessage("");
     }, 3000);
   };
+  const handleChange = (e) => {
+    let value = e.target.value;
+    value = value.replace(/\D+$/, "");
+    value = value.replace(/(\d{4})(?=\d)/g, "$1 ");
+    setCardNumber(value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (CardNumber.length != 19) {
+    if (cardNumber.length != 19) {
       snackBar(
         "The card ID should be 16 bits, please double check your card number😅"
       );
       return;
     }
-    console.log(rowNum);
     axios
       .post("/api/submitCardNumber", {
-        name: name,
-        email: email,
-        rowNum: rowNum,
-        cardNumber: CardNumber,
-        sheetID: process.env.NEXT_PUBLIC_SHEET_ID,
-        uid: uid,
+        name: user.name,
+        email: user.email,
+        rowNum: user.rowNum,
+        cardNumber: cardNumber,
+        uid: user.uid,
       })
       .then((res) => {
         setUser({ ...user, row: res.data });
         snackBar("Succesfully added your card number! 🥳");
-        console.log(res);
       })
       .catch((error) => {
         console.log(error);
@@ -48,11 +51,7 @@ export default function CardAccess({ email, name, rowNum, uid }) {
       });
   };
   return (
-    <div className=" h-screen flex justify-center items-center flex-col w-full">
-      <p className="text-3xl lg:text-6xl font-lexend bg-acm-blue rounded-full px-12 py-3 m-1 text-white">
-        ACM Clubroom Access
-      </p>
-      <p className="text-lg md:text-xl font-lexend m-2">location: WCH 127</p>
+    <div className=" h-60 flex justify-center items-center flex-col w-full">
       <p className="text-xl lg:text-3xl font-lexend">
         Please enter the number at the bottom right of your R'Card
       </p>
@@ -63,29 +62,12 @@ export default function CardAccess({ email, name, rowNum, uid }) {
         <input
           maxLength={19}
           autoComplete="off"
-          className="w-10/12 lg:w-6/12 border-black border-2 rounded-full py-2 px-4 text-xl font-lexend"
-          value={CardNumber}
-          placeholder="card Number"
-          onChange={(e) => {
-            let value = e.target.value;
-            if (isNaN(value[value.length - 1])) {
-              value = value.slice(0, value.length - 1);
-            }
-            let count = 0;
-            for (let i = 0; i < value.length; i++) {
-              count++;
-              if (count > 4) {
-                if (value[i] != " ") {
-                  value = value.slice(0, i) + " " + value.slice(i);
-                  i++;
-                }
-                count = 0;
-              }
-            }
-            setCardNumber(value);
-          }}
+          className="w-10/12 lg:w-6/12 border-black border-2 rounded-lg py-2 px-4 text-xl font-lexend"
+          value={cardNumber}
+          placeholder="Card Number"
+          onChange={handleChange}
         />
-        <button className=" rounded-full py-2 px-4 text-xl font-lexend m-3 border-2 border-black hover:bg-acm-blue hover:text-white hover:border-acm-blue">
+        <button className=" rounded-lg py-2 px-4 text-xl font-lexend m-3 border-2 border-black hover:bg-acm-blue hover:text-white hover:border-acm-blue">
           Submit
         </button>
       </form>

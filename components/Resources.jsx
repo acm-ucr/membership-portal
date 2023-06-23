@@ -1,29 +1,16 @@
-import React, { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Resource from "./Resource";
 import TimeFilter from "./TimeFilter";
 import { Col, Row } from "react-bootstrap";
-import { useEffect } from "react";
-import axios from "axios";
+import PortalContext from "./PortalContext";
 
 const Resources = () => {
-  const [resources, setResources] = useState([]);
-  const [selectedTime, setSelectedTime] = useState("today");
+  const { resources } = useContext(PortalContext);
+  const [selectedTime, setSelectedTime] = useState("last year");
   const [today, setToday] = useState(new Date());
   const [NoResources, setNoResources] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("/api/getAllResources")
-      .then((response) => {
-        setResources(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    console.log(selectedTime);
     setNoResources(true);
     if (selectedTime == "today") {
       setToday(new Date().setDate(new Date().getDate() - 1));
@@ -31,6 +18,8 @@ const Resources = () => {
       setToday(new Date().setDate(new Date().getDate() - 7));
     } else if (selectedTime == "last month") {
       setToday(new Date().setMonth(new Date().getMonth() - 1));
+    } else if (selectedTime == "last 6 months") {
+      setToday(new Date().setMonth(new Date().getMonth() - 7));
     } else if (selectedTime == "last year") {
       setToday(new Date().setYear(new Date().getYear() - 7));
     }
