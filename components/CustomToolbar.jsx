@@ -17,11 +17,12 @@ const CustomToolbar = (event) => {
             className="hover:text-acm-darkgray hover:cursor-pointer"
           />
           <div className="text-center text-5xl p-1">
-            {event.date.getMonth() + 1 < 10
-              ? `0${event.date.getMonth() + 1}`
-              : event.date.getMonth() + 1}
-            <br />
-            {event.date.getFullYear() % 100}
+            <p>
+              {event.date.getMonth() + 1 < 10
+                ? `0${event.date.getMonth() + 1}`
+                : event.date.getMonth() + 1}
+              /{event.date.getFullYear() % 100}
+            </p>
           </div>
           <FaArrowRight
             onClick={() => event.onNavigate("NEXT")}

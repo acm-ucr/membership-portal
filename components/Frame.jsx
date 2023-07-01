@@ -1,10 +1,10 @@
 import React from "react";
 import { Image } from "react-bootstrap";
 
-const Frame = ({ image, bottomLeft, topRight, corners }) => {
+const Frame = ({ image, bottomLeft, topRight, corners, width, height }) => {
   return (
     <div
-      className="p-4 w-9/12 h-9/12"
+      className={"p-4 " + width + " " + height}
       style={{
         backgroundImage: `conic-gradient(${topRight} 90deg, ${corners} 90deg, ${corners} 180deg, ${bottomLeft} 180deg, ${bottomLeft} 270deg, ${corners} 0deg)`,
       }}
