@@ -29,6 +29,8 @@ const Clubroom = () => {
             bottomLeft="#c792ea"
             topRight="#c3e88d"
             corners="black"
+            width="w-12/12"
+            height="h-9/12"
           />
         </Col>
       </Row>
