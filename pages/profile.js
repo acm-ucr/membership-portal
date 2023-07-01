@@ -10,7 +10,7 @@ const ProfilePage = () => {
 
   return (
     user && (
-      <div className="flex justify-center pt-[14vh]">
+      <div className="flex justify-center pt-[10vh]">
         <title>Profile</title>
         <Row className="w-11/12">
           <Header title="profile" color="bg-acm-green" />
