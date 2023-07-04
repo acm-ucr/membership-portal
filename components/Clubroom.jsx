@@ -5,7 +5,7 @@ import Frame from "./Frame";
 
 const Clubroom = () => {
   return (
-    <div className="flex justify-center flex-col font-lexend text-acm-black mx-auto w-11/12 h-screen">
+    <div className="flex justify-center flex-row font-lexend text-acm-black mx-auto w-11/12 h-screen">
       <Row className="flex items-center rounded-2xl !p-4 m-0 pb-8">
         <Col sm={6} className="text-text w-full h-full p-4 text-2xl ">
           <p>
