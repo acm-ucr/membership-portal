@@ -1,17 +1,13 @@
 import { useContext } from "react";
-import {
-  setPersistence,
-  browserLocalPersistence,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "firebase/auth";
-import { auth } from "../firebase";
+import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import PortalContext from "./PortalContext";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const { data: session } = useSession();
+  console.log(session);
   const router = useRouter();
   const { setUser } = useContext(PortalContext);
 
@@ -31,7 +27,7 @@ const Login = () => {
   };
 
   const signin = () => {
-    signInWithPopup(auth, new GoogleAuthProvider())
+    signIn()
       .then((result) => {
         fetchUser(result)
           .then(() => {
@@ -52,13 +48,7 @@ const Login = () => {
   };
 
   const login = () => {
-    setPersistence(auth, browserLocalPersistence)
-      .then((res) => {
-        signin();
-      })
-      .catch((error) => {
-        router.push("/");
-      });
+    signin();
   };
 
   return (
