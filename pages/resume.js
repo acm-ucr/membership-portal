@@ -16,7 +16,7 @@ const ResumePage = () => {
   }, [user?.resume]);
 
   return (
-    <div className="pt-[14vh] h-screen flex flex-col items-center">
+    <div className="pt-[10vh] h-screen flex flex-col items-center">
       <Header title="resume" color="bg-acm-marine" />
 
       <title>Resume</title>
