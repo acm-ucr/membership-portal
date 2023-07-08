@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { SessionProvider } from "next-auth/react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import PortalContext from "../components/PortalContext";
@@ -12,7 +13,7 @@ import {
   colorMappingsBorder,
 } from "../components/data/CalendarColors";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, session }) {
   const [user, setUser] = useState(null);
   const [resources, setResources] = useState([]);
   const [events, setEvents] = useState([]);
@@ -109,22 +110,24 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <PortalContext.Provider
-      value={{
-        resources,
-        setResources,
-        user,
-        setUser,
-        events,
-        setEvents,
-        announcements,
-        setAnnouncements,
-      }}
-    >
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </PortalContext.Provider>
+    <SessionProvider session={session}>
+      <PortalContext.Provider
+        value={{
+          resources,
+          setResources,
+          user,
+          setUser,
+          events,
+          setEvents,
+          announcements,
+          setAnnouncements,
+        }}
+      >
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </PortalContext.Provider>
+    </SessionProvider>
   );
 }
 
