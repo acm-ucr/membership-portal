@@ -51,7 +51,7 @@ export default function CardAccess() {
       });
   };
   return (
-    <div className=" h-60 flex justify-center items-center flex-col w-full">
+    <div className="h-40 flex justify-center items-center flex-col w-full">
       <p className="text-xl lg:text-3xl font-lexend">
         Please enter the number at the bottom right of your R'Card
       </p>
