@@ -40,7 +40,7 @@ const ResumeUpload = ({ setResume, resume }) => {
         </p>
         <input
           placeholder="resume link"
-          className="w-11/12 border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend"
+          className="w-full border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend"
           onChange={handleResumeLinkChange}
           type="text"
         />
