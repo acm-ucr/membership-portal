@@ -4,7 +4,10 @@ import PortalContext from "./PortalContext";
 
 const ResumeFeedback = () => {
   const { user } = useContext(PortalContext);
-  const feedbackList = user.resume_feedback;
+  let feedbackList = ["No Feedback Yet"];
+  if (user != null && { user }.resume_feedback != null) {
+    feedbackList = { user }.resume_feedback;
+  }
 
   return (
     <div className="w-full">
