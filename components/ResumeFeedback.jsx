@@ -4,10 +4,6 @@ import PortalContext from "./PortalContext";
 
 const ResumeFeedback = () => {
   const { user } = useContext(PortalContext);
-  let feedbackList = ["No Feedback Yet"];
-  if (user != null && { user }.resume_feedback != null) {
-    feedbackList = { user }.resume_feedback;
-  }
 
   return (
     <div className="w-full">
@@ -15,14 +11,7 @@ const ResumeFeedback = () => {
         feedback
       </p>
       <div className="flex w-11/12 flex-grow flex-col border-2 border-acm-black">
-        {feedbackList.map((feedback, index) => (
-          <li
-            key={index}
-            className="mx-2 text-acm-black text-md font-lexend m-0"
-          >
-            {feedback}
-          </li>
-        ))}
+        {user.feedback ? user.feedback : "No Feedback"}
       </div>
     </div>
   );
