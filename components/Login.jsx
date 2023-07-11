@@ -1,54 +1,50 @@
-import { useContext } from "react";
-import { useSession, signIn } from "next-auth/react";
+// import { useContext } from "react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import PortalContext from "./PortalContext";
-import axios from "axios";
+// import PortalContext from "./PortalContext";
+// import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { data: session } = useSession();
-  console.log(session);
   const router = useRouter();
-  const { setUser } = useContext(PortalContext);
+  // const { setUser } = useContext(PortalContext);
 
-  const fetchUser = async (result) => {
-    const response = await axios.post("/api/getInfo", {
-      uid: result.user.uid,
-    });
-    const data = response.data.data;
-    const date = new Date(data.start.seconds * 1000);
-    data.start = date.getFullYear();
-    setUser({
-      ...data,
-      name: result.user.displayName,
-      uid: result.user.uid,
-      email: result.user.email,
-    });
-  };
+  // const fetchUser = async (result) => {
+  //   const response = await axios.post("/api/getInfo", {
+  //     uid: result.user.uid,
+  //   });
 
-  const signin = () => {
-    signIn()
+  //   const data = response.data.data;
+  //   const date = new Date(data.start.seconds * 1000);
+  //   data.start = date.getFullYear();
+  //   setUser({
+  //     ...data,
+  //     name: result.user.displayName,
+  //     uid: result.user.uid,
+  //     email: result.user.email,
+  //   });
+  // };
+
+  const login = () => {
+    signIn("google")
       .then((result) => {
-        fetchUser(result)
-          .then(() => {
-            router.push("/dashboard");
-          })
-          .catch((error) => {
-            if (result.user.email.includes("@ucr.edu")) {
-              router.push("apply");
-            } else {
-              router.push("/invalid");
-            }
-          });
+        console.log("RESULT", result);
+        // fetchUser(result)
+        //   .then(() => {
+        //     router.push("/dashboard");
+        //   })
+        //   .catch((error) => {
+        //     if (result.user.email.includes("@ucr.edu")) {
+        //       router.push("apply");
+        //     } else {
+        //       router.push("/invalid");
+        //     }
+        //   });
       })
       .catch((error) => {
         console.log(error);
         router.push("/");
       });
-  };
-
-  const login = () => {
-    signin();
   };
 
   return (
