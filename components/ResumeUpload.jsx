@@ -2,12 +2,6 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import PortalContext from "./PortalContext";
 
-const rules = [
-  "Resume must be in PDF format",
-  "Resume must be named as 'First Name Last Name Resume'",
-  "Resume must be uploaded to Google Drive",
-];
-
 const ResumeUpload = ({ setResume, resume }) => {
   const { user } = useContext(PortalContext);
   const [disabled, setDisabled] = useState(false);
@@ -52,11 +46,7 @@ const ResumeUpload = ({ setResume, resume }) => {
       >
         upload link
       </button>
-      {rules.map((rule, index) => (
-        <li key={index} className="text-acm-black text-md font-lexend m-0">
-          {rule}
-        </li>
-      ))}
+      <br></br>
       <div>
         {disabled ? (
           <button
