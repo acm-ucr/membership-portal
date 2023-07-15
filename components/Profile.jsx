@@ -2,8 +2,16 @@ import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
-const Profile = ({ uid, name, major, year, netId, email, points }) => {
+const Profile = () => {
+  const { data: session } = useSession();
+
+  const { name, major, year, email, points } = session.user;
+
+  const uid = session.user.id;
+  const netId = session.user.email.substr(0, session.user.email.indexOf("@"));
+
   const [editState, setEditState] = useState(false);
   const [editableValues, setEditableValues] = useState({
     major: major,

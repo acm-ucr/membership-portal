@@ -4,8 +4,6 @@ import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { SessionProvider } from "next-auth/react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
 import PortalContext from "../components/PortalContext";
 import {
   colorMappings,
@@ -84,29 +82,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       .catch((error) => {
         console.log(error);
       });
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser !== null) {
-        axios
-          .post("/api/getInfo", { uid: currentUser.uid })
-          .then((response) => {
-            const data = response.data.data;
-            const date = new Date(data.start.seconds * 1000);
-            data.start =
-              date.toLocaleString("en-US", { month: "long" }) +
-              " " +
-              date.getFullYear();
-            setUser({
-              ...response.data.data,
-              name: currentUser.displayName,
-              uid: currentUser.uid,
-              email: currentUser.email,
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    });
   }, []);
 
   return (
