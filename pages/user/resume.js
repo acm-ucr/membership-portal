@@ -18,11 +18,11 @@ const ResumePage = () => {
 
         <div className="pt-3  flex w-11/12 h-full pb-1">
           <div className="w-3/5 flex flex-col">
-            <ResumeUpload resume={session.user.resume} />
+            <ResumeUpload resume={session?.user?.resume} />
             <ResumeFeedback />
           </div>
           <div className="w-2/5">
-            <PDFViewer pdf={session.user.resume} />
+            <PDFViewer pdf={session?.user?.resume} />
           </div>
         </div>
       </div>

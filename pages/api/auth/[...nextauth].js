@@ -22,11 +22,6 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
-      // console.log("SIGN IN CALLBACK", user);
-      return true;
-    },
-
     async redirect({ url, baseUrl }) {
       return url.startsWith(baseUrl)
         ? Promise.resolve(url)
@@ -34,19 +29,8 @@ export const authOptions = {
     },
 
     async session({ session, user, token }) {
-      // console.log("SESSION CALLBACK", session, user, token);
       session.user = user;
       return session;
-    },
-
-    async jwt({ token, user }) {
-      // update token
-      // if (user) {
-      //   token.id = user.id;
-      // }
-      // console.log("TOKEN ON JWT CALLBACK", token, user);
-      // return final_token
-      return token;
     },
   },
   pages: {
