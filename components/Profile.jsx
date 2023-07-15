@@ -1,13 +1,16 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { useEffect } from "react";
-import PortalContext from "./PortalContext";
-// getting the name, major, class of working.
-// it gets data from the db and is passed into the profile component
+import { useSession } from "next-auth/react";
 
-const Profile = ({ uid, name, major, year, netId, email, points }) => {
-  const { user, setUser } = useContext(PortalContext);
+const Profile = () => {
+  const { data: session } = useSession();
+
+  const { name, major, year, email, points } = session.user;
+
+  const uid = session.user.id;
+  const netId = session.user.email.substr(0, session.user.email.indexOf("@"));
 
   const [editState, setEditState] = useState(false);
   const [editableValues, setEditableValues] = useState({
@@ -61,11 +64,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
       .catch((error) => {
         console.log(error);
       });
-    setUser({
-      ...user,
-      major: editableValues.major,
-      year: editableValues.year,
-    });
 
     setEditState(false);
   };

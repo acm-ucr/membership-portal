@@ -1,22 +1,21 @@
 import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
-import Home from "../components/Home";
-import Announcement from "../components/Announcement";
-import Point from "../components/Point";
-import PortalContext from "../components/PortalContext";
+import Home from "../../components/Home";
+import Announcement from "../../components/Announcement";
+import Point from "../../components/Point";
+import PortalContext from "../../components/PortalContext";
 import {
   colorMappings,
   colorMappingsText,
-} from "../components/data/AnnouncementData";
+} from "../../components/data/AnnouncementData";
+import ProtectedPage from "../../components/ProtectedPage";
 
 const DashboardPage = () => {
-  const { user, announcements } = useContext(PortalContext);
+  const { announcements } = useContext(PortalContext);
 
   return (
-    announcements &&
-    user && (
-      <>
-        <title>Dashboard</title>(
+    announcements && (
+      <ProtectedPage title="Dashboard" restrictions={["member"]}>
         <div className="flex justify-center">
           <Row className="pt-[10vh] w-11/12 m-0">
             <Col xl={12} className="p-0">
@@ -93,13 +92,13 @@ const DashboardPage = () => {
                     Points
                   </p>
                 </div>
-                <Point points={user.points} />
+                <Point />
               </div>
             </Col>
           </Row>
         </div>
         )
-      </>
+      </ProtectedPage>
     )
   );
 };
