@@ -11,13 +11,17 @@ const ProtectedPage = ({ title, children, restrictions }) => {
       console.log("Not signed in");
       router.push("/");
     }
-    if (
-      status === "authenticated" &&
-      restrictions.includes("admin") &&
-      !session.user.role
-    ) {
+    if (status === "authenticated" && !session.user.role) {
       console.log("New User");
       router.push("/apply");
+    }
+    if (
+      status === "authenticated" &&
+      session.user.role === "member" &&
+      session.user.verified === false
+    ) {
+      console.log("User not Accepted ");
+      router.push("/unverified");
     }
     if (
       status === "authenticated" &&
@@ -40,8 +44,6 @@ const ProtectedPage = ({ title, children, restrictions }) => {
       )}
     </>
   );
-
-  return <div>ProtectedPage</div>;
 };
 
 export default ProtectedPage;
