@@ -1,14 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { useEffect } from "react";
-import PortalContext from "./PortalContext";
-// getting the name, major, class of working.
-// it gets data from the db and is passed into the profile component
 
 const Profile = ({ uid, name, major, year, netId, email, points }) => {
-  const { user, setUser } = useContext(PortalContext);
-
   const [editState, setEditState] = useState(false);
   const [editableValues, setEditableValues] = useState({
     major: major,
@@ -61,11 +56,6 @@ const Profile = ({ uid, name, major, year, netId, email, points }) => {
       .catch((error) => {
         console.log(error);
       });
-    setUser({
-      ...user,
-      major: editableValues.major,
-      year: editableValues.year,
-    });
 
     setEditState(false);
   };

@@ -1,28 +1,13 @@
-import { useContext } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import NavImage from "../public/acm-ucr-logo.webp";
 import { useSession, signOut } from "next-auth/react";
-import PortalContext from "./PortalContext";
-import { useRouter } from "next/router";
 
 const Navigation = () => {
   const { data: session } = useSession();
-  const { user, setUser } = useContext(PortalContext);
-  const router = useRouter();
 
-  const logout = () => {
-    signOut()
-      .then(() => {
-        setUser(null);
-        router.push("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
   if (session) {
     return (
       <Navbar
@@ -31,8 +16,9 @@ const Navigation = () => {
         expand="md"
         fixed="top"
       >
+        {console.log("NAV", session)}
         <Navbar.Brand className="flex flex-row items-center p-0 m-0">
-          <Link href={`${user ? "/dashboard" : "/"}  `}>
+          <Link href={`${session.user ? "/dashboard" : "/"}  `}>
             <div className="flex items-center justify-center">
               <Image src={NavImage} alt="ACM at UCR" width={50} height={50} />
               <div className="hidden lg:block">
@@ -44,7 +30,7 @@ const Navigation = () => {
           </Link>
         </Navbar.Brand>
 
-        {user && (
+        {session.user && (
           <>
             <Navbar.Toggle className="!text-sm" aria-controls="navbar-nav" />
             <Navbar.Collapse
@@ -85,7 +71,9 @@ const Navigation = () => {
                 <Link href="/">
                   <p
                     className="hover:cursor-pointer my-0 px-3 py-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-white bg-acm-gray rounded-xl ml-6"
-                    onClick={logout}
+                    onClick={() =>
+                      signOut({ callbackUrl: "/", redirect: true })
+                    }
                   >
                     logout
                   </p>

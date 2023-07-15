@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import PortalContext from "./PortalContext";
+import { useSession } from "next-auth/react";
 
 export default function CardAccess() {
   const [cardNumber, setCardNumber] = useState("");
-  const { user, setUser } = useContext(PortalContext);
+  const { data: session } = useSession();
 
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [message, setMessage] = useState("");
@@ -33,14 +33,13 @@ export default function CardAccess() {
     }
     axios
       .post("/api/submitCardNumber", {
-        name: user.name,
-        email: user.email,
-        rowNum: user.rowNum,
+        name: session.user.name,
+        email: session.user.email,
+        rowNum: session.user.rowNum,
         cardNumber: cardNumber,
-        uid: user.uid,
+        uid: session.user.id,
       })
-      .then((res) => {
-        setUser({ ...user, row: res.data });
+      .then(() => {
         snackBar("Succesfully added your card number! 🥳");
       })
       .catch((error) => {

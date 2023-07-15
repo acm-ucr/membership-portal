@@ -1,10 +1,9 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { useRouter } from "next/router";
-import PortalContext from "../components/PortalContext";
 
 const ApplyPage = () => {
   const [data, setData] = useState({
@@ -20,12 +19,7 @@ const ApplyPage = () => {
   const years = Array.from(new Array(6), (val, index) => index + thisYear);
   const router = useRouter();
 
-  const { user } = useContext(PortalContext);
-
   useEffect(() => {
-    if (user) {
-      router.push("/invalid");
-    }
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser !== null) {
         setData({

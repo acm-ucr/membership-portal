@@ -13,7 +13,7 @@ import {
   colorMappingsBorder,
 } from "../components/data/CalendarColors";
 
-function MyApp({ Component, pageProps, session }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [user, setUser] = useState(null);
   const [resources, setResources] = useState([]);
   const [events, setEvents] = useState([]);
@@ -110,7 +110,7 @@ function MyApp({ Component, pageProps, session }) {
   }, []);
 
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={session} refetchInterval={5 * 60}>
       <PortalContext.Provider
         value={{
           resources,

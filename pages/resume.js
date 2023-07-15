@@ -1,19 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React from "react";
 import PDFViewer from "../components/PDFViewer";
 import ResumeUpload from "../components/ResumeUpload";
 import ResumeFeedback from "../components/ResumeFeedback";
 import Header from "../components/Header";
-import PortalContext from "../components/PortalContext";
+import { useSession } from "next-auth/react";
 
 const ResumePage = () => {
-  const { user } = useContext(PortalContext);
-  const [resume, setResume] = useState("");
-
-  useEffect(() => {
-    if (user?.resume) {
-      setResume(user.resume);
-    }
-  }, [user?.resume]);
+  const { data: session } = useSession();
 
   return (
     <div className="pt-[10vh] h-screen flex flex-col items-center">
@@ -23,11 +16,11 @@ const ResumePage = () => {
 
       <div className="pt-3  flex w-11/12 h-full pb-1">
         <div className="w-3/5 flex flex-col">
-          <ResumeUpload setResume={setResume} resume={resume} />
+          <ResumeUpload resume={session.user.resume} />
           <ResumeFeedback />
         </div>
         <div className="w-2/5">
-          <PDFViewer pdf={resume} />
+          <PDFViewer pdf={session.user.resume} />
         </div>
       </div>
     </div>

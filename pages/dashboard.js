@@ -10,11 +10,10 @@ import {
 } from "../components/data/AnnouncementData";
 
 const DashboardPage = () => {
-  const { user, announcements } = useContext(PortalContext);
+  const { announcements } = useContext(PortalContext);
 
   return (
-    announcements &&
-    user && (
+    announcements && (
       <>
         <title>Dashboard</title>(
         <div className="flex justify-center">
@@ -93,7 +92,7 @@ const DashboardPage = () => {
                     Points
                   </p>
                 </div>
-                <Point points={user.points} />
+                <Point />
               </div>
             </Col>
           </Row>

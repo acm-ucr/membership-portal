@@ -38,3 +38,5 @@ next-env.d.ts
 .vscode
 amplify
 src/aws-exports.js
+
+service-account.json

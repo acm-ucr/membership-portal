@@ -1,28 +1,19 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
-import PortalContext from "./PortalContext";
+import React, { useState } from "react";
+import { useSession } from "next-auth/react";
 
-const ResumeUpload = ({ setResume, resume }) => {
-  const { user } = useContext(PortalContext);
-  const [disabled, setDisabled] = useState(false);
+const ResumeUpload = ({ resume }) => {
+  const { data: session } = useSession();
   const [submitted, setSubmitted] = useState(false);
-  const [currentResume, setCurrentResume] = useState("");
-  const handleUploadClick = (e) => {
-    e.preventDefault();
-    setResume(currentResume);
-  };
+  const [currentResume, setCurrentResume] = useState(resume);
+
   const handleResumeLinkChange = (e) => {
-    e.preventDefault();
-    setSubmitted(false);
     setCurrentResume(e.target.value);
-    setDisabled(false);
   };
   const handleResumeSubmit = (e) => {
-    e.preventDefault();
-    setDisabled(true);
     setSubmitted(true);
     axios.post("/api/submitResume", {
-      uid: user.uid,
+      uid: session.user.id,
       resume: resume,
     });
   };
@@ -36,36 +27,18 @@ const ResumeUpload = ({ setResume, resume }) => {
           placeholder="resume link"
           className="w-full border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend"
           onChange={handleResumeLinkChange}
+          value={currentResume}
           type="text"
         />
       </div>
-      <button
-        id="upload"
-        onClick={handleUploadClick}
-        className="mt-2 mb-1 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2 border-acm-blue text-xl transition-colors duration-150 bg-acm-blue rounded-lg focus:shadow-outline hover:border-acm-black"
-      >
-        upload link
-      </button>
-      <br></br>
       <div>
-        {disabled ? (
-          <button
-            id="upload"
-            disabled={disabled}
-            className="mt-2 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2  text-xl bg-acm-marine border-acm-marine opacity-50 rounded-lg"
-          >
-            submit for review
-          </button>
-        ) : (
-          <button
-            id="upload"
-            onClick={handleResumeSubmit}
-            disabled={disabled}
-            className="mt-2 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2 border-acm-marine text-xl transition-colors duration-150 bg-acm-marine rounded-lg focus:shadow-outline hover:border-acm-black"
-          >
-            submit for review
-          </button>
-        )}
+        <button
+          id="upload"
+          onClick={handleResumeSubmit}
+          className="mt-2 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2 border-acm-marine text-xl transition-colors duration-150 bg-acm-marine rounded-lg focus:shadow-outline hover:border-acm-black"
+        >
+          submit for review
+        </button>
 
         {submitted ? (
           <p className="text-acm-black text-md font-lexend m-0">
