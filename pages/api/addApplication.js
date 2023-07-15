@@ -11,6 +11,7 @@ export default async function handler(req, res) {
       feedback: "",
       points: 0,
       role: "member",
+      resume: "",
     });
     res.status(200).json({});
   } catch (error) {
