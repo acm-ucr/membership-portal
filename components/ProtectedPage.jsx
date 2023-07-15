@@ -14,6 +14,14 @@ const ProtectedPage = ({ title, children, restrictions }) => {
     if (
       status === "authenticated" &&
       restrictions.includes("admin") &&
+      !session.user.role
+    ) {
+      console.log("New User");
+      router.push("/apply");
+    }
+    if (
+      status === "authenticated" &&
+      restrictions.includes("admin") &&
       session.user.role !== "admin"
     ) {
       console.log("Dont have admin permissions");
