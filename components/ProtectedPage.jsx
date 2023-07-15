@@ -11,7 +11,15 @@ const ProtectedPage = ({ title, children, restrictions }) => {
       console.log("Not signed in");
       router.push("/");
     }
-    if (status === "authenticated" && !session.user.role) {
+    if (
+      status === "authenticated" &&
+      !session.user.verified &&
+      router.pathname === "/apply"
+    ) {
+      console.log("CURRENTLY ON APPLY LET THEM THRU");
+      return;
+    }
+    if (status === "authenticated" && !session.user.verified) {
       console.log("New User");
       router.push("/apply");
     }
@@ -21,7 +29,7 @@ const ProtectedPage = ({ title, children, restrictions }) => {
       session.user.verified === false
     ) {
       console.log("User not Accepted ");
-      router.push("/unverified");
+      router.push("/invalid");
     }
     if (
       status === "authenticated" &&

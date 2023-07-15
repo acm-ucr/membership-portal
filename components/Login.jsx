@@ -12,7 +12,7 @@ const Login = () => {
         className="hover:border-acm-black border-acm-blue border-2 bg-white rounded-full flex flex-row items-center"
         onClick={() =>
           signIn("google", {
-            callbackUrl: `${window.location}/`,
+            callbackUrl: `${window.location}/user/dashboard`,
             redirect: true,
           })
         }
