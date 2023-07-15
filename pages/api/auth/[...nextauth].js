@@ -4,9 +4,6 @@ import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { cert } from "firebase-admin/app";
 
 export const authOptions = {
-  // session: {
-  //   strategy: "jwt",
-  // },
   // eslint-disable-next-line new-cap
   adapter: FirestoreAdapter({
     credential: cert({
