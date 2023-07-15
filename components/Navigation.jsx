@@ -18,7 +18,7 @@ const Navigation = () => {
       >
         {console.log("NAV", session)}
         <Navbar.Brand className="flex flex-row items-center p-0 m-0">
-          <Link href={`${session.user ? "/dashboard" : "/"}  `}>
+          <Link href={`${session.user ? "user/dashboard" : "/"}  `}>
             <div className="flex items-center justify-center">
               <Image src={NavImage} alt="ACM at UCR" width={50} height={50} />
               <div className="hidden lg:block">
