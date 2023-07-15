@@ -1,4 +1,4 @@
-import { updateDoc, doc } from "firebase/firestore";
+import { updateDoc, doc, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export default async function handler(req, res) {
@@ -12,6 +12,7 @@ export default async function handler(req, res) {
       points: 0,
       role: "member",
       resume: "",
+      start: Timestamp.now(),
     });
     res.status(200).json({});
   } catch (error) {
