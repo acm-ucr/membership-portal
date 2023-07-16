@@ -25,7 +25,7 @@ const Clubroom = () => {
         </Col>
         <Col sm={6} className="flex justify-center items-center w-full p-4">
           <Frame
-            image="./clubroom.webp"
+            image="/clubroom.webp"
             bottomLeft="#c792ea"
             topRight="#c3e88d"
             corners="black"
