@@ -1,8 +1,11 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { Col, Row } from "react-bootstrap";
+import { useSession } from "next-auth/react";
 
-const Point = ({ points }) => {
+const Point = () => {
+  const { data: session } = useSession();
+  const points = session.user.points;
   return (
     <div className="w-full flex flex-col items-center justify-center">
       <Row className="w-11/12 flex items-center justify-start">
