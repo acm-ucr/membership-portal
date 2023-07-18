@@ -124,7 +124,7 @@ const Profile = () => {
             class of:
           </p>
           <select
-            type="text"
+            type="number"
             name="year"
             placeholder={editableValues.year}
             onChange={handleyearChange}
