@@ -19,8 +19,9 @@ const Home = () => {
               member since{" "}
               {date.toLocaleString("en-US", { month: "long" }) +
                 " " +
-                date.getFullYear()}
-              |{session.user.points} points
+                date.getFullYear() +
+                " "}
+              | {session.user.points} points
             </p>
           </div>
         </div>
