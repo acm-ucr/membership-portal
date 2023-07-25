@@ -8,11 +8,13 @@ import CustomEvent from "./CustomEvent.jsx";
 import Modal from "./Modal.jsx";
 
 const mLocalizer = momentLocalizer(moment);
-
+fetch("https://www.googleapis.com/calendar/v3/calendars")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
 const CalendarEvents = () => {
   const { events } = useContext(PortalContext);
   const [modalEvent, setModalEvent] = useState(null);
-
   return (
     <div className="mb-2 h-[90vh] w-11/12">
       <Calendar
