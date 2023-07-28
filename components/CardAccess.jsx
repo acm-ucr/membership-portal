@@ -50,20 +50,18 @@ export default function CardAccess() {
       });
   };
   return (
-    <div className="h-40 flex justify-center items-center flex-col w-full">
-      <p className="text-xl lg:text-3xl font-lexend">
-        Please enter the number at the bottom right of your R'Card
+    <div className="h-auto flex w-11/12 flex-col mx-auto">
+      <p className="text-xl lg:text-2xl font-lexend">
+        In order to receive card access to our classroom, please enter the
+        number at the bottom right of your R'Card:
       </p>
-      <form
-        onSubmit={handleSubmit}
-        className=" flex justify-center items-center flex-col w-full"
-      >
+      <form onSubmit={handleSubmit} className=" flex items-center w-7/12">
         <input
           maxLength={19}
           autoComplete="off"
           className="w-10/12 lg:w-6/12 border-black border-2 rounded-lg py-2 px-4 text-xl font-lexend"
           value={cardNumber}
-          placeholder="Card Number"
+          placeholder="card number"
           onChange={handleChange}
         />
         <button className=" rounded-lg py-2 px-4 text-xl font-lexend m-3 border-2 border-black hover:bg-acm-blue hover:text-white hover:border-acm-blue">
