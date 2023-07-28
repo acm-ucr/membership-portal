@@ -8,8 +8,9 @@ import CustomEvent from "./CustomEvent.jsx";
 import Modal from "./Modal.jsx";
 
 const mLocalizer = momentLocalizer(moment);
-fetch("https://www.googleapis.com/calendar/v3/calendars")
-  .then((response) => response.json())
+const url =
+  "https://www.googleapis.com/calendar/v3/calendars/{self.google_calendar_id}/events?key={self.google_calendar_api_key}&{singleEvents=true&orderBy=startTime&timeMin={current_time_str}&maxResults=10}";
+fetch(url)
   .then((data) => console.log(data))
   .catch((error) => console.error(error));
 const CalendarEvents = () => {
