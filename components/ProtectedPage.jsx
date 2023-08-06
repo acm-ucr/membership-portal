@@ -13,18 +13,6 @@ const ProtectedPage = ({ title, children, restrictions }) => {
     }
     if (
       status === "authenticated" &&
-      !session.user.verified &&
-      router.pathname === "/apply"
-    ) {
-      console.log("CURRENTLY ON APPLY LET THEM THRU");
-      return;
-    }
-    if (status === "authenticated" && !session.user.verified) {
-      console.log("New User");
-      router.push("/apply");
-    }
-    if (
-      status === "authenticated" &&
       session.user.role === "member" &&
       session.user.verified === false
     ) {
