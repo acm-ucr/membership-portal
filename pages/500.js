@@ -6,10 +6,7 @@ const Error500 = () => {
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="h-[80vh] flex items-center justify-center">
-        <PageError
-          errorCode="500"
-          errorMsg="Uh Oh! Server Error"
-        />
+        <PageError errorCode="500" errorMsg="Uh Oh! Server Error" />
       </div>
       <button
         id="upload"
