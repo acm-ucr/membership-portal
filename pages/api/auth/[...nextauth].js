@@ -14,11 +14,31 @@ export const authOptions = {
   }),
   providers: [
     googleProvider({
+      profile(profile) {
+        return {
+          id: profile.sub,
+          email: profile.email,
+          name: profile.name,
+          image: profile.picture,
+          points: 0,
+          resume: "",
+          start: new Date(),
+          year: "2023",
+          major: "Computer Science",
+        };
+      },
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
     }),
   ],
   callbacks: {
+    async signIn({ user }) {
+      if (user.email.endsWith("@ucr.edu")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     async redirect({ url, baseUrl }) {
       return url.startsWith(baseUrl)
         ? Promise.resolve(url)
