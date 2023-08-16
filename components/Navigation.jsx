@@ -30,7 +30,7 @@ const Navigation = () => {
           </Link>
         </Navbar.Brand>
 
-        {session.user.verified && (
+        {session.user && (
           <>
             <Navbar.Toggle className="!text-sm" aria-controls="navbar-nav" />
             <Navbar.Collapse

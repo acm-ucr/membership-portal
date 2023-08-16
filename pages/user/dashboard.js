@@ -16,7 +16,7 @@ const DashboardPage = () => {
   return (
     announcements && (
       <ProtectedPage title="Dashboard" restrictions={["member"]}>
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
           <Row className="pt-[10vh] w-11/12 m-0">
             <Col xl={12} className="p-0">
               <Home />
@@ -27,9 +27,9 @@ const DashboardPage = () => {
             >
               <div className="bg-black w-full h-full flex flex-col items-center justify-center rounded-[40px]">
                 <div className="w-11/12 justify-start items-start">
-                  <p className="inline-block py-2 px-3 rounded-full text-3xl font-semibold mb-3 mt-4 bg-acm-white text-acm-black board">
+                  <span className="inline-block align-top py-2 px-3 rounded-full text-3xl font-semibold mb-3 mt-4 bg-acm-white text-acm-black board">
                     announcements
-                  </p>
+                  </span>
                 </div>
                 {announcements.length != 0 ? (
                   announcements.map((event, index) => (
