@@ -6,11 +6,13 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import CustomToolbar from "./CustomToolbar.jsx";
 import CustomEvent from "./CustomEvent.jsx";
 import Modal from "./Modal.jsx";
+import axios from "axios";
 
 const mLocalizer = momentLocalizer(moment);
 const url =
   "https://www.googleapis.com/calendar/v3/calendars/{self.google_calendar_id}/events?key={self.google_calendar_api_key}&{singleEvents=true&orderBy=startTime&timeMin={current_time_str}&maxResults=10}";
-fetch(url)
+axios
+  .get(url)
   .then((data) => console.log(data))
   .catch((error) => console.error(error));
 const CalendarEvents = () => {
