@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Col, Row } from "react-bootstrap";
-import Resource from "./Resource";
+import Resource from "./admin/Resource";
 import { FaPlus } from "react-icons/fa";
-import ResourceTile from "./ResourceTile";
-import PortalContext from "./PortalContext";
+import ResourceTile from "./admin/ResourceTile";
+import PortalContext from "./admin/PortalContext";
 
 const Resources = () => {
   const { resources, setResources } = useContext(PortalContext);

@@ -6,12 +6,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Layout from "../components/Layout";
+import Layout from "../components/admin/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import PortalContext from "../components/PortalContext";
+import PortalContext from "../components/admin/PortalContext";
 
 // const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 // const athiti = Athiti({

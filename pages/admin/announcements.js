@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header";
-import AddAnnouncements from "../components/AddAnnouncements";
-import Announcements from "../components/Announcements";
+import Header from "../components/admin/Header";
+import AddAnnouncements from "../components/admin/AddAnnouncements";
+import Announcements from "../components/admin/Announcements";
 
 const announcements = () => {
   return (

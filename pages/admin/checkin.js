@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header";
-import Checkin from "../components/Checkin";
+import Header from "../components/admin/Header";
+import Checkin from "../components/admin/Checkin";
 
 const checkin = () => {
   return (

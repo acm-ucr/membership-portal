@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
-import PortalContext from "./PortalContext.js";
+import PortalContext from "./admin/PortalContext.js";
 import moment from "moment";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import CustomToolbar from "./CustomToolbar.js";
-import CustomEvent from "./CustomEvent.js";
-import Modal from "./Modal.js";
+import CustomToolbar from "./admin/CustomToolbar.js";
+import CustomEvent from "./admin/CustomEvent.js";
+import Modal from "./admin/Modal.js";
 
 const mLocalizer = momentLocalizer(moment);
 
