@@ -9,13 +9,14 @@ import Modal from "./Modal.jsx";
 import axios from "axios";
 
 const mLocalizer = momentLocalizer(moment);
-const url =
-  "https://www.googleapis.com/calendar/v3/calendars/{self.google_calendar_id}/events?key={self.google_calendar_api_key}&{singleEvents=true&orderBy=startTime&timeMin={current_time_str}&maxResults=10}";
-axios
-  .get(url)
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error));
+
 const CalendarEvents = () => {
+  const url =
+    "https://www.googleapis.com/calendar/v3/calendars/{self.google_calendar_id}/events?key={self.google_calendar_api_key}&{singleEvents=true&orderBy=startTime&timeMin={current_time_str}&maxResults=10}";
+  axios
+    .get(url)
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
   const { events } = useContext(PortalContext);
   const [modalEvent, setModalEvent] = useState(null);
   return (
