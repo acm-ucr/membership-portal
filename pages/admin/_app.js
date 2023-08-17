@@ -4,14 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // import { Lexend, Athiti } from "@next/font/google";
 
-import "../styles/globals.css";
+// import "../styles/globals.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import Layout from "../components/admin/Layout";
+import Layout from "./components/admin/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import PortalContext from "../components/admin/PortalContext";
+import PortalContext from "./components/admin/PortalContext";
 
 // const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 // const athiti = Athiti({
