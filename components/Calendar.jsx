@@ -11,19 +11,25 @@ import axios from "axios";
 const mLocalizer = momentLocalizer(moment);
 
 const CalendarEvents = () => {
-  googleCalenderApiKey = process.env.GOOGLE_CALENDAR_API_KEY;
-  googleCalendarID = process.env.GOOGLE_CALENDAR_EMAIL;
-  const url =
-    "https://www.googleapis.com/calendar/v3/calendars/{googleCalendarID}/events?key={googleCalendarApiKey}&{singleEvents=true&orderBy=startTime&timeMin={current_time_str}&maxResults=10}";
-  axios.get(url).then(
-    (response) => {
-      const result = response.data;
-      console.log(result);
-    },
-    (error) => {
-      console.log(error);
-    }
-  );
+  axios
+    .get(
+      `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`,
+      {
+        params: {
+          queryParams:
+            "singleEvents=true&orderBy=startTime&timeMin={current_time_str}&maxResults=1",
+        },
+      }
+    )
+    .then(
+      (response) => {
+        const result = response.data.args;
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   const { events } = useContext(PortalContext);
   const [modalEvent, setModalEvent] = useState(null);
   return (
