@@ -18,26 +18,23 @@ const ResumeUpload = ({ resume }) => {
     });
   };
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-row px-3 pb-4">
       <div className="flex flex-col">
-        <p className="text-acm-black text-3xl font-lexend font-bold m-0 pb-1">
-          insert resume link
-        </p>
         <input
-          placeholder="resume link"
+          placeholder="resume link / pdf"
           className="w-full border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend"
           onChange={handleResumeLinkChange}
           value={currentResume}
           type="text"
         />
       </div>
-      <div>
+      <div className="pl-2 w-50">
         <button
           id="upload"
           onClick={handleResumeSubmit}
           className="mt-2 sm:w-4/6 md:w-4/12 py-1 font-lexend font-bold text-acm-black border-2 border-acm-marine text-xl transition-colors duration-150 bg-acm-marine rounded-lg focus:shadow-outline hover:border-acm-black"
         >
-          submit for review
+          submit
         </button>
 
         {submitted ? (
