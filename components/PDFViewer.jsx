@@ -38,7 +38,7 @@ const PDFViewer = ({ pdf }) => {
           width="100%"
         />
       ) : (
-        <div className="flex h-full items-center justify-center">
+        <div className="flex h-full justify-center outline outline-2">
           <p className="font-lexend text-3xl font-semibold">
             no resume uploaded
           </p>
