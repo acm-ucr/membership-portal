@@ -25,7 +25,7 @@ const DashboardPage = () => {
               xl={7}
               className="w-full flex flex-col items-start justify-start"
             >
-              <div className="bg-black w-full h-full flex flex-col items-center justify-center rounded-[40px]">
+              <div className="bg-black w-full h-full flex flex-col items-center rounded-[40px]">
                 <div className="w-11/12 justify-start items-start">
                   <span className="inline-block align-top py-2 px-3 rounded-full text-3xl font-semibold mb-3 mt-4 bg-acm-white text-acm-black board">
                     announcements
