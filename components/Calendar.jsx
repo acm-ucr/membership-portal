@@ -23,8 +23,9 @@ const CalendarEvents = () => {
     )
     .then(
       (response) => {
-        const result = response.data.args;
+        const result = JSON.stringify({ events: response.data.items });
         console.log(result);
+        return true;
       },
       (error) => {
         console.log(error);
