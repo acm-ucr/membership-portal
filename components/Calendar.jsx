@@ -13,24 +13,14 @@ const mLocalizer = momentLocalizer(moment);
 const CalendarEvents = () => {
   axios
     .get(
-      `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`,
-      {
-        params: {
-          queryParams:
-            "singleEvents=true&orderBy=startTime&timeMin={current_time_str}&maxResults=1",
-        },
-      }
+      `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}&singleEvents=true&orderBy=starttime`
     )
-    .then(
-      (response) => {
-        const result = JSON.stringify({ events: response.data.items });
-        console.log(result);
-        return true;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    .then((response) => {
+      const result = JSON.stringify({ events: response.data.items });
+      console.log(result);
+      return true;
+    })
+    .catch((error) => {});
   const { events } = useContext(PortalContext);
   const [modalEvent, setModalEvent] = useState(null);
   return (
