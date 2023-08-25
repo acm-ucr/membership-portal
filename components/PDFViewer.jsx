@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ResumeFeedback from "./ResumeFeedback";
 const PDFViewer = ({ pdf }) => {
   const [validPDF, setValidPDF] = useState(true);
   const [newPDFLink, setNewPDFLink] = useState("");
@@ -29,20 +30,19 @@ const PDFViewer = ({ pdf }) => {
   }, [pdf]);
 
   return (
-    <div className="h-full w-full">
+    <>
       {newPDFLink ? (
-        <iframe
-          className="h-full"
-          src={newPDFLink}
-          height="500vh"
-          width="100%"
-        />
-      ) : (
-        <div className="flex h-full justify-center outline outline-2">
-          <p className="font-lexend text-3xl font-semibold">
-            no resume uploaded
-          </p>
+        <div className="h-full w-full">
+          <iframe
+            className="h-full"
+            src={newPDFLink}
+            height="500vh"
+            width="100%"
+          />
+          <ResumeFeedback />
         </div>
+      ) : (
+        <></>
       )}
       {!validPDF ? (
         <div
@@ -53,7 +53,7 @@ const PDFViewer = ({ pdf }) => {
           {message}
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import PDFViewer from "../../components/PDFViewer";
 import ResumeUpload from "../../components/ResumeUpload";
-import ResumeFeedback from "../../components/ResumeFeedback";
+// import ResumeFeedback from "../../components/ResumeFeedback";
 import Header from "../../components/Header";
 import { useSession } from "next-auth/react";
 import ProtectedPage from "../../components/ProtectedPage";
@@ -27,7 +27,7 @@ const ResumePage = () => {
           <div className="w-3/5 flex flex-col flex-grow">
             <ResumeUpload resume={session?.user?.resume} />
             <PDFViewer pdf={session?.user?.resume} />
-            <ResumeFeedback />
+            {/* <ResumeFeedback />  RESUME FEEDBACK MOVED TO PDFVIEWER*/}
           </div>
         </div>
       </div>
