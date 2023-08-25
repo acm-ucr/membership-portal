@@ -15,6 +15,8 @@ const PDFViewer = ({ pdf }) => {
   };
 
   useEffect(() => {
+    pdf =
+      "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
     if (pdf) {
       if (pdf.endsWith(".pdf")) {
         setValidPDF(true);
