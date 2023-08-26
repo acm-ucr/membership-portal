@@ -15,10 +15,8 @@ const PDFViewer = ({ pdf }) => {
   };
 
   useEffect(() => {
-    pdf =
-      "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
-    if (pdf) {
-      if (pdf.endsWith(".pdf")) {
+    {
+      if (pdf && (pdf.endsWith(".pdf") || pdf.search("drive.google.com"))) {
         setValidPDF(true);
         setNewPDFLink(pdf ? pdf + "#toolbar=0&navpanes=0&scrollbar=0" : "");
       } else {

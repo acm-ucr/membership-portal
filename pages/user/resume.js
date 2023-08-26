@@ -24,11 +24,11 @@ const ResumePage = () => {
         </p>
 
         <div className="pt-3 flex flex-col w-11/12 pb-1">
-          <ResumeUpload resume={session?.user?.resume} />
+          <ResumeUpload resume={session?.user.resume} />
         </div>
 
         <div className="w-3/5 flex flex-col flex-grow items-center">
-          <PDFViewer pdf={session?.user?.resume} />
+          <PDFViewer pdf={session?.user.resume} />
           <ResumeFeedback />
         </div>
       </div>
