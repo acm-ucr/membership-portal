@@ -35,7 +35,7 @@ const PDFViewer = ({ pdf }) => {
         <iframe
           className="h-full"
           src={newPDFLink}
-          height="500vh"
+          height="100vh"
           width="100%"
         />
       ) : null}
