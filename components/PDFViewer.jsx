@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ResumeFeedback from "./ResumeFeedback";
+
 const PDFViewer = ({ pdf }) => {
   const [validPDF, setValidPDF] = useState(true);
   const [newPDFLink, setNewPDFLink] = useState("");
@@ -30,20 +30,15 @@ const PDFViewer = ({ pdf }) => {
   }, [pdf]);
 
   return (
-    <>
+    <div className="h-full w-full">
       {newPDFLink ? (
-        <div className="h-full w-full">
-          <iframe
-            className="h-full"
-            src={newPDFLink}
-            height="500vh"
-            width="100%"
-          />
-          <ResumeFeedback />
-        </div>
-      ) : (
-        <></>
-      )}
+        <iframe
+          className="h-full"
+          src={newPDFLink}
+          height="500vh"
+          width="100%"
+        />
+      ) : null}
       {!validPDF ? (
         <div
           className={`${
@@ -53,7 +48,7 @@ const PDFViewer = ({ pdf }) => {
           {message}
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 
