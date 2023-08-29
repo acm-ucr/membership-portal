@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/admin/Header";
-import Calendar from "../components/admin/Calendar";
+import Header from "../../components/admin/Header.jsx";
+import Calendar from "../../components/admin/Calendar.jsx";
 
 const calendar = () => {
   return (

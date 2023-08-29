@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useZxing } from "react-zxing";
 import axios from "axios";
 
 const Checkin = () => {
@@ -7,14 +6,6 @@ const Checkin = () => {
   const [message, setMessage] = useState("");
   const [points, setPoints] = useState(10);
   const [showSnackBar, setShowSnackBar] = useState(false);
-
-  const { ref } = useZxing({
-    onResult(result) {
-      setResult(result.getText());
-      setMessage("");
-    },
-  });
-
   const addPoints = async () => {
     if (result === "") {
       setMessage("No Code Detected");

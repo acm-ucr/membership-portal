@@ -1,5 +1,4 @@
 import { setDoc, doc } from "firebase/firestore";
-import { db } from "../../firebase";
 import { Timestamp } from "firebase/firestore";
 
 export default async function handler(req, res) {

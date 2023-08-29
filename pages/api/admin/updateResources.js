@@ -1,5 +1,4 @@
 import { updateDoc, Timestamp, doc } from "firebase/firestore";
-import { db } from "../../firebase";
 
 export default async function updateResources(req, res) {
   console.log(req.body);

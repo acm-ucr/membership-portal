@@ -1,5 +1,4 @@
 import { getDocs, collection } from "firebase/firestore";
-import { db } from "../../firebase";
 
 export default async function getApplications(req, res) {
   const applications = [];

@@ -1,8 +1,8 @@
-import Filter from "./Filter.js";
+import Filter from "../../components/admin/Filter.jsx";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Filters from "./Filters.js";
+import Filters from "../../components/admin/Filters.jsx";
 
 const CustomToolbar = (event) => {
   return (

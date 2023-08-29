@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/admin/Header";
-import Resources from "../components/admin/Resources";
+import Header from "../../components/admin/Header.jsx";
+import Resources from "../../components/admin/Resources.jsx";
 
 const resources = () => {
   return (

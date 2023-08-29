@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/admin/Header";
+import Header from "../../components/admin/Header.jsx";
 
 const announcements = () => {
   return (

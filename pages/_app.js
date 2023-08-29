@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { SessionProvider } from "next-auth/react";
-import { auth } from "../firebase";
 import PortalContext from "../components/PortalContext";
 import {
   colorMappings,

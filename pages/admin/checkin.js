@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/admin/Header";
-import Checkin from "../components/admin/Checkin";
+import Header from "../../components/admin/Header.jsx";
+import Checkin from "../../components/admin/Checkin.jsx";
 
 const checkin = () => {
   return (

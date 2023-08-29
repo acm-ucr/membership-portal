@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Application from "../components/Application";
+import Application from "../../components/admin/Application.jsx";
 
 const RegistrationPage = () => {
   const [applications, setApplications] = useState();
