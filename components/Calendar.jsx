@@ -6,21 +6,10 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import CustomToolbar from "./CustomToolbar.jsx";
 import CustomEvent from "./CustomEvent.jsx";
 import Modal from "./Modal.jsx";
-import axios from "axios";
 
 const mLocalizer = momentLocalizer(moment);
 
 const CalendarEvents = () => {
-  axios
-    .get(
-      `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}&singleEvents=true&orderBy=starttime`
-    )
-    .then((response) => {
-      const result = JSON.stringify({ events: response.data.items });
-      console.log(result);
-      return true;
-    })
-    .catch((error) => {});
   const { events } = useContext(PortalContext);
   const [modalEvent, setModalEvent] = useState(null);
   return (
