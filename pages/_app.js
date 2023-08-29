@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
 import { SessionProvider } from "next-auth/react";
 import PortalContext from "../components/PortalContext";
 import {
@@ -13,6 +14,7 @@ import {
 } from "../components/data/CalendarColors";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  const [user, setUser] = useState(null);
   const [resources, setResources] = useState([]);
   const [events, setEvents] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
@@ -110,6 +112,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         value={{
           resources,
           setResources,
+          user,
+          setUser,
           events,
           setEvents,
           announcements,
