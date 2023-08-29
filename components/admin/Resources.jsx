@@ -6,7 +6,7 @@ import ResourceTile from "../../components/admin/ResourceTile";
 import PortalContext from "../../components/admin/PortalContext";
 
 const Resources = () => {
-  const { resources, setResources } = useContext(PortalContext);
+  const [resources, setResources] = useContext(PortalContext);
   const [visible, setVisible] = useState(false);
   const [data, setData] = useState({});
   const [operation, setOperation] = useState("view");

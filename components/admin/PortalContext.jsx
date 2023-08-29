@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const PortalContext = createContext(null);
+const PortalContext = createContext({});
 
 export default PortalContext;
