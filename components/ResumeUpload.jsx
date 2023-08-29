@@ -32,7 +32,7 @@ const ResumeUpload = ({ resume }) => {
         <button
           id="upload"
           onClick={handleResumeSubmit}
-          className="mt-2 px-10 py-1 font-lexend font-bold text-acm-white border-2 border-acm-marine text-xl transition-colors duration-150 bg-acm-marine rounded-lg focus:shadow-outline hover:border-acm-black"
+          className="mt-2 px-[2.5vw] py-1 font-lexend font-bold text-acm-white border-2 border-acm-marine text-xl transition-colors duration-150 bg-acm-marine rounded-lg focus:shadow-outline hover:border-acm-black"
         >
           submit
         </button>
