@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/in troduction
 import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase";
 
 export default async function getAllResources(req, res) {
   const resources = [];

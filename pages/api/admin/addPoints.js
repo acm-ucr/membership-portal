@@ -1,4 +1,5 @@
 import { doc, updateDoc, increment } from "firebase/firestore";
+import { db } from "firebase.js";
 
 export default async function addPoints(req, res) {
   try {
