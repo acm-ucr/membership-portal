@@ -40,7 +40,7 @@ const Resources = () => {
       )}
 
       <Row className="flex justify-start items-center">
-        {resources.map((resource, index) => (
+        {resources?.map((resource, index) => (
           <Col
             key={index}
             xl={2}
