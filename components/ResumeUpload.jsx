@@ -37,11 +37,11 @@ const ResumeUpload = ({ resume }) => {
           submit
         </button>
 
-        {submitted ? (
+        {submitted && (
           <p className="text-acm-black text-md font-lexend m-0">
             submission successful
           </p>
-        ) : null}
+        )}
       </div>
     </div>
   );
