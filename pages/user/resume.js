@@ -1,5 +1,5 @@
 import ProtectedPage from "../../components/ProtectedPage";
-import Resume from "../../components/Resume/Resume";
+import Resume from "../../components/User/Resume/Resume";
 
 const ResumePage = () => {
   return (

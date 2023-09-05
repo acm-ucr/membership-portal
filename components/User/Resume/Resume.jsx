@@ -1,4 +1,4 @@
-import Header from "../Header";
+import Header from "../../Header";
 import Upload from "./Upload";
 import Feedback from "./Feedback";
 

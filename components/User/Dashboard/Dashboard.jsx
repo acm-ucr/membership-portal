@@ -6,7 +6,7 @@ import {
   colorMappings,
   colorMappingsText,
   colorMappingsBorder,
-} from "../../data/AnnouncementData";
+} from "../../../data/AnnouncementData";
 import { useState, useEffect } from "react";
 import axios from "axios";
 

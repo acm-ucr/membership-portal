@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import Header from "../Header";
+import Header from "../../Header";
 import Photo from "./Photo";
 import Information from "./Information";
 

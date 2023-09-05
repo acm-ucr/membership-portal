@@ -9,7 +9,7 @@ import {
   colorMappings,
   colorMappingsText,
   colorMappingsBorder,
-} from "../../data/CalendarColors";
+} from "../../../data/CalendarColors";
 import axios from "axios";
 
 const mLocalizer = momentLocalizer(moment);

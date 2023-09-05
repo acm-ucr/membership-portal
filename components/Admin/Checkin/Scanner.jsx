@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useZxing } from "react-zxing";
 import axios from "axios";
 
-const Checkin = () => {
+const Scanner = () => {
   const [result, setResult] = useState("");
   const [message, setMessage] = useState("");
   const [points, setPoints] = useState(10);
@@ -103,4 +103,4 @@ const Checkin = () => {
   );
 };
 
-export default Checkin;
+export default Scanner;

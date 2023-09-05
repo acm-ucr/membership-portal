@@ -1,5 +1,5 @@
 import ProtectedPage from "../../components/ProtectedPage";
-import Calendar from "../../components/Calendar/Calendar";
+import Calendar from "../../components/User/Calendar/Calendar";
 
 const CalendarPage = () => {
   return (
