@@ -1,4 +1,3 @@
-// import { useContext } from "react";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 

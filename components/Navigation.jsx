@@ -16,7 +16,6 @@ const Navigation = () => {
         expand="md"
         fixed="top"
       >
-        {console.log("NAV", session)}
         <Navbar.Brand className="flex flex-row items-center p-0 m-0">
           <Link href={`${session.user ? "/user/dashboard" : "/"}  `}>
             <div className="flex items-center justify-center">
@@ -46,11 +45,6 @@ const Navigation = () => {
                 <Link href="/user/profile">
                   <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                     profile
-                  </p>
-                </Link>
-                <Link href="/user/resources">
-                  <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
-                    resources
                   </p>
                 </Link>
                 <Link href="/user/calendar">

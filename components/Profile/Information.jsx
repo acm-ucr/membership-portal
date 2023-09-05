@@ -6,7 +6,6 @@ import { useSession } from "next-auth/react";
 
 const Profile = () => {
   const { data: session } = useSession();
-
   const { name, major, year, email, points } = session.user;
 
   const uid = session.user.id;

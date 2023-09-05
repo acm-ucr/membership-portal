@@ -33,7 +33,7 @@ const ProtectedPage = ({ title, children, restrictions }) => {
     <>
       {status === "loading" && <>LOADING</>}
       {status === "authenticated" && (
-        <div>
+        <div className="flex justify-center">
           <title>{title}</title>
           {children}
         </div>

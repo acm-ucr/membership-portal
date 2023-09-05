@@ -14,6 +14,14 @@ export const colorMappingsText = {
   academic: "text-acm-marine",
 };
 
+export const colorMappingsBorder = {
+  social: "border-acm-green",
+  career: "border-acm-lightpurple",
+  general: "border-acm-lightblue",
+  technical: "border-acm-yellow",
+  academic: "border-acm-marine",
+};
+
 export const numToMonth = {
   1: "january ",
   2: "february ",
