@@ -41,8 +41,6 @@ const Dashboard = () => {
                 a.description.split(" ")[0].toLowerCase().replace(":", "")
               ];
 
-            console.log(a);
-
             return (
               a.description.startsWith("General:") ||
               a.description.startsWith("Technical:") ||
