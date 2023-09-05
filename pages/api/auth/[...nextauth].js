@@ -26,6 +26,7 @@ export const authOptions = {
           start: new Date(),
           year: new Date().getFullYear(),
           major: "Computer Science",
+          role: "member",
         };
       },
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
