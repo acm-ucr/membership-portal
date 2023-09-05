@@ -3,7 +3,7 @@ import Resume from "../../components/Resume/Resume";
 
 const ResumePage = () => {
   return (
-    <ProtectedPage title="Resume" restrictions={["member"]}>
+    <ProtectedPage title="ACM UCR | Resume" restrictions={["member"]}>
       <Resume />
     </ProtectedPage>
   );

@@ -3,7 +3,7 @@ import ProtectedPage from "../../components/ProtectedPage";
 
 const ProfilePage = () => {
   return (
-    <ProtectedPage title="Profile" restrictions={["member"]}>
+    <ProtectedPage title="ACM UCR | Profile" restrictions={["member"]}>
       <Profile />
     </ProtectedPage>
   );

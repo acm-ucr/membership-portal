@@ -3,7 +3,7 @@ import ProtectedPage from "../../components/ProtectedPage";
 
 const DashboardPage = () => {
   return (
-    <ProtectedPage title="Dashboard" restrictions={["member"]}>
+    <ProtectedPage title="ACM UCR | Dashboard" restrictions={["member"]}>
       <Dashboard />
     </ProtectedPage>
   );

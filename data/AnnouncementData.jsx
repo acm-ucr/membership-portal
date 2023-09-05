@@ -1,6 +1,6 @@
 export const colorMappings = {
   social: "bg-acm-green",
-  professional: "bg-acm-lightpurple",
+  career: "bg-acm-lightpurple",
   general: "bg-acm-lightblue",
   technical: "bg-acm-yellow",
   academic: "bg-acm-marine",
@@ -8,7 +8,7 @@ export const colorMappings = {
 
 export const colorMappingsText = {
   social: "text-acm-green",
-  professional: "text-acm-lightpurple",
+  career: "text-acm-lightpurple",
   general: "text-acm-lightblue",
   technical: "text-acm-yellow",
   academic: "text-acm-marine",
