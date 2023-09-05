@@ -21,9 +21,10 @@ export const authOptions = {
           name: profile.name,
           image: profile.picture,
           points: 0,
-          resume: "",
+          resume: null,
+          feedback: null,
           start: new Date(),
-          year: "2023",
+          year: new Date().getFullYear(),
           major: "Computer Science",
         };
       },

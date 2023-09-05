@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 const Upload = () => {
   const { data: session } = useSession();
-  const [resume, setResume] = useState("");
+  const [resume, setResume] = useState(null);
 
   const handleSubmit = (e) => {
     axios.post("/api/submitResume", {

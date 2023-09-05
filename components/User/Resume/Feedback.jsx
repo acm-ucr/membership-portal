@@ -2,6 +2,7 @@ import { useSession } from "next-auth/react";
 
 const ResumeFeedback = () => {
   const { data: session } = useSession();
+  console.log(session.user.feedback, !!session.user.feedback);
 
   return session.user.feedback ? (
     <div className="w-full py-3">
@@ -13,10 +14,12 @@ const ResumeFeedback = () => {
       </div>
     </div>
   ) : (
-    <div className="font-lexend text-xl">
-      Thank you for submitting a resume. Your resume is under review! We will
-      get back to you shortly!
-    </div>
+    session.user.resume && (
+      <div className="font-lexend text-xl">
+        Thank you for submitting a resume. Your resume is under review! We will
+        get back to you shortly!
+      </div>
+    )
   );
 };
 
