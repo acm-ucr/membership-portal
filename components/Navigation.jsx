@@ -58,11 +58,6 @@ const Navigation = () => {
                     calendar
                   </p>
                 </Link>
-                <Link href="/user/clubroom">
-                  <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
-                    clubroom
-                  </p>
-                </Link>
                 <Link href="/user/resume">
                   <p className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue">
                     resume

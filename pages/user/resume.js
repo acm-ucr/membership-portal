@@ -16,19 +16,20 @@ const ResumePage = () => {
 
         <title>Resume</title>
 
-        <p className="text-acm-black text-2xl font-lexend w-11/12 font-bold m-0 left-auto px-2 pt-2">
+        <p className="text-acm-black text-2xl font-lexend w-11/12  m-0 left-auto px-2 pt-2">
           In order to nurture the professional development of our members, ACM
           offers a resume review! <br />
           Submit a link to your resume and receive feedback from our board
           members:
         </p>
 
-        <div className="pt-3 flex flex-col flex-grow w-11/12 pb-1">
-          <div className="w-3/5 flex flex-col flex-grow">
-            <ResumeUpload resume={session?.user.resume} />
-            <PDFViewer pdf={session?.user.resume} />
-            <ResumeFeedback />
-          </div>
+        <div className="pt-3 flex flex-col w-11/12 pb-1">
+          <ResumeUpload resume={session?.user.resume} />
+        </div>
+
+        <div className="w-3/5 flex flex-col flex-grow items-center">
+          <PDFViewer pdf={session?.user.resume} />
+          <ResumeFeedback />
         </div>
       </div>
     </ProtectedPage>

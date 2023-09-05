@@ -16,8 +16,8 @@ const PDFViewer = ({ pdf }) => {
   };
 
   useEffect(() => {
-    if (pdf) {
-      if (pdf.endsWith(".pdf")) {
+    {
+      if (pdf && (pdf.endsWith(".pdf") || pdf.search("drive.google.com"))) {
         setValidPDF(true);
         setNewPDFLink(pdf ? pdf + "#toolbar=0&navpanes=0&scrollbar=0" : "");
       } else {
