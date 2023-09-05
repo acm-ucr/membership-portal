@@ -26,9 +26,6 @@ const Dashboard = () => {
           if (a.description) {
             a.start = new Date(a.start.dateTime);
             a.end = new Date(a.end.dateTime);
-            console.log(
-              a.description.split(" ")[0].toLowerCase().replace(":", "")
-            );
             a.color =
               colorMappings[
                 a.description.split(" ")[0].toLowerCase().replace(":", "")
@@ -43,6 +40,8 @@ const Dashboard = () => {
               colorMappingsBorder[
                 a.description.split(" ")[0].toLowerCase().replace(":", "")
               ];
+
+            console.log(a);
 
             return (
               a.description.startsWith("General:") ||
