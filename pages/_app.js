@@ -27,50 +27,37 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       });
     axios
       .get(
-        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}`
+        `https://www.googleapis.com/calendar/v3/calendars/${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_EMAIL}/events?key=${process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY}&singleEvents=true&orderBy=starttime`
       )
       .then((response) => {
-        const calendarEvents = response.data.items
-          .filter((a) => {
-            if (a.description) {
-              a.start = new Date(a.start.dateTime);
-              a.end = new Date(a.end.dateTime);
-              a.color =
-                colorMappings[
-                  `${a.description
-                    .split(" ")[0]
-                    .toLowerCase()
-                    .replace(":", "")}`
-                ];
+        const calendarEvents = response.data.items.filter((a) => {
+          if (a.description) {
+            a.start = new Date(a.start.dateTime);
+            a.end = new Date(a.end.dateTime);
+            a.color =
+              colorMappings[
+                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+              ];
 
-              a.textColor =
-                colorMappingsText[
-                  `${a.description
-                    .split(" ")[0]
-                    .toLowerCase()
-                    .replace(":", "")}`
-                ];
+            a.textColor =
+              colorMappingsText[
+                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+              ];
 
-              a.border =
-                colorMappingsBorder[
-                  `${a.description
-                    .split(" ")[0]
-                    .toLowerCase()
-                    .replace(":", "")}`
-                ];
+            a.border =
+              colorMappingsBorder[
+                `${a.description.split(" ")[0].toLowerCase().replace(":", "")}`
+              ];
 
-              return (
-                a.description.startsWith("General:") ||
-                a.description.startsWith("Technical:") ||
-                a.description.startsWith("Social:") ||
-                a.description.startsWith("Career:") ||
-                a.description.startsWith("Academic:")
-              );
-            }
-          })
-          .sort((a, b) => {
-            return new Date(a.start) - new Date(b.start);
-          });
+            return (
+              a.description.startsWith("General:") ||
+              a.description.startsWith("Technical:") ||
+              a.description.startsWith("Social:") ||
+              a.description.startsWith("Career:") ||
+              a.description.startsWith("Academic:")
+            );
+          }
+        });
         setEvents(calendarEvents);
 
         const futureEvents = calendarEvents.filter(
