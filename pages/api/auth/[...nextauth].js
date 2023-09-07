@@ -22,6 +22,7 @@ export const authOptions = {
           image: profile.picture,
           points: 0,
           resume: null,
+          resumeUpdated: new Date(),
           feedback: null,
           start: new Date(),
           year: new Date().getFullYear(),

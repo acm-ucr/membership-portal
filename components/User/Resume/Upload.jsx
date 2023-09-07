@@ -19,7 +19,7 @@ const Upload = () => {
     <div className="flex justify-start py-4">
       <input
         placeholder="resume link / pdf"
-        className="w-[90vh] border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend"
+        className="w-[90vh] border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend focus:outline-none"
         onChange={(e) => setResume(e.target.value)}
         value={session.user.resume || resume}
         type="text"

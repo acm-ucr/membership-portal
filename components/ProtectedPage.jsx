@@ -13,14 +13,6 @@ const ProtectedPage = ({ title, children, restrictions }) => {
     }
     if (
       status === "authenticated" &&
-      session.user.role === "member" &&
-      session.user.verified === false
-    ) {
-      console.log("User not Accepted ");
-      router.push("/invalid");
-    }
-    if (
-      status === "authenticated" &&
       restrictions.includes("admin") &&
       session.user.role !== "admin"
     ) {
