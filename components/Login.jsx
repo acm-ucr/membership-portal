@@ -1,15 +1,17 @@
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
-import { useSession } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/router";
 
 const Login = () => {
   const router = useRouter();
-  const { status } = useSession();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
-    if (status === "authenticated") {
+    if (
+      status === "authenticated" &&
+      (session.user.role === "member" || session.user.role === "admin")
+    ) {
       router.push("/user/dashboard");
     }
   }, [status]);
