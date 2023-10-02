@@ -1,10 +1,10 @@
 import ProtectedPage from "../../components/ProtectedPage";
-import Calendar from "../../components/User/Calendar/Calendar";
+import Calendar from "../../components/user/calendar/Calendar";
 
 const CalendarPage = () => {
   return (
     <ProtectedPage title="ACM UCR | Calendar" restrictions={["member"]}>
-      <div className="min-h-screen flex flex-col items-center justify-end w-10/12">
+      <div className="min-h-screen flex flex-col justify-end">
         <Calendar />
       </div>
     </ProtectedPage>

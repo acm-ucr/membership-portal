@@ -48,7 +48,8 @@ const CalendarEvents = () => {
               a.description.startsWith("Technical:") ||
               a.description.startsWith("Social:") ||
               a.description.startsWith("Career:") ||
-              a.description.startsWith("Academic:")
+              a.description.startsWith("Academic:") ||
+              a.description.startsWith("Project:")
             );
           }
         });

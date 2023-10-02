@@ -6,7 +6,7 @@ import {
   colorMappings,
   colorMappingsText,
   colorMappingsBorder,
-} from "../../../data/AnnouncementData";
+} from "../../../data/CalendarColors";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -23,6 +23,7 @@ const Dashboard = () => {
       )
       .then((response) => {
         const events = response.data.items.filter((a) => {
+          console.log(a);
           if (a.description) {
             a.start = new Date(a.start.dateTime);
             a.end = new Date(a.end.dateTime);
@@ -46,7 +47,8 @@ const Dashboard = () => {
               a.description.startsWith("Technical:") ||
               a.description.startsWith("Social:") ||
               a.description.startsWith("Career:") ||
-              a.description.startsWith("Academic:")
+              a.description.startsWith("Academic:") ||
+              a.description.startsWith("Project:")
             );
           }
         });

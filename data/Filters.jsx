@@ -34,6 +34,13 @@ const Filters = [
     shadow: "shadow-acm-marine",
     border: "border-acm-marine",
   },
+  {
+    topic: "Projects",
+    color: "!bg-acm-gray",
+    textColor: "text-acm-gray",
+    shadow: "shadow-acm-gray",
+    border: "border-acm-gray",
+  },
 ];
 
 export default Filters;

@@ -4,6 +4,7 @@ export const colorMappings = {
   general: "!bg-acm-blue",
   technical: "!bg-acm-orange",
   academic: "!bg-acm-marine",
+  project: "!bg-acm-gray",
 };
 
 export const colorMappingsText = {
@@ -12,6 +13,7 @@ export const colorMappingsText = {
   general: "text-acm-blue",
   technical: "text-acm-orange",
   academic: "text-acm-marine",
+  project: "text-acm-gray",
 };
 
 export const colorMappingsBorder = {
@@ -20,4 +22,5 @@ export const colorMappingsBorder = {
   general: "border-acm-blue",
   technical: "border-acm-orange",
   academic: "border-acm-marine",
+  project: "border-acm-gray",
 };
