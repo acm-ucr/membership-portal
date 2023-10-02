@@ -19,7 +19,7 @@ const ResumeFeedback = () => {
       </div>
     </div>
   ) : (
-    session.user.resume.reviewed === "" && (
+    session.user.resume.reviewed === "" && session.user.resume.link !== "" && (
       <div className="font-lexend text-xl">
         Thank you for submitting a resume. Your resume is under review! We will
         get back to you shortly!

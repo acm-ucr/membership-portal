@@ -19,14 +19,16 @@ export default async function resume(req, res) {
 
       snapshot.forEach((doc) => {
         const { name, resume } = doc.data();
-        resumes.push({
-          id: doc.id,
-          name: name,
-          link: resume.link,
-          updated: resume.updated,
-          reviewed: "",
-          feedback: "",
-        });
+        if (resume.link !== "") {
+          resumes.push({
+            id: doc.id,
+            name: name,
+            link: resume.link,
+            updated: resume.updated,
+            reviewed: "",
+            feedback: "",
+          });
+        }
       });
       res.status(200).json(resumes);
     } catch (err) {
