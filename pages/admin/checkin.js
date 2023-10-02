@@ -1,4 +1,4 @@
-import Checkin from "../../components/Admin/Checkin/Checkin";
+import Checkin from "../../components/admin/checkin/Checkin";
 import ProtectedPage from "../../components/ProtectedPage";
 
 const checkin = () => {

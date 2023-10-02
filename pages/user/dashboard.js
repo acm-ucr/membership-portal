@@ -1,4 +1,4 @@
-import Dashboard from "../../components/User/Dashboard/Dashboard";
+import Dashboard from "../../components/user/dashboard/Dashboard";
 import ProtectedPage from "../../components/ProtectedPage";
 
 const DashboardPage = () => {
