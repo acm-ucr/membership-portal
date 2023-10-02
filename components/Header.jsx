@@ -1,7 +1,7 @@
 const Header = ({ title, color }) => {
   return (
     <div
-      className={`w-11/12 p-2 font-lexend font-semibold rounded-3 text-2xl ${color}  text-acm-white`}
+      className={`w-full p-2 font-lexend font-semibold rounded-lg text-2xl ${color}  text-acm-white`}
     >
       {title}
     </div>

@@ -7,4 +7,13 @@ module.exports = {
   images: {
     domains: ["lh3.googleusercontent.com"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/user",
+        destination: "/user/dashboard",
+        permanent: true,
+      },
+    ];
+  },
 };
