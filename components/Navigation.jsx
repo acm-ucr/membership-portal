@@ -31,7 +31,7 @@ const Navigation = () => {
           </Link>
         </Navbar.Brand>
 
-        {(session.user.role === "member" || !admin) && (
+        {session.user.role.includes("member") && !admin && (
           <>
             <Navbar.Toggle className="!text-sm" aria-controls="navbar-nav" />
             <Navbar.Collapse
@@ -59,7 +59,7 @@ const Navigation = () => {
                     resume
                   </p>
                 </Link>
-                {session.user.role === "admin" && (
+                {session.user.role.includes("admin") && (
                   <p
                     onClick={() => setAdmin(true)}
                     className="hover:cursor-pointer my-0 mx-2 whitespace-nowrap w-full text-center !text-acm-black !font-medium hover:!text-acm-blue"
@@ -82,7 +82,7 @@ const Navigation = () => {
           </>
         )}
 
-        {session.user.role === "admin" && admin && (
+        {session.user.role.includes("admin") && admin && (
           <>
             <Navbar.Toggle className="!text-sm" aria-controls="navbar-nav" />
             <Navbar.Collapse

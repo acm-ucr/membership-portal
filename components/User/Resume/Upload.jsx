@@ -5,23 +5,23 @@ import { toast } from "react-hot-toast";
 
 const Upload = () => {
   const { data: session } = useSession();
-  const [resume, setResume] = useState(null);
+  const [resume, setResume] = useState(session.user.resume.link);
 
   const handleSubmit = (e) => {
-    axios.post("/api/submitResume", {
-      uid: session.user.id,
-      resume: session.user.resume,
-    });
-    toast(`✅ Resume Uploaded!`);
+    axios
+      .post("/api/resume", {
+        resume: resume,
+      })
+      .then(() => toast(`✅ Resume Uploaded!`));
   };
 
   return (
-    <div className="flex justify-start py-4">
+    <div className="flex justify-start py-2">
       <input
         placeholder="resume link / pdf"
         className="w-[90vh] border-black border-2 py-2 rounded-xl px-4 text-xl font-lexend focus:outline-none"
         onChange={(e) => setResume(e.target.value)}
-        value={session.user.resume || resume}
+        value={resume}
         type="text"
       />
       <button
