@@ -1,6 +1,6 @@
 import Home from "./Home";
 import Announcement from "./Announcement";
-import Point from "./Point";
+// import Point from "./Point";
 import { Col, Row } from "react-bootstrap";
 import {
   colorMappings,
@@ -65,7 +65,7 @@ const Dashboard = () => {
         <Col xl={12} className="p-0">
           <Home />
         </Col>
-        <Col xl={7} className="w-full flex flex-col items-start justify-start">
+        <Col xl={12} className="w-full flex flex-col items-start justify-start">
           <div className="bg-black w-full h-full flex flex-col items-center rounded-[40px]">
             <div className="w-11/12 justify-start items-start">
               <span className="inline-block align-top py-2 px-3 rounded-full text-3xl font-semibold mb-3 mt-4 bg-acm-white text-acm-black board">
@@ -120,7 +120,7 @@ const Dashboard = () => {
             )}
           </div>
         </Col>
-        <Col xl={5} className="flex flex-col items-end">
+        {/* <Col xl={5} className="flex flex-col items-end">
           <div className="bg-black w-full flex flex-col items-center justify-center rounded-[40px]">
             <div className="w-11/12 justify-start items-center md:items-start">
               <p className="inline-block py-2 px-3 rounded-full text-3xl font-semibold mb-3 mt-4 bg-acm-white text-acm-black board">
@@ -129,7 +129,7 @@ const Dashboard = () => {
             </div>
             <Point />
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );
